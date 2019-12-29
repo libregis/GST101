@@ -1,6 +1,5 @@
-# GST 101: Introduction to Geospatial Technology
-## Lab 3 - Understanding Coordinate Systems and Map Projections
-### Objective – Explore and Understand Coordinate Systems and Map Projections
+# Lab 3 - Understanding Coordinate Systems and Map Projections
+## Objective – Explore and Understand Coordinate Systems and Map Projections
 
 Document Version: 3/3/2015
 
@@ -20,7 +19,7 @@ This document was original modified from its original form by Kurt Menke and con
 
 ---
 
-### 1. Introduction
+## 1. Introduction
 
 In this lab, the student will explore the effects of various map projections on the characteristics of a map using QGIS.  QGIS is a free and open source geographic information system software package that can be used to visualize, query, and analyze spatial information.
 
@@ -34,7 +33,7 @@ This lab includes the following tasks:
 + Task 4 – Exploring State Map Projections
 + Task 5 - Exploring the Universal Transverse Mercator (UTM) Coordinate System
 
-### 2. Objective: Explore and Understand Map Projections and Coordinate Systems
+## 2. Objective: Explore and Understand Map Projections and Coordinate Systems
 
 The map projection is a fundamental part of the mapping process, and provides the backbone, or framework, for the map.  It is important for the GIS Specialist to understand the qualities of the mapped region that are preserved by a given projection, and the qualities that will be distorted or skewed. Additionally, for cartographers, selection of an appropriate map projection is a crucial part of the map design process. This is because we are all used to seeing different parts of the world mapped using specific standard projections that make these areas “look right”. 
 
@@ -49,7 +48,7 @@ There are hundreds of possible projections from which to choose.  Some distort l
 + Projection center - Can the projection be centered easily on the area being mapped?
 + Familiarity - Is the appearance of the map recognizable to the map reader or will it detract from the map’s purpose?
 
-###	Task 1 - Setting Map Projections and Coordinate Systems in QGIS
+##	Task 1 - Setting Map Projections and Coordinate Systems in QGIS
 
 In this task, you will explore the effects of various projections on the characteristics of a map.  We will focus primarily on shape and area distortions.  We will examine projections useful for mapping on the global scale.
 
@@ -135,7 +134,7 @@ The Mercator map is much less desirable for mapping continents than other projec
 
 Keep the World View QGIS project open, it will be used in Task 2 as well.
 
-### Task 2 - Exploring World Map Projections
+## Task 2 - Exploring World Map Projections
 
 Let’s examine a map projection more suitable for mapping the entire world: the Eckert IV projection.  The Eckert II map projection is an equal-area pseudocylindrical map projection with straight parallel latitude lines and equally spaced meridians.
 
@@ -162,7 +161,7 @@ Let’s see how the distance property fares.
 
 The distance measures approximately 20,848 kilometers.  The Eckert IV is therefore not an equidistant projection and should not be used for distance measurement.
 
-### Task 3 - Exploring National Map Projections
+## Task 3 - Exploring National Map Projections
 
 Projections suitable for mapping the world are not necessarily the best for mapping smaller areas, such as continents or countries. When mapping at such a scale in the mid-latitudes it is important to use a projection that centers on the area being mapped and has a standard line, or lines, passing through the area being mapped.
 
@@ -327,7 +326,7 @@ The values of the x and y coordinates are expressed in meters from the origin.  
 
 The conic projections function quite well for mapping the larger states in the U.S.  In terms of thematic mapping, it is important that maps at this scale are equal-area.  Any other properties important to the particular map should also be considered when selecting a proper projection.  We will now examine projections and grid systems for large-scale maps, such as for small states, counties, or local regions.
 
-###	Task 4 - Exploring State Map Projections
+##	Task 4 - Exploring State Map Projections
 
 The State Plane Coordinate System (SPCS) was developed to provide a simple rectangular coordinate system for large scale mapping use (i.e. small areas of the earth), such as surveying and engineering projects.  
 
@@ -413,7 +412,7 @@ GIS layers can be removed from the Layers panel (and map window) as easily as th
 
 Scroll around the state and notice the changing coordinates.  If you have a USGS topographic map of any part of Vermont, based on NAD27, the coordinates displayed here will match the UTM coordinates shown on the hardcopy map.
 
-### Task 5 - Exploring the Universal Transverse Mercator (UTM) Coordinate System
+## Task 5 - Exploring the Universal Transverse Mercator (UTM) Coordinate System
 
 The Universal Transverse Mercator (UTM) grid (shown in the figure below) is a plane coordinate system that spans almost the entire globe.  It is probably the best known plane coordinate system of international scope.  For the UTM system, the globe is divided into sixty zones, each comprised of six degrees of longitude. Each zone has its own central meridian. The limits of each zone are 84 degrees north and 80 degrees south.  UTM uses the Transverse Mercator projection.  The zones are numbered 1 to 60, where zone 1 begins at -180° Longitude and zones increase heading East back to +180° where zone 60 ends.
 
@@ -431,13 +430,13 @@ For more information on the UTM Coordinate system, read the USGS Fact Sheet 077-
 
 [http://pubs.usgs.gov/fs/2001/0077/report.pdf](http://pubs.usgs.gov/fs/2001/0077/report.pdf)
 
-### 3. Conclusion
+## 3. Conclusion
 
 In this lab, you have explored coordinate systems and map projections.  Each map projection distorts the Earth differently.  You are able to modify the map projections provided in QGIS to suite your mapping needs.  It is important that you set the correct map projection for each data layer, and for the project.  
 
 When you import spatial data into QGIS, you must know the projection, if any, the grid system, and the datum, of your data.  Mostly you will find the data in decimal degrees, that is, latitude and longitude coordinates.  Base maps with underlying coordinates that are geodetic decimal degrees are the most versatile when constructing a map database.  It is important that if you plan on doing any spatial analysis with your data, that you first project the data in to the same coordinate system to get maximum accuracy.
 
-### 4. Discussion Questions
+## 4. Discussion Questions
 
 1. Based on the world map projections covered in this lab, which industries would best be served by each projection (provide two examples)?  Does the entire industry need to agree on a single one?  What problems could arise from the use of different projections?
 

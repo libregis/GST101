@@ -1,6 +1,5 @@
-# GST 101: Introduction to Geospatial Technology
-## Lab 4 - Displaying Geospatial Data
-### Objective – Explore and Understand How to Display Geospatial Data
+# Lab 4 - Displaying Geospatial Data
+## Objective – Explore and Understand How to Display Geospatial Data
 
 Document Version: 3/4/2015
 
@@ -20,7 +19,7 @@ This document was original modified from its original form by Kurt Menke and con
 
 ---
 
-### 1. Introduction
+## 1. Introduction
 
 In this lab, students will learn how to complete a well-designed map showing the relationship between species habitat and federal land ownership. The student will learn how to style GIS data layers in QGIS Desktop. They will then learn how to use the QGIS Print Composer to design a well crafted map deliverable. The final map will include standard map elements such as the title and map legend.
 
@@ -34,7 +33,7 @@ This lab includes the following tasks:
 
 +	Task 3 – Compose map deliverable.
 
-###	2.	Objective: Create a Map that Meets the Customer’s Requirements
+##	2.	Objective: Create a Map that Meets the Customer’s Requirements
 
 Often times, you will be provided with a map requirements document from a coworker or customer. For this lab, the student will respond to a map requirements document from a customer who is writing a paper about the state of Greater sage-grouse habitat in the western United States. The map requirements from the customer are below.
 
@@ -52,7 +51,7 @@ I trust that you will get the figure right the first time, so please just submit
 
 Image attribution: By Pacific Southwest Region from Sacramento, US (Greater Sage-Grouse) [CC BY 2.0 (http://creativecommons.org/licenses/by/2.0)], via Wikimedia Commons.
 
-###	Task 1 - Add Data, Organize Map Layers and Set Coordinate Reference System
+##	Task 1 - Add Data, Organize Map Layers and Set Coordinate Reference System
 
 In this first task you will learn a new way to add data to QGIS Desktop. You will then set the projection for the map project, organize the data layers in the Table of Contents and change the layer names.
 
@@ -150,7 +149,7 @@ Now you will change the layer names in the Layers panel. The layer names match t
 
 23. Click the File | Save to save the changes you have made to your project.
 
-### Task 2 - Style Data Layers
+## Task 2 - Style Data Layers
 
 Now that you have set up your map, you will style your layers and begin to craft a well-designed map.
 
@@ -284,7 +283,7 @@ Your map should now resemble Figure below.
 
 ![All Layers Styled](figures/Lab4/All_layers_styled.png "All Layers Styled")
 
-###	Task 3 - Compose Map Deliverable
+##	Task 3 - Compose Map Deliverable
 
 Now that all the data is well styled you can compose the map deliverable.
 
@@ -387,11 +386,11 @@ Your map should resemble the figure below.
 
 ![Final Map](figures/Lab4/Final_Map.png "Final Map")
 
-### 4. Conclusion
+## 4. Conclusion
 
 In this lab you created a well-designed map using some of the cartography tools available in QGIS Desktop. You created a nice map highlighting federal land ownership within sage-grouse habitat for a client. This involved styling layers, styling layers by categorical attributes and crafting a map composition.
 
-### 5. Discussion Questions
+## 5. Discussion Questions
 
 1. Export the final map as a high-resolution jpg for your instructor to grade.
 
@@ -401,7 +400,7 @@ In this lab you created a well-designed map using some of the cartography tools 
 
 4. No map is perfect. Critique this map. What do you like about it? What do  you dislike about it? How would you change this map to improve it? Would you add other data layers or add labels?
 
-### 6. Challenge Assignment (optional)
+## 6. Challenge Assignment (optional)
 
 Another biologist working with black bears on the east coast heard about your great work on the sage-grouse map. She would like you to create a similar map for her. The data she is providing is in the Lab 4/Data/Challenge folder.
 

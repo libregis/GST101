@@ -1,6 +1,5 @@
-# GST 101: Introduction to Geospatial Technology
-## Lab 7 - Basic Geospatial Analysis Techniques
-### Objective – Use Basic Spatial Analysis Techniques to Solve a Problem
+# Lab 7 - Basic Geospatial Analysis Techniques
+## Objective – Use Basic Spatial Analysis Techniques to Solve a Problem
 
 Document Version: 3/17/2015
 
@@ -20,7 +19,7 @@ This document was original modified from its original form by Kurt Menke and con
 
 ---
 
-### 1. Introduction
+## 1. Introduction
 
 In this lab, the student will explore a small set of analysis tools available in QGIS Desktop. The student will conduct a spatial analysis and create a map of the results for a team of surveyors visiting National Geodetic Survey Monuments in Albuquerque, New Mexico.  The surveyors wish to have a map showing monuments within the Albuquerque city limits. They will use this map to plan their fieldwork for the week.
 
@@ -34,7 +33,7 @@ This lab includes the following tasks:
 
 + Task 4 – Preparing a Map
 
-### 2. - Objective: Use Basic Spatial Analysis Techniques to Solve a Problem
+## 2. - Objective: Use Basic Spatial Analysis Techniques to Solve a Problem
 
 Conducting effective spatial analysis in a GIS does not require the use of extremely complex algorithms and methods.  By combining multiple simple spatial analysis operations, you can answer many questions and provide useful results.  Determining the order in which these simple spatial analysis operations are executed, is often the hardest part of conducing spatial analysis.  Additionally, data is rarely available in exactly the format and subset that you require.  A large part of almost all GIS projects is simply obtaining and preparing data for use.
 
@@ -48,13 +47,13 @@ In this lab, the student will utilize four basic geospatial analysis techniques:
 
 + Dissolve combines similar features within a data layer based on an attribute.
 
-### Task 1 - Data Preparation
+## Task 1 - Data Preparation
 
 In this task, you will obtain GIS data for this lab by visiting several online GIS data portals, A) the National Geodetic Survey (NGS) website, B) City of Albuquerque GIS Department, C) the New Mexico Resource Geographic Information System (RGIS) and D) the Bernalillo County GIS Department. All of these websites provide free geospatial information.
 
 Note: Copies of this data have already been obtained and are available in the Lab 7/Data/Raw Data folder. If you are unable to obtain the data yourself, you may skip to Task 2 and use the Raw Data.
 
-### Task 1.1 - Obtain Shapefiles of NGS Monuments
+## Task 1.1 - Obtain Shapefiles of NGS Monuments
 
 We first want to go to the same National Geodetic Survey (NGS) website you visited in Lab 5. This time you will download a shapefile of the monuments in the Bernalillo County, New Mexico. This is the county in which Albuquerque is situated.
 
@@ -90,7 +89,7 @@ We first want to go to the same National Geodetic Survey (NGS) website you visit
 
 	l. Extract the ZIP file into the MyData directory.
 
-### Task 1.2 - Obtain the Municipal Boundaries
+## Task 1.2 - Obtain the Municipal Boundaries
 
 Since you will identify monuments within the Albuquerque City limits, you’ll need an Albuquerque City limit dataset.  You will download the data from the City of Albuquerque GIS Department.
 
@@ -104,7 +103,7 @@ Since you will identify monuments within the Albuquerque City limits, you’ll n
 
 	b. Extract this ZIP file into the lab directory.
 
-### Task 1.3 - Obtain the Census Tract Boundaries
+## Task 1.3 - Obtain the Census Tract Boundaries
 
 You will visit the RGIS clearinghouse. This is the main source for geospatial data for New Mexico. You will download census tract boundaries for Bernalillo County.
 	
@@ -125,7 +124,7 @@ You will visit the RGIS clearinghouse. This is the main source for geospatial da
 	b. Extract this ZIP file into the lab directory.
 
 
-### Task 1.4 - Obtain Road Data
+## Task 1.4 - Obtain Road Data
 
 Finally, you will visit the Bernalillo County GIS Program to download a roads data set. This is the main source for geospatial data for New Mexico. You will download census tract boundaries for Bernalillo County.
 	
@@ -141,11 +140,11 @@ Finally, you will visit the Bernalillo County GIS Program to download a roads da
 
 	b. Extract this ZIP file into the lab directory.
 
-### Task 2 - Querying and Extracting Subsets of Data
+## Task 2 - Querying and Extracting Subsets of Data
 
 Now that you have collected the necessary data, you will add it to a blank QGIS map document. Take a moment to familiarize yourself with the data and what information it contains. As with any project, you will have to do some data preparation to make it useful for the analysis.
 
-### Task 2.1 - Working with coordinate reference systems
+## Task 2.1 - Working with coordinate reference systems
 
 1. Open QGIS Desktop.
 
@@ -191,7 +190,7 @@ You will want to put all four layers into the same CRS for this analysis. You wi
 
 14. Save your project.
 
-### Task 2.2 - Dissolving Tract Boundaries into a County boundary
+## Task 2.2 - Dissolving Tract Boundaries into a County boundary
 
 For the map, you will need a polygon that represents the county boundary. The tl_2010_35001_tract10_spcs Census tracts collectively define the county, so you will use the dissolve spatial analysis technique to create a county boundary from the Census tracts.
 
@@ -217,7 +216,7 @@ You can dissolve based on attributes. For example, if you had counties of the Un
 
 4. Save your project.
 
-### Task 2.3 - Select Monuments
+## Task 2.3 - Select Monuments
 
 You will want to filter the monuments so that you only have the ones with the orders and classes you’re interested in. Here you only want monuments that meet the following requirements:
 
@@ -280,7 +279,7 @@ It is always a good idea to open the attribute table to ensure that the layer ha
 
 6. Save your project.
 
-### Task 3 - Buffering and Clipping Data
+## Task 3 - Buffering and Clipping Data
 
 Now that you have prepared the county boundary and the monuments layers, you will identify just the monuments within the Albuquerque City limits. First, you will create a filter on the jurisdiction layer and the RoadInventory layer as you did for monuments.
 
@@ -400,7 +399,7 @@ Finally, you will label the monuments with the FeatureID attribute.
 
 17. Save your project.
 
-### Task 4 - Preparing a Map
+## Task 4 - Preparing a Map
 
 Now that you have identified the locations of the monuments that the surveyors should visit, you will make a map of the result of your analysis. You should show the major roads to give them a general idea of how to access the monuments.
 
@@ -438,10 +437,10 @@ Below is an example of a completed map.
 
 ![Sample Final Map](figures/Lab7/Sample_Final_Map.png "Sample Final Map")
 
-### 4. Conclusion
+## 4. Conclusion
 In this lab, you used several basic spatial analysis techniques to prepare data for analysis and conduct the analysis. You reprojected data, queried and extracted data, conducted a dissolve operation and used buffer and clip to identify the final set of monuments. While none of these individual operations are necessarily complex, the sequence in which they were combined allowed you to answer a spatial questions quickly and easily.
 
-### 5. Discussion Questions
+## 5. Discussion Questions
 
 1. Export the final map for your instructor to grade.
 
@@ -451,6 +450,6 @@ In this lab, you used several basic spatial analysis techniques to prepare data 
 
 4. Could you use the dissolve tool to create a municipal boundary data set whereby all the unincorporated areas were merged together? If so describe how you would set up the tool.
 
-### 6. Challenge Assignment (optional)
+## 6. Challenge Assignment (optional)
 
 The surveyors' work was streamlined and efficient due to your GIS analysis. They now have extra time to visit The Village of Tijeras while they are in town. Generate the same analysis and accompanying map for monuments meeting the same criteria for Tijeras. You can use all the same data so you will not have to download anything else.

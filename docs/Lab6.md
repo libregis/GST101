@@ -1,6 +1,5 @@
-# GST 101: Introduction to Geospatial Technology
-## Lab 6 - Understanding Remote Sensing and Analysis
-### Objective – Explore and Understand How to Display and Analyze Remotely Sensed Imagery
+# Lab 6 - Understanding Remote Sensing and Analysis
+## Objective – Explore and Understand How to Display and Analyze Remotely Sensed Imagery
 
 Document Version: 3/11/2015
 
@@ -20,7 +19,7 @@ This document was original modified from its original form by Kurt Menke and con
 
 ---
 
-### 1. Introduction
+## 1. Introduction
 
 In this lab, students will learn how to display and inspect multi-band imagery in QGIS Desktop. They will use QGIS data processing tools to conduct an unsupervised classification of multi-spectral imagery.  They will then use MultiSpec to perform a more advanced analysis. MultiSpec is a freeware multispectral image data analysis system created at the Purdue Research Foundation.  MultiSpec provides the ability to analyze and classify imagery data, among other tasks.  This lab has been adapted from four tutorial exercises provided by the MultiSpec team and provides an introduction to the software package.
 This lab includes the following tasks:
@@ -29,11 +28,11 @@ This lab includes the following tasks:
 
 + Task 2 – Supervised Classification
 
-### 2. Objective: Learn the Basics of using QGIS Desktop and MultiSpec for Image Analysis
+## 2. Objective: Learn the Basics of using QGIS Desktop and MultiSpec for Image Analysis
 
 Image analysis is one of the largest uses of remote sensing imagery, especially with imagery that has recorded wavelengths beyond the visible spectrum. There are proprietary software packages designed specifically for remote sensing work such as ENVI and ERDAS Imagine. QGIS Desktop can now be used in combination with two additional FOSS4G software's, SAGA and GRASS, to also conduct image analysis. SAGA and GRASS are both standalone software packages that can be installed separately. However, the main analysis tools from both are now bundled with QGIS Desktop. This means that no additional installations are required in order to use GRASS and SAGA analysis tools via QGIS Desktop. Some of this functionality is for more advanced users. For this reason you will also learn how to use MultiSpec which is a very simple and intuitive, but powerful, freeware image analysis software package. This lab was adapted from the first four tutorials provided by the MultiSpec team. 
 
-### Task 1 - Display and Inspection of Image Data
+## Task 1 - Display and Inspection of Image Data
 
 There are many way to view multi-band image data. Here you will explore some display options for a multi-band image in QGIS Desktop.
 
@@ -139,7 +138,7 @@ Here you can view the distribution of data values in your raster. If it is a mul
 
 25. Save your QGIS Desktop project.
 
-### Task 2 - Supervised Classification
+## Task 2 - Supervised Classification
 
 In a supervised classification, you choose the areas that to be used as training areas for the analysis. Training areas should be a homogeneous sample of a particular feature, such as the forested area in the ag020522_DPAC image.
 
@@ -267,10 +266,10 @@ Your data should now resemble the figure below.
 
 ![Supervised Classification Data in QGIS Desktop](figures/Lab6/Supervised_Classiication_Data_in_QGIS_Desktop.png "Supervised Classification Data in QGIS Desktop")
 
-### 3. Conclusion
+## 3. Conclusion
 In this lab, you have learned the basics of working with multi-spectral imagery in QGIS Desktop. You learned how to access data processing tools in QGIS Desktop and how to do a Supervised Classification in MultiSpec, a freeware multispectral image data analysis system.  MultiSpec is an excellent example of many free-to-use programs available for imagery analysis and GIS-related tasks.  
 
-### 4. Discussion Questions
+## 4. Discussion Questions
 
 1. What other objects in imagery could you identify via supervised classification?  Describe two use-cases.
 
@@ -278,7 +277,7 @@ In this lab, you have learned the basics of working with multi-spectral imagery 
 
 3. In lecture, you learned that photointerpretation is the process of converting images to information through human interpretation.  Based on the results of tasks 2 and 3 in this lab, do you think that computers can interpret as well as humans?
 
-### 5. Challenge Assignment (optional)
+## 5. Challenge Assignment (optional)
 
 You have used MultiSpec to perform a Supervised Classification of the multi-spectral imagery. You have also seen that you can do an analysis in MultiSpec and bring the data into QGIS.
 

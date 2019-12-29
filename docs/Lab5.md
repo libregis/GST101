@@ -1,6 +1,5 @@
-# GST 101: Introduction to Geospatial Technology
-## Lab 5 - Creating Geospatial Data
-### Objective – Digitize Information from a Scanned Hardcopy Source
+# Lab 5 - Creating Geospatial Data
+## Objective – Digitize Information from a Scanned Hardcopy Source
 
 Document Version: 3/13/2015
 
@@ -20,7 +19,7 @@ This document was original modified from its original form by Kurt Menke and con
 
 ---
 
-### 1. Introduction
+## 1. Introduction
 
 In this lab, students will learn how to georeference a scanned map. Georeferencing is the process of transforming the coordinate system of the scanned map, from the coordinate system produced by the scanning process, into a real world projected coordinate reference system. The student will then learn how to digitize information contained in the scanned map into a shapefile. The first task will be to create the empty shapefile to digitize features into. The student will also learn how to edit existing vector datasets.
 
@@ -36,7 +35,7 @@ This lab includes the following tasks:
 
 + Task 4 – Editing existing geospatial data.
 
-### 2. Objective: Digitize Information from a Scanned Hard Copy Source
+## 2. Objective: Digitize Information from a Scanned Hard Copy Source
 
 While there is a large amount of digital information readily available to users of GIS, there’s still a large amount of information that has not been converted to digital format. For hundreds of years of hard copy paper maps contained all geospatial data. Many historic, and even newer, hard copy maps have never been digitized. It is possible to extract the information from hardcopy sources through process called digitizing. In this lab, you will use heads-up digitizing to digitize parcels in a portion of Albuquerque, New Mexico from a scanned map. This will be accomplished through a five-step digitizing process:
 
@@ -50,7 +49,7 @@ While there is a large amount of digital information readily available to users 
 
 5. Save
 
-### Task 1 - Create a New Shapefile
+## Task 1 - Create a New Shapefile
 
 In Task 3, you will be digitizing parcels from a georeferenced data source. In this first task you will learn how to create the new shapefile you will eventually digitize into.
 
@@ -95,7 +94,7 @@ Initially, the new shapefile may not display in the Browser. We need to first re
 
 ![QGIS Browser With The New Parcel Shapefile Metadata](figures/Lab5/QGIS_Browser_with_the_new_parcel_shapefile_metadata.png "QGIS Browser With The New Parcel Shapefile Metadata")
 
-### Task 2 - Transforming Coordinate System of Source Data
+## Task 2 - Transforming Coordinate System of Source Data
 
 Now that you have created an empty shapefile to store the digitized information, you will perform a coordinate transformation (also known as georeferencing) on the source data set so that it is in an Earth-based coordinate system. In this case, the coordinate system will match your parcel shapefile (NAD83(HARN) / New Mexico Central (ftUS)).
 
@@ -220,7 +219,7 @@ It is important to be precise and click directly on the point. To help make your
 
 ![Georeferenced Parcel Map Image](figures/Lab5/Georeferenced_parcel_map_image.png "Georeferenced Parcel Map Image")
 
-### Task 3 - Heads-up Digitizing From Transformed Source Data
+## Task 3 - Heads-up Digitizing From Transformed Source Data
 
 Now you will digitize the parcels off the georeferenced image into the parcels shapefile.
 
@@ -318,7 +317,7 @@ Remember you can adjust the snapping tolerance and what features are being snapp
 
 20. Save your QGIS project.
 
-### Task 4 - Editing Existing Geospatial Data
+## Task 4 - Editing Existing Geospatial Data
 
 Now that you have digitized data into the empty shapefile you created, you will learn how to modify existing shapefiles.
 
@@ -352,11 +351,11 @@ You will digitize the missing main road, shown in yellow in the figure below.
 
 20. Toggle off editing and Save.
 
-### 4. Conclusion
+## 4. Conclusion
 
 In this lab, you have successfully digitized information using the five-step digitizing process.  Additionally, you have recreated the original source data (scanned as a raster) in the vector format.  Digitizing can be a time-consuming and tedious process, but can yield useful geographic information.
 
-### 5. Discussion Questions
+## 5. Discussion Questions
 
 1. What can contribute to errors in the georeferencing process?
 
@@ -366,7 +365,7 @@ In this lab, you have successfully digitized information using the five-step dig
 
 4. Aerial photography has a lot of information in it. What other features could you digitize from the imagery in this lab? Explain what vector geometry you would use for each. 
 
-### 6. Challenge Assignment (optional)
+## 6. Challenge Assignment (optional)
 
 You have successfully created the parcel data from a scanned map. You have also fixed the roads data in this part of town. There are some sports facilities visible: two football fields and a baseball field. Create a new layer and digitize those three facilities (include the grassy field areas at a minimum). 
 

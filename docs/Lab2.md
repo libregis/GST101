@@ -1,6 +1,5 @@
-# GST 101: Introduction to Geospatial Technology
-## Lab 2 - Spatial Data Models
-### Objective – Explore and Understand Spatial Data Models
+# Lab 2 - Spatial Data Models
+## Objective – Explore and Understand Spatial Data Models
 
 Document Version: 3/3/2015
 
@@ -20,7 +19,7 @@ This document was original modified from its original form by Kurt Menke and con
 
 ---
 
-### 1. Introduction
+## 1. Introduction
 
 In this lab, students will explore and manage geospatial data using two modules of the FOSS4G software QGIS: QGIS Browser and QGIS Desktop. QGIS Browser is an application designed to preview and manage geospatial data. It is analogous to Windows Explorer, but works specifically with geospatial datasets. QGIS Desktop is the companion application used to perform spatial analysis and make maps.
 
@@ -32,7 +31,7 @@ This lab includes the following tasks:
 +	Task 2 – Become familiar with geospatial data models.
 +	Task 3 – Viewing geospatial data in QGIS Desktop.
 
-### 2.	Objective: Explore and Understand Geospatial Data Models
+## 2.	Objective: Explore and Understand Geospatial Data Models
 
 Geographic Information Systems model the real world with representations of objects such as lakes, roads and towns. Geospatial data models are the means used to represent these features. They are composed to two parts: spatial features and attributes that when combined, create a model of reality.
 
@@ -44,7 +43,7 @@ There are two main geospatial data models: vector and raster.
 
 *Raster Data Model* – this model is best for modeling continuous objects. A raster is composed of a matrix of contiguous cells, with each cell (pixel) holding a single numeric value.
 
-### Task 1 - Learn to work with QGIS Browser
+## Task 1 - Learn to work with QGIS Browser
 
 In this task, you will become familiar with QGIS Browser. The first step in working on a project with geospatial datasets is to organize your workspace. It is important that we organize datasets logically on the computer and make them easy to find. In this task, you will obtain a copy of the lab data and explore how the data is organized using QGIS Browser.
 
@@ -63,7 +62,7 @@ The interface to QGIS Browser is simple and clean (shown in the figure below). T
 
 4.	Take a moment to read the names of the files. There are two folders and several files listed with different icons. The ![Vector Icon ](figures/Lab2/Vector_Icon.png "Vector Icon") icon indicates that the dataset is a vector layer. This icon ![Raster Icon ](figures/Lab2/Raster_Icon.png "Raster Icon") is used to represent raster data but is also used for other files such as the XML files you see here.
 
-### Task 2 - Become familiar with geospatial data models
+## Task 2 - Become familiar with geospatial data models
 
 Now that you are familiar with the basic layout of QGIS Browser, we will explore some geospatial data.
 
@@ -100,7 +99,7 @@ For more information on ESRI shapefiles refer to this link
 
 [http://en.wikipedia.org/wiki/Shapefile](http://en.wikipedia.org/wiki/Shapefile)
 
-### Task 3 - Viewing geospatial data in QGIS Desktop
+## Task 3 - Viewing geospatial data in QGIS Desktop
 
 Now that you know how geospatial datasets are stored on your computer, let’s see what the data they contain look like. This next section will introduce you to QGIS Desktop.
 
@@ -215,11 +214,11 @@ Data is often stored deep inside a series of folders. It is often tedious and ti
 
 *Note:* You can drag data from the QGIS Browser application to QGIS Desktop as well to add the data to the map. 
 
-### 5 - Conclusion
+## 5 - Conclusion
 
 In this lab you explored datasets that use the two common geospatial data models: vector and raster. You have also used the QGIS Browser to preview datasets. In future labs, you will learn how to use QGIS Desktop to make maps and perform analysis. 
 
-### 6 - Discussion Questions
+## 6 - Discussion Questions
 
 1. What are the 14 possible file extensions for files that compose a shapefile?
 2. How can Browser favourites make your workflow more efficient?
