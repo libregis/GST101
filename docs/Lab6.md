@@ -47,11 +47,11 @@ This raster layer does not have a defined coordinate reference system (CRS). The
 
 4. Type ‘zone 16’ into the Filter window. In the Coordinate reference systems of the world box you’ll see a list of all the CRSs with zone 16 in the name. Scroll through until you find WGS/84 UTM zone 16N (EPSG: 32616). Select it so that it appears in the Selected CRS box (see figure below) and click OK .
 
-![Coordinate Reference System Selector](figures/Coordinate_Reference_System_Selector.png "Coordinate Reference System Selector")
+![Coordinate Reference System Selector](figures/Lab6/Coordinate_Reference_System_Selector.png "Coordinate Reference System Selector")
 
 5. The image will be added to QGIS (shown in figure below). This is an aerial photograph of a portion of the Davis Purdue Agriculture Center in Randolph County, Indiana.
 
-![Multi-band Image in QGIS Desktop](figures/Multi-band_image_in_QGIS_Desktop.png "Multi-band Image in QGIS Desktop")
+![Multi-band Image in QGIS Desktop](figures/Lab6/Multi-band_image_in_QGIS_Desktop.png "Multi-band Image in QGIS Desktop")
 
 6. Save your QGIS Desktop project to your lab folder as Lab 6.qgs
 
@@ -67,7 +67,7 @@ When an image has multiple color bands, QGIS defaults to a Multiband color rende
 
 9. Click the drop-down arrow for the Red band and change it to Band 3. Change the Blue band to Band 1 (see figure below).
 
-![Changing the band combination in QGIS](figures/Changing_the_band_combination_in_QGIS.png "Changing the band combination in QGIS")
+![Changing the band combination in QGIS](figures/Lab6/Changing_the_band_combination_in_QGIS.png "Changing the band combination in QGIS")
 
 10. Click Apply and move the Layer Properties window so you can see the raster.
 
@@ -75,7 +75,7 @@ When an image has multiple color bands, QGIS defaults to a Multiband color rende
 
 11. The image should now look like the figure below. This band combination creates what is known as a false color composite. Vegetation reflects a lot of near-infrared energy. You are now looking at the near-infrared through the red channel so vegetation shows up as red tones. The brighter the red, the more vigorous and healthy the vegetation.
 
-![False Color Composite](figures/False_color_composite.png "False Color Composite")
+![False Color Composite](figures/Lab6/False_color_composite.png "False Color Composite")
 
 The Style tab also allows you to adjust Contrast enhancement. This setting gives you options to modify the appearance of the image when used in combination with the Load min/max values settings. Each band has values from 0-255. By default, the renderer is set to use Cumulative count cut values from 2% to 98%. This setting eliminates the bottom and top 2% of the values. Many images have some outlying very low and high data values. These outlying data values can be eliminated by using the Cumulative count cut option.  The Contrast enhancement is set by default to No enhancement. 
 
@@ -83,7 +83,7 @@ The Style tab also allows you to adjust Contrast enhancement. This setting gives
 
 13.	Change the Contrast Enhancement to Stretch to MinMax and click Apply. This setting scales the colors between the minimum and maximum values.  The image gets a little brighter (see figure below) because the colors are now being stretched across the range of values. You are both applying a stretch and eliminating the bottom and top 2% of the values with the default Cumulative count cut setting.
 
-![MinMax Stretch](figures/MinMax_Stretch.png "MinMax Stretch")
+![MinMax Stretch](figures/Lab6/MinMax_Stretch.png "MinMax Stretch")
 
 The Accuracy setting lets you either estimate the range of values from a sample or get the actual values. Obtaining actual values can take longer since QGIS has to look at all the values in the image, instead of a sample. 
 
@@ -93,11 +93,11 @@ The Accuracy setting lets you either estimate the range of values from a sample 
 
 The raster gets a more saturated appearance (shown in figure below). These are the values within one standard deviation of the mean value. This is useful when you have one or two cells with abnormally high values in a raster grid that are having a negative impact on the rendering of the raster.
 
-![Image rendered with Mean +/- Standard Deviation](figures/Image_rendered_with_Mean_Standard_Deviation.png "Image rendered with Mean +/- Standard Deviation")
+![Image rendered with Mean +/- Standard Deviation](figures/Lab6/Image_rendered_with_Mean_Standard_Deviation.png "Image rendered with Mean +/- Standard Deviation")
 
 16. You can also look at one individual band. Change the Render type to Singleband gray. Choose Band 3 as the Gray band. Set the Contrast enhancement to Stretch MinMax. Click Apply.
 
-![Band 3 (Near-infrared) shown alone](figures/Band_3_Near_infrared_shown_alone.png "Band 3 Near-infrared shown alone")
+![Band 3 (Near-infrared) shown alone](figures/Lab6/Band_3_Near_infrared_shown_alone.png "Band 3 Near-infrared shown alone")
 
 17. Change the Gray band setting to each of the other two bands and see how different they look.
 
@@ -121,11 +121,11 @@ The raster gets a more saturated appearance (shown in figure below). These are t
 
 20. With the Global transparency setting you can control how transparent the entire image is. 
 
-21. You can also define image values that you want to be transparent. Notice that in the southwest corner there is a black rectangle with no image data. On the Transparency tab click the Add values from display button ![Add values from display button](figures/Add_values_from_display_button.png "Add values from display button") then click on the black rectangle on the map. QGIS will measure the values for all three bands where you clicked and enter them into the Transparent pixel list.
+21. You can also define image values that you want to be transparent. Notice that in the southwest corner there is a black rectangle with no image data. On the Transparency tab click the Add values from display button ![Add values from display button](figures/Lab6/Add_values_from_display_button.png "Add values from display button") then click on the black rectangle on the map. QGIS will measure the values for all three bands where you clicked and enter them into the Transparent pixel list.
 
 22. Click Apply. The black rectangle of no data pixels disappears.
 
-![Raster With Transparency](figures/Raster_with_transparency.png "Raster With Transparency")
+![Raster With Transparency](figures/Lab6/Raster_with_transparency.png "Raster With Transparency")
 
 23. Click on the Pyramids tab. 
 
@@ -135,7 +135,7 @@ Raster data sets can get very large. Pyramids help render large images more quic
 
 Here you can view the distribution of data values in your raster. If it is a multi-band image, you can view data for each band. The histogram is generated automatically when you open this tab (see figure below). You can save the histogram as an image with the Save plot button.
 
-![Image Histogram](figures/Image_Histogram.png "Image Histogram")
+![Image Histogram](figures/Lab6/Image_Histogram.png "Image Histogram")
 
 25. Save your QGIS Desktop project.
 
@@ -153,7 +153,7 @@ For each training area, the multi-spectral (multi-band) pixel values are extract
 
 MultiSpec should now resemble the figure below. There are two windows the image view and text output. You can arrange them so that you can see both at the same time.
 
-![MultiSpec](figures/MultiSpec.png "MultiSpec")
+![MultiSpec](figures/Lab6/MultiSpec.png "MultiSpec")
 
 5. From the menu bar, choose Project | New Project. Click OK. The Project window will open.
 
@@ -163,15 +163,15 @@ MultiSpec should now resemble the figure below. There are two windows the image 
 
 7. Enter the class name of ‘Trees’ and click OK (see figure below).
 
-![Define Training Class](figures/Define_Training_Class.png "Define Training Class")
+![Define Training Class](figures/Lab6/Define_Training_Class.png "Define Training Class")
 
 8. You will define 5 additional training areas. Refer to the figure below. They will be named: ‘Wheat’, ‘Soil’, ‘Light Soil’, ‘No Data’ and ‘Weeds’.
 
-![Six Training Areas](figures/Six_Training_Areas.png "Six Training Areas")
+![Six Training Areas](figures/Lab6/Six_Training_Areas.png "Six Training Areas")
 
 9. In the Project window click the >Classes button so you see all six of your classes (see figure below).
 
-![Project Window Showing Classes](figures/Project_Window_Showing_Classes.png "Project Window Showing Classes")
+![Project Window Showing Classes](figures/Lab6/Project_Window_Showing_Classes.png "Project Window Showing Classes")
 
 10. If necessary, you can delete a class by selecting the class in the list and selecting Cut Class from the Edit menu.
 
@@ -179,13 +179,13 @@ MultiSpec should now resemble the figure below. There are two windows the image 
 
 12. Uncheck Image Selection. The other default settings are fine. Click OK (see figure below). If prompted to ‘Update project statistics before continuing’, click OK.
 
-![Set Classification Specifications For Training Area Evaluation](figures/Set_Classification_Specifications_for_Training_Area_Evaluation.png "Set Classification Specifications For Training Area Evaluation")
+![Set Classification Specifications For Training Area Evaluation](figures/Lab6/Set_Classification_Specifications_for_Training_Area_Evaluation.png "Set Classification Specifications For Training Area Evaluation")
 
 Since Image selection was unchecked, MultiSpec only estimated the quality of the training areas. You can examine the tabular output to assess if the full analysis should be run.
 
 13. Look at the Text Output window. The TRAINING CLASS PERFORMANCE table tabulates how the pixels of each field and class were classified. The Reference Accuracy (%) should be near 100% for all training fields (see figure below). 
 
-![Tabular Output of Analysis](figures/Tabular_Output_of_Analysis.png "Tabular Output of Analysis")
+![Tabular Output of Analysis](figures/Lab6/Tabular_Output_of_Analysis.png "Tabular Output of Analysis")
 
 14. Assuming satisfactory results, you are ready to classify the entire area.
 
@@ -203,11 +203,11 @@ Since Image selection was unchecked, MultiSpec only estimated the quality of the
 
 	e. Click OK.
 
-![ Set Classification Specifications For Full Analysis](figures/Set_Classification_Specifications_for_Full_Analysis.png "Set Classification Specifications For Full Analysis")
+![ Set Classification Specifications For Full Analysis](figures/Lab6/Set_Classification_Specifications_for_Full_Analysis.png "Set Classification Specifications For Full Analysis")
 
 17. The analysis will run. Shortly you will be prompted to save two resulting files. Take the defaults and click OK both times (see figure below).
 
-![ Save Supervised Classification Results](figures/Save_Supervised_Classification_Results.png "Save Supervised Classification Results")
+![ Save Supervised Classification Results](figures/Lab6/Save_Supervised_Classification_Results.png "Save Supervised Classification Results")
 
 18. From the menu bar choose File | Save Project as Lab 6.Prj
 
@@ -221,17 +221,17 @@ Since Image selection was unchecked, MultiSpec only estimated the quality of the
 
 21. To change the training field outline color, go to the menu bar and choose Processor | Statistics. The Set Project Options window opens. Under Outline selected areas choose Color: black (see figure below).
 
-![Supervised Classification Results](figures/Supervised_Classification_Results.png "Supervised Classification Results")
+![Supervised Classification Results](figures/Lab6/Supervised_Classification_Results.png "Supervised Classification Results")
 
 22. To visually evaluate the results you can move your cursor over a color patch in the Table of Contents for one of the classes, hold the shift key down (cursor will change to an open eye) and click the left mouse button  to cause the colors on the map for that class flash on and off.
 
 23. You can change the colors of the classes by double clicking on the color patch in the Table of Contents and choosing a different color. Change the colors to something more intuitive (see figure below).
 
-![Recolored Supervised Classification Results](figures/Recolored_Supervised_Classification_Results.png "Recolored Supervised Classification Results")
+![Recolored Supervised Classification Results](figures/Lab6/Recolored_Supervised_Classification_Results.png "Recolored Supervised Classification Results")
 
 24. Look at the Text Output. Under the Class Distribution For Selected Area table you’ll see the number of pixels (Number Samples) and the percent of the image that ended up in each class (see figure below).
 
-![Text Output for the Supervised Classification](figures/Text_Output_for_the_Supervised_Classification.png "Text Output for the Supervised Classification")
+![Text Output for the Supervised Classification](figures/Lab6/Text_Output_for_the_Supervised_Classification.png "Text Output for the Supervised Classification")
 
 25. Now you will bring the MultiSpec supervised classification results into QGIS Desktop. If necessary Open QGIS Desktop and from the menu bar choose Project | Open Recent | Lab 6.qgs.
 
@@ -261,11 +261,11 @@ Since Image selection was unchecked, MultiSpec only estimated the quality of the
 
 	h. Click on the individual color patches and change them to more intuitive colors.
 
-![Styling the Supervised Classification Data in QGIS Desktop](figures/Styling_the_Supervised_Classification_Data_in_QGIS_Desktop.png "Text Output for the Supervised Classification")
+![Styling the Supervised Classification Data in QGIS Desktop](figures/Lab6/Styling_the_Supervised_Classification_Data_in_QGIS_Desktop.png "Text Output for the Supervised Classification")
 
 Your data should now resemble the figure below.
 
-![Supervised Classification Data in QGIS Desktop](figures/Supervised_Classiication_Data_in_QGIS_Desktop.png "Supervised Classification Data in QGIS Desktop")
+![Supervised Classification Data in QGIS Desktop](figures/Lab6/Supervised_Classiication_Data_in_QGIS_Desktop.png "Supervised Classification Data in QGIS Desktop")
 
 ### 3. Conclusion
 In this lab, you have learned the basics of working with multi-spectral imagery in QGIS Desktop. You learned how to access data processing tools in QGIS Desktop and how to do a Supervised Classification in MultiSpec, a freeware multispectral image data analysis system.  MultiSpec is an excellent example of many free-to-use programs available for imagery analysis and GIS-related tasks.  

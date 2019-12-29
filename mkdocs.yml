@@ -1,0 +1,17 @@
+# Project information
+site_name: 'GST101: Introduction to Geospatial Technology'
+site_description: 'GST 101: Introduction to Geospatial Technology'
+
+theme:
+  name: 'readthedocs'
+
+  palette:
+    primary: 'light green'
+    accent: 'green'
+
+markdown_extensions:
+  - admonition
+
+plugins:
+    #- search
+    #- pdf-export
