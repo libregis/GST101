@@ -129,7 +129,7 @@ With the QGIS Desktop interface customized, let’s add some data.
 
 QGIS has Add Data buttons for each major geospatial data model (vector and raster).
 
-3. Click the Add Vector Layer ![Add Vector Layer Button](figures/Lab2/Add_Vector_Layer_Button.png "Add Vector Layer Button") button. It’s located on the toolbar along the left hand side of the Layers panel.
+3. Click the Add Vector Layer ![Add Vector Layer Button](figures/Lab2/Add_Vector_Layer_button.png "Add Vector Layer Button") button. It’s located on the toolbar along the left hand side of the Layers panel.
 	+ Alternatively, you can click Layer | Add Layer | Add Vector Layer.
 4. This opens the Add vector layer window. Let's add one of the ESRI shapefiles which is a file-based dataset.
 5. Keep the Source type "File" which is the default. Then click the Browse button.
