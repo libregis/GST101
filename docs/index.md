@@ -4,14 +4,25 @@ This course is **GST101 Introduction to Geospatial Technology** and was written 
  This course consists of 7 labs and introduction to FOSS and FOSS4G movement. 
 
 ## Course Topics
-* Lab 0 - Getting to Know FOSS and FOSS4G
-* Lab 1 - GIS Application Paper Assignment
-* Lab 2 - Spatial Data Models
-* Lab 3 - Understanding Coordinate Systems and Map Projections
-* Lab 4 - Displaying Geospatial Data
-* Lab 5 - Creating Geospatial Data
-* Lab 6 - Understanding Remote Sensing and Analysis
-* Lab 7 - Basic Geospatial Analysis Techniques
+* [Lab 1 - Getting to Know FOSS and FOSS4G](Lab0.md)
+* [Lab 2 - Spatial Data Models](Lab2.md)
+* [Lab 3 - Understanding Coordinate Systems and Map Projections](Lab3.md)
+* [Lab 4 - Displaying Geospatial Data](Lab4.md)
+* [Lab 5 - Creating Geospatial Data](Lab5.md)
+* [Lab 6 - Understanding Remote Sensing and Analysis](Lab6.md)
+* [Lab 7 - Basic Geospatial Analysis Techniques](Lab7.md)
+
+## Data Sets
+All labs consists of the necesasry datasets. Once you download this repo, you will also get all required datasets.
+All data sets are under `Data\Lab1\...`). 
+
+## License  
+This work is licensed under the **Creative Commons Attribution 3.0 Unported License** as opted by original authors. 
+To view a copy of this license, visit <http://creativecommons.org/licenses/by/3.0/>.  
+More information about licensing and attribution can be found in [attribution block](../Attribution_Block_for_Lab_Documents.md).
+
+##Contribution
+This work is hosted on [github](https://github.com/libregis/GST101) and we are looking for contribution. Please submit your contribution/changes via pull requests. 
 
 ## FOSS4G Curriculum
 FOSS4G curriculum was originally designed by [Kurt Menke](https://twitter.com/geomenke) and [Rick Smith](https://github.com/RickSmith). 
@@ -24,20 +35,6 @@ FOSS. Their curriculum consists of five courses as following
 3. GST 103 - Introduction to Remote Sensing 
 4. GST 104 - Cartographic Design 
 5. GST 105 - Introduction to Remote Sensing 
-
-
-## Data Sets
-All labs consists of the necesasry datasets. Once you download this repo, you will also get all required datasets.
-All data sets are under `Data\Lab1\...`). 
-
-## License  
-This work is licensed under the **Creative Commons Attribution 3.0 Unported License** as opted by original authors. 
-To view a copy of this license, visit <http://creativecommons.org/licenses/by/3.0/>. 
-
-More information about licensing and attribution can be found in [attribution block](../Attribution_Block_for_Lab_Documents.md).
-
-##Contribution
-This work is hosted on [github](https://github.com/libregis/GST101) and we welcome your contribution. Please submit your changes via pull requests. 
 
 ## Curriculum History
 Date: 29/12/2019  
