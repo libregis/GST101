@@ -4,7 +4,7 @@ This course is **GST101 Introduction to Geospatial Technology** and was written 
  This course consists of 7 labs and introduction to FOSS and FOSS4G movement. 
 
 ## Course Topics
-* [Lab 1 - Getting to Know FOSS and FOSS4G](Lab0.md)
+* [Lab 1 - Getting to Know FOSS and FOSS4G](Lab1.md)
 * [Lab 2 - Spatial Data Models](Lab2.md)
 * [Lab 3 - Understanding Coordinate Systems and Map Projections](Lab3.md)
 * [Lab 4 - Displaying Geospatial Data](Lab4.md)
