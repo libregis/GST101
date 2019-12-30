@@ -13,7 +13,7 @@ This course is **GST101 Introduction to Geospatial Technology** and was written 
 * [Lab 7 - Basic Geospatial Analysis Techniques](Lab7.md)
 
 ## Data Sets
-All labs consists of the necesasry datasets. Once you download this repo, you will also get all required datasets.
+All labs consists of the necessary datasets. Once you download this repo, you will also get all required datasets.
 All data sets are under `Data\Lab1\...`). 
 
 ## License  
