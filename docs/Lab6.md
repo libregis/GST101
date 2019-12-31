@@ -43,61 +43,61 @@ There are many way to view multi-band image data. Here you will explore some dis
 
 3. Select the file named ag020522_DPAC.img and click Open.
 
-This raster layer does not have a defined coordinate reference system (CRS). Therefore, QGIS opens the Coordinate Reference System Selector window. If this window does not open automatically, double-click the layer and click the Select CRS button under the General tab. This interface lets you define the CRS before the layer is added to the Layers panel. This raster is in UTM, zone 16, WGS84. 
+    This raster layer does not have a defined coordinate reference system (CRS). Therefore, QGIS opens the Coordinate Reference System Selector window. If this window does not open automatically, double-click the layer and click the Select CRS button under the General tab. This interface lets you define the CRS before the layer is added to the Layers panel. This raster is in UTM, zone 16, WGS84. 
 
 4. Type ‘zone 16’ into the Filter window. In the Coordinate reference systems of the world box you’ll see a list of all the CRSs with zone 16 in the name. Scroll through until you find WGS/84 UTM zone 16N (EPSG: 32616). Select it so that it appears in the Selected CRS box (see figure below) and click OK .
 
-![Coordinate Reference System Selector](figures/Lab6/Coordinate_Reference_System_Selector.png "Coordinate Reference System Selector")
+    ![Coordinate Reference System Selector](figures/Lab6/Coordinate_Reference_System_Selector.png "Coordinate Reference System Selector")
 
 5. The image will be added to QGIS (shown in figure below). This is an aerial photograph of a portion of the Davis Purdue Agriculture Center in Randolph County, Indiana.
 
-![Multi-band Image in QGIS Desktop](figures/Lab6/Multi-band_image_in_QGIS_Desktop.png "Multi-band Image in QGIS Desktop")
+    ![Multi-band Image in QGIS Desktop](figures/Lab6/Multi-band_image_in_QGIS_Desktop.png "Multi-band Image in QGIS Desktop")
 
 6. Save your QGIS Desktop project to your lab folder as Lab 6.qgs
 
 7. Double click on the layer name in the Layers panel to open the Layer Properties. Click on the General tab.
 
-Layer info shows you the layer name, where the data are stored on your computer and the number of columns (1,501) and rows (709). Since you set the CRS for the image when you added it to QGIS, the CRS is listed under Coordinate Reference System. Scale dependent visibility allows you to control at what scales the layer is visible. You will not set this parameter here. If you wanted the image to be visible only at a certain scale range, you could check the box and enter a scale maximum and minimum.
+    Layer info shows you the layer name, where the data are stored on your computer and the number of columns (1,501) and rows (709). Since you set the CRS for the image when you added it to QGIS, the CRS is listed under Coordinate Reference System. Scale dependent visibility allows you to control at what scales the layer is visible. You will not set this parameter here. If you wanted the image to be visible only at a certain scale range, you could check the box and enter a scale maximum and minimum.
 
 8. Click on the Style tab. 
 
-This image has three bands. Each band represents a segment of the electromagnetic spectrum. In this case band 1 represents the red portion, band 2 the green portion, and band 3 the near-infrared portion. Therefore, in this image, we are able to see characteristics of the landscape that we cannot see with our eyes, since they can only etect visible light.
+    This image has three bands. Each band represents a segment of the electromagnetic spectrum. In this case band 1 represents the red portion, band 2 the green portion, and band 3 the near-infrared portion. Therefore, in this image, we are able to see characteristics of the landscape that we cannot see with our eyes, since they can only etect visible light.
 
-When an image has multiple color bands, QGIS defaults to a Multiband color rendering of that image. Colors on your computer monitor are created by combining three color channels: red, green and blue (RGB). By selecting three bands from a multiband image, and illuminating them with either red, green or blue light we create a color image. The multiband color renderer defaults to displaying Band 1 through the red channel, Band 2 through the green channel and Band 3 through the blue channel. However, we can change which bands are displayed through which channels. 
+    When an image has multiple color bands, QGIS defaults to a Multiband color rendering of that image. Colors on your computer monitor are created by combining three color channels: red, green and blue (RGB). By selecting three bands from a multiband image, and illuminating them with either red, green or blue light we create a color image. The multiband color renderer defaults to displaying Band 1 through the red channel, Band 2 through the green channel and Band 3 through the blue channel. However, we can change which bands are displayed through which channels. 
 
 9. Click the drop-down arrow for the Red band and change it to Band 3. Change the Blue band to Band 1 (see figure below).
 
-![Changing the band combination in QGIS](figures/Lab6/Changing_the_band_combination_in_QGIS.png "Changing the band combination in QGIS")
+    ![Changing the band combination in QGIS](figures/Lab6/Changing_the_band_combination_in_QGIS.png "Changing the band combination in QGIS")
 
 10. Click Apply and move the Layer Properties window so you can see the raster.
 
-*Note*: The difference between using Apply and using OK. Clicking OK saves the changes and closes the dialog window. Apply saves the changes and leaves the window open. If you want to change a setting, see the result and change another setting use Apply.
+    *Note*: The difference between using Apply and using OK. Clicking OK saves the changes and closes the dialog window. Apply saves the changes and leaves the window open. If you want to change a setting, see the result and change another setting use Apply.
 
 11. The image should now look like the figure below. This band combination creates what is known as a false color composite. Vegetation reflects a lot of near-infrared energy. You are now looking at the near-infrared through the red channel so vegetation shows up as red tones. The brighter the red, the more vigorous and healthy the vegetation.
 
-![False Color Composite](figures/Lab6/False_color_composite.png "False Color Composite")
+    ![False Color Composite](figures/Lab6/False_color_composite.png "False Color Composite")
 
-The Style tab also allows you to adjust Contrast enhancement. This setting gives you options to modify the appearance of the image when used in combination with the Load min/max values settings. Each band has values from 0-255. By default, the renderer is set to use Cumulative count cut values from 2% to 98%. This setting eliminates the bottom and top 2% of the values. Many images have some outlying very low and high data values. These outlying data values can be eliminated by using the Cumulative count cut option.  The Contrast enhancement is set by default to No enhancement. 
+    The Style tab also allows you to adjust Contrast enhancement. This setting gives you options to modify the appearance of the image when used in combination with the Load min/max values settings. Each band has values from 0-255. By default, the renderer is set to use Cumulative count cut values from 2% to 98%. This setting eliminates the bottom and top 2% of the values. Many images have some outlying very low and high data values. These outlying data values can be eliminated by using the Cumulative count cut option.  The Contrast enhancement is set by default to No enhancement. 
 
 12. Click the Load button. The values currently being used for each band will appear in the Min/max boxes in the Band rendering area. 
 
 13.	Change the Contrast Enhancement to Stretch to MinMax and click Apply. This setting scales the colors between the minimum and maximum values.  The image gets a little brighter (see figure below) because the colors are now being stretched across the range of values. You are both applying a stretch and eliminating the bottom and top 2% of the values with the default Cumulative count cut setting.
 
-![MinMax Stretch](figures/Lab6/MinMax_Stretch.png "MinMax Stretch")
-
-The Accuracy setting lets you either estimate the range of values from a sample or get the actual values. Obtaining actual values can take longer since QGIS has to look at all the values in the image, instead of a sample. 
+    ![MinMax Stretch](figures/Lab6/MinMax_Stretch.png "MinMax Stretch")
+    
+    The Accuracy setting lets you either estimate the range of values from a sample or get the actual values. Obtaining actual values can take longer since QGIS has to look at all the values in the image, instead of a sample. 
 
 14. Change the Accuracy setting to Actual, and click the Load button to see the values change slightly.
 
 15. Now choose a Load min/max values setting of Mean +/- standard deviation and click Load. Click Apply to see the image change. 
 
-The raster gets a more saturated appearance (shown in figure below). These are the values within one standard deviation of the mean value. This is useful when you have one or two cells with abnormally high values in a raster grid that are having a negative impact on the rendering of the raster.
+    The raster gets a more saturated appearance (shown in figure below). These are the values within one standard deviation of the mean value. This is useful when you have one or two cells with abnormally high values in a raster grid that are having a negative impact on the rendering of the raster.
 
-![Image rendered with Mean +/- Standard Deviation](figures/Lab6/Image_rendered_with_Mean_Standard_Deviation.png "Image rendered with Mean +/- Standard Deviation")
+    ![Image rendered with Mean +/- Standard Deviation](figures/Lab6/Image_rendered_with_Mean_Standard_Deviation.png "Image rendered with Mean +/- Standard Deviation")
 
 16. You can also look at one individual band. Change the Render type to Singleband gray. Choose Band 3 as the Gray band. Set the Contrast enhancement to Stretch MinMax. Click Apply.
 
-![Band 3 (Near-infrared) shown alone](figures/Lab6/Band_3_Near_infrared_shown_alone.png "Band 3 Near-infrared shown alone")
+    ![Band 3 (Near-infrared) shown alone](figures/Lab6/Band_3_Near_infrared_shown_alone.png "Band 3 Near-infrared shown alone")
 
 17. Change the Gray band setting to each of the other two bands and see how different they look.
 
@@ -125,17 +125,17 @@ The raster gets a more saturated appearance (shown in figure below). These are t
 
 22. Click Apply. The black rectangle of no data pixels disappears.
 
-![Raster With Transparency](figures/Lab6/Raster_with_transparency.png "Raster With Transparency")
+    ![Raster With Transparency](figures/Lab6/Raster_with_transparency.png "Raster With Transparency")
 
 23. Click on the Pyramids tab. 
 
-Raster data sets can get very large. Pyramids help render large images more quickly. Without them, QGIS will try to render each pixel in an image even though your monitor may not have enough resolution to display each pixel. Pyramids are lower resolution versions of the image that will increase performance. This particular image is small so you will not build any now. 
+    Raster data sets can get very large. Pyramids help render large images more quickly. Without them, QGIS will try to render each pixel in an image even though your monitor may not have enough resolution to display each pixel. Pyramids are lower resolution versions of the image that will increase performance. This particular image is small so you will not build any now. 
 
 24. Click on the Histogram tab. 
 
-Here you can view the distribution of data values in your raster. If it is a multi-band image, you can view data for each band. The histogram is generated automatically when you open this tab (see figure below). You can save the histogram as an image with the Save plot button.
+    Here you can view the distribution of data values in your raster. If it is a multi-band image, you can view data for each band. The histogram is generated automatically when you open this tab (see figure below). You can save the histogram as an image with the Save plot button.
 
-![Image Histogram](figures/Lab6/Image_Histogram.png "Image Histogram")
+    ![Image Histogram](figures/Lab6/Image_Histogram.png "Image Histogram")
 
 25. Save your QGIS Desktop project.
 
