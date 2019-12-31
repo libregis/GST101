@@ -19,7 +19,6 @@
     Explore and Understand Spatial Data Models
 
 ## 1. Introduction
-
 In this lab, students will explore and manage geospatial data using *QGIS Desktop LTR version 3.4.14* and we will refer
 it as QGIS for the rest of the course. QGIS is the companion application used to perform spatial analysis and make maps. 
 For data exploration, we will use QGIS browser Panel and for data management we will use Data Source manager. This browser 
@@ -34,7 +33,6 @@ It is important to learn the concepts in this lab as future labs will require th
 
 
 ## 2.	Objective: Explore and Understand Geospatial Data Models
-
 Geographic Information Systems model the real world with representations of objects such as lakes, roads and towns. Geospatial data models are the means used to represent these features. They are composed to two parts: spatial features and attributes that when combined, create a model of reality.
 
 ![Two parts of the geospatial data model](figures/Lab2/Twopartsofthegeospatialdatamodel.png "Two parts of the Geospatial data model")
