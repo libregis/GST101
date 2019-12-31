@@ -39,7 +39,7 @@ Both of these organizations have played a big role in the development of FOSS so
 3. In a web browser, navigate to [http://opensource.org/](http://opensource.org/), the website for the Open Source Initiative.
 4. **List the 10 components of the Open Source Definition.**
 
-##Task 2 - Become familiar with OSGeo
+## Task 2 - Become familiar with OSGeo
 1. In a web browser, navigate to [http://www.osgeo.org](http://www.osgeo.org/), the website for OSGeo.
 2. Click on the About the Foundation link (shown in the figure below).
     ![OSGeo webpage navigation](figures/Lab1/OSGeo_Webpage_Navigation.png "OSgeo webpage navigation")
@@ -58,7 +58,7 @@ Both of these organizations have played a big role in the development of FOSS so
 12. In a web browser, navigate to [http://www.foss4g.org](http://www.foss4g.org/), the website for FOSS4G annual gatherings. for FOSS4G.  This is the site for all FOSS4G events. The current conference is listed, as well as past events. 
 13. **When and where will FOSS4G be held next?**
 
-##Task 3 - Exploring available FOSS4G software packages
+## Task 3 - Exploring available FOSS4G software packages
 
 This course will focus on one piece of FOSS GIS software, QGIS. However, there are many different FOSS softwares available. 
 
@@ -67,7 +67,7 @@ This course will focus on one piece of FOSS GIS software, QGIS. However, there a
 3. Click on the link for that project to open the web page for that software. You can also click on the QuickStart link to see a visual quick start guide.
 4. **Write a brief description of what the software does or what it is designed for along with its name.**
 
-##Task 4 - Become familiar online QGIS support
+## Task 4 - Become familiar online QGIS support
 
 1. From the OSGeo website locate the OSGeo Projects box on the right hand side. Look for the Desktop Applications heading and click on the QGIS link. This will open the QGIS website.
 2. On Lef side, along with QGIS logo, you will find the current qgis version numbers. QGIS comes in two flavours, standard version and long term release. 
@@ -99,7 +99,7 @@ This course will focus on one piece of FOSS GIS software, QGIS. However, there a
 24. This is where you can find the official QGIS documentation. 
 25. **Describe the support documentation available for QGIS.**
 
-##5. Conclusion
+## 5. Conclusion
 The help resources are another way FOSS differs from proprietary software. With proprietary software, there is typically a dedicated help phone line, or online help resource, that connects you with the vendor. The software license fee covers this support. With FOSS software, the community provides the support services online. For example, QGIS has many online help options. Familiarizing yourself with these will help as you complete your coursework and move forward with your career.
 
 This lab has only scratched the surface with regards to the number of FOSS4G software. There are many organizations and groups doing great work like [Location Tech](http://www.locationtech.org/), [Apache SIS](http://sis.apache.org/), and [R-Spatial](http://rspatial.r-forge.r-project.org/), to name a few.
