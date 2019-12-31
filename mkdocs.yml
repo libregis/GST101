@@ -9,5 +9,5 @@ theme:
  #   primary: 'light green'
  #   accent: 'green'
 
-#markdown_extensions:
-#  - admonition
+markdown_extensions:
+  - admonition

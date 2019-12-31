@@ -1,5 +1,8 @@
 Document Version: MM/DD/YYYY
 
+**LibreGIS Lab Author:** 
+Libre GIS, Germany
+
 **FOSS4G Lab Author:**
 Kurt Menke, GISP
 Bird's Eye View GIS

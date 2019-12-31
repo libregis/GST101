@@ -1,41 +1,36 @@
-# Lab 0 - Getting to Know FOSS and FOSS4G
-## Objective – Explore and Understand FOSS Software Fundamentals and QGIS Help Resources
+# Lab 1 - Getting to Know FOSS and FOSS4G
 
-Document Version: 3/11/2015
+!!! info "Document Version"
+    Date: 29/12/2019
+    
+    **LibreGIS LAb Author:** Libre GIS, Germany  
+    **FOSS4G Lab Author:** Kurt Menke, GISP Bird's Eye View GIS  
+        
+    The development of the original document is funded by the Department of Labor (DOL) Trade Adjustment Assistance Community College and Career Training (TAACCCT) Grant No.  TC-22525-11-60-A-48; The National Information Security, Geospatial Technologies Consortium (NISGTC) is an entity of Collin College of Texas, Bellevue College of Washington, Bunker Hill Community College of Massachusetts, Del Mar College of Texas, Moraine Valley Community College of Illinois, Rio Salado College of Arizona, and Salt Lake Community College of Utah.  This work is licensed under the Creative Commons Attribution 3.0 Unported License.  To view a copy of this license, visit http://creativecommons.org/licenses/by/3.0/ or send a letter to Creative Commons, 444 Castro Street, Suite 900, Mountain View, California, 94041, USA.  
+    This document was original modified from its original form by Kurt Menke and continues to be modified and improved by generous public contributions.
+    
+    **Current document (dated: 29/12/2019) is modified from its original form by LibreGIS and continues to be modified and improved by generous public contributions.**
 
-**FOSS4G Lab Author:**
-Kurt Menke, GISP
-Bird's Eye View GIS
-
----
-
-The development of the original document is funded by the Department of Labor (DOL) Trade Adjustment Assistance Community College and Career Training (TAACCCT) Grant No.  TC-22525-11-60-A-48; The National Information Security, Geospatial Technologies Consortium (NISGTC) is an entity of Collin College of Texas, Bellevue College of Washington, Bunker Hill Community College of Massachusetts, Del Mar College of Texas, Moraine Valley Community College of Illinois, Rio Salado College of Arizona, and Salt Lake Community College of Utah.  This work is licensed under the Creative Commons Attribution 3.0 Unported License.  To view a copy of this license, visit http://creativecommons.org/licenses/by/3.0/ or send a letter to Creative Commons, 444 Castro Street, Suite 900, Mountain View, California, 94041, USA.  
-
-This document was original modified from its original form by Kurt Menke and continues to be modified and improved by generous public contributions.
-
----
+!!! Objective
+    Explore and Understand FOSS Software Fundamentals and QGIS Help Resources
+    
 
 ## 1. Introduction
-
-In this lab, students will become familiar with the definitions of Free Software, Open Source Software, and the online resources available for FOSS4G software.
-
+In this lab, students will become familiar with the definitions of Free Software, Open Source Software, and the online resources available for FOSS4G software. 
 This lab includes the following tasks:
 
-+ Task 1 – Explore the Free Software Foundation and Open Source Initiative websites and become familiar with both definitions.
-+ Task 2 - Become familiar with OSGeo and their stance on Commercial and Proprietary Software.
-+ Task 3 - Explore available FOSS4G software packages.
-+ Task 4 - Become familiar with the support resources available for QGIS.
+* Task 1 – Explore the Free Software Foundation and Open Source Initiative websites and become familiar with both definitions.
+* Task 2 - Become familiar with OSGeo and their stance on Commercial and Proprietary Software.
+* Task 3 - Explore available FOSS4G software packages.
+* Task 4 - Become familiar with the support resources available for QGIS.
 
 In the last 10 years there has been an explosion of open source GIS software projects.  This exercise will begin by introducing the main web portals to the Free  Software and Open Source Initiatives. It will then cover some of the main Free and Open Source For Geospatial (FOSS4G) resources with an emphasis on QGIS. 
-
 Answer all questions in **bold text**.
 
-## 2. Objective: Understand Free and Open Source Software
-
+## 2. Understand Free and Open Source Software
 The difference between Free, Open Source and Proprietary software lies in the licenses. Here you will visit both the Free Software Foundation and Open Source Initiative websites and read about their licenses. For each website, you will answer questions listed in bold.
 
 ## Task 1 - Explore the Free Software Foundation and Open Source Initiative
-
 Both of these organizations have played a big role in the development of FOSS software.
 
 1. In a web browser, navigate to [http://www.fsf.org/](http://www.fsf.org/), the website for the Free Software Foundation.
@@ -45,16 +40,13 @@ Both of these organizations have played a big role in the development of FOSS so
 4. **List the 10 components of the Open Source Definition.**
 
 ##Task 2 - Become familiar with OSGeo
-
 1. In a web browser, navigate to [http://www.osgeo.org](http://www.osgeo.org/), the website for OSGeo.
 2. Click on the About the Foundation link (shown in the figure below).
-
-![OSGeo webpage navigation](figures/Lab0/OSGeo_Webpage_Navigation.png "OSgeo webpage navigation")
+    ![OSGeo webpage navigation](figures/Lab1/OSGeo_Webpage_Navigation.png "OSgeo webpage navigation")
 
 3. **Describe OSGeo in your own words.**
-4. Click on the FAQ link (shown in the figure below). These are the frequently asked questions for OSGeo. Many of your initial questions will be answered here. Now you'll read about what OSGeo considers Commercial software and what they think of Proprietary software.
-
-![FAQ Link on the OSGeo Webpage](figures/Lab0/FAQ_Link_on_the_OSGeo_Webpage.png "FAQ Link on the OSGeo Webpage")
+4. Click on the FAQ link (shown in the figure above). These are the frequently asked questions for OSGeo. Many of your initial questions will be answered here. Now you'll read about what OSGeo considers Commercial software and what they think of Proprietary software.
+    ![FAQ Link on the OSGeo Webpage](figures/Lab1/FAQ_Link_on_the_OSGeo_Webpage.png "FAQ Link on the OSGeo Webpage")
 
 5. Scroll down until you see the Open Source heading.
 6. **What is OSGeo's stance on Commercial Software? **
@@ -78,11 +70,13 @@ This course will focus on one piece of FOSS GIS software, QGIS. However, there a
 ##Task 4 - Become familiar online QGIS support
 
 1. From the OSGeo website locate the OSGeo Projects box on the right hand side. Look for the Desktop Applications heading and click on the QGIS link. This will open the QGIS website.
-2.	Click on Discover QGIS (shown in figure below).
+2. On Lef side, along with QGIS logo, you will find the current qgis version numbers. QGIS comes in two flavours, standard version and long term release. 
+    - 3.10.1
+    - 3.4.14.LTR     
+3. Click on Discover QGIS (shown in figure below).
+    ![QGIS Website Navigation Bar](figures/Lab1/QGIS_Website_Navigation_Bar.png "QGIS Website Navigation Bar")
 
-![QGIS Website Navigation Bar](figures/Lab0/QGIS_Website_Navigation_Bar.png "QGIS Website Navigation Bar")
-
-3. **Describe QGIS.**
+4. **Describe QGIS.**
 5. Click on the QGIS Features link underneath the DISCOVER heading.
 6. Click on the [Take the QGIS feature tour link](http://docs.qgis.org/latest/en/docs/user_manual/preamble/features.html).
 7. **List and describe the first two QGIS features listed**.
