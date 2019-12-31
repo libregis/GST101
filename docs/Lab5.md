@@ -28,13 +28,13 @@ This lab will continue to introduce students to the QGIS interface. It is import
 
 This lab includes the following tasks:
 
-+ Task 1 – Create a new shapefile.
+* Task 1 – Create a new shapefile.
 
-+ Task 2 – Transforming coordinate system of source data.
+* Task 2 – Transforming coordinate system of source data.
 
-+ Task 3 – Heads-up digitizing from transformed source data.
+* Task 3 – Heads-up digitizing from transformed source data.
 
-+ Task 4 – Editing existing geospatial data.
+* Task 4 – Editing existing geospatial data.
 
 ## 2. Objective: Digitize Information from a Scanned Hard Copy Source
 
@@ -60,7 +60,7 @@ In Task 3, you will be digitizing parcels from a georeferenced data source. In t
 
 3. Click on the New Shapefile button at the top of the Browser window. This will open the New Vector Layer window.
 
-![QGIS Browser New Shapefile Button](figures/Lab5/QGIS_Browser_New_Shapefile_button.png "QGIS Browser New Shapefile Button")
+    ![QGIS Browser New Shapefile Button](figures/Lab5/QGIS_Browser_New_Shapefile_button.png "QGIS Browser New Shapefile Button")
 
 4. Choose a type of ‘Polygon’
 
@@ -72,28 +72,28 @@ The City of Albuquerque, like most municipalities, uses the State Plane Referenc
 
 6. Select the NAD83(HARN) / New Mexico Central (ftUS) with an EPSG code of 2903 (see figure below). Click OK once you have selected this CRS to be returned to the New Vector Layer window.
 
-![Browsing For The Correct CRS](figures/Lab5/Browsing_for_the_correct_CRS.png "Browsing For The Correct CRS")
-
-While creating your new shapefile you have the option of adding attribute columns. It is possible to add them later, but if you know of some attribute columns you will need in the layer, it makes the most sense to define them here.  The ID attribute is automatically added to every shapefile you create.
-
-For this lab, you will need an attribute column to hold the zoning code.
+    ![Browsing For The Correct CRS](figures/Lab5/Browsing_for_the_correct_CRS.png "Browsing For The Correct CRS")
+    
+    While creating your new shapefile you have the option of adding attribute columns. It is possible to add them later, but if you know of some attribute columns you will need in the layer, it makes the most sense to define them here.  The ID attribute is automatically added to every shapefile you create.
+    
+    For this lab, you will need an attribute column to hold the zoning code.
 
 6. In the New attribute section of the New Vector Layer window, define a new field with: a name of zonecode, as Text data with a width of 5.
 
-This means the new zonecode attribute column will store data as text and will only be able to accommodate five characters of data. Since our longest zoning code is 4 digits this is more than enough.
+    This means the new zonecode attribute column will store data as text and will only be able to accommodate five characters of data. Since our longest zoning code is 4 digits this is more than enough.
 
 8. Click Add to attribute list and you will see the new zonecode attribute added.
 
 9. Click OK to approve the new shapefile options and open the Save layer as window. Since you had the New Data folder selected when you clicked the New Shapefile button it will default to that folder. If it doesn’t just navigate to that folder now. 
 10. Name the shapefile parcels.shp and click Save to create the shapefile
 
-Initially, the new shapefile may not display in the Browser. We need to first refresh the view to see the newly-created file.
+    Initially, the new shapefile may not display in the Browser. We need to first refresh the view to see the newly-created file.
 
 11. Click the Refresh button in the upper left hand corner of the QGIS Browser window. Expand the New Data folder and you will see the parcels.shp file.
 
 11. Select the parcels.shp dataset and click the Metadata tab. You’ll see that it has 0 features and has the Spatial Reference System you specified. The New Mexico Central State Plane zone uses the Mercator projection since it is a north – south oriented zone.
 
-![QGIS Browser With The New Parcel Shapefile Metadata](figures/Lab5/QGIS_Browser_with_the_new_parcel_shapefile_metadata.png "QGIS Browser With The New Parcel Shapefile Metadata")
+    ![QGIS Browser With The New Parcel Shapefile Metadata](figures/Lab5/QGIS_Browser_with_the_new_parcel_shapefile_metadata.png "QGIS Browser With The New Parcel Shapefile Metadata")
 
 ## Task 2 - Transforming Coordinate System of Source Data
 
@@ -103,11 +103,11 @@ To perform this task you will be using a Plugin. Plugins are small add-ons to QG
 
 1. Open QGIS Desktop.
 
-2. Open QGIS Browser.
+2. Open QGIS Browser Panel.
 
-3. Arrange Browser and Desktop so that you can see both windows simultaneously on your desktop. 
+3. Arrange Browser Panel and Desktop so that you can see both windows simultaneously on your desktop. 
 
-4. In Browser find the new parcels shapefile. Select it and drag it onto the map window of QGIS Desktop. This is another way to add data to Desktop. 
+4. In Browser Panel find the new parcels shapefile. Select it and drag it onto the map window of QGIS Desktop. This is another way to add data to Desktop. 
 
 5. From the Menu bar in QGIS Desktop, choose Project | Project Properties.
 6. Click the CRS tab and Enable ‘on the fly’ CRS transformation. Click OK to save the setting and close the properties window.
@@ -122,7 +122,7 @@ To perform this task you will be using a Plugin. Plugins are small add-ons to QG
 
 10. Since it is a Core plugin it will already be installed. You just need to enable it. Click on Installed plugins and check the box next to Georeferencer GDAL (shown in figure below).
 
-![Plugin Manager](figures/Lab5/Plugin_Manager.png "Plugin Manager")
+    ![Plugin Manager](figures/Lab5/Plugin_Manager.png "Plugin Manager")
 
 11. Click Close to close the Plugins window.
 12. To open the Georeferencer plugin go to the menu bar choose Raster | Georeferencer | Georeferencer.
