@@ -1,6 +1,6 @@
 # Preface
 This course is **GST101 Introduction to Geospatial Technology** and was written by original authors [Kurt Menke](https://twitter.com/geomenke) and [Rick Smith](https://github.com/RickSmith)
- for [**QGIS 2.8**](https://www.qgis.org) software. I have updated this current version to [**QGIS 3.4.x Long term release**](https://www.qgis.org) software. 
+ for [**QGIS 2.8**](https://www.qgis.org) software. At LibreGIS, we have updated this current [**QGIS 3.4.x Long term release**](https://www.qgis.org) software. 
  This course consists of 7 labs and introduction to FOSS and FOSS4G movement. 
 
 ## Course Topics
