@@ -26,13 +26,13 @@ In this lab, the student will explore a small set of analysis tools available in
 
 This lab includes the following tasks:
 
-+ Task 1 – Data Preparation
+* Task 1 – Data Preparation
 
-+ Task 2 – Querying and Extracting Subsets of Data
+* Task 2 – Querying and Extracting Subsets of Data
 
-+ Task 3 – Buffering and Clipping Data
+* Task 3 – Buffering and Clipping Data
 
-+ Task 4 – Preparing a Map
+* Task 4 – Preparing a Map
 
 ## 2. - Objective: Use Basic Spatial Analysis Techniques to Solve a Problem
 
@@ -40,13 +40,13 @@ Conducting effective spatial analysis in a GIS does not require the use of extre
 
 In this lab, the student will utilize four basic geospatial analysis techniques: selection, buffer, clip, and dissolve.
 
-+ Selection uses set algebra and Boolean algebra to select records of interest.
+* Selection uses set algebra and Boolean algebra to select records of interest.
 
-+ Buffer is the definition of a region that is less than or equal to a distance from one or more features.
+* Buffer is the definition of a region that is less than or equal to a distance from one or more features.
 
-+ Clip defines the areas for which features will be output based on a ‘clipping’ polygon.
+* Clip defines the areas for which features will be output based on a ‘clipping’ polygon.
 
-+ Dissolve combines similar features within a data layer based on an attribute.
+* Dissolve combines similar features within a data layer based on an attribute.
 
 ## Task 1 - Data Preparation
 
@@ -129,13 +129,13 @@ You will visit the RGIS clearinghouse. This is the main source for geospatial da
 
 Finally, you will visit the Bernalillo County GIS Program to download a roads data set. This is the main source for geospatial data for New Mexico. You will download census tract boundaries for Bernalillo County.
 	
-10. In a web browser, navigate to [http://www.bernco.gov/Download-GIS-Data/](http://www.bernco.gov/Download-GIS-Data/)
+1. In a web browser, navigate to [http://www.bernco.gov/Download-GIS-Data/](http://www.bernco.gov/Download-GIS-Data/)
 
-11. Find the Download Shapefiles section
+2. Find the Download Shapefiles section
 
-12. Find Road Inventory
+3. Find Road Inventory
 
-13. Download the Road Inventory Zip file to your folder.
+4. Download the Road Inventory Zip file to your folder.
 
 	a. Save the ZIP file into your Lab 7/MyData directory.
 
@@ -151,13 +151,13 @@ Now that you have collected the necessary data, you will add it to a blank QGIS 
 
 2. Using the Add Vector Layer button, add all four shapefiles to QGIS Desktop. (see figure below).
 
-![Add Vector Data](figures/Lab7/Add_Vector_Data.png "Add Vector Data")
+    ![Add Vector Data](figures/Lab7/Add_Vector_Data.png "Add Vector Data")
 
 3. Organize the layers in the Layers panel so that the Bern monuments layer is on top, followed by the RoadInventory, tl_2010_35001_tract10 (tracts), and jurisdiction.
 
 4. Save your project to the Lab 7 folder as Lab7.qgs
 
-Does it look like all the layers are lining up together? Open the Layer properties for each layer and investigate their CRSs. Note that the Census Tracts (tl_2010_35001_tract10) and Monuments (Bern) are in geographic coordinates and the Road Inventory and jurisdiction are in the State Plane Coordinate System (SPCS).
+    Does it look like all the layers are lining up together? Open the Layer properties for each layer and investigate their CRSs. Note that the Census Tracts (tl_2010_35001_tract10) and Monuments (Bern) are in geographic coordinates and the Road Inventory and jurisdiction are in the State Plane Coordinate System (SPCS).
 
 5. From the menu bar choose Project | Project Properties.
 
@@ -167,9 +167,9 @@ Does it look like all the layers are lining up together? Open the Layer properti
 
 8. Click OK to set the project CRS.
 
-Projecting on the fly is fine for cartographic purposes. However, when conducting a geospatial analysis, the data layers involved should be in the same CRS. Typically, data layers will also be clipped to the extent of the study area to reduce rendering and data processing time. These procedures are often referred to as normalizing your data. For the typical analysis, a majority of your time is spent obtaining data and normalizing it. Once all the data is organized and normalized, the analysis can proceed.
-
-You will want to put all four layers into the same CRS for this analysis. You will put them all into the SPCS.
+    Projecting on the fly is fine for cartographic purposes. However, when conducting a geospatial analysis, the data layers involved should be in the same CRS. Typically, data layers will also be clipped to the extent of the study area to reduce rendering and data processing time. These procedures are often referred to as normalizing your data. For the typical analysis, a majority of your time is spent obtaining data and normalizing it. Once all the data is organized and normalized, the analysis can proceed.
+    
+    You will want to put all four layers into the same CRS for this analysis. You will put them all into the SPCS.
 
 6. Right-click on the Bern layer in the Layers panel and choose Save As... from the contextual menu. This will open the Save vector layer as... window (shown in the figure below).
 	
@@ -183,7 +183,7 @@ You will want to put all four layers into the same CRS for this analysis. You wi
 	
 11. Click OK to save the new file in a different CRS.
 
-![Reprojecting the Bern Layer](figures/Lab7/Reprojecting_the_Bern_layer.png "Reprojecting the Bern Layer")
+    ![Reprojecting the Bern Layer](figures/Lab7/Reprojecting_the_Bern_layer.png "Reprojecting the Bern Layer")
 
 12. You no longer need the original Bern layer in your map. Right-click on the original Bern layer and choose Remove. Click OK on the Remove Objects window.
 
@@ -197,11 +197,11 @@ For the map, you will need a polygon that represents the county boundary. The tl
 
 1. From the menu bar choose Vector | Geoprocessing Tools | Dissolve (reference figure below).
 
-![Dissolve Tool](figures/Lab7/Dissolve_tool.png "Dissolve Tool")
+    ![Dissolve Tool](figures/Lab7/Dissolve_tool.png "Dissolve Tool")
 
 2. Set Input vector data to tl_2010_35001_tract10_spcs.
 
-You can dissolve based on attributes. For example, if you had counties of the United States you could dissolve them based on the State name attribute and create a state boundaries layer. Here you will dissolve all the tract polygons into one to create the county boundary.
+    You can dissolve based on attributes. For example, if you had counties of the United States you could dissolve them based on the State name attribute and create a state boundaries layer. Here you will dissolve all the tract polygons into one to create the county boundary.
 
 3. For Dissolve field choose –-- Dissolve all --- (at the bottom of the list).
 
@@ -211,7 +211,7 @@ You can dissolve based on attributes. For example, if you had counties of the Un
 
 6. Click OK to run the Dissolve tool. Once the tool has executed, click Close.
 
-![Dissolve Tool Settings](figures/Lab7/Dissolve_tool_settings.png "Dissolve Tool Settings")
+    ![Dissolve Tool Settings](figures/Lab7/Dissolve_tool_settings.png "Dissolve Tool Settings")
 
 3. Remove the tl_2010_35001_tract10_spcs layer from the Layers panel. It was an intermediate dataset. All you need is the Bernalillo County Boundary.
 
@@ -221,16 +221,16 @@ You can dissolve based on attributes. For example, if you had counties of the Un
 
 You will want to filter the monuments so that you only have the ones with the orders and classes you’re interested in. Here you only want monuments that meet the following requirements:
 
-+ Elevation Order = 1
+* Elevation Order = 1
 
-+ Last recovered on or after 1995
+* Last recovered on or after 1995
 
-+ Satellite Observations were used for monument coordinate determination.
+* Satellite Observations were used for monument coordinate determination.
 
-+ a, b, and c are stored in these attribute columns:
-	+ ELEV_ORDER
-	+ LAST_RECV
-	+ SAT_USE
+* a, b, and c are stored in these attribute columns:
+	* ELEV_ORDER
+	* LAST_RECV
+	* SAT_USE
 
 (For information on what an elevation order and class is, visit [http://www.ngs.noaa.gov/heightmod/Leveling/](http://www.ngs.noaa.gov/heightmod/Leveling/))  
 
@@ -252,7 +252,7 @@ All the attribute fields are listed on the left. Below the fields are operators 
 
 8. Double-click the 1 value so that your expression reads "ELEV_ORDER" = '1’.
 
-Since you want monuments that have both an elevation order of 1 and were last recovered on or after 1994 you will now use the AND operator. The AND operator selects records that meet conditions on both sides.
+    Since you want monuments that have both an elevation order of 1 and were last recovered on or after 1994 you will now use the AND operator. The AND operator selects records that meet conditions on both sides.
 
 9. Double-click the AND button under Operators to add it to the expression.
 
@@ -262,23 +262,23 @@ Since you want monuments that have both an elevation order of 1 and were last re
 
 12. The final expression should look like the figure below.
 
-![Monuments SQL Filter](figures/Lab7/Monuments_SQL_Filter.png "Monuments SQL Filter")
+    ![Monuments SQL Filter](figures/Lab7/Monuments_SQL_Filter.png "Monuments SQL Filter")
 
-2. Click the Test button. You should get a Query result of 47 rows. If you have a syntax error you will be notified and you’ll have to figure out where the error lies. Any extra tics (‘) or quotes (“) will throw an error. Click OK to dismiss the Query result dialog.
+13. Click the Test button. You should get a Query result of 47 rows. If you have a syntax error you will be notified and you’ll have to figure out where the error lies. Any extra tics (‘) or quotes (“) will throw an error. Click OK to dismiss the Query result dialog.
 
-3. Click OK to set the Query and close the Query Builder window.
+14. Click OK to set the Query and close the Query Builder window.
 
-4. Click OK again to close the Layer Properties.
+15. Click OK again to close the Layer Properties.
 
-It is always a good idea to open the attribute table to ensure that the layer has been filtered the way you needed.
+    It is always a good idea to open the attribute table to ensure that the layer has been filtered the way you needed.
 
-5. Open the attribute table for the Bern_spcs layer and verify that the table only includes 47 filtered features. This will be reported on the attribute table's title bar at the top.
+16. Open the attribute table for the Bern_spcs layer and verify that the table only includes 47 filtered features. This will be reported on the attribute table's title bar at the top.
 
-5. With the data properly filtered, the map should now resemble the figure below.
+17. With the data properly filtered, the map should now resemble the figure below.
 
-![QGIS With Filtered Monuments](figures/Lab7/QGIS_with_filtered_monuments.png "QGIS With Filtered Monuments")
+    ![QGIS With Filtered Monuments](figures/Lab7/QGIS_with_filtered_monuments.png "QGIS With Filtered Monuments")
 
-6. Save your project.
+18. Save your project.
 
 ## Task 3 - Buffering and Clipping Data
 
@@ -296,109 +296,109 @@ The jurisdiction layer covers much more than Bernalillo County. Albuquerque cove
 
 6. In the Layers panel, drag jurisdiction above the Bernalillo County layer and turn off RoadInventory. Your map should resemble the figure below.
 
-![QGIS With Filtered Jurisdiction](figures/Lab7/QGIS_with_filtered_jurisdiction.png "QGIS With Filtered Jurisdiction")
+    ![QGIS With Filtered Jurisdiction](figures/Lab7/QGIS_with_filtered_jurisdiction.png "QGIS With Filtered Jurisdiction")
 
-4. Open the attribute table for RoadInventory.
+7. Open the attribute table for RoadInventory.
 
-There is a lot of information in the RoadInventory shapefile. So far you have filtered a layer within QGIS, but left the data on disk the same. Now you will select the major roads and save them to a new shapefile. Considering the attribute table, what field would you use to select out major roads?
+    There is a lot of information in the RoadInventory shapefile. So far you have filtered a layer within QGIS, but left the data on disk the same. Now you will select the major roads and save them to a new shapefile. Considering the attribute table, what field would you use to select out major roads?
 
-5. Click on the Select features using an expression button. ![expression button](figures/Lab7/expression_button.png "expression button")
+8. Click on the Select features using an expression button. ![expression button](figures/Lab7/expression_button.png "expression button")
 
-A similar query window opens as when you are filtering a layer. Instead of the fields being listed on the left, here you have the Expression area. In the middle, the expression functions will be listed. If you scroll down though the functions tree, you will see that one category is Fields and Values.
+    A similar query window opens as when you are filtering a layer. Instead of the fields being listed on the left, here you have the Expression area. In the middle, the expression functions will be listed. If you scroll down though the functions tree, you will see that one category is Fields and Values.
 
-6. Expand Fields and Values. 
+9. Expand Fields and Values. 
 
-7. Scroll down until you find the Class field.
+10. Scroll down until you find the Class field.
 
-8. Double-click on Class to add it to the Expression area.
+11. Double-click on Class to add it to the Expression area.
 
-9. Click the = operator.
+12. Click the = operator.
 
-9. Click all unique under Values.
+13. Click all unique under Values.
 
-10. Double-click the 'Major' value to add it to the expression. Your expression should now look like the figure below.
+14. Double-click the 'Major' value to add it to the expression. Your expression should now look like the figure below.
 
-![Select by Expression in Attribute Table](figures/Lab7/Select_by_Expression_in_Attribute_Table.png "Select by Expression in Attribute Table")
+    ![Select by Expression in Attribute Table](figures/Lab7/Select_by_Expression_in_Attribute_Table.png "Select by Expression in Attribute Table")
 
-11. Click Select then Close the Select by Expression window.
+15. Click Select then Close the Select by Expression window.
 
-You now have 4593 out of 37963 records selected. You can use the Toggle at the lower left corner of the attribute table to show just the selected set of records (see figure below).
+    You now have 4593 out of 37963 records selected. You can use the Toggle at the lower left corner of the attribute table to show just the selected set of records (see figure below).
 
-![Toggle Attribute Table View](figures/Lab7/Toggle_Attribute_Table_View.png "Toggle Attribute Table View")
+    ![Toggle Attribute Table View](figures/Lab7/Toggle_Attribute_Table_View.png "Toggle Attribute Table View")
 
-12. Close the attribute table.
+16. Close the attribute table.
 
-8. Right-click on the RoadInventory layer and choose Save As….
+17. Right-click on the RoadInventory layer and choose Save As….
 
-9. Name the file 'Major_Roads.shp' and save it in your lab directory.
+18. Name the file 'Major_Roads.shp' and save it in your lab directory.
 
-10. Check Save only selected features. The will only save the features currently selected to a new shapefile.
+19. Check Save only selected features. The will only save the features currently selected to a new shapefile.
 
-11. Verify that the dialog looks like the figure below. If so, click OK to save and add the layer to the map.
+20. Verify that the dialog looks like the figure below. If so, click OK to save and add the layer to the map.
 
-![Save Selection As](figures/Lab7/Save_Selection_As.png "Save Selection As")
+    ![Save Selection As](figures/Lab7/Save_Selection_As.png "Save Selection As")
 
-9. Remove RoadInventory from the Layers panel. All you need for your map is Major_Roads.
+21. Remove RoadInventory from the Layers panel. All you need for your map is Major_Roads.
 
-Now that you have the Albuquerque City limits isolated, you will buffer Albuquerque by one mile. Then you will be able to identify monuments that are either inside, or close to the city limits. Buffer is an operation that creates a new polygon layer that is a buffer distance from another layer.
+    Now that you have the Albuquerque City limits isolated, you will buffer Albuquerque by one mile. Then you will be able to identify monuments that are either inside, or close to the city limits. Buffer is an operation that creates a new polygon layer that is a buffer distance from another layer.
 
-10. From the menu bar choose Vector | Geoprocessing Tools | Buffer(s).
+21. From the menu bar choose Vector | Geoprocessing Tools | Buffer(s).
 
-11. Set the Input vector layer to jurisdiction, which now equals the Albuquerque city boundary.
+22. Set the Input vector layer to jurisdiction, which now equals the Albuquerque city boundary.
 
-12. You will enter a Buffer distance in map units. The Project CRS is a State Plane Coordinate System (SPCS), which has feet for units. Therefore, to buffer the city boundary by a mile, enter the number of feet in a mile (5280).
+23. You will enter a Buffer distance in map units. The Project CRS is a State Plane Coordinate System (SPCS), which has feet for units. Therefore, to buffer the city boundary by a mile, enter the number of feet in a mile (5280).
 
-13. Name the output Albuquerque_buffer.shp.
+24. Name the output Albuquerque_buffer.shp.
 
-14. Check Add result to canvas.
+25. Check Add result to canvas.
 
-15. Your tool should resemble the figure below. If so, click OK and then Close.
+26. Your tool should resemble the figure below. If so, click OK and then Close.
 
-![Buffer](figures/Lab7/Buffer.png "Buffer")
+    ![Buffer](figures/Lab7/Buffer.png "Buffer")
 
-11. Drag the new buffer layer beneath jurisdiction and you will see that it is a one-mile buffer of the boundary.
+27. Drag the new buffer layer beneath jurisdiction and you will see that it is a one-mile buffer of the boundary.
 
-Now that you have the search area for the selected monuments, you will use the Clip tool to clip the monument layer to the buffered city limits to create a new shapefile with only the monuments the surveyors should visit. The Clip tool acts like a cookie cutter. It cuts data out that falls within the clipping layer's boundary.
+    Now that you have the search area for the selected monuments, you will use the Clip tool to clip the monument layer to the buffered city limits to create a new shapefile with only the monuments the surveyors should visit. The Clip tool acts like a cookie cutter. It cuts data out that falls within the clipping layer's boundary.
 
-12. From the menu bar choose Vector | Geoprocessing Tools | Clip.
+28. From the menu bar choose Vector | Geoprocessing Tools | Clip.
 
-13. Set Input vector layer to Bern_spcs.
+29. Set Input vector layer to Bern_spcs.
 
-14. Set Clip layer to Albuquerque_buffer.
+30. Set Clip layer to Albuquerque_buffer.
 
-15. Name the output Albuquerque_monuments.shp.
+31. Name the output Albuquerque_monuments.shp.
 
-16. Check Add result to canvas.
+32. Check Add result to canvas.
 
-17. Your tool should resemble the figure below. If so, click OK and Close.
+33. Your tool should resemble the figure below. If so, click OK and Close.
 
-![Clip](figures/Lab7/Clip.png "Clip")
+    ![Clip](figures/Lab7/Clip.png "Clip")
 
-13. Remove Bern_spcs from the Layers panel.
+34. Remove Bern_spcs from the Layers panel.
 
-Finally, you will label the monuments with the FeatureID attribute.
+    Finally, you will label the monuments with the FeatureID attribute.
 
-14. Open the Layer properties for the Albuquerque Monuments and select the Labels tab.
+35. Open the Layer properties for the Albuquerque Monuments and select the Labels tab.
 
-15. Check Label this layer with and choose FeatureId as the field.
+36. Check Label this layer with and choose FeatureId as the field.
 
-16. Select the Buffer item and check Draw text buffer with the defaults (reference figure below). This will create a white halo around the labels, which can make them easier to read against a busy background.
+37. Select the Buffer item and check Draw text buffer with the defaults (reference figure below). This will create a white halo around the labels, which can make them easier to read against a busy background.
 
-![Feature Labels](figures/Lab7/Feature_Labels.png "Feature Labels")
+    ![Feature Labels](figures/Lab7/Feature_Labels.png "Feature Labels")
 
-17. Click the Placement option and give a Distance of 2. This will offset the label from the point a bit giving more room for a bigger point symbol. Note that there are many options for label placement!
+38. Click the Placement option and give a Distance of 2. This will offset the label from the point a bit giving more room for a bigger point symbol. Note that there are many options for label placement!
 
-18. Click OK to set the labels for the monuments.
+39. Click OK to set the labels for the monuments.
 
-15. Label the major roads using the StreetName field. Under the Text tab, set a font size of 5.25.
+40. Label the major roads using the StreetName field. Under the Text tab, set a font size of 5.25.
 
-16. On the Rendering tab, under Feature options area, choose Merge connected lines to avoid duplicate labels. This will clean up duplicate labels.
+41. On the Rendering tab, under Feature options area, choose Merge connected lines to avoid duplicate labels. This will clean up duplicate labels.
 
-16. Change the style of the layer to make the map more attractive. Choose whatever colors you prefer. As an example, reference the map in the figure below.
+42. Change the style of the layer to make the map more attractive. Choose whatever colors you prefer. As an example, reference the map in the figure below.
 
-![Final Data](figures/Lab7/Final_Data.png "Final Data")
+    ![Final Data](figures/Lab7/Final_Data.png "Final Data")
 
-17. Save your project.
+43. Save your project.
 
 ## Task 4 - Preparing a Map
 
@@ -414,29 +414,29 @@ Now that you have identified the locations of the monuments that the surveyors s
 
 	d. Bernalillo County
 
-You do not necessarily have to show the buffer layer. It was just a means of identifying the monuments to map. However, you have cartographers license on that choice!
+    You do not necessarily have to show the buffer layer. It was just a means of identifying the monuments to map. However, you have cartographers license on that choice!
 
-4. Zoom into the monuments layer so that you can show as much detail as possible.
+2. Zoom into the monuments layer so that you can show as much detail as possible.
 
-5. Use the Print Composer to create a map layout.
+3. Use the Print Composer to create a map layout.
 
-6. Include the following map elements:
+4. Include the following map elements:
 
-	+ Title: Albuquerque Vertical Control Monuments
+	* Title: Albuquerque Vertical Control Monuments
 
-	+ Legend
+	* Legend
 
-	+ Your Name
+	* Your Name
 
-	+ Sources of Data
+	* Sources of Data
 
-	+ Scale Bar: Use the Add Scale Bar button ![Add Scale Bar button](figures/Lab7/Add_Scale_Bar_button.png "Add Scale Bar button"). QGIS uses map units for scale bars. Here our map units are feet. Therefore, to make a scalebar read in miles you need to enter a Map units per bar unit value of 5280 (the number of feet in a mile) (Figure below).
+	* Scale Bar: Use the Add Scale Bar button ![Add Scale Bar button](figures/Lab7/Add_Scale_Bar_button.png "Add Scale Bar button"). QGIS uses map units for scale bars. Here our map units are feet. Therefore, to make a scalebar read in miles you need to enter a Map units per bar unit value of 5280 (the number of feet in a mile) (Figure below).
 
-![Scale Bar Parameters](figures/Lab7/Scale_Bar_Parameters.png "Scale Bar Parameters")
+    ![Scale Bar Parameters](figures/Lab7/Scale_Bar_Parameters.png "Scale Bar Parameters")
 
-Below is an example of a completed map.
+    Below is an example of a completed map.
 
-![Sample Final Map](figures/Lab7/Sample_Final_Map.png "Sample Final Map")
+    ![Sample Final Map](figures/Lab7/Sample_Final_Map.png "Sample Final Map")
 
 ## 4. Conclusion
 In this lab, you used several basic spatial analysis techniques to prepare data for analysis and conduct the analysis. You reprojected data, queried and extracted data, conducted a dissolve operation and used buffer and clip to identify the final set of monuments. While none of these individual operations are necessarily complex, the sequence in which they were combined allowed you to answer a spatial questions quickly and easily.
