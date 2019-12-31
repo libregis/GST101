@@ -1,23 +1,24 @@
 # Lab 6 - Understanding Remote Sensing and Analysis
-## Objective – Explore and Understand How to Display and Analyze Remotely Sensed Imagery
 
-Document Version: 3/11/2015
+!!! info "Document Version"
+    Date: 29/12/2019
+    
+    **LibreGIS Lab Author:** Libre GIS, Germany  
+    **FOSS4G Lab Author:**
+    Kurt Menke, GISP
+    Bird's Eye View GIS      
+    **Original Lab Content Author:**
+    Richard Smith, Ph.D.
+    Texas A&M University - Corpus Christi
+        
+    The development of the original document is funded by the Department of Labor (DOL) Trade Adjustment Assistance Community College and Career Training (TAACCCT) Grant No.  TC-22525-11-60-A-48; The National Information Security, Geospatial Technologies Consortium (NISGTC) is an entity of Collin College of Texas, Bellevue College of Washington, Bunker Hill Community College of Massachusetts, Del Mar College of Texas, Moraine Valley Community College of Illinois, Rio Salado College of Arizona, and Salt Lake Community College of Utah.  This work is licensed under the Creative Commons Attribution 3.0 Unported License.  To view a copy of this license, visit http://creativecommons.org/licenses/by/3.0/ or send a letter to Creative Commons, 444 Castro Street, Suite 900, Mountain View, California, 94041, USA.  
+    This document was original modified from its original form by Kurt Menke and continues to be modified and improved by generous public contributions.
+    
+    **Current document (dated: 29/12/2019) is modified from its original form by LibreGIS and continues to be modified and improved by generous public contributions.**
 
-**FOSS4G Lab Author:**
-Kurt Menke, GISP
-Bird's Eye View GIS
-
-**Original Lab Content Author:**
-Richard Smith, Ph.D., GISP
-Texas A&M University - Corpus Christi
-
----
-
-The development of the original document is funded by the Department of Labor (DOL) Trade Adjustment Assistance Community College and Career Training (TAACCCT) Grant No.  TC-22525-11-60-A-48; The National Information Security, Geospatial Technologies Consortium (NISGTC) is an entity of Collin College of Texas, Bellevue College of Washington, Bunker Hill Community College of Massachusetts, Del Mar College of Texas, Moraine Valley Community College of Illinois, Rio Salado College of Arizona, and Salt Lake Community College of Utah.  This work is licensed under the Creative Commons Attribution 3.0 Unported License.  To view a copy of this license, visit http://creativecommons.org/licenses/by/3.0/ or send a letter to Creative Commons, 444 Castro Street, Suite 900, Mountain View, California, 94041, USA.  
-
-This document was original modified from its original form by Kurt Menke and continues to be modified and improved by generous public contributions.
-
----
+!!! Objective
+    Explore and Understand How to Display and Analyze Remotely Sensed Imagery
+  
 
 ## 1. Introduction
 
@@ -139,132 +140,7 @@ Here you can view the distribution of data values in your raster. If it is a mul
 25. Save your QGIS Desktop project.
 
 ## Task 2 - Supervised Classification
-
-In a supervised classification, you choose the areas that to be used as training areas for the analysis. Training areas should be a homogeneous sample of a particular feature, such as the forested area in the ag020522_DPAC image.
-
-For each training area, the multi-spectral (multi-band) pixel values are extracted and used to define a statistical signature. This signature is a statistical representation of a particular class, which is used by the software identify all pixels with a similar signature.
-
-1. Open MultiSpec by double clicking on the executable file. (Lab 6/MultiSpec/MultiSpecWin32/MultiSpecW32.exe)
-
-2. From the menu bar choose File | Open Image. Choose ag020522_DPAC.img.
-
-3. The Set Display Specification for: window opens. Take all the defaults and click OK.
-
-MultiSpec should now resemble the figure below. There are two windows the image view and text output. You can arrange them so that you can see both at the same time.
-
-![MultiSpec](figures/Lab6/MultiSpec.png "MultiSpec")
-
-5. From the menu bar, choose Project | New Project. Click OK. The Project window will open.
-
-6. Now you will begin to select training areas. Again, these will be homogeneous areas. Start with the forested area. Simply drag a small rectangular area within the forested portion of the image. Note that in the Project box the coordinates (row and column numbers) of the upper left corner and the lower right corner of the selected area appear the box near the bottom. Click Add To List the Define Class and/or Field Description window opens.
-
-*Note*: Be careful not to define your training areas near the edges of the field or forest. You should stay away from edges by a couple of pixels to reduce the chance of edge affects. If upon inspection, you do not like the exact area chosen, you can immediately repeat the process.
-
-7. Enter the class name of ‘Trees’ and click OK (see figure below).
-
-![Define Training Class](figures/Lab6/Define_Training_Class.png "Define Training Class")
-
-8. You will define 5 additional training areas. Refer to the figure below. They will be named: ‘Wheat’, ‘Soil’, ‘Light Soil’, ‘No Data’ and ‘Weeds’.
-
-![Six Training Areas](figures/Lab6/Six_Training_Areas.png "Six Training Areas")
-
-9. In the Project window click the >Classes button so you see all six of your classes (see figure below).
-
-![Project Window Showing Classes](figures/Lab6/Project_Window_Showing_Classes.png "Project Window Showing Classes")
-
-10. If necessary, you can delete a class by selecting the class in the list and selecting Cut Class from the Edit menu.
-
-11. From the menu bar choose Processor | Classify to open the Set Classification Specifications dialog window.
-
-12. Uncheck Image Selection. The other default settings are fine. Click OK (see figure below). If prompted to ‘Update project statistics before continuing’, click OK.
-
-![Set Classification Specifications For Training Area Evaluation](figures/Lab6/Set_Classification_Specifications_for_Training_Area_Evaluation.png "Set Classification Specifications For Training Area Evaluation")
-
-Since Image selection was unchecked, MultiSpec only estimated the quality of the training areas. You can examine the tabular output to assess if the full analysis should be run.
-
-13. Look at the Text Output window. The TRAINING CLASS PERFORMANCE table tabulates how the pixels of each field and class were classified. The Reference Accuracy (%) should be near 100% for all training fields (see figure below). 
-
-![Tabular Output of Analysis](figures/Lab6/Tabular_Output_of_Analysis.png "Tabular Output of Analysis")
-
-14. Assuming satisfactory results, you are ready to classify the entire area.
-
-15. From the menu bar choose Processor | Classify to open the Set Classification Specifications dialog window.
-
-16. Set the Classification Specifications as follows (shown in figure below):
-
-	a. Uncheck Training (resubstitution)
-
-	b. Check Image Selection
-
-	c. Check Disk File under Write classification results to: so that a disk file of the analysis will be created.
-
-	d. Check Create Probability Results File
-
-	e. Click OK.
-
-![ Set Classification Specifications For Full Analysis](figures/Lab6/Set_Classification_Specifications_for_Full_Analysis.png "Set Classification Specifications For Full Analysis")
-
-17. The analysis will run. Shortly you will be prompted to save two resulting files. Take the defaults and click OK both times (see figure below).
-
-![ Save Supervised Classification Results](figures/Lab6/Save_Supervised_Classification_Results.png "Save Supervised Classification Results")
-
-18. From the menu bar choose File | Save Project as Lab 6.Prj
-
-19. To see the results choose File | Open Image from the menu bar.
-
-20. Set the Files of type: as Thematic (*.gis; *.tif; *.clu).
-
-21. Select the ag020522_DPAC.gis file and click Open. The Set Thematic Display Specifications window opens. Click OK to take the defaults. The results look much more realistic than those obtained from the unsupervised classification!
-
-20. To see the training areas superimposed on top of the results go to the menu bar and choose Project | Add as Associated Image. 
-
-21. To change the training field outline color, go to the menu bar and choose Processor | Statistics. The Set Project Options window opens. Under Outline selected areas choose Color: black (see figure below).
-
-![Supervised Classification Results](figures/Lab6/Supervised_Classification_Results.png "Supervised Classification Results")
-
-22. To visually evaluate the results you can move your cursor over a color patch in the Table of Contents for one of the classes, hold the shift key down (cursor will change to an open eye) and click the left mouse button  to cause the colors on the map for that class flash on and off.
-
-23. You can change the colors of the classes by double clicking on the color patch in the Table of Contents and choosing a different color. Change the colors to something more intuitive (see figure below).
-
-![Recolored Supervised Classification Results](figures/Lab6/Recolored_Supervised_Classification_Results.png "Recolored Supervised Classification Results")
-
-24. Look at the Text Output. Under the Class Distribution For Selected Area table you’ll see the number of pixels (Number Samples) and the percent of the image that ended up in each class (see figure below).
-
-![Text Output for the Supervised Classification](figures/Lab6/Text_Output_for_the_Supervised_Classification.png "Text Output for the Supervised Classification")
-
-25. Now you will bring the MultiSpec supervised classification results into QGIS Desktop. If necessary Open QGIS Desktop and from the menu bar choose Project | Open Recent | Lab 6.qgs.
-
-26. Click the Add Raster Layer button and choose the ag020522_DPAC.gis file.
-
-27. Right click on the layer in the Layers panel and choose Set Layer CRS from the context menu.
-
-28. Choose WGS84/UTM zone 16N from the Recently used coordinate reference systems. The layer should overlay your image.
-
-28. Open the Layer Properties for this layer and go to the Style tab.
-
-29. Choose the following rendering options (reference figure below):
-
-	a. Render type: Singleband pseudocolor
-
-	b. Choose Random Colors for the color ramp
-
-	c. Choose Equal Interval as the Mode.
-
-	d. Set the number of Classes to 6.
-
-	e. Click the Classify button and the six classes will receive unique colors.
-
-	f. Change the Values to 1-6 to match the class values in the data. Double click on the values to edit them.
-
-	g. Change the Labels to match the six classes. Double click on the values to edit them. 
-
-	h. Click on the individual color patches and change them to more intuitive colors.
-
-![Styling the Supervised Classification Data in QGIS Desktop](figures/Lab6/Styling_the_Supervised_Classification_Data_in_QGIS_Desktop.png "Text Output for the Supervised Classification")
-
-Your data should now resemble the figure below.
-
-![Supervised Classification Data in QGIS Desktop](figures/Lab6/Supervised_Classiication_Data_in_QGIS_Desktop.png "Supervised Classification Data in QGIS Desktop")
+TODO: In Progress
 
 ## 3. Conclusion
 In this lab, you have learned the basics of working with multi-spectral imagery in QGIS Desktop. You learned how to access data processing tools in QGIS Desktop and how to do a Supervised Classification in MultiSpec, a freeware multispectral image data analysis system.  MultiSpec is an excellent example of many free-to-use programs available for imagery analysis and GIS-related tasks.  
