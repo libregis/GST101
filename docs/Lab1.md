@@ -218,7 +218,7 @@ Now you will learn how to add Raster data to QGIS Desktop.
 10. This raster is a hillshade image of Oahu and it represents the terrain.
 
 !!! note
-    You can drag data from the QGIS Browser application to QGIS Desktop as well to add the data to the map. 
+    You can drag data from the Browser Panel to Map Canvas as well to add the data to the map. 
 
 ## 5. Conclusion
 In this lab you explored datasets that use the two common geospatial data models: vector and raster. You have also used the QGIS Browser to preview datasets. In future labs, you will learn how to use QGIS Desktop to make maps and perform analysis. 
