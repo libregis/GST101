@@ -22,8 +22,10 @@
 ## 1. Introduction
 In this lab, students will explore and manage geospatial data using *QGIS Desktop LTR version 3.4.14* and we will refer
 it as QGIS for the rest of the course. QGIS is the companion application used to perform spatial analysis and to make maps. 
-For data exploration, we will use **QGIS browser Panel** and for data management we will use **Data Source manager**. This browser 
-panel is analogous to Windows Explorer but work for geospatial data.   
+For data exploration, we will use **QGIS browser Panel** and for data management we will use **Data Source manager**. 
+
+!!! note 
+    Browser panel is analogous to Windows Explorer but work for geospatial data.   
 
 This lab will also introduce the students to the QGIS interface. It is important to learn the concepts in this lab as 
 future labs will require the skills covered in this lab. This lab includes the following tasks:
@@ -60,7 +62,10 @@ the computer and make them easy to find. In this task, you will obtain a copy of
     ![QGIS Start](figures/Lab2/qgis_start_menu.png "QGIS Desktop with browser panel")
     
     This will open QGIS 3.4 Desktop as shown in the following figure. This interface is simple and clean.
-    Browser panle ios visible on top left side and shows all the aviable files and folder (NOTE: your machine may have a different set and number of drives listed here and this is fine).
+    Browser panel is visible on top left side and shows all the aviable files and folder 
+    
+    !!! note 
+        Your machine may have a different set and number of drives listed here and this is fine.
     
     Below the drives are Database Connections and there are no connections to any databases at this point. 
     On top bottom side you will see layer menue, on right side Map Canvas and on the top you will see Main menu bar and several toolbars, which will be explained thoughout the rest of the labs.
@@ -151,8 +156,7 @@ Now that you know how geospatial datasets are stored on your computer, let’s s
 
 ### Task 3.1 - Add Vector Data
     
-1. Now click on Vector icon in the left panel. This opens the Add vector layer panel on the right side. 
-    + Alternatively, click Layer | Add Layer | Add Vector Layer.
+1. Now click on Vector icon in the left panel. This opens the Add vector layer panel on the right side. Alternatively goto menu and click `Layer → Add Layer → Add Vector Layer`.
     ![Add Vector Layer](figures/Lab2/qgis_data_source_vector.png "Add Vector Layer") 
     
 2. Let's add one of the ESRI shapefiles which is a file-based dataset. Click the Browse button. 
@@ -189,8 +193,8 @@ Now that you know how geospatial datasets are stored on your computer, let’s s
 ### Task 3.2 - Add Raster Data
 Now you will learn how to add Raster data to QGIS Desktop.
 
-1. Click the Raster Layer button ![Add Raster Layer button](figures/Lab2/Add_Raster_Layer_button.png "Add Raster Layer button") in Data Source Manager window.
-	+ Alternatively, click Layer | Add Layer | Add Raster Layer.
+1. Click the Raster Layer button ![Add Raster Layer button](figures/Lab2/Add_Raster_Layer_button.png "Add Raster Layer button") in Data Source Manager window.  
+   Alternatively go to menu and click `Layer → Add Layer → Add Raster Layer`.
 2. The Open a GDAL Supported Raster Data Source window opens (displayed in figure below). This is a very similar workflow to adding vector data.
     
     ![Open a GDAL Supported Raster Data Source](figures/Lab2/qgis_add_raster.png "Open a GDAL Supported Raster Data Source")

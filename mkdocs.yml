@@ -11,3 +11,4 @@ theme:
 
 markdown_extensions:
   - admonition
+  - pymdownx.smartsymbols
