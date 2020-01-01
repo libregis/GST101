@@ -80,7 +80,7 @@ This course will focus on one piece of FOSS GIS software, QGIS. However, there a
 5. Click on the QGIS Features link underneath the DISCOVER heading.
 6. Click on the [Take the QGIS feature tour link](http://docs.qgis.org/latest/en/docs/user_manual/preamble/features.html).
 7. **List and describe the first two QGIS features listed**.
-8. Click Discover QGIS to return to the main table of contents. Find the Table of Contents on the left hand side, and click on the [Case Studies](http://qgis.osgeo.org/en/site/about/case_studies/index.html) link. 
+8. Click Discover QGIS to return to the main table of contents. Find the Table of Contents on the left hand side, and click on the [Case Studies](https://www.qgis.org/en/site/about/case_studies/index.html) link. 
 9. **Find a Case Study that interests you. Read it and write a short paragraph explaining the who, what, when and where of the case study.**
 10. From the Table of Contents (on the left hand side) click on [QGIS blogs](http://plugins.qgis.org/planet/).
 11. The QGIS blogs page will open in a new browser tab and is called QGIS Planet.
@@ -88,7 +88,7 @@ This course will focus on one piece of FOSS GIS software, QGIS. However, there a
 13. Close the QGIS Planet tab in your browser. 
 14. You should now be back at the initial QGIS tab in your browser. 
 15. Click on the For Users link at the top of the page. 
-16. Click on the Download QGIS [link](http://qgis.osgeo.org/en/site/forusers/download.html). 
+16. Click on the Download QGIS [link](https://qgis.org/en/site/forusers/download.html). 
 17. Notice that there are versions of QGIS available for all major operating systems (Windows / Mac OS X /  Linux / BSD / Android). You can install QGIS freely on any computer you like by downloading the appropriate installer and running the install program. 
 18. Click on the Sources tab.
 19. **Is the source code available for download?**
@@ -102,4 +102,4 @@ This course will focus on one piece of FOSS GIS software, QGIS. However, there a
 ## 5. Conclusion
 The help resources are another way FOSS differs from proprietary software. With proprietary software, there is typically a dedicated help phone line, or online help resource, that connects you with the vendor. The software license fee covers this support. With FOSS software, the community provides the support services online. For example, QGIS has many online help options. Familiarizing yourself with these will help as you complete your coursework and move forward with your career.
 
-This lab has only scratched the surface with regards to the number of FOSS4G software. There are many organizations and groups doing great work like [Location Tech](http://www.locationtech.org/), [Apache SIS](http://sis.apache.org/), and [R-Spatial](http://rspatial.r-forge.r-project.org/), to name a few.
+This lab has only scratched the surface with regards to the number of FOSS4G software. There are many organizations and groups doing great work like [Location Tech](http://www.locationtech.org/), [Apache SIS](http://sis.apache.org/), and [R-Spatial](https://www.r-spatial.org/), to name a few.

@@ -1,8 +1,8 @@
 # Preface
-This course is **GST101 Introduction to Geospatial Technology** and was written by original authors [Kurt Menke](https://twitter.com/geomenke) and [Rick Smith](https://github.com/RickSmith)
- for [**QGIS 2.8**](https://www.qgis.org) software. At LibreGIS, we have updated this current [**QGIS 3.4.x Long term release**](https://www.qgis.org) software. 
- This course consists of 7 labs and introduction to FOSS and FOSS4G movement. 
-
+This course is **GST101: Introduction to Geospatial Technology** and was written by original authors [Kurt Menke](https://twitter.com/geomenke) and [Rick Smith](https://github.com/RickSmith)
+ for [**QGIS 2.8**](https://www.qgis.org) software. At [LibreGIS](https://github.com/libregis), we have updated this current [**QGIS 3.4.x Long term release**](https://www.qgis.org) software. 
+ This course consists of following seven labs.
+ 
 ## Course Topics
 * [Lab 1 - Getting to Know FOSS and FOSS4G](Lab1.md)
 * [Lab 2 - Spatial Data Models](Lab2.md)
@@ -13,8 +13,8 @@ This course is **GST101 Introduction to Geospatial Technology** and was written 
 * [Lab 7 - Basic Geospatial Analysis Techniques](Lab7.md)
 
 ## Data Sets
-All labs consists of the necessary datasets. Once you download this repo, you will also get all required datasets.
-All data sets are under `Data\Lab1\...`). 
+All labs include necessary datasets to finish individual tasks, and can be obtained by cloning/downloading [this repository on github](https://github.com/libregis/GST101).
+After extraction, you will find data sets under `Data\Lab2\...`). 
 
 ## License  
 This work is licensed under the **Creative Commons Attribution 3.0 Unported License** as opted by original authors. 
