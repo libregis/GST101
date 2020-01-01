@@ -57,7 +57,7 @@ the computer and make them easy to find. In this task, you will obtain a copy of
 
 
 
-1.	Click Start | QGIS 3.4 | QGIS Desktop 3.4.14 as shown in the following figure.  
+1.	Click `Start → QGIS 3.4 → QGIS Desktop 3.4.14` as shown in the following figure.  
     
     ![QGIS Start](figures/Lab2/qgis_start_menu.png "QGIS Desktop with browser panel")
     
@@ -134,7 +134,7 @@ Now that you know how geospatial datasets are stored on your computer, let’s s
 
     !!! note 
         Your QGIS Desktop window may look slightly different than the one pictured above. To reset your display back to the default settings, 
-        click Settings | Options | System tab | Settings section | Reset button, then click OK and restart QGIS Desktop.
+        click `Settings → Options → System tab → Settings section → Reset button`, then click OK and restart QGIS Desktop.
         
     The QGIS Desktop interface is a little cluttered by default, so let's close a few panels so we just see the Layers panel and Map Window.
 

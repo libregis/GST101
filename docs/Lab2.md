@@ -17,10 +17,10 @@
     **Current document (dated: 29/12/2019) is modified from its original form by LibreGIS and continues to be modified and improved by generous public contributions.**
 
 !!! note "Objective"
-    Explore and Understand Spatial Data Models
+    Explore and Understand Coordinate Systems and Map Projections
 
 
-## 1. Explore and Understand Coordinate Systems and Map Projections
+## 1. Introduction
 In this lab, the student will explore the effects of various map projections on the characteristics of a map using QGIS.  QGIS is a free and open source geographic information system software package that can be used to visualize, query, and analyze spatial information.
 
 This lab will focus primarily on shape and area distortions and will examine projections useful for mapping on the global scale as well as on the national and state level.
@@ -33,7 +33,7 @@ This lab includes the following tasks:
 * Task 4 – Exploring State Map Projections
 * Task 5 - Exploring the Universal Transverse Mercator (UTM) Coordinate System
 
-## 2. Objective: Explore and Understand Map Projections and Coordinate Systems
+## 2. Explore and Understand Map Projections and Coordinate Systems
 
 The map projection is a fundamental part of the mapping process, and provides the backbone, or framework, for the map.  It is important for the GIS Specialist to understand the qualities of the mapped region that are preserved by a given projection, and the qualities that will be distorted or skewed. Additionally, for cartographers, selection of an appropriate map projection is a crucial part of the map design process. This is because we are all used to seeing different parts of the world mapped using specific standard projections that make these areas “look right”. 
 
