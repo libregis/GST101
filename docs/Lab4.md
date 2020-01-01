@@ -1,6 +1,6 @@
 # Lab 4 - Creating Geospatial Data
 
-!!! info "Document Version"
+!!! warning "Document Version"
     Date: 29/12/2019
     
     **LibreGIS Lab Author:** Libre GIS, Germany  
@@ -16,7 +16,7 @@
     
     **Current document (dated: 29/12/2019) is modified from its original form by LibreGIS and continues to be modified and improved by generous public contributions.**
 
-!!! Objective
+!!! note "Objective"
     Digitize Information from a Scanned Hardcopy Source
 
 

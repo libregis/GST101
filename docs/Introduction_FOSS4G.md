@@ -1,6 +1,6 @@
 # Introduction 
 
-!!! info "Document Version"
+!!! warning "Document Version"
     Date: 29/12/2019
     
     **LibreGIS Lab Author:** Libre GIS, Germany  
@@ -11,7 +11,7 @@
     
     **Current document (dated: 29/12/2019) is modified from its original form by LibreGIS and continues to be modified and improved by generous public contributions.**
 
-!!! Objective
+!!! note "Objective"
     Explore and Understand FOSS Software Fundamentals and QGIS Help Resources
     
 ## 1. Introduction
