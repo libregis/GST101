@@ -1,4 +1,4 @@
-# Lab 4 - Displaying Geospatial Data
+# Lab 4 - Creating Geospatial Data
 
 !!! info "Document Version"
     Date: 29/12/2019
@@ -17,389 +17,365 @@
     **Current document (dated: 29/12/2019) is modified from its original form by LibreGIS and continues to be modified and improved by generous public contributions.**
 
 !!! Objective
-    Explore and Understand How to Display Geospatial Data
+    Digitize Information from a Scanned Hardcopy Source
 
 
 ## 1. Introduction
 
-In this lab, students will learn how to complete a well-designed map showing the relationship between species habitat and federal land ownership. The student will learn how to style GIS data layers in QGIS Desktop. They will then learn how to use the QGIS Print Composer to design a well crafted map deliverable. The final map will include standard map elements such as the title and map legend.
+In this lab, students will learn how to georeference a scanned map. Georeferencing is the process of transforming the coordinate system of the scanned map, from the coordinate system produced by the scanning process, into a real world projected coordinate reference system. The student will then learn how to digitize information contained in the scanned map into a shapefile. The first task will be to create the empty shapefile to digitize features into. The student will also learn how to edit existing vector datasets.
 
-This lab will also continue to introduce students to the QGIS interface, as QGIS Desktop will be used throughout the course. It is important to learn the concepts in this lab as future labs will require the skills covered in this lab. 
+This lab will continue to introduce students to the QGIS interface. It is important to learn the concepts in this lab as future courses will require the skills covered in this lab. 
 
 This lab includes the following tasks:
 
-*	Task 1 – Add data, organize map layers and set map projections.
+* Task 1 – Create a new shapefile.
 
-*	Task 2 – Style data layers.
+* Task 2 – Transforming coordinate system of source data.
 
-*	Task 3 – Compose map deliverable.
+* Task 3 – Heads-up digitizing from transformed source data.
 
-##	2.	Create a Map that Meets the Customer’s Requirements
+* Task 4 – Editing existing geospatial data.
 
-Often times, you will be provided with a map requirements document from a coworker or customer. For this lab, the student will respond to a map requirements document from a customer who is writing a paper about the state of Greater sage-grouse habitat in the western United States. The map requirements from the customer are below.
+## 2. Objective: Digitize Information from a Scanned Hard Copy Source
 
-Map Requirements from Customer:
+While there is a large amount of digital information readily available to users of GIS, there’s still a large amount of information that has not been converted to digital format. For hundreds of years of hard copy paper maps contained all geospatial data. Many historic, and even newer, hard copy maps have never been digitized. It is possible to extract the information from hardcopy sources through process called digitizing. In this lab, you will use heads-up digitizing to digitize parcels in a portion of Albuquerque, New Mexico from a scanned map. This will be accomplished through a five-step digitizing process:
 
-Hi, my name is Steve Darwin. I am a wildlife biologist writing a paper on the state of Greater sage-grouse (see figure below) populations in the western United States. I need a letter sized, color, map figure that shows the relationship between current occupied Greater sage-grouse habitat and federal land ownership. I am interested in seeing how much habitat is under federal versus non-federal ownership.
+1. Create a shapefile to store the data that will be digitized.
 
-I have been provided data from the US Fish and Wildlife Service depicted current occupied range for Greater sage-grouse. I also have federal land ownership, state boundaries and country boundaries from the US National Atlas. The land ownership data has an attribute column describing which federal agency manages the land (AGBUR). 
+2. Load the scanned map source data  into QGIS
 
-I want to have the habitat data shown so that the federal land ownership data is visible beneath. I would like each different type of federal land styled with standard Bureau of Land Management colors. The map should also include a title (“Greater sage-grouse Current Distribution”), a legend, data sources and the date. The map should be a high-resolution (300 dpi) jpg image.
+3. Georeference the source map
 
-I trust that you will get the figure right the first time, so please just submit the completed figures to the managing editor directly.
+4. Digitize parcels
 
-![Male Greater sage-grouse](figures/Lab4/Male_Greater_sage-grouse.png "Male Greater sage-grouse")
+5. Save
 
-Image attribution: By Pacific Southwest Region from Sacramento, US (Greater Sage-Grouse) [CC BY 2.0 (http://creativecommons.org/licenses/by/2.0)], via Wikimedia Commons.
+## Task 1 - Create a New Shapefile
 
-##	Task 1 - Add Data, Organize Map Layers and Set Coordinate Reference System
+In Task 3, you will be digitizing parcels from a georeferenced data source. In this first task you will learn how to create the new shapefile you will eventually digitize into.
 
-In this first task you will learn a new way to add data to QGIS Desktop. You will then set the projection for the map project, organize the data layers in the Table of Contents and change the layer names.
+1. Open QGIS Browser.
 
-1. Open QGIS Desktop.  
+2. Navigate to the lab folder in the file tree and select the Data folder by clicking once on it so that it is highlighted.
 
-In Lab 2 you learned how to add data to QGIS Desktop by using the Add Vector Data and Add Raster Data buttons. Now you will learn another method of adding data to QGIS Desktop. You will use the QGIS Desktop Browser panel.
+3. Click on the New Shapefile button at the top of the Browser window. This will open the New Vector Layer window.
 
-2. Click View | Panels and make sure *Browser* is checked. The Browser panel will now be displayed.
+    ![QGIS Browser New Shapefile Button](figures/Lab5/QGIS_Browser_New_Shapefile_button.png "QGIS Browser New Shapefile Button")
 
-    *Note:* The Browser panel may be docked or floating, so it may not be in the same location as in the figures in this lab.
+4. Choose a type of ‘Polygon’
+
+5. Click the Select CRS button to open the Coordinate Reference System Selector.
+
+The City of Albuquerque, like most municipalities, uses the State Plane Reference System (SPRC) for their data. You will use the same CRS for your new shapefile.
+
+5. In the Coordinate Reference System Selector interface type New Mexico into the Filter. This will limit the list below to just those with New Mexico in their name. These are different SPRC CRSs for New Mexico. New Mexico has 3 zones and Albuquerque is in the Central zone.
+
+6. Select the NAD83(HARN) / New Mexico Central (ftUS) with an EPSG code of 2903 (see figure below). Click OK once you have selected this CRS to be returned to the New Vector Layer window.
+
+    ![Browsing For The Correct CRS](figures/Lab5/Browsing_for_the_correct_CRS.png "Browsing For The Correct CRS")
     
-    ![QGIS Browser Panel in QGIS Desktop](figures/Lab4/QGIS_Browser_Tab_in_QGIS_Desktop.png "QGIS Browser Panel in QGIS Desktop")
-
-3. Using the file tree in the Browser window navigate to the Lab 4 data folder. 
-
-4. Right click on the Lab 4 data folder and choose Add as a favourite from the context menu.
-
-5. Sometimes when recent changes have been made, such as setting a folder as a favourite, the Refresh button needs to be pressed in order to see the changes. Click the Refresh button (highlighted in figure below).
-
-    ![Refresh button in the QGIS Desktop Browser Window](figures/Lab4/Refresh_button_in_the_QGIS_Desktop_Browser_window.png "Refresh button in the QGIS Desktop Browser Window")
-
-6. Now expand Favourites near the top of the file tree in the Browser window by clicking the plus sign to the left. You will see the Lab 4 data folder listed. Setting the folder as a favourite allows you to quickly navigate to your working folder.
-
-7. You will see 5 shapefiles in the lab data folder:
-	+	Canada.shp
-	+	Land\_ownership.shp
-	+	Mexico.shp
-	+	Sage\_grouse\_current\_distribution.shp
-	+	Western\_states.shp
-
-8. You can select them all by holding down the Ctrl key on your keyboard while left clicking on each shapefile. Select the five shapefiles (shown in figure below).
-
-    ![Shapefiles Selected in Browser window](figures/Lab4/Shapefiles_selected_in_Browser_window.png "Shapefiles Selected in Browser window")
-
-9. Drag the five selected shapefiles onto the map canvas from the Browser panel. This is another way of adding geospatial data to QGIS Desktop. QGIS Desktop should now look like figure below. The random colors that QGIS assigns to the layers may be different than the figure below but that is fine
-	+ *Note:* If you do not see anything displayed in the map canvas, you may need to zoom to full extents of the map by pressing the Zoom Full button ![Zoom Full Button](figures/Lab4/Zoom_Full_Button.png "Zoom Full Button"). Alternatively, you can click View | Zoom Full.
-
-    ![Shapefiles Added to Map Window](figures/Lab4/Shapefiles_added_to_map_window.png "Shapefiles Added to Map Window")
-
-10. Let's save the QGIS project. Click on Project | Save from the menu bar. Navigate to your Lab 4 folder and save your project as Lab 4.
-
-11. We have five layers in the map canvas, but currently all we can see are data for Canada, Mexico and the Western states. When you cannot see a dataset, one approach is to make sure the spatial extent of your map window covers that dataset. Right click on the Sage_grouse_current_distribution layer in the Layers panel, and choose Zoom to Layer from the context menu. This will zoom you into the extent of that dataset.
-
-12. The map is now zoomed to the western United States, but we still cannot see anything that looks like habitat data (shown in figure below).
+    While creating your new shapefile you have the option of adding attribute columns. It is possible to add them later, but if you know of some attribute columns you will need in the layer, it makes the most sense to define them here.  The ID attribute is automatically added to every shapefile you create.
     
-    ![Zoomed into Sage_grouse_current_distribution](figures/Lab4/Zoomed_into_Sage_grouse_current_distribution.png "Zoomed into Sage_grouse_current_distribution")
+    For this lab, you will need an attribute column to hold the zoning code.
 
-    The data layers in the Layers panel are drawn in the order they appear in. So the layer that is on the top of the list in the Layers panel will be drawn on top of the other layers in the map view. Notice that the Western_states layer is in that top position. This mean that Western_states is covering up the Sage_grouse_current_distribution and Land_ownership data, since they are placed lower in the Layers panel. 
-    
-    Let's change this drawing order.
+6. In the New attribute section of the New Vector Layer window, define a new field with: a name of zonecode, as Text data with a width of 5.
 
-13. Select the Land\_ownership data layer in the Layers panel and drag it to the top position. You will see a blue line as you drag this layer up the list.
+    This means the new zonecode attribute column will store data as text and will only be able to accommodate five characters of data. Since our longest zoning code is 4 digits this is more than enough.
 
-14. Your map should now resemble the figure below.
+8. Click Add to attribute list and you will see the new zonecode attribute added.
 
-    ![Land Ownership in the Top Position](figures/Lab4/Land_ownership_in_the_top_position.png "Land Ownership in the Top Position")
+9. Click OK to approve the new shapefile options and open the Save layer as window. Since you had the New Data folder selected when you clicked the New Shapefile button it will default to that folder. If it doesn’t just navigate to that folder now. 
+10. Name the shapefile parcels.shp and click Save to create the shapefile
 
-15. Now drag the Sage\_grouse\_current\_distribution layer into the top position. Your map should now resemble the figure below. 
+    Initially, the new shapefile may not display in the Browser. We need to first refresh the view to see the newly-created file.
 
-    ![Sage Grouse in the Top Position](figures/Lab4/Sage_Grouse_In_The_Top_Position.png "Sage Grouse in the Top Position")
+11. Click the Refresh button in the upper left hand corner of the QGIS Browser window. Expand the New Data folder and you will see the parcels.shp file.
 
-    Now all the data layers should be in the correct order. Typically, data layers will be organized with point data layers on top of line layers on top of polygon layers. Raster data layers are usually placed near the bottom.
-    
-    With the layers in the best drawing order, let's turn our attention to the coordinate reference system for the map.
+11. Select the parcels.shp dataset and click the Metadata tab. You’ll see that it has 0 features and has the Spatial Reference System you specified. The New Mexico Central State Plane zone uses the Mercator projection since it is a north – south oriented zone.
 
-16. Note that the lower right hand corner of QGIS displays EPSG: 4269 OTF. This is the EPSG code for the coordinate reference system (CRS) the map is currently in and an indication that on-the-fly projection is enabled (shown in figure below).
+    ![QGIS Browser With The New Parcel Shapefile Metadata](figures/Lab5/QGIS_Browser_with_the_new_parcel_shapefile_metadata.png "QGIS Browser With The New Parcel Shapefile Metadata")
 
-    ![Map EPSG Code](figures/Lab4/Map_EPSG_code.png "Map EPSG Code")
+## Task 2 - Transforming Coordinate System of Source Data
 
-17. Click on Project | Project Properties from the menu bar to open the Project Properties window. 
-18. Select the CRS tab. 
-    The current QGIS map CRS is listed at the bottom (shown in figure below). This is a detailed explanation of the maps CRS which is a geographic coordinate system using the NAD83 datum. This CRS makes the lower 48 look stretched out and distorted, so you’ll want to change the maps CRS into something that makes the lower 48 “look correct”. 
+Now that you have created an empty shapefile to store the digitized information, you will perform a coordinate transformation (also known as georeferencing) on the source data set so that it is in an Earth-based coordinate system. In this case, the coordinate system will match your parcel shapefile (NAD83(HARN) / New Mexico Central (ftUS)).
 
-19. Make sure that the Enable ‘on the fly’ CRS transformation option is checked. Click OK to close the Project Properties window.
+To perform this task you will be using a Plugin. Plugins are small add-ons to QGIS. Some are created by the core QGIS development team and others are created by third party developers. 
 
-    Since the Sage\_grouse\_current\_distribution layer is in an Albers projection, and the QGIS map is in a geographic CRS, that means that the Sage\_grouse\_current\_distribution layer is being projected on the fly into the geographic projection of the map.
+1. Open QGIS Desktop.
 
-20. Right click on the Sage\_grouse\_current\_distribution layer and choose Set Project CRS from Layer option on the context menu (Figure below). This will put the map into the Albers CRS of the Sage grouse layer. Note that the EPSG code in the lower right corner now reads 5070 for the Albers CRS. This CRS gives the western US an appearance we are more used to. Any other map layers not in Albers, will now be projected on the fly into Albers.
+2. Open QGIS Browser Panel.
 
-    ![Map CRS from Project Properties](figures/Lab4/Map_CRS_from_Project_Properties.png "Map CRS from Project Properties")
-    Now you will change the layer names in the Layers panel. The layer names match the names of the shapefiles by default. However, these names will appear on the legend. So you will always want to change these to proper names that your map reading audience will understand. 
+3. Arrange Browser Panel and Desktop so that you can see both windows simultaneously on your desktop. 
 
-21. Right click on the Sage\_grouse\_current\_distribution layer, and choose the Properties from the context menu, to open the Layer Properties window. Choose the General tab on the left.  Click in the box next to Layer name and change the name to Sage-grouse Habitat (shown in figure below). Click OK to close the Layer Properties window.
-	+ Alternatively, you can right click on a layer in the Layers panel and choose Rename from the context menu to make the layer name editable directly in the Layers panel.
-    ![Changing Layer Name](figures/Lab4/Changing_Layer_Name.png "Changing Layer Name")
+4. In Browser Panel find the new parcels shapefile. Select it and drag it onto the map window of QGIS Desktop. This is another way to add data to Desktop. 
 
-22. Change the other layers names as follows:
+5. From the Menu bar in QGIS Desktop, choose Project | Project Properties.
+6. Click the CRS tab and Enable ‘on the fly’ CRS transformation. Click OK to save the setting and close the properties window.
 
-	+ Change Land ownership to Federal Land Ownership
-	+ Change Western\_states to State Boundaries
+6. The project should now have a CRS of EPSG 2903 (which is NAD83(HARN) / New Mexico Central (ftUS)) and on the fly CRS transformation is enabled. You can check this by looking at the lower right hand corner of QGIS Desktop and ensuring that EPSG: 2903 (OTF) is listed. If not right click on the parcels layer and from the context menu choose Set Project CRS from Layer.
 
-23. Click the File | Save to save the changes you have made to your project.
+7. Save the project to the Lab 5 folder and name it Lab5.qgs.
 
-## Task 2 - Style Data Layers
+8. From the menu bar choose Plugins | Manage and Install Plugins
 
-Now that you have set up your map, you will style your layers and begin to craft a well-designed map.
+9. The Plugins manager will open. Options along the left side allow you to switch between Installed, Not Installed, New, and Settings. The plugin you will use is a Core QGIS Plugin called Georeferencer GDAL. 
 
-Visually you will want the land ownership and sage-grouse habitat to have the most weight. Canada and Mexico are there for reference but should fall to the background. You will make them both light gray.
+10. Since it is a Core plugin it will already be installed. You just need to enable it. Click on Installed plugins and check the box next to Georeferencer GDAL (shown in figure below).
 
-1. Double-click on the Canada layer to open the Layer Properties window (this is another way to open Layer Properties). 
+    ![Plugin Manager](figures/Lab5/Plugin_Manager.png "Plugin Manager")
 
-2. Click on the Style tab.
+11. Click Close to close the Plugins window.
+12. To open the Georeferencer plugin go to the menu bar choose Raster | Georeferencer | Georeferencer.
 
-3. In the Symbol layers box click on Simple fill (reference figure below).
+12. The Georeferencer window opens. Click the Open Raster button at the upper left hand side (see figure below).
 
-    ![Layer Style](figures/Lab4/Layer_Style.png "Layer Style")
+![Open Raster Button](figures/Lab5/Open_Raster_button.png "Open Raster Button")
 
-4. Find the Symbol layer type box on the right side of the window. This allows you to change both the fill and outline symbols for this polygon layer. Click on the colored box to the right of Fill (shown in figure below) to open the Color picker window.
+13. Navigate to the Lab 5/Data folder and select the zone_map.bmp and click Open. *Note:* If the Coordinate Reference System Selector window opens click Cancel to close. This dataset does not yet have an Earth-based coordinate system. The source data will now be loaded in the Georeferencer (shown in figure below)
 
-    ![Fill Color Box](figures/Lab4/Fill_Color_Box.png "Fill Color Box")
-    
-    You can pick existing Basic colors or define a color via A) hue, saturation and value (HSV) or B) red blue and green (RGB) values. Set the color to Hue: 0 Sat: 0% and Val: 90%. Make sure your Color picker window matches the figure below.
-    
-    ![Select Color](figures/Lab4/Select_Color.png "Select Color")
+![Georeferencer With Source Data Loaded](figures/Lab5/Georeferencer_with_source_data_loaded.png "Georeferencer With Source Data Loaded")
 
-5. Click the button with the blue arrow to add the color to the custom color buttons. Click OK to close the Color picker window.
+The source data is a map. On the map, there are 5 points with their associated names (for example, one point's name is: I25 27). These are benchmarks maintained by the National Geodetic Survey. To georeference this scanned map, you will create control points at these five locations. The plugin will then develop a georeferencing equation based off the set of source and target coordinates at these five locations. QGIS will obtain the source coordinates from your mouse click on those points. You will look up the target coordinates for these benchmarks from the NGS website. 
 
-6. Back in the Layer Properties window, for the Border style, select Solid Line from the dropdown menu (shown in figure below).
+14. The NGS website is at [http://www.ngs.noaa.gov/cgi-bin/datasheet.prl](http://www.ngs.noaa.gov/cgi-bin/datasheet.prl). Open the site. *Note*: If you are unable to access the internet, the NGS Data Sheets have been downloaded and saved in the Lab 5/Data/NGS Data Sheets folder. Please read the next few steps to learn how the NGS Data Sheets were acquired.
 
-    ![Border Style Set to Solid Line](figures/Lab4/Border_Style_Solid_Line.png "Border Style Set to Solid Line")
+You will search for each of the benchmarks that appear on the map by searching for each benchmark’s datasheet.  You will use the Station Name option to do the search.  
 
-7. Click OK on the Layer Properties window to close and style the Canada layer.
+15. On the website click on the DATASHEETS button. Then click on the link for Station Name.
 
-8. Open Layer Properties for Mexico. Make Mexico look the same as Canada. You can just choose the Custom color you just saved to save time.
+16. To find the first station, enter the station name of I25 27 (include the space), and then choose NEW MEXICO for the state. The search is shown in the figure below. *Note*: the station name is I25 27 with a capitalized letter i.
 
-    Your map should now look like figure below.
+![NGS Datasheet Search](figures/Lab5/NGS_Datasheet_Search.png "NGS Datasheet Search")
 
-    ![Mexico and Canada Changed to a Gray Fill](figures/Lab4/Mexico_and_Canada_changed_to_a_gray_fill.png "Mexico and Canada Changed to a Gray Fill")
+The search should return the page shown in the figure below. 
 
-9. Using the same workflow, give the State Boundaries a white fill. You will be able to find white in the Basic colors palette.
+![NGS Datasheet Search Result](figures/Lab5/NGS_Datasheet_Search_Result.png "NGS Datasheet Search Result")
 
-    Now you will style the Land Ownership layer. Instead of making the entire layer one color as you have done thus far, you will assign a unique color to each land managing agency. How do you know who is managing each parcel? This will be information contained in the attribute table. 
+18. Highlight the station name and click the Get Datasheets button and you will get something that looks like the figure below.
 
-10. Right click on Federal Land Ownership layer in the Layers panel, and choose Open the Attribute Table from the context menu. 
+![NGS Datasheet](figures/Lab5/NGS_Datasheet.png "NGS Datasheet")
 
-    There are 13 column of information. Can you find the one that contains the land manager?
+This is an NGS Data Sheet.  It gives measurement parameters for NGS benchmarks located throughout the United States.  One piece of information it includes are coordinates for benchmarks in State Plane feet (highlighted in the figure above). There are two sets of State Plane coordinates on the NGS Data Sheet; one is in meters (MT) and one is in feet (sFT). Be sure to use the set in feet. *Important Note*: There is a dash before the North coordinate. It is *not* a negative number.  
 
-11. Open the Layer Properties for the Federal Land Ownership layer and switch to the Style tab. So far you’ve used the default Single Symbol type. Now you will switch to Categorized. 
+19. Find the data sheet for each benchmark shown in the map and fill in the coordinates below. The coordinates for the first station have been entered already. *Note*: If you are unable to access the internet, the NGS Data Sheets have been downloaded and saved in the Lab 5/Data/NGS Data Sheets folder.
 
-12. Click the drop down menu and change from Single Symbol to Categorized (Figure below).
+		Benchmark | Northing      | Easting
+		I25 27	    1,484,404.48    1,524,608.32
 
-    Now you have the option of choosing an attribute column to symbolize the layer by. The column AGBUR is the one that contains the managing agency values. 
+		I25 28
 
-13. Click the drop down arrow and choose AGBUR for the Column. 
+		I25 29
 
-14. Click the Classify button (shown in figure below). This tells QGIS to sort through all the records in the table and identify all the unique values. Now you can assign a specific color to each class by double clicking on the color square.
+		K 15 S
 
-    ![Categorized Symbols by Attribute](figures/Lab4/Categorized_symbols_by_Attribute.png "Categorized Symbols by Attribute")
+		STADIUM
 
-    Notice that there is a symbol with no values. These are parcels with no values (NULL) in the AGBUR field. They represent private and state inholdings within federal lands. Since you are just interested in depicting federal land ownership you’ll delete that symbol class. 
+20. The next step is to enter the control points in the Georeferencer. Click on the Add point button ![Add point button](figures/Lab5/Add_point_button.png "Add point button"). 
 
-15. Select that top symbol by clicking on it, and then click the Delete button below to remove that symbol. Now those parcels will not be included on the map.
+It is important to be precise and click directly on the point. To help make your selection more precise, you can zoom and pan by using tools in the View toolbar (shown in figure below). If you want to redo a control point click the Delete point button ![Delete point button](figures/Lab5/Delete_point_button.png "Delete point button") then click on the point to delete.) 
 
-    For the remaining federal land ownership symbols you will use the BLM Standards Manual for land ownership maps [http://www.blm.gov/noc/st/en/business/mapstandards/colormod.html](http://www.blm.gov/noc/st/en/business/mapstandards/colormod.html). 
+![Georeferencer View Toolbar](figures/Lab5/Georeferencer_View_Toolbar.png "Georeferencer View Toolbar")
 
-    + *Note:* A PDF of the BLM Map Color Standards is also available in your lab folder and is named BLM Map Color Standards.pdf.
+21. With the Add point button selected, click on point I25 27.
 
-    The BLM has designated colors for each type of land ownership. When composing a map it is important to pay attention to industry specific standards. Following them will make the map more intuitive to the target audience. For example, people are used to seeing Forest Service land depicted in a certain shade of green.
+22. The Enter map coordinates window opens. Enter the easting and northing State Plane Coordinates that you retrieved from the NGS Data Sheet into the two boxes. Make sure you enter them correctly. The correct coordinates are entered for I25 27 in the figure below. 
 
-16. To color BLM lands, double click on the color patch left of BLM in the Style window. The Symbol selector will open. 
-17. Click on Simple fill. 
-18. You will not want any border lines on these polygons. With such a complicated thematic polygon layer they are too visually distracting. Choose a Border style of No Pen. 
-19. Click on the Fill style color patch to open the Color Picker window.
-20. In the Color Picker window, change the Red, Green, and Blue values to 254 – 230 – 121 (shown in figure below). This will change the color to a specific shade of tan representing BLM lands. Click OK in the Color Picker window. Then click OK in the Symbol Selector to save the BLM style.
+![Adding a Control Point for ‘I25 27’](figures/Lab5/Adding_a_Control_Point.png "Adding a Control Point for ‘I25 27’")
 
-    ![Select Color for BLM lands](figures/Lab4/Select_Color_for_BLM_lands.png "Select Color for BLM lands")
+22. Click OK and a red control point will appear on the map where you clicked. The source (srcX, srcY) and destination (dstX, dstY) X,Y coordinates will display in a table at the bottom of the window.
 
-21. Use the values below to change the RGB colors for the remaining six land ownership classes. Also choose No pen for the border style.
-    + BOR | 255-255-179
-    + DOD | 251-180-206
-    + FS | 179-222-105
-    + FWS | 127-204-167
-    + NPS | 177-137-193
-    + OTHER | 150-150-150
+23. Repeat this procedure for points ‘I25 28’, I25 29’, K 15 S’ and ‘STADIUM’. After the 5 control points have been entered your Georeferencer window should look like the figure below.
 
-22. When finished, click OK on the Layer Properties for Federal Land Ownership.
- 
-23. Turn off Sage-grouse Habitat by clicking the X next to the name in the Layers panel.
+![All Control Points Entered](figures/Lab5/All_control_points_entered.png "All Control Points Entered")
 
-    Your map should now resemble figure below.
+23. To perform the transformation click the Start georeferencing button ![Start georeferencing button](figures/Lab5/Start_georeferencing_button.png "Start georeferencing button").
 
-    ![Styled Federal Land Ownership](figures/Lab4/Styled_Federal_Land_Ownership.png "Styled Federal Land Ownership")
+24. The Transformation settings window will open (see figure below). If beforehand you get a message saying ‘Please set transformation’ type click OK. 
 
-    Now you will set a background color for the map. Since states are filled with white, setting a background color of light blue will serve to represent the Pacific Ocean.
+	1. In the Transformation window choose the Polynomial 1 as the Transformation type. 
+	
+	2. Choose Nearest neighbor as the Resampling method. This is the standard raster resampling method for discrete data such as a scanned map. 
+	
+	3. Click the browse button to the right of Output raster. Navigate to your Lab 5/Data folder.
 
-24. From the menu bar choose Project | Project Properties. 
-25. On the General tab, click the white color patch next to Background color to open the Color Picker window.
-26. Set the RBG value to: **225**-255-255. 
-27. Click OK on the Color Picker window and OK on Project Properties to save the setting. 
+	4. Create a new folder named New Data then enter the folder.
 
-    Depending on your current map extent, the area east of the states layer may be blue now too. That is fine. For the final map we will be zoomed in so you won’t see that.
+	5. Name the file zone_map_modified_spcs.tif and click Save.
+	
+	4. Click the browse button to the right of Target SRS. Type 2903 into the Filter.
 
-    The states are white with a black border and serve to show non-federal land as white which is great. However, the state boundaries are obscured since State Boundaries are below Federal Land Ownership. 
+	6. Click the NAD83(HARN)/New Mexico Central (ftUS):2903 CRS then click OK.
 
-28. Go to the Browser panel and add Western\_states.shp to the map again. You can have multiple copies of layers for cartographic purposes. 
-29. Drag the Western\_states layer to the top of the Layers panel. 
-30. Open the Layer Properties window for the Western\_states layer and select the Style tab.
-31. Click on Simple fill. 
-32. Give the layer a Fill style of No Brush (see figure below). It will now just be the state outlines above Federal Land Ownership. 
+	5. Check Load in QGIS when done.
+	
+	6. Click OK to close the Transformation settings window and perform the transformation.
 
-    ![Giving Western_states a No Brush fill](figures/Lab4/Giving_Western_states_a_No_Brush_fill.png "Giving Western_states a No Brush fill")
+![Transformation Settings](figures/Lab5/Transformation_Settings.png "Transformation Settings")
 
-33. Click OK to save the style and close the Layer Properties window.
-34. Your map should now resemble figure below.
+25. Close the Georeferencer and Save GCP points when prompted.
 
-    ![Hollow States Layer Added to Map](figures/Lab4/Hollow_states_layer_added_to_map.png "Hollow States Layer Added to Map")
+26. Right click on the zone_map_modified.tif and choose Zoom to layer extent to see the georeferenced image.
 
-    The last layer to work with is the Sage-grouse Habitat. You will make the Sage-grouse Habitat polygons have a crosshatch pattern. This will allow the map reader to see the land ownership data beneath. 
+27. Using the Add vector data button add the netcurr.shp shapefile in the Lab 5/Data folder to QGIS. This is a shapefile representing city streets produced by the City of Albuquerque. If the transformation was done correctly, the streets will line up with the georeferenced parcel map image (shown in figure below). Save your map file.
 
-35. Turn on the visibility for the Sage-grouse Habitat layer.
-36. Open the Layer Properties for Sage-grouse Habitat. 
-37. Click on Simple fill. 
-38. Change the Fill color to RGB 170-0-255. 
-39. Change the Border color to RGB 142-0-213. 
-40. Make the Fill style FDiagonal. 
-41. Finally change the Border width to 0.46 (reference settings in figure below).
+![Georeferenced Parcel Map Image](figures/Lab5/Georeferenced_parcel_map_image.png "Georeferenced Parcel Map Image")
 
-    ![Sage-grouse Habitat Styling](figures/Lab4/Sage-grouse_Habitat_styling.png "Sage-grouse Habitat Styling")
+## Task 3 - Heads-up Digitizing From Transformed Source Data
 
-42. Click OK.
-43. Save your project!
+Now you will digitize the parcels off the georeferenced image into the parcels shapefile.
 
-    Your map should now resemble Figure below.
+1. Drag the parcels layer above the zone_map_modified_spcs layer in the Layers panel. Right click on parcels and choose Toggle editing. This puts the parcels layer into edit mode. Notice that a pencil appears next to the layer in the Layers panel indicating that layer is in edit mode. Only one layer can be edited at a time. 
 
-    ![All Layers Styled](figures/Lab4/All_layers_styled.png "All Layers Styled")
+2. Turn off the netcurr layer's visibility.
 
-##	Task 3 - Compose Map Deliverable
+2. Using the Zoom in tool, drag a box around the M-1 parcels in the northwest corner of the image. You will digitize these first.
 
-Now that all the data is well styled you can compose the map deliverable.
+There is an Editing toolbar for editing vector datasets (see figure below). If you do not see that go to the menu bar to View | Toolbars and turn it on. The tools available change slightly depending on the geometry of the data you are editing (polygon, line, point).When editing a polygon layer you will have a tool for adding polygon features.
 
-1. Zoom in tighter to the Sage-grouse Habitat data.
+![Editing Toolbar](figures/Lab5/Editing_toolbar.png "Editing Toolbar")
 
-	+ Use the Zoom in tool and drag a box encapsulating the sage-grouse habitat. Leave a little of the Pacific Ocean visible to the west to give some context (reference figure below).
+3. Click on the Add Feature tool ![Add Feature tool](figures/Lab5/Add_Feature_tool.png "Add Feature tool"). Your cursor will change to an editing cursor that looks like a set of cross hairs.
 
-    As it turns out, the data for Mexico is not needed. Sometimes you are given data that does not end up being used, but is nice to have in case you do need it.
+Polygons are constructed of a series of nodes which define their shape. Here you will trace the outline of the first parcel clicking to create each node on the polygons boundary.
 
-    ![Final Map Extent](figures/Lab4/Final_Map_Extent.png "Final Map Extent")
+4. Put your cursor over a corner of one of the polygons. Left click to add the first point, left click again to add the second, and continue to click around the perimeter of the parcel. After you have added the final node finish the polygon with a right click.
 
-2. From the menu bar choose Project | New Print Composer. 
-3. Name the Composer “Lab 4 - Sage-grouse Habitat” (shown in figure below). 
+5. An Attributes window will open asking you to populate the two attributes for this layer: id and zonecode. Give the parcel an id of 0 and the zonecode is M-1 (shown in figure below). Each parcel feature will receive a unique id starting here with zero. The next parcel you digitize will be id 1, the one after that id 2 etc. 
 
-    ![New Print Composer](figures/Lab4/New_Print_Composer.png "New Print Composer")
+![Attributes Window](figures/Lab5/Attributes_window.png "Attributes Window")
 
-4. Click OK. The Print Composer will open. This is where you craft your map.
-    The Print Composer is an application window with many tools that allow you to craft a map. For detailed information about the Print Composer, refer to the QGIS manual: [http://www.qgis.org/en/docs/user_manual/print_composer/print_composer.html](http://www.qgis.org/en/docs/user_manual/print_composer/print_composer.html) 
-    The main window of the Print Composer displays the piece of paper upon which the map will be designed. There are buttons along the left side of the window that allow you to add various map elements: map, scale bar, photo, text, shapes, attribute tables, etc. Each item added to the map canvas becomes a graphic object that can be further manipulated (if selected) by the Items tab on the right side of the composer. Across the top are buttons for exporting the composition, navigating within the composition and some other graphic tools (grouping/ungrouping etc.)
+6. Click OK to close the Attributes window and complete the polygon.
 
-5. On the Composition tab you can specify details about the overall composition. Set the Presets to ANSI A (Letter; 8.5x11 in). 
-6. Set the Orientation to Landscape. 
-7. Set the Export resolution to 300 DPI. 
+If you want to delete the polygon you have just added, click the Current Edits tool dropdown menu ![Current Edits tool dropdown menu ](figures/Lab5/Current_Edits_tool_dropdown_menu.png "Current Edits tool dropdown menu") and choose Roll Back Edits to undo your polygon.
 
-    (These are listed as map requirements at the beginning of the lab.)
+6. Adding single isolated polygons is pretty straightforward. Zoom back to the extent of the image. You can do this by clicking the Zoom last button ![Zoom last button](figures/Lab5/Zoom_last_button.png "Zoom last button").
 
-8. Using the Add new map button ![Add new map](figures/Lab4/Add_new_map.png "Add new map") drag a box on the map canvas where you’d like the map to go. Remember that you’ll need room for a title at the top of the page and a legend to the right of the map (reference figure below).
+7. Find the big parcel in the south central area. There is a parcel with zoning code SU-1 that wraps around O-1. Zoom to that area.
 
-    The map object can be resized after it’s added by selecting it and using the handles around the perimeter to resize.
+8. Open the Layer properties | Style tab for the parcels layer and set the Layer transparency to 50%. This will allow you to see the source data underneath your parcels as you digitize.
 
-    *Map extent helpful hints:* Generally, the map will look as it does within QGIS Desktop. However, you may need to change the map extent in QGIS Desktop, go back to the Print Composer and click the Refresh view button ![Refresh view button](figures/Lab4/Refresh_view_button.png "Refresh view button"). It is normal to have some back and forth with QGIS Desktop and the Print Composer before getting the map just right.
+9. Digitize the outer boundary of the SU-1 parcel ignoring the O-1 parcel for the moment. Fill in the attributes when prompted (id=0, zonecode=SU-1). The SU-1 polygon will be a ring when completed but for now it covers the O-1 parcel. 
 
-    ![New Print Composer](figures/Lab4/New_Print_Composer.png "New Print Composer")
-    
-    Now you will add the title to your map.
+10. To finish SU-1 you will use a tool on the Advanced Editing toolbar. To turn that on go to the menu bar and choose View | Toolbars | check Advanced Editing. Dock the Advanced Editing toolbar where you would like (toolbar shown in figure below). (All toolbars in the QGIS interface can be moved by grabbing the stippled left side and dragging them to different parts of the interface.)
 
-9. Use the Add new label tool ![Add new label](figures/Lab4/Add_new_label.png "Add new label") to drag a box all the way across the top of the composition. The text box can be resized after the fact by using the graphic handles.
-10. Use the Item Properties to type in the title. Enter the title as 'Greater sage-grouse Current Distribution'. 
-11. In the Items tab, select the title. This will change the properties available in the Item Properties tab.
-12. In the Item Properties tab, click the Font button and change the font to: Times New Roman, Bold, Size 36.
-13. Finally align the title horizontally to the Center of the map (see figure below).
+![Advanced Editing Toolbar](figures/Lab5/Advanced_Editing_Toolbar.png "Advanced Editing Toolbar")
 
-    ![Adding a Title](figures/Lab4/Adding_A_Title.png "Adding a Title")
+11. Now you’ll use the Add Ring tool ![Add Ring tool](figures/Lab5/Add_Ring_tool.png "Add Ring tool"). Select it and click around the perimeter of the O-1 parcel. Right click to finish. This creates a ring polygon (shown in figure below).
 
-14. Now you will add a Legend. Use the Add new legend tool ![Add new legend](figures/Lab4/Add_new_legend.png "Add new legend") to drag a box on the right side of the map (shown in figure below).
+![SU-1 Ring Polygon ](figures/Lab5/SU-1_Ring_Polygon.png "SU-1 Ring Polygon")
 
-    ![Adding a Legend](figures/Lab4/Adding_A_Legend.png "Adding a Legend")
+14. To Digitize O-1 you will use a tool that is part of the Digitizing Tools Plugin. First open the Plugin Manager and search for 'Digitizing Tools' in the All category. Select the Plugin and click the Install Plugin button. You should get the message Plugin Installed Successfully. Once it has been installed switch to the Installed plugins and make sure the Digitizing Tools toolbar is visible. Dock the toolbar.
 
-    The upper most Western\_states layer does not need to appear in the legend, nor does Mexico. Western\_states is there purely for cartographic reasons and Mexico does not appear on the map. The Item properties tab will be used to configure the legend (see figure below).
+![Digitizing Tools Plugin](figures/Lab5/Digitizing_Tools_plugin.png "Digitizing Tools Plugin")
 
-    ![Legend Properties](figures/Lab4/Legend_Properties.png "Legend Properties")
+15. On the Attributes tool, click the Select Features... tool ![Select Tool](figures/Lab5/Select_Tool.png "Select Tool") and select the SU-1 polygon.
 
-15. Uncheck Auto update. This will enable us to modify the legend, however, updates to the map on the map wil no longer be reflected in the legend unless we re-enable Auto update.
-16. Select the Western\_states layer and click the Delete item button ![Delete item button](figures/Lab4/Delete_item_button.png " Delete item button ") to remove it. Do the same for Mexico.
-17. Expand the Federal Land Ownership layer. 
-18. Click on the BLM class and click the Edit button ![Edit button](figures/Lab4/Edit_button.png "Edit button"). 
-19. Change the name to “Bureau of Land Management”. Go through each remaining land ownership class and edit them to match Figure below.
+17. On the Digitizing toolbar, select the dropdown next to the Fill ring with a new feature (interactive) tool and select Fill all rings in selected polygons with new features tool (selection shown in figure below).
 
-    ![Legend Layer Labels](figures/Lab4/Legend_Layer_Labels.png "Legend Layer Labels")
+![Fill All Rings In Selected Polygons Tool](figures/Lab5/Fill_All_Ring_In_Selected_Polygons.png "Fill All Rings In Selected Polygons Tool").
 
-    Now we will add a neatline around our map. 
+15. You will immediately be prompted to enter the attributes for the new O-1 polygon (id=2, zonecode=O-1).
 
-20. Click the Add Rectangle tool (shown in figure below). 
+16. Click OK when done and the new polygon will appear. It automatically fills the space leaving no gaps.
 
-    ![Adding a Neatline](figures/Lab4/Adding_a_Neatline.png "Adding a Neatline")
+16. Use the Identify tool ![Identify tool](figures/Lab5/Identify_tool.png "Identify tool") to click on O-1 and SU-1 and verify that they are digitized correctly.
 
-21. Drag a box around the map object and legend. 
-22. On the Item Properties tab, click the Style Change button. 
-23. Click Simple fill and give it a Fill style of No Brush. 
-24. Give it a Border width of 1. 
-25. Adjust the box so that it aligns with the map boundary. 
+*Note*: If you end up needing to move one or two misplaced vertices on a finished polygon you can do that. Use the Select Single Feature tool ![Single Feature tool](figures/Lab5/Single_Feature_tool.png "Single Feature tool") to select the polygon, and then use the Node Tool ![Node Tool](figures/Lab5/Node_Tool.png "Node Tool") to select the individual node and move it.
 
-    You may find it necessary to lock the rectangle so you can move other map elements. To lock a map element and keep it from being selected, in the Items tab, check the box in the lock column as shown in the figure below.
+To digitize the remaining polygons, we will first turn on snapping options to make it easier to have adjacent polygons share vertices and/or segments.
 
-    ![Locking a Layer](figures/Lab4/Locking_A_Layer.png "Locking a Layer")
+17. To do so first you will set your snapping environment. Go to the menu bar and choose Settings | Snapping options.
 
-    The last items to add to the map are the data sources and date. 
+This is a window that lets you configure what layers you can snap to while editing and set the snapping tolerance. The Snapping mode lets you control what portions of a feature are being snapped to.
 
-26. Click the Add new label tool.
-27. Drag a box in the lower right hand corner of the composition. Using the Item Properties type: 
++ To Vertex will snap to vertices
++ To Segment will snap to any part of another layers edge
++ To Vertex and Segment will snap to both.
 
-    Data Sources: The National Atlas & USFWS
+The Tolerance determines how close your cursor needs to be to another layer before it snaps to it. It can be set in screen pixels or map units. In our case map units are feet.
 
-    Date: Month Day, Year
+13. For Snapping mode, change it to Advanced. The Snapping options dialog will now show a list of map layers and options.
 
-28. Make the font Times New Roman and the font size 8.
+15. Check parcels since we want to snap our parcels to that layer. Set the tolerance for parcels to 50 map units and choose a Mode of 'to vertex'.
 
-    Your map should resemble the figure below.
+16. Check the box under Avoid intersections to the right of Units (shown in the figure below). This enables Topological editing. When digitizing a shared boundary with this option checked you can begin with one of the vertices at one end of the shared boundary. Then continue digitizing the boundary of the new polygon and end at a vertex at the other end of the shared boundary. The shared boundary will be created automatically eliminating digitizing errors.
 
-    ![Adding Supplemental Text](figures/Lab4/Adding_Supplemental_Text.png "Adding Supplemental Text")
+![Snapping Options](figures/Lab5/Snapping_Options.png "Snapping Options")
 
-29. Congratulations your map is finished! The final step is to export it to a high-resolution jpg image. 
+The map units are feet so when you get within 50 feet of a node (aka vertex) you will snap to it. This allows you to be much more precise than you could otherwise.
 
-30. Click the Export as image button ![Export as Image Button](figures/Lab4/image_button.png "Export as Image Button").
+13. Click OK to set the Snapping options.
 
-31. Choose JPEG as the Save as type and save the image to your Lab 4 folder. Name the file “Lab4_Map.jpg” and click Save.
+If snapping is interfering with digitizing a parcel polygon you can go to Settings | Snapping options at any time (even during digitizing) and turn snapping off until you need it again. 
 
-32. The final map should look like Figure below.
+17. Finish digitizing the polygons. Anytime you have a parcel that shares a boundary with another, use snapping to make sure you create two parcels without a gap in between.
 
-    ![Final Map](figures/Lab4/Final_Map.png "Final Map")
+Remember you can adjust the snapping tolerance and what features are being snapped to Vertex, Segment and Vertex and Segment.
+
+18. When finished, click the Toggle Editing ![Toggle Editing button](figures/Lab5/Toggle_Editing_button.png "Toggle Editing button") button to exit out of editing mode. You will be prompted to save your changes. Click Save to save the edits.
+
+19. Turn off the zone_map_modified_spcs raster. You are done with that now. It was an intermediate step necessary to get the parcel boundaries digitized.
+
+20. Save your QGIS project.
+
+## Task 4 - Editing Existing Geospatial Data
+
+Now that you have digitized data into the empty shapefile you created, you will learn how to modify existing shapefiles.
+
+1. Click the Add Raster Layer button and navigate to the Lab 5/Data folder.
+2. 
+2. Set the filter to Multi-resolution Seamless Image Database (*.sid, *.SID).
+3. 
+3. Add all four SID images.
+
+2. Drag the parcels layer above the image in the Layers panel. 
+
+5. Turn off the parcels layer.
+
+13. Now you will make an edit to a line layer. Turn on the netcurr layer.
+
+14. Zoom into the location highlighted in Figure below.
+
+![Roads, Parks and Aerial Photography](figures/Lab5/Roads_Parks_and_Aerial_Photography.png "Roads, Parks and Aerial Photography")
+
+You will digitize the missing main road, shown in yellow in the figure below.
+
+![Missing Road](figures/Lab5/Missing_Road.png "Missing Road")
+
+16. Toggle on editing for netcurr.
+
+17. Set your Snapping options so that only netcurr is being snapped to, with a Mode of To Vertex and a Tolerance of 20 feet. 
+
+18. Using the Add Feature tool on the Editing toolbar ![Add Feature tool](figures/Lab5/Add_Feature_tool1.png "Add Feature tool"),  digitize the new road making sure to snap to the roads at the northern and southern ends. Use the centerline of the road while digitizing.
+
+19. There are many attributes for this layer. You will just enter a few. Enter the STREETNAME as Park, the STREETDESI as Place, the STREETQUAD as SE and the COMMENTS as Lab 5. Click OK.
+
+20. Toggle off editing and Save.
 
 ## 4. Conclusion
 
-    In this lab you created a well-designed map using some of the cartography tools available in QGIS Desktop. You created a nice map highlighting federal land ownership within sage-grouse habitat for a client. This involved styling layers, styling layers by categorical attributes and crafting a map composition.
+In this lab, you have successfully digitized information using the five-step digitizing process.  Additionally, you have recreated the original source data (scanned as a raster) in the vector format.  Digitizing can be a time-consuming and tedious process, but can yield useful geographic information.
 
 ## 5. Discussion Questions
 
-1. Export the final map as a high-resolution jpg for your instructor to grade.
-2. What are two ways to add vector data to QGIS Desktop?
-3. How would a portrait orientation change the composition of the map? Describe how you would arrange the map elements.
-4. No map is perfect. Critique this map. What do you like about it? What do  you dislike about it? How would you change this map to improve it? Would you add other data layers or add labels?
+1. What can contribute to errors in the georeferencing process?
+
+2. What other vector geometries (point/line/polygon) could be appropriate for digitizing a road?  In which instances would you use one vector geometry type over another?
+
+3. When you created the parcels shapefile you added a text field to hold the zoning codes. What are the possible field types?  Explain what each field type contains, and provide an example of a valid entry in the field.
+
+4. Aerial photography has a lot of information in it. What other features could you digitize from the imagery in this lab? Explain what vector geometry you would use for each. 
 
 ## 6. Challenge Assignment (optional)
 
-Another biologist working with black bears on the east coast heard about your great work on the sage-grouse map. She would like you to create a similar map for her. The data she is providing is in the Lab 4/Data/Challenge folder.
+You have successfully created the parcel data from a scanned map. You have also fixed the roads data in this part of town. There are some sports facilities visible: two football fields and a baseball field. Create a new layer and digitize those three facilities (include the grassy field areas at a minimum). 
 
-![Lab 4/Data/Challenge folder](figures/Lab4/Lab_4_Data_Challenge_folder.png "Lab 4/Data/Challenge folder")
+Create a simple page sized color map composition using the QGIS Desktop Print Composer showing your results. Show the parcels, sports facilities, parks, roads and aerial photography. Use Categorized styling to give a unique color to each zone code in the parcel data.  Include:
 
-She also needs letter sized, color, map figure that shows the relationship between black bear habitat and federal land ownership along the eastern seaboard. She is interested in seeing how much habitat is under federal versus non-federal ownership.
++ Title
 
-She is providing data from the US Fish and Wildlife Service depicted current occupied range for black bear on the east coast. She is also providing federal land ownership, state boundaries and country boundaries from the US National Atlas. The land ownership data has an attribute column describing which federal agency manages the land (AGBUR). This land ownership dataset has another category in the AGBUR field for Wilderness Areas called "Wild". These should be styled with a dark green.
++ Legend (be sure to rename your layers so that the legend will be meaningful.)
 
-She wants to have the habitat data shown so that the federal land ownership data is visible beneath. She would like each different type of federal land styled with standard Bureau of Land Management colors. The map should also include a title (“Black Bear Current Distribution”), a legend, data sources and the date. The map should be a high-resolution (300 dpi) jpg image. Perhaps you can incorporate some improvements to this map!
++ Date and Data Sources
+
+You can credit the data sources as the City of Albuquerque and yourself. If you need to refresh your memory on creating a map layout, review GST 101 Lab 4.

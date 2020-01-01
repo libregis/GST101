@@ -1,10 +1,15 @@
-# Lab 1 - Getting to Know FOSS and FOSS4G
+# Lab 1 - Spatial Data Models
 
 !!! info "Document Version"
     Date: 29/12/2019
     
     **LibreGIS Lab Author:** Libre GIS, Germany  
-    **FOSS4G Lab Author:** Kurt Menke, GISP Bird's Eye View GIS  
+    **FOSS4G Lab Author:**
+    Kurt Menke, GISP
+    Bird's Eye View GIS      
+    **Original Lab Content Author:**
+    Richard Smith, Ph.D.
+    Texas A&M University - Corpus Christi
         
     The development of the original document is funded by the Department of Labor (DOL) Trade Adjustment Assistance Community College and Career Training (TAACCCT) Grant No.  TC-22525-11-60-A-48; The National Information Security, Geospatial Technologies Consortium (NISGTC) is an entity of Collin College of Texas, Bellevue College of Washington, Bunker Hill Community College of Massachusetts, Del Mar College of Texas, Moraine Valley Community College of Illinois, Rio Salado College of Arizona, and Salt Lake Community College of Utah.  This work is licensed under the Creative Commons Attribution 3.0 Unported License.  To view a copy of this license, visit http://creativecommons.org/licenses/by/3.0/ or send a letter to Creative Commons, 444 Castro Street, Suite 900, Mountain View, California, 94041, USA.  
     This document was original modified from its original form by Kurt Menke and continues to be modified and improved by generous public contributions.
@@ -12,94 +17,195 @@
     **Current document (dated: 29/12/2019) is modified from its original form by LibreGIS and continues to be modified and improved by generous public contributions.**
 
 !!! Objective
-    Explore and Understand FOSS Software Fundamentals and QGIS Help Resources
-    
+    Explore and Understand Spatial Data Models
 
 ## 1. Introduction
-In this lab, students will become familiar with the definitions of Free Software, Open Source Software, and the online resources available for FOSS4G software. 
-This lab includes the following tasks:
+In this lab, students will explore and manage geospatial data using *QGIS Desktop LTR version 3.4.14* and we will refer
+it as QGIS for the rest of the course. QGIS is the companion application used to perform spatial analysis and to make maps. 
+For data exploration, we will use **QGIS browser Panel** and for data management we will use **Data Source manager**. This browser 
+panel is analogous to Windows Explorer but work for geospatial data.   
 
-* Task 1 – Explore the Free Software Foundation and Open Source Initiative websites and become familiar with both definitions.
-* Task 2 - Become familiar with OSGeo and their stance on Commercial and Proprietary Software.
-* Task 3 - Explore available FOSS4G software packages.
-* Task 4 - Become familiar with the support resources available for QGIS.
+This lab will also introduce the students to the QGIS interface. It is important to learn the concepts in this lab as 
+future labs will require the skills covered in this lab. This lab includes the following tasks:
 
-In the last 10 years there has been an explosion of open source GIS software projects.  This exercise will begin by introducing the main web portals to the Free  Software and Open Source Initiatives. It will then cover some of the main Free and Open Source For Geospatial (FOSS4G) resources with an emphasis on QGIS. 
-Answer all questions in **bold text**.
+* Task 1 – Learn to work with QGIS browser panel.
+* Task 2 – Become familiar with geospatial data models.
+* Task 3 – Viewing geospatial data in QGIS desktop.
 
-## 2. Understand Free and Open Source Software
-The difference between Free, Open Source and Proprietary software lies in the licenses. Here you will visit both the Free Software Foundation and Open Source Initiative websites and read about their licenses. For each website, you will answer questions listed in bold.
+## 2. Explore and Understand Geospatial Data Models
+Geographic Information Systems model the real world with representations of objects such as lakes, roads and towns. 
+Geospatial data models are the means used to represent these features. They are composed to two parts:  
 
-## Task 1 - Explore the Free Software Foundation and Open Source Initiative
-Both of these organizations have played a big role in the development of FOSS software.
+1. Spatial Features
+2. Attributes 
 
-1. In a web browser, navigate to [http://www.fsf.org/](http://www.fsf.org/), the website for the Free Software Foundation.
-2. **What are Stallman's four freedoms?**
-3. In a web browser, navigate to [http://producingoss.com/en/introduction.html#free-vs-open-source](http://producingoss.com/en/introduction.html#free-vs-open-source) and read the "Free" Versus "Open Source" section of Karl Fogel's ["Producing Open Source Software"](http://producingoss.com/en/index.html) book.
-3. In a web browser, navigate to [http://opensource.org/](http://opensource.org/), the website for the Open Source Initiative.
-4. **List the 10 components of the Open Source Definition.**
+Combining both will create a model of reality as illustrated in the following figure.
 
-## Task 2 - Become familiar with OSGeo
-1. In a web browser, navigate to [http://www.osgeo.org](http://www.osgeo.org/), the website for OSGeo.
-2. Click on the About the Foundation link (shown in the figure below).
-    ![OSGeo webpage navigation](figures/Lab1/OSGeo_Webpage_Navigation.png "OSgeo webpage navigation")
+![Two parts of the geospatial data model](figures/Lab2/Twopartsofthegeospatialdatamodel.png "Two parts of the Geospatial data model")
 
-3. **Describe OSGeo in your own words.**
-4. Click on the FAQ link (shown in the figure above). These are the frequently asked questions for OSGeo. Many of your initial questions will be answered here. Now you'll read about what OSGeo considers Commercial software and what they think of Proprietary software.
-    ![FAQ Link on the OSGeo Webpage](figures/Lab1/FAQ_Link_on_the_OSGeo_Webpage.png "FAQ Link on the OSGeo Webpage")
+There are two main geospatial data models: vector and raster. 
 
-5. Scroll down until you see the Open Source heading.
-6. **What is OSGeo's stance on Commercial Software? **
-7. **What is OSGeo's stance on Proprietary Software?**
-8.  **What is their distinction between "Open Source Software" and "Free Software"?**
-9. Scroll to the top of the page. Notice the OSGeo Projects box on the right hand side of the web page. These are the projects that have been incubated as OSGeo projects. For a project to be accepted by OSGeo, it must meet certain standards in terms  of project management, the software documentation, and the content of the web page. In this course you will be using a desktop GIS software called QGIS.
-10. **Is QGIS listed as a an OSGeo Project?**
-11. Remember that FOSS4G stands for free and open source for geospatial. OSGeo organizes annual gatherings for users of FOSS4G software named simply FOSS4G. 
-12. In a web browser, navigate to [http://www.foss4g.org](http://www.foss4g.org/), the website for FOSS4G annual gatherings. for FOSS4G.  This is the site for all FOSS4G events. The current conference is listed, as well as past events. 
-13. **When and where will FOSS4G be held next?**
+1. *Vector Data Model* – best for modeling discrete objects. Vector data comes in three forms: point, line and polygon.
+2. *Raster Data Model* – this model is best for modeling continuous objects. A raster is composed of a matrix of contiguous cells, with each cell (pixel) holding a single numeric value.
 
-## Task 3 - Exploring available FOSS4G software packages
+## Task 1 - Working with QGIS Browser Panel
+In this task, you will become familiar with QGIS Browser Panel. The first step in working on a project with 
+geospatial datasets is to organize your workspace. It is important that we organize datasets logically on 
+the computer and make them easy to find. In this task, you will obtain a copy of the lab2 data under `Data\Lab2\` and explore how the data is organized using QGIS Browser Panel. 
 
-This course will focus on one piece of FOSS GIS software, QGIS. However, there are many different FOSS softwares available. 
 
-1. In a web browser, navigate to [http://live.osgeo.org/en/overview/overview.html](http://live.osgeo.org/en/overview/overview.html), the overview page for the OSGeo Live project.
-2. Find a project that looks interesting to you.  
-3. Click on the link for that project to open the web page for that software. You can also click on the QuickStart link to see a visual quick start guide.
-4. **Write a brief description of what the software does or what it is designed for along with its name.**
 
-## Task 4 - Become familiar online QGIS support
+1.	Click Start | QGIS 3.4 | QGIS Desktop 3.4.14 as shown in the following figure.  
+    
+    ![QGIS Start](figures/Lab2/qgis_start_menu.png "QGIS Desktop with browser panel")
+    
+    This will open QGIS 3.4 Desktop as shown in the following figure. This interface is simple and clean.
+    Browser panle ios visible on top left side and shows all the aviable files and folder (NOTE: your machine may have a different set and number of drives listed here. This is fine).
+    Below the drives are Database Connections and there are no connections to any databases at this point. 
+    On top bottom side you will see layer menue, on right side Map Canvas and on the top you will see Main menu bar and several toolbars, which will be explained thoughout the rest of the labs.
+    
+    ![QGIS Browser](figures/Lab2/QGIS_Browser.png "QGIS Browser")
 
-1. From the OSGeo website locate the OSGeo Projects box on the right hand side. Look for the Desktop Applications heading and click on the QGIS link. This will open the QGIS website.
-2. On Lef side, along with QGIS logo, you will find the current qgis version numbers. QGIS comes in two flavours, standard version and long term release. 
-    - 3.10.1
-    - 3.4.14.LTR     
-3. Click on Discover QGIS (shown in figure below).
-    ![QGIS Website Navigation Bar](figures/Lab1/QGIS_Website_Navigation_Bar.png "QGIS Website Navigation Bar")
+2.	Look at the file tree in the Browser Panel. Click the arrow to the left of the ``C:`` drive. You will now see all of the subfolders directly under the ``C:\`` folder.
 
-4. **Describe QGIS.**
-5. Click on the QGIS Features link underneath the DISCOVER heading.
-6. Click on the [Take the QGIS feature tour link](http://docs.qgis.org/latest/en/docs/user_manual/preamble/features.html).
-7. **List and describe the first two QGIS features listed**.
-8. Click Discover QGIS to return to the main table of contents. Find the Table of Contents on the left hand side, and click on the [Case Studies](https://www.qgis.org/en/site/about/case_studies/index.html) link. 
-9. **Find a Case Study that interests you. Read it and write a short paragraph explaining the who, what, when and where of the case study.**
-10. From the Table of Contents (on the left hand side) click on [QGIS blogs](http://plugins.qgis.org/planet/).
-11. The QGIS blogs page will open in a new browser tab and is called QGIS Planet.
-12. This QGIS blog page has regular updates and news about the project. The blog page also lists third party private blogs about QGIS on the Blog List on the left hand side. This is a good source of QGIS related news. 
-13. Close the QGIS Planet tab in your browser. 
-14. You should now be back at the initial QGIS tab in your browser. 
-15. Click on the For Users link at the top of the page. 
-16. Click on the Download QGIS [link](https://qgis.org/en/site/forusers/download.html). 
-17. Notice that there are versions of QGIS available for all major operating systems (Windows / Mac OS X /  Linux / BSD / Android). You can install QGIS freely on any computer you like by downloading the appropriate installer and running the install program. 
-18. Click on the Sources tab.
-19. **Is the source code available for download?**
-20. Click the Get Involved link at the top of the page. 
-21. Click on the List of QGIS Support Channels link. 
-22. From here you can subscribe to email lists, search email lists, and connect to the QGIS community via chats or local user groups. Email lists are a great way to get support once you have completed your course work and you need additional help to complete a GIS task. If you choose, you can subscribe to the QGIS User email list.
-23. Click the Documentation link at the top of the page.
-24. This is where you can find the official QGIS documentation. 
-25. **Describe the support documentation available for QGIS.**
+3.	Expand the ``GST101\Lab2_data`` folder where you stored your data in the File Tree by clicking the arrows to the left of each folder. You will now see the contents of the Data folder for the lab (shown in figure below).
+
+    ![Lab Data in QGIS Browser](figures/Lab2/Lab_Data_in_QGIS_Browser.png "Lab Data in QGIS Browser")
+
+4.	Take a moment to read the names of the files. There are two folders and several files listed with different icons. The ![Vector Icon ](figures/Lab2/Vector_Icon.png "Vector Icon") icon indicates that the dataset is a vector layer. This icon ![Raster Icon ](figures/Lab2/Raster_Icon.png "Raster Icon") is used to represent raster data but is also used for other files such as the XML files you see here.
+
+5. Look at the Browser panel. Note that there is a Favourites item. Identify folders or locations as being Favourites in order for them to appear here. 
+   Data is often stored deep inside a series of folders. It is often tedious and time consuming to navigate deep inside the folders to gain access to the data. Favourites provide a way to create a shortcut directly to any folder so that you have one-click access to any folder. Let's create a favorite to our lab folder for practice.
+
+6. Navigate to the lab data folder in the Browser panel. Right-click on it and choose Add as a Favourite (see figure below). *Note:* Currently this functionality is reserved only for the Browser tab in QGIS Desktop. However, once it is set it will show up as a Favourite in QGIS Browser as well.
+
+    ![Add as a Favourite](figures/Lab2/qgis_add_faviourities.png "Add as a Favourite")
+
+7. Now expand Favourites and you will see your lab folder listed there. You can remove a favourite anytime by right-clicking on it and choosing Remove favourite.
+8. Expand the lab folder under Favourites to expose the contents. Select SDOT_StateRoutes.shp and drag it onto the map. This is a quick way to add data to your map. 
+
+
+## Task 2 - Become familiar with geospatial data models
+
+Now that you are familiar with the basic layout of QGIS Browser panel, we will explore some geospatial data.
+
+1.	Let’s take a closer look at the data in ``GST101\Lab1_data`` folder in QGIS Browser panel.
+2.	Select the Hawaii_Counties.shp layer in the file tree. Now right click and select *properties* from context menu.
+    This will open up layer properties window and Metadata tab will be shown by default. 
+    This gives you some basic information about the dataset. 
+    You’ll notice that the Storage type is ESRI shapefile. The Display Window also tells you that it has a Geometry type of polygon and it has 9 features (shown in figure below).
+    
+    ![Metadata in QGIS Browser](figures/Lab2/Metadata_in_QGIS_Browser.png "Metadata in QGIS Browser")
+
+    In addition to data models (vector and raster) we have to understand file formats. Some file formats are designed to store vector and others raster data. Shapefiles are vector file format. In fact they are probably the most common vector file format. An individual shapefile can only contain one geometry type (polygon, line, or point). A shapefile is actually a collection of files on the computer with a common name, but different extensions.
+
+3.	Now select PubSchools.shp and check it properties. You’ll see that this is also an ESRI Shapefile but that it is a point dataset with 287 features.
+4.	Select SDOT_StateRoutes.shp and check it properties. This is an ESRI Shapefile with line geometry and 122 features. 
+5.	Select Hawaii_Counties.shp again and click on the properties and then select Preview tab from Layer Properties. 
+    This shows you the spatial features of this GIS dataset (shown in figure below )
+
+    ![Preview in QGIS Layer Properties](figures/Lab2/qgis_layer_preview.png "Preview in QGIS Layer Properties")
+
+6.	Click on the Attributes tab in the Layer Properties dialog. This shows you the other component of the data model, the attributes. Each row corresponds to one polygon. The columns are things we know about the polygons such as island name (see figure below).
+
+    ![Attributes in QGIS Layer Properties Dialogue](figures/Lab2/qgis_layer_attributes.png "Attributes in QGIS Layer Properties Dialogue")
+
+7.	Select the Oahu_Landsat_15m.jp2 dataset. Open properties and then click on the Preview tab. This is an example of a raster dataset. Like a photograph, it is composed of cells. This raster is a satellite image of the island of Oahu, Hawaii (shown in figure below).
+
+    ![Raster data Preview](figures/Lab2/qgis_raster_preview.png "Raster data Preview")
+    
+
+### Task 3 - Viewing geospatial data in QGIS Desktop
+
+Now that you know how geospatial datasets are stored on your computer, let’s see what the data they contain look like. 
+
+1. QGIS Desktop is the application you will use for making maps, editing data, and doing GIS analysis, among many other operations. QGIS Desktop has two main sections: the Layers panel and the Map Window.
+
+    ![QGIS Desktop and layer panel](figures/Lab2/qgis_desktop_layer_panel.png "QGIS Desktop and layer panel")
+    
+    *Note:* Your QGIS Desktop window may look slightly different than the one pictured above. To reset your display back to the default settings, click Settings | Options | System tab | Settings section | Reset button, then click OK and restart QGIS Desktop.
+    The QGIS Desktop interface is a little cluttered by default, so let's close a few panels so we just see the Layers panel and Map Window.
+
+2. Locate the *Browser* panel, and click the small 'X' button in the upper-right corner to close the panel.  
+   Panels can be docked and undocked from the QGIS Desktop window. To undock a panel, click and drag the panel's top title bar (outlined in figure below) and drag it away from the sides. When you release your mouse button, the panel will be floating freely.
+    
+    ![Area to Drag When Undocking a Panel](figures/Lab2/qgis_layer_drag.png "Area to Drag When Undocking a Panel")
+
+    To dock a floating panel, click and drag the title bar, and drag the panel to the left or right side of QGIS Desktop until a rectangle appears underneath the panel. Release the mouse button to dock the panel (docking action shown in figure below).
+
+    ![Docking the Layers Panel](figures/Lab2/qgis_layer_brwoser_stacked.png "Docking the Layers Panel")
+
+    With the QGIS Desktop interface customized, let’s add some data. 
+
+    QGIS has Add Data buttons for each major geospatial data model (vector and raster).
+
+3. Click the data source manager icon ![data source manager icon](figures/Lab2/qgis_data_source_manager.png "data source manager icon") in QGIS toolbar. It will open Data Source Manager.  
+    
+    ![data source manager browser](figures/Lab2/qgis_data_source_browser.png "data source manager browser")
+    
+4. Now click on Vector icon in the left panel. This opens the Add vector layer panel on the right side. 
+    + Alternatively, click Layer | Add Layer | Add Vector Layer.
+    ![Add Vector Layer](figures/Lab2/qgis_data_source_vector.png "Add Vector Layer") 
+    
+5. Let's add one of the ESRI shapefiles which is a file-based dataset. Click the Browse button. 
+
+6. The *Open an OGR Supported Vector Layer* window opens. (NOTE: OGR is a FOSS4G project with the sole purpose to read and write geospatial vector data files.) The window defaults to all files. From exploring the lab data in QGIS Browser, you know there are several shapefiles in the lab data folder. Take a moment to see the other available options. Click the All files dropdown box and change to ESRI Shapefiles (shown in figure below).
+
+    ![OGR Supported Vector Formats](figures/Lab2/qgis_org_provider_list.png "OGR Supported Vector Formats")
+
+7. Once you are finished exploring, make sure it is still set to ESRI Shapefiles. This filters what you can see in the lab folder so that you only see the shapefiles. 
+8. Select Hawaii_Counties.shp and click OK.
+9. Now back on the Data Source Manager window and click Add to add the data to QGIS Desktop.
+10. You will now see Hawaii_Counties in the Layers panel and the map features displayed in the map window. 
+    Vector GIS layers will come in with a random colors. You will learn how to change layer styling in a future lab. 
+11. Let’s examine the attributes. Right-click on the Hawaii Counties layer in the Layers panel. This opens a context menu. Select Open Attribute Table (shown in figure below).
+
+    ![Layer Context Menu](figures/Lab2/qgis_properties_attribute_table.png "Layer Context Menu")
+
+12. The attribute table opens. If you recall from exploring this dataset with QGIS Browser, it has 9 features (9 polygons). The attribute table has 9 corresponding records. There are columns with the County name (NAMELSAD10) and with the Island name (Island). Close the Attribute Table by clicking the X button in the upper right hand corner.
+
+    ![Attribute Table](figures/Lab2/qgis_hawei_attribute_table.png "Attribute Table")
+
+13. Another way to interact with both the spatial features and the attributes is the Identify button.
+14. Click the Identify button ![Identify Button](figures/Lab2/Identify_Button.png "Identify Button")
+15. Click on one of the features on the map. The Identify results panel (shown in figure below) shows you the attributes for the feature you clicked on. *Note:* The Identify results panel may initially be docked or floating.
+    
+    ![Identify Results](figures/Lab2/qgis_identify_attributes.png "Identify Results")
+    
+
+Now you will learn how to add Raster data to QGIS Desktop.
+
+1. Click the Raster Layer button ![Add Raster Layer button](figures/Lab2/Add_Raster_Layer_button.png "Add Raster Layer button") in Data Source Manager window.
+	+ Alternatively, click Layer | Add Layer | Add Raster Layer.
+2. The Open a GDAL Supported Raster Data Source window opens (displayed in figure below). This is a very similar workflow to adding vector data.
+    
+    ![Open a GDAL Supported Raster Data Source](figures/Lab2/qgis_add_raster.png "Open a GDAL Supported Raster Data Source")
+
+3. Whereas QGIS used OGR to open vector data files, here it uses another FOSS4G software library called GDAL. GDAL is used for reading and writing raster datasets. 
+4. The window’s raster data filter is set to All Files by default, so you see the entire contents of the folder.
+5. Set the filter to JPEG2000. (Also, note how many formats it will read!) In GIS there are many more raster file types than vector. Once you’ve set the filter you’ll see the one dataset: Oahu_Landsat_15m.jp2.
+6. Select the Oahu_Landsat_15m.jp2 raster dataset and click Open. Now you will be returned back to the Data Source Manager Window. Click on Add and this data will be added to the layer panel.
+
+7. This dataset only covers a portion of Hawaii, just the island of Oahu. Right-click on the Oahu_Landsat_15m dataset in the layers panel and choose Zoom to Layer to zoom to the spatial extent of this raster (shown in figure below).
+
+    ![Zoom to Layer](figures/Lab2/qgis_raster_zoom.png "Zoom to Layer")
+
+    You may notice two folders in the lab data folder that we have not discussed yet. One is named *hilloah* and the other *info*. Together, these combine to make another geospatial raster dataset format named GRID.  The info folder holds the attributes and always has the name "info". The other folder is the layer name and contains the spatial data. Let's add a GRID raster to our map.
+
+8. Now click again on the Raster Layer button ![Add Raster Layer button](figures/Lab2/Add_Raster_Layer_button.png "Add Raster Layer button") in Data Source Manager window.
+   
+9. Click on browse button and a new file dialogue will open. Set the filter to Arc/Info Binary Grid. Double click the hilloah folder to enter it. Select the hdr.adf file and click Open to add the raster to QGIS (shown in figure below).
+   ![Adding a GRID to QGIS](figures/Lab2/qgis_add_arc_info.png "Adding a GRID to QGIS")
+    
+10. This raster is a hillshade image of Oahu and it represents the terrain.
+
+*Note:* You can drag data from the QGIS Browser application to QGIS Desktop as well to add the data to the map. 
 
 ## 5. Conclusion
-The help resources are another way FOSS differs from proprietary software. With proprietary software, there is typically a dedicated help phone line, or online help resource, that connects you with the vendor. The software license fee covers this support. With FOSS software, the community provides the support services online. For example, QGIS has many online help options. Familiarizing yourself with these will help as you complete your coursework and move forward with your career.
+In this lab you explored datasets that use the two common geospatial data models: vector and raster. You have also used the QGIS Browser to preview datasets. In future labs, you will learn how to use QGIS Desktop to make maps and perform analysis. 
 
-This lab has only scratched the surface with regards to the number of FOSS4G software. There are many organizations and groups doing great work like [Location Tech](http://www.locationtech.org/), [Apache SIS](http://sis.apache.org/), and [R-Spatial](https://www.r-spatial.org/), to name a few.
+## 6. Discussion Questions
+1. What are the 14 possible file extensions for files that compose a shapefile?
+2. How can Browser favourites make your workflow more efficient?
+3. What are the two main parts of a GIS data model?
+4. Name three ways of seeing feature attributes for a vector GIS layer.

@@ -1,4 +1,4 @@
-# Lab 6 - Understanding Remote Sensing and Analysis
+# Lab 6 - Basic Geospatial Analysis Techniques
 
 !!! info "Document Version"
     Date: 29/12/2019
@@ -17,152 +17,440 @@
     **Current document (dated: 29/12/2019) is modified from its original form by LibreGIS and continues to be modified and improved by generous public contributions.**
 
 !!! Objective
-    Explore and Understand How to Display and Analyze Remotely Sensed Imagery
-  
+    Use Basic Spatial Analysis Techniques to Solve a Problem
+    
 
 ## 1. Introduction
 
-In this lab, students will learn how to display and inspect multi-band imagery in QGIS Desktop. They will use QGIS data processing tools to conduct an unsupervised classification of multi-spectral imagery.  They will then use MultiSpec to perform a more advanced analysis. MultiSpec is a freeware multispectral image data analysis system created at the Purdue Research Foundation.  MultiSpec provides the ability to analyze and classify imagery data, among other tasks.  This lab has been adapted from four tutorial exercises provided by the MultiSpec team and provides an introduction to the software package.
+In this lab, the student will explore a small set of analysis tools available in QGIS Desktop. The student will conduct a spatial analysis and create a map of the results for a team of surveyors visiting National Geodetic Survey Monuments in Albuquerque, New Mexico.  The surveyors wish to have a map showing monuments within the Albuquerque city limits. They will use this map to plan their fieldwork for the week.
+
 This lab includes the following tasks:
 
-+ Task 1 – Display and Inspection of Image Data
+* Task 1 – Data Preparation
 
-+ Task 2 – Supervised Classification
+* Task 2 – Querying and Extracting Subsets of Data
 
-## 2. Objective: Learn the Basics of using QGIS Desktop and MultiSpec for Image Analysis
+* Task 3 – Buffering and Clipping Data
 
-Image analysis is one of the largest uses of remote sensing imagery, especially with imagery that has recorded wavelengths beyond the visible spectrum. There are proprietary software packages designed specifically for remote sensing work such as ENVI and ERDAS Imagine. QGIS Desktop can now be used in combination with two additional FOSS4G software's, SAGA and GRASS, to also conduct image analysis. SAGA and GRASS are both standalone software packages that can be installed separately. However, the main analysis tools from both are now bundled with QGIS Desktop. This means that no additional installations are required in order to use GRASS and SAGA analysis tools via QGIS Desktop. Some of this functionality is for more advanced users. For this reason you will also learn how to use MultiSpec which is a very simple and intuitive, but powerful, freeware image analysis software package. This lab was adapted from the first four tutorials provided by the MultiSpec team. 
+* Task 4 – Preparing a Map
 
-## Task 1 - Display and Inspection of Image Data
+## 2. - Objective: Use Basic Spatial Analysis Techniques to Solve a Problem
 
-There are many way to view multi-band image data. Here you will explore some display options for a multi-band image in QGIS Desktop.
+Conducting effective spatial analysis in a GIS does not require the use of extremely complex algorithms and methods.  By combining multiple simple spatial analysis operations, you can answer many questions and provide useful results.  Determining the order in which these simple spatial analysis operations are executed, is often the hardest part of conducing spatial analysis.  Additionally, data is rarely available in exactly the format and subset that you require.  A large part of almost all GIS projects is simply obtaining and preparing data for use.
+
+In this lab, the student will utilize four basic geospatial analysis techniques: selection, buffer, clip, and dissolve.
+
+* Selection uses set algebra and Boolean algebra to select records of interest.
+
+* Buffer is the definition of a region that is less than or equal to a distance from one or more features.
+
+* Clip defines the areas for which features will be output based on a ‘clipping’ polygon.
+
+* Dissolve combines similar features within a data layer based on an attribute.
+
+## Task 1 - Data Preparation
+
+In this task, you will obtain GIS data for this lab by visiting several online GIS data portals, A) the National Geodetic Survey (NGS) website, B) City of Albuquerque GIS Department, C) the New Mexico Resource Geographic Information System (RGIS) and D) the Bernalillo County GIS Department. All of these websites provide free geospatial information.
+
+Note: Copies of this data have already been obtained and are available in the Lab 7/Data/Raw Data folder. If you are unable to obtain the data yourself, you may skip to Task 2 and use the Raw Data.
+
+## Task 1.1 - Obtain Shapefiles of NGS Monuments
+
+We first want to go to the same National Geodetic Survey (NGS) website you visited in Lab 5. This time you will download a shapefile of the monuments in the Bernalillo County, New Mexico. This is the county in which Albuquerque is situated.
+
+1. In a web browser, navigate to [http://www.ngs.noaa.gov](http://www.ngs.noaa.gov)
+
+2. Click on the Survey Mark Datasheets link of the left side of the page.
+
+3. Click the Shapefiles button.
+
+4. Use the COUNTY retrieval method:
+
+	a. Pick a State = New Mexico then click Get County List
+
+	b. Pick a County = Bernalillo
+
+	c. Data Type Desired = Any Vertical Control
+
+	d. Stability Desired = Any Stability
+
+	e. Compression Options = Send me all the Shapefiles compressed into one ZIP file…
+
+	f. File Prefix = Bern
+
+	g. (Leave all other options as the default values)
+
+	h. Click the Submit button
+
+	i. Click the Select All button
+
+	j. Click Get Shapefile
+
+	k. When the dialog box appears to save the ZIP file, save it into the Lab 7/Data/MyData directory.  
+
+	l. Extract the ZIP file into the MyData directory.
+
+## Task 1.2 - Obtain the Municipal Boundaries
+
+Since you will identify monuments within the Albuquerque City limits, you’ll need an Albuquerque City limit dataset.  You will download the data from the City of Albuquerque GIS Department.
+
+1. In a web browser, navigate to [http://www.cabq.gov/gis/geographic-information-systems-data](http://www.cabq.gov/gis/geographic-information-systems-data)
+
+2. Scroll down until you find the Municipal Limits data.
+
+3. Download the Boundaries shapefile to your folder.
+
+	a. Save the ZIP file into your Lab 7/MyData directory.
+
+	b. Extract this ZIP file into the lab directory.
+
+## Task 1.3 - Obtain the Census Tract Boundaries
+
+You will visit the RGIS clearinghouse. This is the main source for geospatial data for New Mexico. You will download census tract boundaries for Bernalillo County.
+	
+4. In a web browser, navigate to [http://rgis.unm.edu/](http://rgis.unm.edu/)
+
+5. Click the Get Data button
+
+6. In the folder tree underneath Filter data by Theme, expand Census Data
+
+7. Expand 2010 Census
+
+8. Click on 2010 Census Tracts
+
+9. Download the Bernalillo County 2010 Census Tracts shapefile to your folder.
+
+	a. Save the ZIP file into your Lab 7/MyData directory.
+	
+	b. Extract this ZIP file into the lab directory.
+
+
+## Task 1.4 - Obtain Road Data
+
+Finally, you will visit the Bernalillo County GIS Program to download a roads data set. This is the main source for geospatial data for New Mexico. You will download census tract boundaries for Bernalillo County.
+	
+1. In a web browser, navigate to [http://www.bernco.gov/Download-GIS-Data/](http://www.bernco.gov/Download-GIS-Data/)
+
+2. Find the Download Shapefiles section
+
+3. Find Road Inventory
+
+4. Download the Road Inventory Zip file to your folder.
+
+	a. Save the ZIP file into your Lab 7/MyData directory.
+
+	b. Extract this ZIP file into the lab directory.
+
+## Task 2 - Querying and Extracting Subsets of Data
+
+Now that you have collected the necessary data, you will add it to a blank QGIS map document. Take a moment to familiarize yourself with the data and what information it contains. As with any project, you will have to do some data preparation to make it useful for the analysis.
+
+## Task 2.1 - Working with coordinate reference systems
 
 1. Open QGIS Desktop.
 
-2. Click the Add Raster Layer button and navigate to the Lab 6/Data folder. Set the filter to All files (\*)(\*.\*).
+2. Using the Add Vector Layer button, add all four shapefiles to QGIS Desktop. (see figure below).
 
-3. Select the file named ag020522_DPAC.img and click Open.
+    ![Add Vector Data](figures/Lab7/Add_Vector_Data.png "Add Vector Data")
 
-    This raster layer does not have a defined coordinate reference system (CRS). Therefore, QGIS opens the Coordinate Reference System Selector window. If this window does not open automatically, double-click the layer and click the Select CRS button under the General tab. This interface lets you define the CRS before the layer is added to the Layers panel. This raster is in UTM, zone 16, WGS84. 
+3. Organize the layers in the Layers panel so that the Bern monuments layer is on top, followed by the RoadInventory, tl_2010_35001_tract10 (tracts), and jurisdiction.
 
-4. Type ‘zone 16’ into the Filter window. In the Coordinate reference systems of the world box you’ll see a list of all the CRSs with zone 16 in the name. Scroll through until you find WGS/84 UTM zone 16N (EPSG: 32616). Select it so that it appears in the Selected CRS box (see figure below) and click OK .
+4. Save your project to the Lab 7 folder as Lab7.qgs
 
-    ![Coordinate Reference System Selector](figures/Lab6/Coordinate_Reference_System_Selector.png "Coordinate Reference System Selector")
+    Does it look like all the layers are lining up together? Open the Layer properties for each layer and investigate their CRSs. Note that the Census Tracts (tl_2010_35001_tract10) and Monuments (Bern) are in geographic coordinates and the Road Inventory and jurisdiction are in the State Plane Coordinate System (SPCS).
 
-5. The image will be added to QGIS (shown in figure below). This is an aerial photograph of a portion of the Davis Purdue Agriculture Center in Randolph County, Indiana.
+5. From the menu bar choose Project | Project Properties.
 
-    ![Multi-band Image in QGIS Desktop](figures/Lab6/Multi-band_image_in_QGIS_Desktop.png "Multi-band Image in QGIS Desktop")
+6. Open the CRS tab and note that ‘on the fly’ CRS Transformation is checked. This is the default behavior if QGIS notices that Layers in the Layers panel have different CRSs. To change this default behavior, from the main menu bar, click Settings | Options | CRS tab and choose the default CRS settings.
 
-6. Save your QGIS Desktop project to your lab folder as Lab 6.qgs
+7. While the CRS tab is still open choose NAD83(HARN)/New Mexico Central (ftUS) as the CRS for the map.
 
-7. Double click on the layer name in the Layers panel to open the Layer Properties. Click on the General tab.
+8. Click OK to set the project CRS.
 
-    Layer info shows you the layer name, where the data are stored on your computer and the number of columns (1,501) and rows (709). Since you set the CRS for the image when you added it to QGIS, the CRS is listed under Coordinate Reference System. Scale dependent visibility allows you to control at what scales the layer is visible. You will not set this parameter here. If you wanted the image to be visible only at a certain scale range, you could check the box and enter a scale maximum and minimum.
-
-8. Click on the Style tab. 
-
-    This image has three bands. Each band represents a segment of the electromagnetic spectrum. In this case band 1 represents the red portion, band 2 the green portion, and band 3 the near-infrared portion. Therefore, in this image, we are able to see characteristics of the landscape that we cannot see with our eyes, since they can only etect visible light.
-
-    When an image has multiple color bands, QGIS defaults to a Multiband color rendering of that image. Colors on your computer monitor are created by combining three color channels: red, green and blue (RGB). By selecting three bands from a multiband image, and illuminating them with either red, green or blue light we create a color image. The multiband color renderer defaults to displaying Band 1 through the red channel, Band 2 through the green channel and Band 3 through the blue channel. However, we can change which bands are displayed through which channels. 
-
-9. Click the drop-down arrow for the Red band and change it to Band 3. Change the Blue band to Band 1 (see figure below).
-
-    ![Changing the band combination in QGIS](figures/Lab6/Changing_the_band_combination_in_QGIS.png "Changing the band combination in QGIS")
-
-10. Click Apply and move the Layer Properties window so you can see the raster.
-
-    *Note*: The difference between using Apply and using OK. Clicking OK saves the changes and closes the dialog window. Apply saves the changes and leaves the window open. If you want to change a setting, see the result and change another setting use Apply.
-
-11. The image should now look like the figure below. This band combination creates what is known as a false color composite. Vegetation reflects a lot of near-infrared energy. You are now looking at the near-infrared through the red channel so vegetation shows up as red tones. The brighter the red, the more vigorous and healthy the vegetation.
-
-    ![False Color Composite](figures/Lab6/False_color_composite.png "False Color Composite")
-
-    The Style tab also allows you to adjust Contrast enhancement. This setting gives you options to modify the appearance of the image when used in combination with the Load min/max values settings. Each band has values from 0-255. By default, the renderer is set to use Cumulative count cut values from 2% to 98%. This setting eliminates the bottom and top 2% of the values. Many images have some outlying very low and high data values. These outlying data values can be eliminated by using the Cumulative count cut option.  The Contrast enhancement is set by default to No enhancement. 
-
-12. Click the Load button. The values currently being used for each band will appear in the Min/max boxes in the Band rendering area. 
-
-13.	Change the Contrast Enhancement to Stretch to MinMax and click Apply. This setting scales the colors between the minimum and maximum values.  The image gets a little brighter (see figure below) because the colors are now being stretched across the range of values. You are both applying a stretch and eliminating the bottom and top 2% of the values with the default Cumulative count cut setting.
-
-    ![MinMax Stretch](figures/Lab6/MinMax_Stretch.png "MinMax Stretch")
+    Projecting on the fly is fine for cartographic purposes. However, when conducting a geospatial analysis, the data layers involved should be in the same CRS. Typically, data layers will also be clipped to the extent of the study area to reduce rendering and data processing time. These procedures are often referred to as normalizing your data. For the typical analysis, a majority of your time is spent obtaining data and normalizing it. Once all the data is organized and normalized, the analysis can proceed.
     
-    The Accuracy setting lets you either estimate the range of values from a sample or get the actual values. Obtaining actual values can take longer since QGIS has to look at all the values in the image, instead of a sample. 
+    You will want to put all four layers into the same CRS for this analysis. You will put them all into the SPCS.
 
-14. Change the Accuracy setting to Actual, and click the Load button to see the values change slightly.
+6. Right-click on the Bern layer in the Layers panel and choose Save As... from the contextual menu. This will open the Save vector layer as... window (shown in the figure below).
+	
+7. Click the Browse button to the right of Save as and save it into your lab folder as Bern_spcs.shp. (It is useful to have a naming convention for new data layers. Here you are including the CRS in the name of the copy.)
+	
+8. Click the Browse button for the CRS. The Coordinate Reference System Selector window will open.
 
-15. Now choose a Load min/max values setting of Mean +/- standard deviation and click Load. Click Apply to see the image change. 
+9. From the Recently used coordinate reference systems choose NAD83(HARN) / New Mexico Central (ftUS) EPSG:2903 then click OK.
+	
+10. Check the box for Add saved file to map.
+	
+11. Click OK to save the new file in a different CRS.
 
-    The raster gets a more saturated appearance (shown in figure below). These are the values within one standard deviation of the mean value. This is useful when you have one or two cells with abnormally high values in a raster grid that are having a negative impact on the rendering of the raster.
+    ![Reprojecting the Bern Layer](figures/Lab7/Reprojecting_the_Bern_layer.png "Reprojecting the Bern Layer")
 
-    ![Image rendered with Mean +/- Standard Deviation](figures/Lab6/Image_rendered_with_Mean_Standard_Deviation.png "Image rendered with Mean +/- Standard Deviation")
+12. You no longer need the original Bern layer in your map. Right-click on the original Bern layer and choose Remove. Click OK on the Remove Objects window.
 
-16. You can also look at one individual band. Change the Render type to Singleband gray. Choose Band 3 as the Gray band. Set the Contrast enhancement to Stretch MinMax. Click Apply.
+13. Repeat the above steps to save the Census Tracts (tl_2010_35001_tract10) layer in EPSG:2903.
 
-    ![Band 3 (Near-infrared) shown alone](figures/Lab6/Band_3_Near_infrared_shown_alone.png "Band 3 Near-infrared shown alone")
+14. Save your project.
 
-17. Change the Gray band setting to each of the other two bands and see how different they look.
+## Task 2.2 - Dissolving Tract Boundaries into a County boundary
 
-18. Change back to a false color composite view: 
+For the map, you will need a polygon that represents the county boundary. The tl_2010_35001_tract10_spcs Census tracts collectively define the county, so you will use the dissolve spatial analysis technique to create a county boundary from the Census tracts.
 
-	a. Render type: Multiband color
+1. From the menu bar choose Vector | Geoprocessing Tools | Dissolve (reference figure below).
 
-	b. Red band = 3
+    ![Dissolve Tool](figures/Lab7/Dissolve_tool.png "Dissolve Tool")
 
-	c. Green band = 2
+2. Set Input vector data to tl_2010_35001_tract10_spcs.
 
-	d. Blue band = 1
+    You can dissolve based on attributes. For example, if you had counties of the United States you could dissolve them based on the State name attribute and create a state boundaries layer. Here you will dissolve all the tract polygons into one to create the county boundary.
 
-	e. Contrast enhancement = Stretch to MinMax
+3. For Dissolve field choose –-- Dissolve all --- (at the bottom of the list).
 
-	f. Click Load
+4. Name the output shapefile Bernalillo_county.shp and save it to your lab folder (see figure below).
 
-	g. Click Apply 
+5. Make sure Add result to canvas is checked.
 
-19. In the Layer Properties, click on the Transparency tab. 
+6. Click OK to run the Dissolve tool. Once the tool has executed, click Close.
 
-20. With the Global transparency setting you can control how transparent the entire image is. 
+    ![Dissolve Tool Settings](figures/Lab7/Dissolve_tool_settings.png "Dissolve Tool Settings")
 
-21. You can also define image values that you want to be transparent. Notice that in the southwest corner there is a black rectangle with no image data. On the Transparency tab click the Add values from display button ![Add values from display button](figures/Lab6/Add_values_from_display_button.png "Add values from display button") then click on the black rectangle on the map. QGIS will measure the values for all three bands where you clicked and enter them into the Transparent pixel list.
+3. Remove the tl_2010_35001_tract10_spcs layer from the Layers panel. It was an intermediate dataset. All you need is the Bernalillo County Boundary.
 
-22. Click Apply. The black rectangle of no data pixels disappears.
+4. Save your project.
 
-    ![Raster With Transparency](figures/Lab6/Raster_with_transparency.png "Raster With Transparency")
+## Task 2.3 - Select Monuments
 
-23. Click on the Pyramids tab. 
+You will want to filter the monuments so that you only have the ones with the orders and classes you’re interested in. Here you only want monuments that meet the following requirements:
 
-    Raster data sets can get very large. Pyramids help render large images more quickly. Without them, QGIS will try to render each pixel in an image even though your monitor may not have enough resolution to display each pixel. Pyramids are lower resolution versions of the image that will increase performance. This particular image is small so you will not build any now. 
+* Elevation Order = 1
 
-24. Click on the Histogram tab. 
+* Last recovered on or after 1995
 
-    Here you can view the distribution of data values in your raster. If it is a multi-band image, you can view data for each band. The histogram is generated automatically when you open this tab (see figure below). You can save the histogram as an image with the Save plot button.
+* Satellite Observations were used for monument coordinate determination.
 
-    ![Image Histogram](figures/Lab6/Image_Histogram.png "Image Histogram")
+* a, b, and c are stored in these attribute columns:
+	* ELEV_ORDER
+	* LAST_RECV
+	* SAT_USE
 
-25. Save your QGIS Desktop project.
+(For information on what an elevation order and class is, visit [http://www.ngs.noaa.gov/heightmod/Leveling/](http://www.ngs.noaa.gov/heightmod/Leveling/))  
 
-## Task 2 - Supervised Classification
-TODO: In Progress
+1. Double-click the Bern_spcs layer to open the Layer Properties.
 
-## 3. Conclusion
-In this lab, you have learned the basics of working with multi-spectral imagery in QGIS Desktop. You learned how to access data processing tools in QGIS Desktop and how to do a Supervised Classification in MultiSpec, a freeware multispectral image data analysis system.  MultiSpec is an excellent example of many free-to-use programs available for imagery analysis and GIS-related tasks.  
+2. Select the General tab.
 
-## 4. Discussion Questions
+3. Find the Feature subset area. This is where you can define the contents of a layer based on the attributes. It is a way to filter a layer.
 
-1. What other objects in imagery could you identify via supervised classification?  Describe two use-cases.
+4. Click the Query Builder button to open the Query Builder. Here you can write a SQL query to filter your data.
 
-2. Even though the imagery used in this lab contained recordings of wavelengths beyond the visible spectrum, why do you think each range of hyperspectral information was mapped to the colors red, green, and blue?
+All the attribute fields are listed on the left. Below the fields are operators you can use to build your SQL expression. The expression is built in the blank window at the bottom. When building the expression, it is best to double-click fields and field values instead of manually typing them in so that you avoid syntax errors.
 
-3. In lecture, you learned that photointerpretation is the process of converting images to information through human interpretation.  Based on the results of tasks 2 and 3 in this lab, do you think that computers can interpret as well as humans?
+5. Double-click on the field ELEV_ORDER and it will appear in the expression window surrounded by double quotes.
 
-## 5. Challenge Assignment (optional)
+6. Click the = sign under operators to add it to the expression.
 
-You have used MultiSpec to perform a Supervised Classification of the multi-spectral imagery. You have also seen that you can do an analysis in MultiSpec and bring the data into QGIS.
+7. Click the All button below Values to get a list of the values contained in that field.
 
-Create a simple page sized color map composition using the QGIS Desktop Print Composer showing your results. Show the Supervised Classification. Include:
+8. Double-click the 1 value so that your expression reads "ELEV_ORDER" = '1’.
 
-+ Title
+    Since you want monuments that have both an elevation order of 1 and were last recovered on or after 1994 you will now use the AND operator. The AND operator selects records that meet conditions on both sides.
 
-+ Legend (be sure to rename your layers so that the legend will be meaningful.)
+9. Double-click the AND button under Operators to add it to the expression.
 
-+ Date and Data Sources
+10. After the AND operator create the portion of the expression dealing with LAST_RECV.
 
-You can credit the data sources as the Purdue Research Foundation and yourself. If you need to refresh your memory, review GST 101 Lab 4.
+11. Add another AND operator and create the third portion of the expression dealing with the SAT_USE.
+
+12. The final expression should look like the figure below.
+
+    ![Monuments SQL Filter](figures/Lab7/Monuments_SQL_Filter.png "Monuments SQL Filter")
+
+13. Click the Test button. You should get a Query result of 47 rows. If you have a syntax error you will be notified and you’ll have to figure out where the error lies. Any extra tics (‘) or quotes (“) will throw an error. Click OK to dismiss the Query result dialog.
+
+14. Click OK to set the Query and close the Query Builder window.
+
+15. Click OK again to close the Layer Properties.
+
+    It is always a good idea to open the attribute table to ensure that the layer has been filtered the way you needed.
+
+16. Open the attribute table for the Bern_spcs layer and verify that the table only includes 47 filtered features. This will be reported on the attribute table's title bar at the top.
+
+17. With the data properly filtered, the map should now resemble the figure below.
+
+    ![QGIS With Filtered Monuments](figures/Lab7/QGIS_with_filtered_monuments.png "QGIS With Filtered Monuments")
+
+18. Save your project.
+
+## Task 3 - Buffering and Clipping Data
+
+Now that you have prepared the county boundary and the monuments layers, you will identify just the monuments within the Albuquerque City limits. First, you will create a filter on the jurisdiction layer and the RoadInventory layer as you did for monuments.
+
+The jurisdiction layer covers much more than Bernalillo County. Albuquerque covers just a portion of the county and jurisdiction extends north and south of the county boundary.
+
+1. Open the attribute table for jurisdiction. The first field ‘JURISDICTI’ has the city names. Notice that the majority consists of unincorporated areas. You can click the field header and you will see a small arrow appear. This lets you toggle back and forth between an ascending and descending sort of the records making it easier to find certain values. Close the Table.
+
+3. Open the Layer properties for jurisdiction and go to the General tab.
+
+4. Under Feature subset click the Query Builder button and create a query that selects only the JURISDICTI of Albuquerque.
+
+5. Click OK on the Query Builder and close the Layer Properties.
+
+6. In the Layers panel, drag jurisdiction above the Bernalillo County layer and turn off RoadInventory. Your map should resemble the figure below.
+
+    ![QGIS With Filtered Jurisdiction](figures/Lab7/QGIS_with_filtered_jurisdiction.png "QGIS With Filtered Jurisdiction")
+
+7. Open the attribute table for RoadInventory.
+
+    There is a lot of information in the RoadInventory shapefile. So far you have filtered a layer within QGIS, but left the data on disk the same. Now you will select the major roads and save them to a new shapefile. Considering the attribute table, what field would you use to select out major roads?
+
+8. Click on the Select features using an expression button. ![expression button](figures/Lab7/expression_button.png "expression button")
+
+    A similar query window opens as when you are filtering a layer. Instead of the fields being listed on the left, here you have the Expression area. In the middle, the expression functions will be listed. If you scroll down though the functions tree, you will see that one category is Fields and Values.
+
+9. Expand Fields and Values. 
+
+10. Scroll down until you find the Class field.
+
+11. Double-click on Class to add it to the Expression area.
+
+12. Click the = operator.
+
+13. Click all unique under Values.
+
+14. Double-click the 'Major' value to add it to the expression. Your expression should now look like the figure below.
+
+    ![Select by Expression in Attribute Table](figures/Lab7/Select_by_Expression_in_Attribute_Table.png "Select by Expression in Attribute Table")
+
+15. Click Select then Close the Select by Expression window.
+
+    You now have 4593 out of 37963 records selected. You can use the Toggle at the lower left corner of the attribute table to show just the selected set of records (see figure below).
+
+    ![Toggle Attribute Table View](figures/Lab7/Toggle_Attribute_Table_View.png "Toggle Attribute Table View")
+
+16. Close the attribute table.
+
+17. Right-click on the RoadInventory layer and choose Save As….
+
+18. Name the file 'Major_Roads.shp' and save it in your lab directory.
+
+19. Check Save only selected features. The will only save the features currently selected to a new shapefile.
+
+20. Verify that the dialog looks like the figure below. If so, click OK to save and add the layer to the map.
+
+    ![Save Selection As](figures/Lab7/Save_Selection_As.png "Save Selection As")
+
+21. Remove RoadInventory from the Layers panel. All you need for your map is Major_Roads.
+
+    Now that you have the Albuquerque City limits isolated, you will buffer Albuquerque by one mile. Then you will be able to identify monuments that are either inside, or close to the city limits. Buffer is an operation that creates a new polygon layer that is a buffer distance from another layer.
+
+21. From the menu bar choose Vector | Geoprocessing Tools | Buffer(s).
+
+22. Set the Input vector layer to jurisdiction, which now equals the Albuquerque city boundary.
+
+23. You will enter a Buffer distance in map units. The Project CRS is a State Plane Coordinate System (SPCS), which has feet for units. Therefore, to buffer the city boundary by a mile, enter the number of feet in a mile (5280).
+
+24. Name the output Albuquerque_buffer.shp.
+
+25. Check Add result to canvas.
+
+26. Your tool should resemble the figure below. If so, click OK and then Close.
+
+    ![Buffer](figures/Lab7/Buffer.png "Buffer")
+
+27. Drag the new buffer layer beneath jurisdiction and you will see that it is a one-mile buffer of the boundary.
+
+    Now that you have the search area for the selected monuments, you will use the Clip tool to clip the monument layer to the buffered city limits to create a new shapefile with only the monuments the surveyors should visit. The Clip tool acts like a cookie cutter. It cuts data out that falls within the clipping layer's boundary.
+
+28. From the menu bar choose Vector | Geoprocessing Tools | Clip.
+
+29. Set Input vector layer to Bern_spcs.
+
+30. Set Clip layer to Albuquerque_buffer.
+
+31. Name the output Albuquerque_monuments.shp.
+
+32. Check Add result to canvas.
+
+33. Your tool should resemble the figure below. If so, click OK and Close.
+
+    ![Clip](figures/Lab7/Clip.png "Clip")
+
+34. Remove Bern_spcs from the Layers panel.
+
+    Finally, you will label the monuments with the FeatureID attribute.
+
+35. Open the Layer properties for the Albuquerque Monuments and select the Labels tab.
+
+36. Check Label this layer with and choose FeatureId as the field.
+
+37. Select the Buffer item and check Draw text buffer with the defaults (reference figure below). This will create a white halo around the labels, which can make them easier to read against a busy background.
+
+    ![Feature Labels](figures/Lab7/Feature_Labels.png "Feature Labels")
+
+38. Click the Placement option and give a Distance of 2. This will offset the label from the point a bit giving more room for a bigger point symbol. Note that there are many options for label placement!
+
+39. Click OK to set the labels for the monuments.
+
+40. Label the major roads using the StreetName field. Under the Text tab, set a font size of 5.25.
+
+41. On the Rendering tab, under Feature options area, choose Merge connected lines to avoid duplicate labels. This will clean up duplicate labels.
+
+42. Change the style of the layer to make the map more attractive. Choose whatever colors you prefer. As an example, reference the map in the figure below.
+
+    ![Final Data](figures/Lab7/Final_Data.png "Final Data")
+
+43. Save your project.
+
+## Task 4 - Preparing a Map
+
+Now that you have identified the locations of the monuments that the surveyors should visit, you will make a map of the result of your analysis. You should show the major roads to give them a general idea of how to access the monuments.
+
+1. Rename the layers in the Layers panel to:
+
+	a. Albuquerque Monuments
+
+	b. Major Roads
+
+	c. City of Albuquerque
+
+	d. Bernalillo County
+
+    You do not necessarily have to show the buffer layer. It was just a means of identifying the monuments to map. However, you have cartographers license on that choice!
+
+2. Zoom into the monuments layer so that you can show as much detail as possible.
+
+3. Use the Print Composer to create a map layout.
+
+4. Include the following map elements:
+
+	* Title: Albuquerque Vertical Control Monuments
+
+	* Legend
+
+	* Your Name
+
+	* Sources of Data
+
+	* Scale Bar: Use the Add Scale Bar button ![Add Scale Bar button](figures/Lab7/Add_Scale_Bar_button.png "Add Scale Bar button"). QGIS uses map units for scale bars. Here our map units are feet. Therefore, to make a scalebar read in miles you need to enter a Map units per bar unit value of 5280 (the number of feet in a mile) (Figure below).
+
+    ![Scale Bar Parameters](figures/Lab7/Scale_Bar_Parameters.png "Scale Bar Parameters")
+
+    Below is an example of a completed map.
+
+    ![Sample Final Map](figures/Lab7/Sample_Final_Map.png "Sample Final Map")
+
+## 4. Conclusion
+In this lab, you used several basic spatial analysis techniques to prepare data for analysis and conduct the analysis. You reprojected data, queried and extracted data, conducted a dissolve operation and used buffer and clip to identify the final set of monuments. While none of these individual operations are necessarily complex, the sequence in which they were combined allowed you to answer a spatial questions quickly and easily.
+
+## 5. Discussion Questions
+
+1. Export the final map for your instructor to grade.
+
+2. You used different methods to create the major roads layer and the City of Albuquerque boundary. Why would you choose to filter a layer via a SQL query versus export a new layer based on a selection? What are the advantages/disadvantages to each?
+
+3. Think of another use of a clip operation with the lab data.
+
+4. Could you use the dissolve tool to create a municipal boundary data set whereby all the unincorporated areas were merged together? If so describe how you would set up the tool.
+
+## 6. Challenge Assignment (optional)
+
+The surveyors' work was streamlined and efficient due to your GIS analysis. They now have extra time to visit The Village of Tijeras while they are in town. Generate the same analysis and accompanying map for monuments meeting the same criteria for Tijeras. You can use all the same data so you will not have to download anything else.

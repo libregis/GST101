@@ -1,16 +1,17 @@
 # Preface
 This course is **GST101: Introduction to Geospatial Technology** and was written by original authors [Kurt Menke](https://twitter.com/geomenke) and [Rick Smith](https://github.com/RickSmith)
  for [**QGIS 2.8**](https://www.qgis.org) software. At [LibreGIS](https://github.com/libregis), we have updated this current [**QGIS 3.4.x Long term release**](https://www.qgis.org) software. 
- This course consists of following seven labs.
  
 ## Course Topics
-* [Lab 1 - Getting to Know FOSS and FOSS4G](Lab1.md)
-* [Lab 2 - Spatial Data Models](Lab2.md)
-* [Lab 3 - Understanding Coordinate Systems and Map Projections](Lab3.md)
-* [Lab 4 - Displaying Geospatial Data](Lab4.md)
-* [Lab 5 - Creating Geospatial Data](Lab5.md)
-* [Lab 6 - Understanding Remote Sensing and Analysis](Lab6.md)
-* [Lab 7 - Basic Geospatial Analysis Techniques](Lab7.md)
+ This course consists of following seven labs and each lab consists of several task. Students are required to go step by step and follow the instruction given under each task. 
+ For this series of labs, we will explain how to open and use QGIS using the Microsoft Windows 10 operating system.
+
+* [Lab 1 - Spatial Data Models](Lab1.md)
+* [Lab 2 - Understanding Coordinate Systems and Map Projections](Lab2.md)
+* [Lab 3 - Displaying Geospatial Data](Lab3.md)
+* [Lab 4 - Creating Geospatial Data](Lab4.md)
+* [Lab 5 - Understanding Remote Sensing and Analysis](Lab5.md)
+* [Lab 6 - Basic Geospatial Analysis Techniques](Lab6.md)
 
 ## Data Sets
 All labs include necessary datasets to finish individual tasks, and can be obtained by cloning/downloading [this repository on github](https://github.com/libregis/GST101).

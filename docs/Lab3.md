@@ -1,4 +1,4 @@
-# Lab 3 - Understanding Coordinate Systems and Map Projections
+# Lab 3 - Displaying Geospatial Data
 
 !!! info "Document Version"
     Date: 29/12/2019
@@ -17,427 +17,389 @@
     **Current document (dated: 29/12/2019) is modified from its original form by LibreGIS and continues to be modified and improved by generous public contributions.**
 
 !!! Objective
-    Explore and Understand Spatial Data Models
+    Explore and Understand How to Display Geospatial Data
 
 
-## 1. Explore and Understand Coordinate Systems and Map Projections
-In this lab, the student will explore the effects of various map projections on the characteristics of a map using QGIS.  QGIS is a free and open source geographic information system software package that can be used to visualize, query, and analyze spatial information.
+## 1. Introduction
 
-This lab will focus primarily on shape and area distortions and will examine projections useful for mapping on the global scale as well as on the national and state level.
+In this lab, students will learn how to complete a well-designed map showing the relationship between species habitat and federal land ownership. The student will learn how to style GIS data layers in QGIS Desktop. They will then learn how to use the QGIS Print Composer to design a well crafted map deliverable. The final map will include standard map elements such as the title and map legend.
+
+This lab will also continue to introduce students to the QGIS interface, as QGIS Desktop will be used throughout the course. It is important to learn the concepts in this lab as future labs will require the skills covered in this lab. 
 
 This lab includes the following tasks:
 
-* Task 1 – Setting Map Projections and Coordinate Systems in QGIS Desktop
-* Task 2 – Exploring World Map Projections
-* Task 3 – Exploring National Map Projections
-* Task 4 – Exploring State Map Projections
-* Task 5 - Exploring the Universal Transverse Mercator (UTM) Coordinate System
+*	Task 1 – Add data, organize map layers and set map projections.
 
-## 2. Objective: Explore and Understand Map Projections and Coordinate Systems
+*	Task 2 – Style data layers.
 
-The map projection is a fundamental part of the mapping process, and provides the backbone, or framework, for the map.  It is important for the GIS Specialist to understand the qualities of the mapped region that are preserved by a given projection, and the qualities that will be distorted or skewed. Additionally, for cartographers, selection of an appropriate map projection is a crucial part of the map design process. This is because we are all used to seeing different parts of the world mapped using specific standard projections that make these areas “look right”. 
+*	Task 3 – Compose map deliverable.
 
-The transformation of the ellipsoid shape of the earth onto a two-dimensional surface cannot be accomplished without some element of distortion, through shearing, tearing, or compression (as discussed in the text).  For mapping small Earth areas (large-scale mapping), projection is not a major issue, but as the scale becomes smaller, as in the mapping of continents or subcontinents, distortion becomes a significant factor.  Distortion of area, shape, distance, and direction become properties to consider.  It is impossible for one projection to maintain all of these properties simultaneously.  
+##	2.	Create a Map that Meets the Customer’s Requirements
 
-Projections are classified according to the properties they preserve.  Equal-area (or equivalent) maps, for example, preserve area relationships, but tend to lose conformality (preservation of shape).  Conformal projections, on the other hand, maintain shape over small areas but produce areal distortion. In thematic mapping, it is important to maintain correct area properties. Therefore, shape is at times compromised through the choice of an equivalent projection.  For small-scale maps, in fact, conformality cannot be maintained over the entire area; rather, the projection may preserve shape best along a standard line, with shape distortion increasing with distance from the line.  Another property to consider is distance preservation (equidistance), which preserves distance measurements along great circle arcs.  Finally, direction preservation (azimuthality) maintains correct direction from one central point to all other points. 
+Often times, you will be provided with a map requirements document from a coworker or customer. For this lab, the student will respond to a map requirements document from a customer who is writing a paper about the state of Greater sage-grouse habitat in the western United States. The map requirements from the customer are below.
 
-There are hundreds of possible projections from which to choose.  Some distort less in certain ways than others.  It is up to the map designer to select the projection that produces the least amount of unwanted distortion.  Many computer mapping software packages now allow the GIS specialist to easily switch between various projections, allowing the choice of the one most appropriate.  In the selection of a projection, several key elements must be considered:
+Map Requirements from Customer:
 
-* Projection properties - Are the properties of the projection suitable to the map’s purpose? Considering the properties of shape, distance, direction, and area, which ones must be preserved, and which can be sacrificed?  Or is compromise of all four the best choice?
-* Deformational patterns - Is the amount of deformation acceptable?
-* Projection center - Can the projection be centered easily on the area being mapped?
-* Familiarity - Is the appearance of the map recognizable to the map reader or will it detract from the map’s purpose?
+Hi, my name is Steve Darwin. I am a wildlife biologist writing a paper on the state of Greater sage-grouse (see figure below) populations in the western United States. I need a letter sized, color, map figure that shows the relationship between current occupied Greater sage-grouse habitat and federal land ownership. I am interested in seeing how much habitat is under federal versus non-federal ownership.
 
-##	Task 1 - Setting Map Projections and Coordinate Systems in QGIS
+I have been provided data from the US Fish and Wildlife Service depicted current occupied range for Greater sage-grouse. I also have federal land ownership, state boundaries and country boundaries from the US National Atlas. The land ownership data has an attribute column describing which federal agency manages the land (AGBUR). 
 
-In this task, you will explore the effects of various projections on the characteristics of a map.  We will focus primarily on shape and area distortions.  We will examine projections useful for mapping on the global scale.
+I want to have the habitat data shown so that the federal land ownership data is visible beneath. I would like each different type of federal land styled with standard Bureau of Land Management colors. The map should also include a title (“Greater sage-grouse Current Distribution”), a legend, data sources and the date. The map should be a high-resolution (300 dpi) jpg image.
 
-In Lab 2 you added data to QGIS Desktop. Here you will open an existing QGIS project.
+I trust that you will get the figure right the first time, so please just submit the completed figures to the managing editor directly.
+
+![Male Greater sage-grouse](figures/Lab4/Male_Greater_sage-grouse.png "Male Greater sage-grouse")
+
+Image attribution: By Pacific Southwest Region from Sacramento, US (Greater Sage-Grouse) [CC BY 2.0 (http://creativecommons.org/licenses/by/2.0)], via Wikimedia Commons.
+
+##	Task 1 - Add Data, Organize Map Layers and Set Coordinate Reference System
+
+In this first task you will learn a new way to add data to QGIS Desktop. You will then set the projection for the map project, organize the data layers in the Table of Contents and change the layer names.
 
 1. Open QGIS Desktop.  
-2. In QGIS Desktop, open the project, World View.qgs by clicking Project | Open.  You should see the map shown in Figure below.  
+
+In Lab 2 you learned how to add data to QGIS Desktop by using the Add Vector Data and Add Raster Data buttons. Now you will learn another method of adding data to QGIS Desktop. You will use the QGIS Desktop Browser panel.
+
+2. Click View | Panels and make sure *Browser* is checked. The Browser panel will now be displayed.
+
+    *Note:* The Browser panel may be docked or floating, so it may not be in the same location as in the figures in this lab.
     
-    ![World View.qgs Loaded into QGIS Desktop](figures/Lab3/World_View_qgs_Loaded_into_QGIS_Desktop.png "World View.qgs Loaded into QGIS Desktop")
+    ![QGIS Browser Panel in QGIS Desktop](figures/Lab4/QGIS_Browser_Tab_in_QGIS_Desktop.png "QGIS Browser Panel in QGIS Desktop")
 
-    WorldView.qgs is a QGIS project file.  A project file contains information about a map such as: list of layers, coordinate system, symbols, labels, custom tools, map elements, and much more.
+3. Using the file tree in the Browser window navigate to the Lab 4 data folder. 
 
-    An individual GIS layer in the Table of Contents is known as a theme. In the project file, there are two polygon themes, Circles and Land, a point theme, Cities, and a line theme, Graticule.  If these circles were displayed on a globe they would be perfect circles. Here you can begin to visualize the distortion in the projection by the distortion in the Circles theme. On this map, a projection has not been chosen in QGIS Desktop.  The software is using latitude and longitude measured in geodetic decimal degrees, which displays a simple rectangular coordinate system in which the length of one degree of longitude is consistently equal to one degree of latitude.  In QGIS Desktop, when a projection has not yet been selected, distance calculations remain true, since the software computes distance using the spherical coordinates of latitude and longitude along a great circle arc, just as if you were actually measuring at the Earth’s surface.  Although a projection has not yet been chosen by the user, the display is essentially a Plate Carrée projection.  On a projection that preserves shape, the polygons on the Circles theme appear as true circles.  In a Plate Carrée projection, linear scale, area, and shape are all distorted increasingly toward the poles as demonstrated with the Circles theme.  
+4. Right click on the Lab 4 data folder and choose Add as a favourite from the context menu.
+
+5. Sometimes when recent changes have been made, such as setting a folder as a favourite, the Refresh button needs to be pressed in order to see the changes. Click the Refresh button (highlighted in figure below).
+
+    ![Refresh button in the QGIS Desktop Browser Window](figures/Lab4/Refresh_button_in_the_QGIS_Desktop_Browser_window.png "Refresh button in the QGIS Desktop Browser Window")
+
+6. Now expand Favourites near the top of the file tree in the Browser window by clicking the plus sign to the left. You will see the Lab 4 data folder listed. Setting the folder as a favourite allows you to quickly navigate to your working folder.
+
+7. You will see 5 shapefiles in the lab data folder:
+	+	Canada.shp
+	+	Land\_ownership.shp
+	+	Mexico.shp
+	+	Sage\_grouse\_current\_distribution.shp
+	+	Western\_states.shp
+
+8. You can select them all by holding down the Ctrl key on your keyboard while left clicking on each shapefile. Select the five shapefiles (shown in figure below).
+
+    ![Shapefiles Selected in Browser window](figures/Lab4/Shapefiles_selected_in_Browser_window.png "Shapefiles Selected in Browser window")
+
+9. Drag the five selected shapefiles onto the map canvas from the Browser panel. This is another way of adding geospatial data to QGIS Desktop. QGIS Desktop should now look like figure below. The random colors that QGIS assigns to the layers may be different than the figure below but that is fine
+	+ *Note:* If you do not see anything displayed in the map canvas, you may need to zoom to full extents of the map by pressing the Zoom Full button ![Zoom Full Button](figures/Lab4/Zoom_Full_Button.png "Zoom Full Button"). Alternatively, you can click View | Zoom Full.
+
+    ![Shapefiles Added to Map Window](figures/Lab4/Shapefiles_added_to_map_window.png "Shapefiles Added to Map Window")
+
+10. Let's save the QGIS project. Click on Project | Save from the menu bar. Navigate to your Lab 4 folder and save your project as Lab 4.
+
+11. We have five layers in the map canvas, but currently all we can see are data for Canada, Mexico and the Western states. When you cannot see a dataset, one approach is to make sure the spatial extent of your map window covers that dataset. Right click on the Sage_grouse_current_distribution layer in the Layers panel, and choose Zoom to Layer from the context menu. This will zoom you into the extent of that dataset.
+
+12. The map is now zoomed to the western United States, but we still cannot see anything that looks like habitat data (shown in figure below).
     
-    The circles will be used in this exercise for illustrating the areal and shape distortion that occurs with various projections.  While this method does not actually quantify the distortion, as does Tissot’s indicatrix, it does visually demonstrate the skewing, tearing, and shearing that occurs with certain projections.
+    ![Zoomed into Sage_grouse_current_distribution](figures/Lab4/Zoomed_into_Sage_grouse_current_distribution.png "Zoomed into Sage_grouse_current_distribution")
+
+    The data layers in the Layers panel are drawn in the order they appear in. So the layer that is on the top of the list in the Layers panel will be drawn on top of the other layers in the map view. Notice that the Western_states layer is in that top position. This mean that Western_states is covering up the Sage_grouse_current_distribution and Land_ownership data, since they are placed lower in the Layers panel. 
     
-    First we will examine the map units and distance units set for this “unprojected” map.
+    Let's change this drawing order.
 
-4. From the menu bar, select Project | Project Properties.
-5. Click the CRS tab to view the Coordinate Reference System information for the project file (shown in figure below).
+13. Select the Land\_ownership data layer in the Layers panel and drag it to the top position. You will see a blue line as you drag this layer up the list.
 
-    ![QGIS Project Properties](figures/Lab3/QGIS_Project_Properties.png "QGIS Project Properties")
+14. Your map should now resemble the figure below.
+
+    ![Land Ownership in the Top Position](figures/Lab4/Land_ownership_in_the_top_position.png "Land Ownership in the Top Position")
+
+15. Now drag the Sage\_grouse\_current\_distribution layer into the top position. Your map should now resemble the figure below. 
+
+    ![Sage Grouse in the Top Position](figures/Lab4/Sage_Grouse_In_The_Top_Position.png "Sage Grouse in the Top Position")
+
+    Now all the data layers should be in the correct order. Typically, data layers will be organized with point data layers on top of line layers on top of polygon layers. Raster data layers are usually placed near the bottom.
     
-    Notice that the selected coordinate system is set to WGS 84, which is an unprojected coordinate system.
+    With the layers in the best drawing order, let's turn our attention to the coordinate reference system for the map.
 
-6. Click Cancel to close the Project Properties dialog box.
+16. Note that the lower right hand corner of QGIS displays EPSG: 4269 OTF. This is the EPSG code for the coordinate reference system (CRS) the map is currently in and an indication that on-the-fly projection is enabled (shown in figure below).
 
-    Now we will do some distance measurements on this map for later comparison to maps in which a projection is set.
+    ![Map EPSG Code](figures/Lab4/Map_EPSG_code.png "Map EPSG Code")
 
-7. Click on the Measure Line tool, ![Measure Line tool](figures/Lab3/Measure_Line_tool.png "Measure Line tool"), on the Attributes toolbar.  The Measure box will appear (Figure below).
+17. Click on Project | Project Properties from the menu bar to open the Project Properties window. 
+18. Select the CRS tab. 
+    The current QGIS map CRS is listed at the bottom (shown in figure below). This is a detailed explanation of the maps CRS which is a geographic coordinate system using the NAD83 datum. This CRS makes the lower 48 look stretched out and distorted, so you’ll want to change the maps CRS into something that makes the lower 48 “look correct”. 
 
-    ![Measure Line Tool Selection](figures/Lab3/Measure_Line_Tool_Selection.png "Measure Line Tool Selection")
+19. Make sure that the Enable ‘on the fly’ CRS transformation option is checked. Click OK to close the Project Properties window.
 
-8. Click on the point for Atlanta, in the United States.  
+    Since the Sage\_grouse\_current\_distribution layer is in an Albers projection, and the QGIS map is in a geographic CRS, that means that the Sage\_grouse\_current\_distribution layer is being projected on the fly into the geographic projection of the map.
 
-9. Move the cursor to the point for Alice Springs, Australia, then right-click to end the line.  The distance between Atlanta and Alice Springs will be displayed in metric in the Measure box (Figure below).
+20. Right click on the Sage\_grouse\_current\_distribution layer and choose Set Project CRS from Layer option on the context menu (Figure below). This will put the map into the Albers CRS of the Sage grouse layer. Note that the EPSG code in the lower right corner now reads 5070 for the Albers CRS. This CRS gives the western US an appearance we are more used to. Any other map layers not in Albers, will now be projected on the fly into Albers.
 
-    ![First Distance Measurement](figures/Lab3/First_Measurement.png "First Distance Measurement")
+    ![Map CRS from Project Properties](figures/Lab4/Map_CRS_from_Project_Properties.png "Map CRS from Project Properties")
+    Now you will change the layer names in the Layers panel. The layer names match the names of the shapefiles by default. However, these names will appear on the legend. So you will always want to change these to proper names that your map reading audience will understand. 
+
+21. Right click on the Sage\_grouse\_current\_distribution layer, and choose the Properties from the context menu, to open the Layer Properties window. Choose the General tab on the left.  Click in the box next to Layer name and change the name to Sage-grouse Habitat (shown in figure below). Click OK to close the Layer Properties window.
+	+ Alternatively, you can right click on a layer in the Layers panel and choose Rename from the context menu to make the layer name editable directly in the Layers panel.
+    ![Changing Layer Name](figures/Lab4/Changing_Layer_Name.png "Changing Layer Name")
+
+22. Change the other layers names as follows:
+
+	+ Change Land ownership to Federal Land Ownership
+	+ Change Western\_states to State Boundaries
+
+23. Click the File | Save to save the changes you have made to your project.
+
+## Task 2 - Style Data Layers
+
+Now that you have set up your map, you will style your layers and begin to craft a well-designed map.
+
+Visually you will want the land ownership and sage-grouse habitat to have the most weight. Canada and Mexico are there for reference but should fall to the background. You will make them both light gray.
+
+1. Double-click on the Canada layer to open the Layer Properties window (this is another way to open Layer Properties). 
+
+2. Click on the Style tab.
+
+3. In the Symbol layers box click on Simple fill (reference figure below).
+
+    ![Layer Style](figures/Lab4/Layer_Style.png "Layer Style")
+
+4. Find the Symbol layer type box on the right side of the window. This allows you to change both the fill and outline symbols for this polygon layer. Click on the colored box to the right of Fill (shown in figure below) to open the Color picker window.
+
+    ![Fill Color Box](figures/Lab4/Fill_Color_Box.png "Fill Color Box")
     
-    The measured distance is about 25,300 kilometers (your distance may vary slightly).  This is not the actual distance between Atlanta and Alice Springs.  Since on the fly CRS transformation is turned off, QGIS measures directly between Atlanta and Alice Springs (along your measure line) heading East from Atlanta.  What it should do is measure to Alice Springs by heading West from Atlanta instead of East as you defined since heading West is a shorter distance than heading East.  However, QGIS does not know that the “World is round,” so-to-speak, since on-the-fly transformation (OTF) is turned off.  With OTF turned on, it treats the coordinate system as a selected World-based coordinate system.  This view does not maintain spherical distance measurements, and distorts shape, direction and area.
+    You can pick existing Basic colors or define a color via A) hue, saturation and value (HSV) or B) red blue and green (RGB) values. Set the color to Hue: 0 Sat: 0% and Val: 90%. Make sure your Color picker window matches the figure below.
     
-    Let’s tell QGIS that we are, in fact, working with a World-based coordinate system and wish to measure on a round world.
+    ![Select Color](figures/Lab4/Select_Color.png "Select Color")
 
-10. From the menu bar, select Project -> Project Properties.
+5. Click the button with the blue arrow to add the color to the custom color buttons. Click OK to close the Color picker window.
 
-11. Click on the CRS tab.
+6. Back in the Layer Properties window, for the Border style, select Solid Line from the dropdown menu (shown in figure below).
 
-12. Check the “Enable ‘on the fly’ CRS transformation” option.
+    ![Border Style Set to Solid Line](figures/Lab4/Border_Style_Solid_Line.png "Border Style Set to Solid Line")
 
-13. Select the WGS 84 coordinate system from the list of Coordinate reference systems of the world (Figure below).
+7. Click OK on the Layer Properties window to close and style the Canada layer.
 
-    ![WGS 84 Coordinate System Selected](figures/Lab3/WGS_84_Coordinate_System_Selected.png "WGS 84 Coordinate System Selected")
+8. Open Layer Properties for Mexico. Make Mexico look the same as Canada. You can just choose the Custom color you just saved to save time.
 
-14. Click OK to view the map.
+    Your map should now look like figure below.
 
-15. Using the Measure tool, measure the distance between Atlanta and Alice Springs again (Figure below).
+    ![Mexico and Canada Changed to a Gray Fill](figures/Lab4/Mexico_and_Canada_changed_to_a_gray_fill.png "Mexico and Canada Changed to a Gray Fill")
 
-    ![Second Distance Measurement](figures/Lab3/Second_Measurement.png "Second Distance Measurement")
+9. Using the same workflow, give the State Boundaries a white fill. You will be able to find white in the Basic colors palette.
 
-    The measured distance is about 16,000 kilometers (your distance may vary slightly).  This is the actual  distance between Atlanta and Alice Springs.  This view maintains spherical distance measurements, but distorts shape, direction, and area.  
+    Now you will style the Land Ownership layer. Instead of making the entire layer one color as you have done thus far, you will assign a unique color to each land managing agency. How do you know who is managing each parcel? This will be information contained in the attribute table. 
 
-Let’s change the projection on this view to the Mercator projection.
+10. Right click on Federal Land Ownership layer in the Layers panel, and choose Open the Attribute Table from the context menu. 
 
-16. Open the Project Properties and select the CRS tab.
+    There are 13 column of information. Can you find the one that contains the land manager?
 
-17. In the Filter box, type in 3395, which is the EPSG code for the WGS 84 / World Mercator projected coordinate system.  This filters the long list of Coordinate Reference Systems so we can easily find the one we are searching for.  
-    EPSG Codes are unique codes for each projection/coordinate system. To learn more about EPSG codes, visit [http://www.epsg.org/](http://www.epsg.org/).
+11. Open the Layer Properties for the Federal Land Ownership layer and switch to the Style tab. So far you’ve used the default Single Symbol type. Now you will switch to Categorized. 
 
-18. Select WGS 84 / World Mercator from the filtered Coordinate Reference System list (Figure below).
+12. Click the drop down menu and change from Single Symbol to Categorized (Figure below).
 
-    ![WGS 84 / World Mercator Selected](figures/Lab3/World_Mercator_Selected.png "WGS 84 / World Mercator Selected")
+    Now you have the option of choosing an attribute column to symbolize the layer by. The column AGBUR is the one that contains the managing agency values. 
 
-19. Click OK to view the map.  You should see the map shown in Figure below.
+13. Click the drop down arrow and choose AGBUR for the Column. 
 
-    ![Mercator Map Projection](figures/Lab3/Mercator_Map_Projection.png "Mercator Map Projection")
+14. Click the Classify button (shown in figure below). This tells QGIS to sort through all the records in the table and identify all the unique values. Now you can assign a specific color to each class by double clicking on the color square.
+
+    ![Categorized Symbols by Attribute](figures/Lab4/Categorized_symbols_by_Attribute.png "Categorized Symbols by Attribute")
+
+    Notice that there is a symbol with no values. These are parcels with no values (NULL) in the AGBUR field. They represent private and state inholdings within federal lands. Since you are just interested in depicting federal land ownership you’ll delete that symbol class. 
+
+15. Select that top symbol by clicking on it, and then click the Delete button below to remove that symbol. Now those parcels will not be included on the map.
+
+    For the remaining federal land ownership symbols you will use the BLM Standards Manual for land ownership maps [http://www.blm.gov/noc/st/en/business/mapstandards/colormod.html](http://www.blm.gov/noc/st/en/business/mapstandards/colormod.html). 
+
+    + *Note:* A PDF of the BLM Map Color Standards is also available in your lab folder and is named BLM Map Color Standards.pdf.
+
+    The BLM has designated colors for each type of land ownership. When composing a map it is important to pay attention to industry specific standards. Following them will make the map more intuitive to the target audience. For example, people are used to seeing Forest Service land depicted in a certain shade of green.
+
+16. To color BLM lands, double click on the color patch left of BLM in the Style window. The Symbol selector will open. 
+17. Click on Simple fill. 
+18. You will not want any border lines on these polygons. With such a complicated thematic polygon layer they are too visually distracting. Choose a Border style of No Pen. 
+19. Click on the Fill style color patch to open the Color Picker window.
+20. In the Color Picker window, change the Red, Green, and Blue values to 254 – 230 – 121 (shown in figure below). This will change the color to a specific shade of tan representing BLM lands. Click OK in the Color Picker window. Then click OK in the Symbol Selector to save the BLM style.
+
+    ![Select Color for BLM lands](figures/Lab4/Select_Color_for_BLM_lands.png "Select Color for BLM lands")
+
+21. Use the values below to change the RGB colors for the remaining six land ownership classes. Also choose No pen for the border style.
+    + BOR | 255-255-179
+    + DOD | 251-180-206
+    + FS | 179-222-105
+    + FWS | 127-204-167
+    + NPS | 177-137-193
+    + OTHER | 150-150-150
+
+22. When finished, click OK on the Layer Properties for Federal Land Ownership.
+ 
+23. Turn off Sage-grouse Habitat by clicking the X next to the name in the Layers panel.
+
+    Your map should now resemble figure below.
+
+    ![Styled Federal Land Ownership](figures/Lab4/Styled_Federal_Land_Ownership.png "Styled Federal Land Ownership")
+
+    Now you will set a background color for the map. Since states are filled with white, setting a background color of light blue will serve to represent the Pacific Ocean.
+
+24. From the menu bar choose Project | Project Properties. 
+25. On the General tab, click the white color patch next to Background color to open the Color Picker window.
+26. Set the RBG value to: **225**-255-255. 
+27. Click OK on the Color Picker window and OK on Project Properties to save the setting. 
+
+    Depending on your current map extent, the area east of the states layer may be blue now too. That is fine. For the final map we will be zoomed in so you won’t see that.
+
+    The states are white with a black border and serve to show non-federal land as white which is great. However, the state boundaries are obscured since State Boundaries are below Federal Land Ownership. 
+
+28. Go to the Browser panel and add Western\_states.shp to the map again. You can have multiple copies of layers for cartographic purposes. 
+29. Drag the Western\_states layer to the top of the Layers panel. 
+30. Open the Layer Properties window for the Western\_states layer and select the Style tab.
+31. Click on Simple fill. 
+32. Give the layer a Fill style of No Brush (see figure below). It will now just be the state outlines above Federal Land Ownership. 
+
+    ![Giving Western_states a No Brush fill](figures/Lab4/Giving_Western_states_a_No_Brush_fill.png "Giving Western_states a No Brush fill")
+
+33. Click OK to save the style and close the Layer Properties window.
+34. Your map should now resemble figure below.
+
+    ![Hollow States Layer Added to Map](figures/Lab4/Hollow_states_layer_added_to_map.png "Hollow States Layer Added to Map")
+
+    The last layer to work with is the Sage-grouse Habitat. You will make the Sage-grouse Habitat polygons have a crosshatch pattern. This will allow the map reader to see the land ownership data beneath. 
+
+35. Turn on the visibility for the Sage-grouse Habitat layer.
+36. Open the Layer Properties for Sage-grouse Habitat. 
+37. Click on Simple fill. 
+38. Change the Fill color to RGB 170-0-255. 
+39. Change the Border color to RGB 142-0-213. 
+40. Make the Fill style FDiagonal. 
+41. Finally change the Border width to 0.46 (reference settings in figure below).
+
+    ![Sage-grouse Habitat Styling](figures/Lab4/Sage-grouse_Habitat_styling.png "Sage-grouse Habitat Styling")
+
+42. Click OK.
+43. Save your project!
+
+    Your map should now resemble Figure below.
+
+    ![All Layers Styled](figures/Lab4/All_layers_styled.png "All Layers Styled")
+
+##	Task 3 - Compose Map Deliverable
+
+Now that all the data is well styled you can compose the map deliverable.
+
+1. Zoom in tighter to the Sage-grouse Habitat data.
+
+	+ Use the Zoom in tool and drag a box encapsulating the sage-grouse habitat. Leave a little of the Pacific Ocean visible to the west to give some context (reference figure below).
+
+    As it turns out, the data for Mexico is not needed. Sometimes you are given data that does not end up being used, but is nice to have in case you do need it.
+
+    ![Final Map Extent](figures/Lab4/Final_Map_Extent.png "Final Map Extent")
+
+2. From the menu bar choose Project | New Print Composer. 
+3. Name the Composer “Lab 4 - Sage-grouse Habitat” (shown in figure below). 
+
+    ![New Print Composer](figures/Lab4/New_Print_Composer.png "New Print Composer")
+
+4. Click OK. The Print Composer will open. This is where you craft your map.
+    The Print Composer is an application window with many tools that allow you to craft a map. For detailed information about the Print Composer, refer to the QGIS manual: [http://www.qgis.org/en/docs/user_manual/print_composer/print_composer.html](http://www.qgis.org/en/docs/user_manual/print_composer/print_composer.html) 
+    The main window of the Print Composer displays the piece of paper upon which the map will be designed. There are buttons along the left side of the window that allow you to add various map elements: map, scale bar, photo, text, shapes, attribute tables, etc. Each item added to the map canvas becomes a graphic object that can be further manipulated (if selected) by the Items tab on the right side of the composer. Across the top are buttons for exporting the composition, navigating within the composition and some other graphic tools (grouping/ungrouping etc.)
+
+5. On the Composition tab you can specify details about the overall composition. Set the Presets to ANSI A (Letter; 8.5x11 in). 
+6. Set the Orientation to Landscape. 
+7. Set the Export resolution to 300 DPI. 
+
+    (These are listed as map requirements at the beginning of the lab.)
+
+8. Using the Add new map button ![Add new map](figures/Lab4/Add_new_map.png "Add new map") drag a box on the map canvas where you’d like the map to go. Remember that you’ll need room for a title at the top of the page and a legend to the right of the map (reference figure below).
+
+    The map object can be resized after it’s added by selecting it and using the handles around the perimeter to resize.
+
+    *Map extent helpful hints:* Generally, the map will look as it does within QGIS Desktop. However, you may need to change the map extent in QGIS Desktop, go back to the Print Composer and click the Refresh view button ![Refresh view button](figures/Lab4/Refresh_view_button.png "Refresh view button"). It is normal to have some back and forth with QGIS Desktop and the Print Composer before getting the map just right.
+
+    ![New Print Composer](figures/Lab4/New_Print_Composer.png "New Print Composer")
     
-    The Mercator projection, a conformal  projection (except at the poles), has straight meridians and parallels that intersect at right angles.  Scale is truest along the equator, and becomes more distorted at higher latitudes, as evidenced by the increasing size of the circles.  The Mercator projection was designed for marine navigation and gives all straight lines on the map as lines of constant compass bearing.  For global scale thematic maps, however, the Mercator has too much areal distortion for accurate use.  
-    
-    The Mercator is best for larger scale projections of areas at low latitude. Small-scale maps have much distortion of area and distance.
-    
-    The Mercator map is much less desirable for mapping continents than other projections as it has significant distortion and can promote geographical misconceptions.  In general, rectangular maps are not recommended for use in mapping the world.  Equivalency (the property of equal area) and conformality are better preserved using non-rectangular maps. Task 2 will examine a map projection more suitable for mapping the world.  
-    
-    Keep the World View QGIS project open, it will be used in Task 2 as well.
+    Now you will add the title to your map.
 
-## Task 2 - Exploring World Map Projections
+9. Use the Add new label tool ![Add new label](figures/Lab4/Add_new_label.png "Add new label") to drag a box all the way across the top of the composition. The text box can be resized after the fact by using the graphic handles.
+10. Use the Item Properties to type in the title. Enter the title as 'Greater sage-grouse Current Distribution'. 
+11. In the Items tab, select the title. This will change the properties available in the Item Properties tab.
+12. In the Item Properties tab, click the Font button and change the font to: Times New Roman, Bold, Size 36.
+13. Finally align the title horizontally to the Center of the map (see figure below).
 
-Let’s examine a map projection more suitable for mapping the entire world: the Eckert IV projection.  The Eckert II map projection is an equal-area pseudocylindrical map projection with straight parallel latitude lines and equally spaced meridians.
+    ![Adding a Title](figures/Lab4/Adding_A_Title.png "Adding a Title")
 
-Let’s change the projection on this view to the Eckert IV projection.
+14. Now you will add a Legend. Use the Add new legend tool ![Add new legend](figures/Lab4/Add_new_legend.png "Add new legend") to drag a box on the right side of the map (shown in figure below).
 
-1. Open the Project Properties and select the CRS tab.
+    ![Adding a Legend](figures/Lab4/Adding_A_Legend.png "Adding a Legend")
 
-1. In the Filter box, type in Eckert.  This filters the long list of Coordinate Reference Systems so we can easily find the one we are searching for by name.
+    The upper most Western\_states layer does not need to appear in the legend, nor does Mexico. Western\_states is there purely for cartographic reasons and Mexico does not appear on the map. The Item properties tab will be used to configure the legend (see figure below).
 
-2. Select Eckert IV/World\_Eckert\_IV from the filtered Coordinate Reference System list.
+    ![Legend Properties](figures/Lab4/Legend_Properties.png "Legend Properties")
 
-    ![Eckert IV/World_Eckert_IV Selected](figures/Lab3/World_Eckert_IV_Selected.png "Eckert IV/World_Eckert_IV Selected")
+15. Uncheck Auto update. This will enable us to modify the legend, however, updates to the map on the map wil no longer be reflected in the legend unless we re-enable Auto update.
+16. Select the Western\_states layer and click the Delete item button ![Delete item button](figures/Lab4/Delete_item_button.png " Delete item button ") to remove it. Do the same for Mexico.
+17. Expand the Federal Land Ownership layer. 
+18. Click on the BLM class and click the Edit button ![Edit button](figures/Lab4/Edit_button.png "Edit button"). 
+19. Change the name to “Bureau of Land Management”. Go through each remaining land ownership class and edit them to match Figure below.
 
-3. Click OK to view the map.  You should see the map shown in Figure below. 
-	* *Note:* Due to occasional rendering issues, the projected map may look "blocky". If this happens, either zooming in, or temporarily switching the CRS to another CRS and back will sometimes fix the issue.
+    ![Legend Layer Labels](figures/Lab4/Legend_Layer_Labels.png "Legend Layer Labels")
 
-    ![Eckert IV Map Projection](figures/Lab3/Eckert_IV_Map_Projection.png "Eckert IV Map Projection")
+    Now we will add a neatline around our map. 
 
-    The Eckert IV is useful for world maps as it is equal-area and is pleasing to the eye.  Its standard parallels are at 40° 30’N and 40° 30’S.  This map is only distortion free where the standard parallels intersect the central meridian.
+20. Click the Add Rectangle tool (shown in figure below). 
 
-    Let’s see how the distance property fares.
+    ![Adding a Neatline](figures/Lab4/Adding_a_Neatline.png "Adding a Neatline")
 
-4. Using the Measure tool, measure the distance from Atlanta to Alice Springs.
+21. Drag a box around the map object and legend. 
+22. On the Item Properties tab, click the Style Change button. 
+23. Click Simple fill and give it a Fill style of No Brush. 
+24. Give it a Border width of 1. 
+25. Adjust the box so that it aligns with the map boundary. 
 
-The distance measures approximately 20,848 kilometers.  The Eckert IV is therefore not an equidistant projection and should not be used for distance measurement.
+    You may find it necessary to lock the rectangle so you can move other map elements. To lock a map element and keep it from being selected, in the Items tab, check the box in the lock column as shown in the figure below.
 
-## Task 3 - Exploring National Map Projections
+    ![Locking a Layer](figures/Lab4/Locking_A_Layer.png "Locking a Layer")
 
-Projections suitable for mapping the world are not necessarily the best for mapping smaller areas, such as continents or countries. When mapping at such a scale in the mid-latitudes it is important to use a projection that centers on the area being mapped and has a standard line, or lines, passing through the area being mapped.
+    The last items to add to the map are the data sources and date. 
 
-In this task, we will look at a map of the contiguous United States using a few different projections. 
+26. Click the Add new label tool.
+27. Drag a box in the lower right hand corner of the composition. Using the Item Properties type: 
 
-1. In QGIS Desktop, open the project, Country View.qgs (Figure below) by clicking Project | Open.
-    
-    ![Country View](figures/Lab3/Country_View.png "Country View")
-    
-    Country View.qgs is an unprojected map of the lower 48 states comprised of three themes: United States, LA & NYC, and Circle (centered on -97.50, 39.00).  You can see it does not look quite right given the default projection.  The circle shows some obvious skewing.  
+    Data Sources: The National Atlas & USFWS
 
-    The distance property is more difficult to judge.  The known distance between Los Angeles and New York is approximately 3,962 kilometers.  Let’s see how the unprojected map controls distance distortion.
+    Date: Month Day, Year
 
-2. As before use the Measure Tool to measure the distance between Los Angeles and New York City in kilometers.
+28. Make the font Times New Roman and the font size 8.
 
-    If OTF is off, the distance in the unprojected view returns an answer 44.8 meters! If you receive this short distance, enable on-the-fly CRS transformation so the correct distance will be returned. 
+    Your map should resemble the figure below.
 
-3. From the menu bar, select Project | Project Properties.
+    ![Adding Supplemental Text](figures/Lab4/Adding_Supplemental_Text.png "Adding Supplemental Text")
 
-4. Click on the CRS tab.
+29. Congratulations your map is finished! The final step is to export it to a high-resolution jpg image. 
 
-5. Check the “Enable ‘on the fly’ CRS transformation” option.
+30. Click the Export as image button ![Export as Image Button](figures/Lab4/image_button.png "Export as Image Button").
 
-6. Select the WGS 84 coordinate system from the list of Coordinate reference systems of the world (Figure below).
+31. Choose JPEG as the Save as type and save the image to your Lab 4 folder. Name the file “Lab4_Map.jpg” and click Save.
 
-    ![WGS 84 Coordinate System Selected](figures/Lab3/WGS_84_Coordinate_System_Selected.png "WGS 84 Coordinate System Selected")
+32. The final map should look like Figure below.
 
-7. Click OK to view the map.
+    ![Final Map](figures/Lab4/Final_Map.png "Final Map")
 
-8. You may need to right click on the Lower 48 States them and choose Zoom to Layer Extent.
+## 4. Conclusion
 
-9. Measure the distance between Los Angeles and New York again.
+    In this lab you created a well-designed map using some of the cartography tools available in QGIS Desktop. You created a nice map highlighting federal land ownership within sage-grouse habitat for a client. This involved styling layers, styling layers by categorical attributes and crafting a map composition.
 
-    The measurement will now be virtually the same as the actual distance of 3,962 kilometers.  Remember, for this projection in QGIS, coordinates are treated as spherical latitude and longitude.  Distance is calculated as if along a great circle arc and so the actual ground distance is preserved.  Shape and areal properties, however, are distorted.
-    
-    Now we will project the data using the Eckert IV projection.  The Eckert IV did a nice job with the whole world, but we will see how it fares with a single mid-latitude country.
+## 5. Discussion Questions
 
-10. Open the Project Properties, select the CRS tab, and choose World\_Eckert\_IV from the recently used coordinate reference systems box.
+1. Export the final map as a high-resolution jpg for your instructor to grade.
+2. What are two ways to add vector data to QGIS Desktop?
+3. How would a portrait orientation change the composition of the map? Describe how you would arrange the map elements.
+4. No map is perfect. Critique this map. What do you like about it? What do  you dislike about it? How would you change this map to improve it? Would you add other data layers or add labels?
 
-11. Click OK to set the CRS.  You may need to zoom full ![zoom full](figures/Lab3/zoom_full.png "Zoom full") to see the lower 48 states (Figure below).
+## 6. Challenge Assignment (optional)
 
-    ![Eckert IV Projection Applied to USA](figures/Lab3/Eckert_IV_Projection_Applied_to_USA.png "Eckert IV Projection Applied to USA")
+Another biologist working with black bears on the east coast heard about your great work on the sage-grouse map. She would like you to create a similar map for her. The data she is providing is in the Lab 4/Data/Challenge folder.
 
-    There clearly is a great deal of distortion using this projection, most obviously the shearing.  Part of the problem lies in the fact that this projection is centered at 0 degrees longitude.  Let’s center the projection on the United States by creating a custom CRS based on the World\_Eckert_IV projection.
+![Lab 4/Data/Challenge folder](figures/Lab4/Lab_4_Data_Challenge_folder.png "Lab 4/Data/Challenge folder")
 
-11. Click Settings | Custom CRS… from the menu bar.  This will open the Custom Coordinate Reference System Definition dialog box.
+She also needs letter sized, color, map figure that shows the relationship between black bear habitat and federal land ownership along the eastern seaboard. She is interested in seeing how much habitat is under federal versus non-federal ownership.
 
-12. Click Copy existing CRS button ![Copy Existing CRS Button](figures/Lab3/Copy_CRS_Button.png "Copy Existing CRS Button") to open the Coordinate Reference System Selector.  
+She is providing data from the US Fish and Wildlife Service depicted current occupied range for black bear on the east coast. She is also providing federal land ownership, state boundaries and country boundaries from the US National Atlas. The land ownership data has an attribute column describing which federal agency manages the land (AGBUR). This land ownership dataset has another category in the AGBUR field for Wilderness Areas called "Wild". These should be styled with a dark green.
 
-13. Select World\_Eckert\_IV from the recently used list.  Make sure that the CRS parameters show at the bottom of the selector.  If not, temporarily select a different CRS, then select World\_Eckert\_IV again (see Figure below).
-
-    ![Eckert IV Projection Parameters Populated in CRS Selector](figures/Lab3/Eckert_IV_Projection_Parameters_Populated_in_CRS_Selector.png "Eckert IV Projection Parameters Populated in CRS Selector")
-
-14. Click OK to return to the Custom CRS Definition dialog.  The Parameters will now be filled with the copied CRS parameters (shown in figure below).
-
-    ![Copied Custom CRS Parameters](figures/Lab3/Copied_Custom_CRS_Parameters.png "Copied Custom CRS Parameters")
-
-    We need to change the central meridian so that the projection is centered at -96.000 degrees longitude instead of 0.000.  This will center the projection down the middle of the country.  
-
-15. To accomplish this, replace lon\_0=0 with lon\_0=-96.0 (essentially replacing the central meridian of 0 with -96.0).  The CRS Parameters should now look like:
-
-    *+proj=eck4 +lon\_0=-96.0 +x\_0=0 +y\_0=0 +datum=WGS84 +units=m +no\_defs*
-
-16. In the “Name” box, enter USA\_Eckert\_IV.  This will serve as a name of our new Custom CRS.
-
-17. Click OK.
-
-    Our custom CRS is now added to QGIS Desktop for us to use.  Let’s choose our USA\_Eckert\_IV projection to see how it projects our map.
-
-18. Open the Project Properties, select the CRS tab.
-
-19. In the ‘Coordinate reference systems of the world’ list, scroll all the way to the bottom until you see ![Coordinate reference systems of the world](figures/Lab3/Coordinate_reference_systems_of_the_world.png "Coordinate reference systems of the world")
-
-20. Expand the User Defined Coordinate Systems entry.
-
-21. Choose USA\_Eckert\_IV.
-
-22. Click OK to set the CRS. You may need to zoom full ![zoom full](figures/Lab3/zoom_full.png "zoom full") to see the lower 48 states (Figure below).
-
-    ![User Defined ‘USA_Eckert_IV’ Projection](figures/Lab3/User_Defined_USA_Eckert_IV_Projection.png "User Defined ‘USA_Eckert_IV’ Projection")
-
-    This is a distinct improvement in shape, but there is still some skewing.  The Eckert IV projection is primarily used for mapping the entire world.  For mapping large countries, at mid-latitudes, such as the United States, other projections are more appropriate.  
-
-    The Lambert azimuthal, Albers equal-area, Bonne equal-area, and Lambert conformal conic projections are examples of suitable projections for mapping the entire U.S.  
-
-    Because it has two standard parallels, the Albers equal-area projection is particularly good for larger countries with a significant east-west extent.  Let’s try Albers on our map.
-
-23. Once again, open the Project Properties, select the CRS tab, and choose USA\_Contiguous\_Albers\_Equal\_Area\_Conic (EPSG: 102003) as the CRS.
-
-24. Click OK to set the CRS. You may need to zoom full ![zoom full](figures/Lab3/zoom_full.png "zoom full") to see the lower 48 states (Figure below).
-
-    ![USA Contiguous Albers Equal Area Conic Coordinate System](figures/Lab3/USA_Contiguous_Albers_Equal_Area_Conic_Coordinate_System.png "USA Contiguous Albers Equal Area Conic Coordinate System")
-
-    The Albers conic projection has low scale distortion for an area the size of the U.S.  As the area being mapped decreases in size, distortion is less of an issue.  
-
-    Let’s try another map projection to see what changes.
-
-25. Open the Project Properties, select the CRS tab, and choose USA\_Contiguous\_Lambert\_Conformal\_Conic (EPSG: 102004) as the CRS.
-
-26. Click OK to set the CRS. You may need to zoom full ![zoom full](figures/Lab3/zoom_full.png "zoom full") to see the lower 48 states.
-
-    Not too much changed between Albers and Lambert.  They are both similar map projections.  Lambert does have more options in its CRS parameters list, so let us examine the custom options so we can more fully understand what options can be set when creating a custom CRS.
-
-27. Click Settings | Custom CRS… from the menu bar.  This will open the Custom Corodinate Reference System Definition dialog box.
-
-28. Click Add new CRS button ![Add New CRS Button](figures/Lab3/Add_New_CRS_Button.png "Add New CRS Button").
-
-29. Click Copy existing CRS button ![Copy Existing CRS Button](figures/Lab3/Copy_CRS_Button.png "Copy Existing CRS Button") to open the Coordinate Reference System Selector.  
-
-30. Select USA\_Contiguous\_Lambert\_Conformal\_Conic from the recently used list.  Make sure that the CRS parameters show at the bottom of the selector.  If not, temporarily select a different CRS, then select USA\_Contiguous\_Lambert\_Conformal\_Conic again.
-
-31. Click OK to copy the parameters.
-
-32. Change the Name to Modified\_USA\_Contiguous\_Lambert\_Conformal\_Conic.  Your Custom CRS Parameters should look like Figure below.
-
-    ![Copied Parameters for our Custom Lambert CRS](figures/Lab3/Copied_Parameters_for_our_Custom_Lambert_CRS.png "Copied Parameters for our Custom Lambert CRS")
-
-33. Click on Project | Project Properties and change the maps projection to the newly created Modified\_USA\_Contiguous\_Lambert\_Conformal\_Conic
-
-    There are many ways that we can customize this CRS.  You can customize one of the projection selections so that it is centered on the area in question, in this case the United States, simply by redefining the particular cartographic settings, such as the central meridians, standard parallel(s), reference latitude, or false eastings and northings.  The choice of parameters varies depending on which projection is being used.  
-    
-    Let’s briefly define these terms and where they can be modified in the CRS Parameters.  Each term will be followed by the parameter in the CRS Parameters inside of parenthesis. 
-    
-    *Note:* Proj.4 is another FOSS4G project used by QGIS, like OGR and GDAL. This project is for managing coordinate systems and projections. For a detailed user manual for the Proj.4 format used to specify the CRS Parameters in QGIS, visit
-    
-    [ftp://ftp.remotesensing.org/proj/OF90-284.pdf](ftp://ftp.remotesensing.org/proj/OF90-284.pdf)
-    
-    + False easting (x\_0) - in QGIS, the x-coordinate value for the x-origin.  For example, if the central meridian for your projected map is -96.00, and the false easting is set to 0.00, then all locations along that meridian are assigned a value of 0.00.  All locations to the west of the central meridian (x-origin) are assigned a negative value, and all locations to the east of the central meridian are assigned a positive value, as in a typical Cartesian plane.
-    
-    + False northing (y\_0) - in QGIS, the y-coordinate value for the y-origin.  For example, if the reference latitude for a conic projection is 37.00, then all locations along that parallel are assigned a value of 0.00.  All locations to the south of the reference latitude (y-origin) are assigned a negative value, and all locations to the north of the reference latitude are assigned a positive value, as in a typical Cartesian plane.
-    
-    + Central meridian (lon\_0) - the longitude on which a map is centered (x-origin).
-    
-    + Standard parallel(s) (lat\_1, lat\_2) - the latitude on which a map is centered (sometimes the y-origin), or for conic projections, the parallels along which the cone touches the earth.
-    
-    + Latitude of Origin (lat\_0) - the latitude on which a map is centered (y-origin).
-    
-    For now, we will leave the default settings for the central meridian, latitude of origin, standard parallels, and false easting and northing.  In setting map projections, the choice of spheroid, or reference ellipsoid, is also an important consideration.  In this example, the spheroid is currently set to GRS\_1980. 
-    
-    + Spheroid (ellps) - a model of the earth’s shape used in transforming a projection.  The reference spheroid, or ellipsoid, is generated by choosing the lengths of the major and minor axes that best fit those of the real earth.   Many such models are appropriate for different locations on the earth.
-    
-    Closely related to the concept of the spheroid is the concept of the datum.  The North American Datum of 1927 (NAD27) uses the Clarke 1866 reference ellipsoid, whereas the North American Datum of 1983 (NAD83) uses the Geodetic Reference System (GRS) 1980 reference ellipsoid.
-     
-    + Datum (datum) - selecting and orienting a specific spheroid to use for a location.
-    
-    + Coordinate Units (units).  Coordinate Units are used to define distances when setting x and y coordinates.  
-    
-    Now let’s see the effect of the 0.00 settings for the false easting and northing.  The x-origin is approximately -95.85 and the y-origin is approximately 37.16. 
-    
-    You may have noticed that GIS layers (aka. “themes”) in the Layers panel have a box with an X in it. Layers can be turned off and on by unchecking and checking that box.  
-
-42. In the Layers panel, turn off the Circle layer by clicking the X, to see southeastern Kansas, the location where the x and y origins intersect.
-43. Turn on the Intersection Point layer by clicking the empty box to the left of the name and turning on the X, to see where the x and y origins intersect.
-
-    In Figure below, a white circle with a centered, black dot illustrates the intersection of the x and y origins.  At this intersection in the view, the x and y coordinates are 0.00, 0.00.  As you move to the northeast, both the x and y coordinates are positive.  You can view the coordinates of your mouse cursor in the bottom-right corner of QGIS. The figure below shows an example.
-    
-    ![Coordinates of Mouse Cursor on Map](figures/Lab3/Coordinates_of_Mouse_Cursor_on_Map.png "Coordinates of Mouse Cursor on Map")
-    
-    The values of the x and y coordinates are expressed in meters from the origin.  As you move to the southwest of the intersection, the x and y coordinates are both negative.  Experiment with the changing coordinate values and other projections on your own.
-    
-    ![Intersection of X and Y Origins](figures/Lab3/Intersection_of_X_and_Y_Origins.png "Intersection of X and Y Origins")
-    
-    The conic projections function quite well for mapping the larger states in the U.S.  In terms of thematic mapping, it is important that maps at this scale are equal-area.  Any other properties important to the particular map should also be considered when selecting a proper projection.  We will now examine projections and grid systems for large-scale maps, such as for small states, counties, or local regions.
-
-##	Task 4 - Exploring State Map Projections
-
-The State Plane Coordinate System (SPCS) was developed to provide a simple rectangular coordinate system for large scale mapping use (i.e. small areas of the earth), such as surveying and engineering projects.  
-
-The SPCS is a series of separate coordinate systems, each covering either an entire state, or a portion of a state.  The SPCS is only used in the United States of America and, therefore, it is not appropriate to use SPCS for other countries or regions of the World.  SPCS is popular due to its high accuracy in large-scale mapping because of the relatively small size of each SPCS zone.  The SPCS is composed of 120 zones which follow county boundaries (except in Alaska) and often divides a state in to multiple zones. There are two main projections used with the SPCS. States with a north-south axis are mapped using the Transverse Mercator projection, and designate zones with between a range of ‘North’ and ‘South’ (e.x. Minnesota North).  States with an east-west axis are mapped with the Lambert Conformal projection and designate zones between a range of  ‘East’ and .West’ (e.x. New Mexico Central).
-
-The original state plane system, developed in the 1930s, was based on the North American Datum of 1927, with coordinates measured in feet.  Today the state plane system is based on the North American Datum of 1983, and coordinates are in meters. 
-
-The coordinate grids cover small areas with minimal areal or distance distortion.  For small states, one grid is sufficient, while for larger states, more are required to cover the entire area.  Alaska, for example, needs ten grids.  The state plane system, therefore, is only appropriate for mapping small Earth areas, such as the smallest states, city grids, or local regions. Your study area will need to fit within a State Plane Zone for this to be an appropriate choice of coordinate system. The smallest states, which only have one state plane zone, can be represented in their entirety using the SPCS.
-
-Let’s create a map display of Vermont, using the State Plane Coordinate System.  Vermont is one of the smaller states and only has one state plane zone.
-
-1. In QGIS, open the project, Vermont.qgs by clicking Project | Open.
-
-    ![Vermont.qgs Project](figures/Lab3/Vermont_qgs_Project.png "Vermont.qgs Project")
-
-2. Open the Project Properties then click on CRS tab.
-
-    Note that the projection selected is WGS 84.  This is selected because the Vermont shapefile is the only layer, is projected in the WGS 84 coordinate system, and first added layer in the map, so QGIS sets the project’s coordinate system to match.  Also note that on the fly CRS transformation is not enabled, therefore, we are seeing Vermont in an unprojected state.  
-
-    To make the map of Vermont in SPCS, we have two options:
-
-    + Enable 'on the fly' CRS transformation, and select NAD27 / Vermont coordinate system, EPSG: 32045.
-    
-    + Project the Vermont shapefile in to NAD27 / Vermont and set the Project’s coordinate system to match.
-    
-    Enabling on the fly CRS transformation will allow us to work with data that are in different map projections in the same QGIS Project.  However, sometimes it is best to project the data in to the coordinate system we wish to map at, since it will have the advantages of not requiring QGIS to calculate the transformation on the fly, and analysis operations will be more predictable and accurate.
-    
-    So, let us project the Vermont shapefile in to the NAD27 / Vermont coordinate system and set the Project coordinate system to match.
-
-3. In the Layers panel, right-click on the Vermont layer and from the context menu choose Save As…  This will open the ‘Save vector layer as…” dialog box (Figure below).
-
-    ![Save As… Option in Layer Context Menu](figures/Lab3/Save_As_Option_in_Layer_Context_Menu.png "Save As… Option in Layer Context Menu")
-
-4. Set the following options to project the Vermont layer, save it to a new shapefile, and add it to the map (Figure below shows correct options).
-	
-	a. Format: ESRI Shapefile
-	
-	b. Click Browse
-
-	c. Find your Lab 3 "Data" Folder and save within that folder under the name *Vermont\_SPCS.shp*
-
-	d. CRS: NAD27 / Vermont (EPSG:32045)  (click Select CRS button ![Select CRS Button](figures/Lab3/Select_CRS_Button.png "Select CRS Button") to select CRS)
-
-	e. Add saved file to map: selected. Your dialog should now look like the one in the figure above.
-    
-
-5. Click OK.  QGIS will project the Vermont layer and add it to the map.  It will look like Figure below, but the color of the newly-added Vermont layer may differ. Remember that styling is random on layers added to QGIS.
-
-    ![Save vector layer as… Dialog Box](figures/Lab3/Save_vector_layer_as_Dialog_Box1.png "Save vector layer as… Dialog Box")
-
-    So far, Vermont looks the same, but you will find out why soon.  First, let’s make the Vermont\_SPCS layer look the same as the Vermont layer.
-
-6. Open the Project Properties, select the CRS tab.
-
-    Notice that on the fly CRS transformation is enabled (remember, it was not enabled before) and WGS 84 is the project's current CRS.  This happened because QGIS realized that layers in the project had different CRS.  With on the fly CRS transformation enabled, the two Vermont layers still display on top of each other.  If on the fly CRS transformation was not enabled, the two Vermont layers would not display on top of each other or, even, on the same map at all!  If you wish to modify the behavior of QGIS and its automatic management of on the fly CRS transformations, you can set the behavior options by clicking Settings | Options | CRS tab from the main QGIS menu bar.
-
-    Let us now change the project CRS to match our SPCS Vermont shapefile.  First, we will set the style of the SPCS Vermont to match the WGS 84 Vermont.
-
-7. Click OK to close the Project Properties.
-
-8. Right-click on Vermont in the Layers panel, and select Styles | Copy Style.  This copies the style definition of this layer.
-
-9. Right-click on Vermont\_SPCS in the table of contents and select Styles | Paste Style. This sets the style of this layer based on the previously copied style.
-
-10. Right-click on Vermont\_SPCS and choose Set Project CRS from Layer from the context menu.  
-
-    You should now see that Vermont got ‘skinnier’ as it is not being displayed in the NAD27 / Vermont SPCS and not WGS 84.
-
-    ![Skinnier Vermont](figures/Lab3/Skinnier_Vermont.png "Skinnier Vermont")
-
-11. Open the Project Properties, select the CRS tab.  Notice that on the fly CRS transformation is still enabled, but now NAD27 / Vermont is now the selected CRS.
-
-    Look at the Selected CRS Parameters at the bottom of the properties window (shown in figure below).  Note that the projection used is Transverse Mercator (proj=tmerc) and the scale factor is (k=0.999964286).  The spheroid is Clarke 1866, however this is not shown in the CRS Parameters because the default spheroid is Clarke 1866 if not specified (otherwise, it would be specified as ellps=clrk66).  The central meridian is -72.5 (lon\_0=-72.5), which runs through the center of the state.  The reference latitude, or y-origin, is 42.5 (lat\_0=42.5), which is just south of Vermont.  The false easting is set to 152,400.30480 meters (x\_0=152400.3048006096), which is equivalent to 500,000 feet.  The false northing is set to 0.00 (y\_0=0).  So, the false origin will be to the west (500,000 feet west of -72.5) and south (42.5) of the state of Vermont.
-    
-    ![NAD27 /Vermont SPCS CRS Parameters](figures/Lab3/NAD27_Vermont_SPCS_CRS_Parameters.png "NAD27 /Vermont SPCS CRS Parameters")
-
-11. Click OK to close the Project Properties.
-
-    GIS layers can be removed from the Layers panel (and map window) as easily as they were added. For example, we do not need the original Vermont layer. We can just work with the version of Vermont in SPCS. To remove a layer simply right click on it within the Layers panel and choose Remove from the context menu. A confirmation dialog will appear. Click the OK button to confirm the removal of the layer.
-
-12. Remove Vermont from the Layers panel (not Vermont\_SPCS!). 
-
-    Scroll around the state and notice the changing coordinates.  If you have a USGS topographic map of any part of Vermont, based on NAD27, the coordinates displayed here will match the UTM coordinates shown on the hardcopy map.
-
-## Task 5 - Exploring the Universal Transverse Mercator (UTM) Coordinate System
-
-The Universal Transverse Mercator (UTM) grid (shown in the figure below) is a plane coordinate system that spans almost the entire globe.  It is probably the best known plane coordinate system of international scope.  For the UTM system, the globe is divided into sixty zones, each comprised of six degrees of longitude. Each zone has its own central meridian. The limits of each zone are 84 degrees north and 80 degrees south.  UTM uses the Transverse Mercator projection.  The zones are numbered 1 to 60, where zone 1 begins at -180° Longitude and zones increase heading East back to +180° where zone 60 ends.
-
-![UTM Zones](figures/Lab3/UTM_Zones.png "UTM Zones")
-
-13. There are separate versions of both the Country View and World View QGIS project files with a UTM Zone polygon theme. In each QGIS project document, the UTM theme is labeled with the UTM zones so you can see what zones cover your part of the country. 
-14. These QGIS project documents are named World View UTM.qgs.and Country View UTM.qgs
-15. Using what you have learned in this lab, experiment with the putting these UTM World and Country View maps into the UTM system.
-16. Open up one of these projects. (for example: Project | Open | Country View UTM.qgs)
-17. Once the map opens, from the Project menu choose Project Properties and open the CRS tab. 
-18. Via the Filter, search for UTM. Choose a UTM zone in your part of the country to put the map into. There are UTM definitions with different datums. Choose one from the NAD83 UTM zone projection series. 
-
-*Note:* Many U.S. federal agencies use this system, such as the U.S. Forest Service and the U.S. Bureau of Land Management. Like the State Plane Coordinate System it is important that your study area fit within a UTM zone. 
-For more information on the UTM Coordinate system, read the USGS Fact Sheet 077-01, available at
-
-[http://pubs.usgs.gov/fs/2001/0077/report.pdf](http://pubs.usgs.gov/fs/2001/0077/report.pdf)
-
-## 3. Conclusion
-
-In this lab, you have explored coordinate systems and map projections.  Each map projection distorts the Earth differently.  You are able to modify the map projections provided in QGIS to suite your mapping needs.  It is important that you set the correct map projection for each data layer, and for the project.  
-
-When you import spatial data into QGIS, you must know the projection, if any, the grid system, and the datum, of your data.  Mostly you will find the data in decimal degrees, that is, latitude and longitude coordinates.  Base maps with underlying coordinates that are geodetic decimal degrees are the most versatile when constructing a map database.  It is important that if you plan on doing any spatial analysis with your data, that you first project the data in to the same coordinate system to get maximum accuracy.
-
-## 4. Discussion Questions
-
-1. Based on the world map projections covered in this lab, which industries would best be served by each projection (provide two examples)?  Does the entire industry need to agree on a single one?  What problems could arise from the use of different projections?
-
-2. Can your GIS data be in a different Coordinate Reference System than your QGIS project? Explain.
-
-3. What UTM zone does Nevada fall into?
+She wants to have the habitat data shown so that the federal land ownership data is visible beneath. She would like each different type of federal land styled with standard Bureau of Land Management colors. The map should also include a title (“Black Bear Current Distribution”), a legend, data sources and the date. The map should be a high-resolution (300 dpi) jpg image. Perhaps you can incorporate some improvements to this map!
