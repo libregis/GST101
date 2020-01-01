@@ -41,11 +41,11 @@ Both of these organizations have played a big role in the development of FOSS so
 ## Task 2 - Become familiar with OSGeo
 1. In a web browser, navigate to [http://www.osgeo.org](http://www.osgeo.org/), the website for OSGeo.
 2. Click on the About the Foundation link (shown in the figure below).
-    ![OSGeo webpage navigation](figures/Lab1/OSGeo_Webpage_Navigation.png "OSgeo webpage navigation")
+    ![OSGeo webpage navigation](figures/Introduction/OSGeo_Webpage_Navigation.png "OSgeo webpage navigation")
 
 3. **Describe OSGeo in your own words.**
 4. Click on the FAQ link (shown in the figure above). These are the frequently asked questions for OSGeo. Many of your initial questions will be answered here. Now you'll read about what OSGeo considers Commercial software and what they think of Proprietary software.
-    ![FAQ Link on the OSGeo Webpage](figures/Lab1/FAQ_Link_on_the_OSGeo_Webpage.png "FAQ Link on the OSGeo Webpage")
+    ![FAQ Link on the OSGeo Webpage](figures/Introduction/FAQ_Link_on_the_OSGeo_Webpage.png "FAQ Link on the OSGeo Webpage")
 
 5. Scroll down until you see the Open Source heading.
 6. **What is OSGeo's stance on Commercial Software? **
@@ -73,7 +73,7 @@ This course will focus on one piece of FOSS GIS software, QGIS. However, there a
     - 3.10.1
     - 3.4.14.LTR     
 3. Click on Discover QGIS (shown in figure below).
-    ![QGIS Website Navigation Bar](figures/Lab1/QGIS_Website_Navigation_Bar.png "QGIS Website Navigation Bar")
+    ![QGIS Website Navigation Bar](figures/Introduction/QGIS_Website_Navigation_Bar.png "QGIS Website Navigation Bar")
 
 4. **Describe QGIS.**
 5. Click on the QGIS Features link underneath the DISCOVER heading.

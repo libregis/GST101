@@ -47,11 +47,11 @@ There are many way to view multi-band image data. Here you will explore some dis
 
 4. Type ‘zone 16’ into the Filter window. In the Coordinate reference systems of the world box you’ll see a list of all the CRSs with zone 16 in the name. Scroll through until you find WGS/84 UTM zone 16N (EPSG: 32616). Select it so that it appears in the Selected CRS box (see figure below) and click OK .
 
-    ![Coordinate Reference System Selector](figures/Lab6/Coordinate_Reference_System_Selector.png "Coordinate Reference System Selector")
+    ![Coordinate Reference System Selector](figures/Lab5/Coordinate_Reference_System_Selector.png "Coordinate Reference System Selector")
 
 5. The image will be added to QGIS (shown in figure below). This is an aerial photograph of a portion of the Davis Purdue Agriculture Center in Randolph County, Indiana.
 
-    ![Multi-band Image in QGIS Desktop](figures/Lab6/Multi-band_image_in_QGIS_Desktop.png "Multi-band Image in QGIS Desktop")
+    ![Multi-band Image in QGIS Desktop](figures/Lab5/Multi-band_image_in_QGIS_Desktop.png "Multi-band Image in QGIS Desktop")
 
 6. Save your QGIS Desktop project to your lab folder as Lab 6.qgs
 
@@ -67,7 +67,7 @@ There are many way to view multi-band image data. Here you will explore some dis
 
 9. Click the drop-down arrow for the Red band and change it to Band 3. Change the Blue band to Band 1 (see figure below).
 
-    ![Changing the band combination in QGIS](figures/Lab6/Changing_the_band_combination_in_QGIS.png "Changing the band combination in QGIS")
+    ![Changing the band combination in QGIS](figures/Lab5/Changing_the_band_combination_in_QGIS.png "Changing the band combination in QGIS")
 
 10. Click Apply and move the Layer Properties window so you can see the raster.
 
@@ -75,7 +75,7 @@ There are many way to view multi-band image data. Here you will explore some dis
 
 11. The image should now look like the figure below. This band combination creates what is known as a false color composite. Vegetation reflects a lot of near-infrared energy. You are now looking at the near-infrared through the red channel so vegetation shows up as red tones. The brighter the red, the more vigorous and healthy the vegetation.
 
-    ![False Color Composite](figures/Lab6/False_color_composite.png "False Color Composite")
+    ![False Color Composite](figures/Lab5/False_color_composite.png "False Color Composite")
 
     The Style tab also allows you to adjust Contrast enhancement. This setting gives you options to modify the appearance of the image when used in combination with the Load min/max values settings. Each band has values from 0-255. By default, the renderer is set to use Cumulative count cut values from 2% to 98%. This setting eliminates the bottom and top 2% of the values. Many images have some outlying very low and high data values. These outlying data values can be eliminated by using the Cumulative count cut option.  The Contrast enhancement is set by default to No enhancement. 
 
@@ -83,7 +83,7 @@ There are many way to view multi-band image data. Here you will explore some dis
 
 13.	Change the Contrast Enhancement to Stretch to MinMax and click Apply. This setting scales the colors between the minimum and maximum values.  The image gets a little brighter (see figure below) because the colors are now being stretched across the range of values. You are both applying a stretch and eliminating the bottom and top 2% of the values with the default Cumulative count cut setting.
 
-    ![MinMax Stretch](figures/Lab6/MinMax_Stretch.png "MinMax Stretch")
+    ![MinMax Stretch](figures/Lab5/MinMax_Stretch.png "MinMax Stretch")
     
     The Accuracy setting lets you either estimate the range of values from a sample or get the actual values. Obtaining actual values can take longer since QGIS has to look at all the values in the image, instead of a sample. 
 
@@ -93,11 +93,11 @@ There are many way to view multi-band image data. Here you will explore some dis
 
     The raster gets a more saturated appearance (shown in figure below). These are the values within one standard deviation of the mean value. This is useful when you have one or two cells with abnormally high values in a raster grid that are having a negative impact on the rendering of the raster.
 
-    ![Image rendered with Mean +/- Standard Deviation](figures/Lab6/Image_rendered_with_Mean_Standard_Deviation.png "Image rendered with Mean +/- Standard Deviation")
+    ![Image rendered with Mean +/- Standard Deviation](figures/Lab5/Image_rendered_with_Mean_Standard_Deviation.png "Image rendered with Mean +/- Standard Deviation")
 
 16. You can also look at one individual band. Change the Render type to Singleband gray. Choose Band 3 as the Gray band. Set the Contrast enhancement to Stretch MinMax. Click Apply.
 
-    ![Band 3 (Near-infrared) shown alone](figures/Lab6/Band_3_Near_infrared_shown_alone.png "Band 3 Near-infrared shown alone")
+    ![Band 3 (Near-infrared) shown alone](figures/Lab5/Band_3_Near_infrared_shown_alone.png "Band 3 Near-infrared shown alone")
 
 17. Change the Gray band setting to each of the other two bands and see how different they look.
 
@@ -121,11 +121,11 @@ There are many way to view multi-band image data. Here you will explore some dis
 
 20. With the Global transparency setting you can control how transparent the entire image is. 
 
-21. You can also define image values that you want to be transparent. Notice that in the southwest corner there is a black rectangle with no image data. On the Transparency tab click the Add values from display button ![Add values from display button](figures/Lab6/Add_values_from_display_button.png "Add values from display button") then click on the black rectangle on the map. QGIS will measure the values for all three bands where you clicked and enter them into the Transparent pixel list.
+21. You can also define image values that you want to be transparent. Notice that in the southwest corner there is a black rectangle with no image data. On the Transparency tab click the Add values from display button ![Add values from display button](figures/Lab5/Add_values_from_display_button.png "Add values from display button") then click on the black rectangle on the map. QGIS will measure the values for all three bands where you clicked and enter them into the Transparent pixel list.
 
 22. Click Apply. The black rectangle of no data pixels disappears.
 
-    ![Raster With Transparency](figures/Lab6/Raster_with_transparency.png "Raster With Transparency")
+    ![Raster With Transparency](figures/Lab5/Raster_with_transparency.png "Raster With Transparency")
 
 23. Click on the Pyramids tab. 
 
@@ -135,7 +135,7 @@ There are many way to view multi-band image data. Here you will explore some dis
 
     Here you can view the distribution of data values in your raster. If it is a multi-band image, you can view data for each band. The histogram is generated automatically when you open this tab (see figure below). You can save the histogram as an image with the Save plot button.
 
-    ![Image Histogram](figures/Lab6/Image_Histogram.png "Image Histogram")
+    ![Image Histogram](figures/Lab5/Image_Histogram.png "Image Histogram")
 
 25. Save your QGIS Desktop project.
 

@@ -48,7 +48,7 @@ I want to have the habitat data shown so that the federal land ownership data is
 
 I trust that you will get the figure right the first time, so please just submit the completed figures to the managing editor directly.
 
-![Male Greater sage-grouse](figures/Lab4/Male_Greater_sage-grouse.png "Male Greater sage-grouse")
+![Male Greater sage-grouse](figures/Lab3/Male_Greater_sage-grouse.png "Male Greater sage-grouse")
 
 Image attribution: By Pacific Southwest Region from Sacramento, US (Greater Sage-Grouse) [CC BY 2.0 (http://creativecommons.org/licenses/by/2.0)], via Wikimedia Commons.
 
@@ -65,7 +65,7 @@ In Lab 2 you learned how to add data to QGIS Desktop by using the Add Vector Dat
     !!! Note
         The Browser panel may be docked or floating, so it may not be in the same location as in the figures in this lab.
     
-    ![QGIS Browser Panel in QGIS Desktop](figures/Lab4/QGIS_Browser_Tab_in_QGIS_Desktop.png "QGIS Browser Panel in QGIS Desktop")
+    ![QGIS Browser Panel in QGIS Desktop](figures/Lab3/QGIS_Browser_Tab_in_QGIS_Desktop.png "QGIS Browser Panel in QGIS Desktop")
 
 3. Using the file tree in the Browser window navigate to the `GST101_Data\Lab4_data` folder. 
 
@@ -73,7 +73,7 @@ In Lab 2 you learned how to add data to QGIS Desktop by using the Add Vector Dat
 
 5. Sometimes when recent changes have been made, such as setting a folder as a favourite, the Refresh button needs to be pressed in order to see the changes. Click the Refresh button (highlighted in figure below).
 
-    ![Refresh button in the QGIS Desktop Browser Window](figures/Lab4/Refresh_button_in_the_QGIS_Desktop_Browser_window.png "Refresh button in the QGIS Desktop Browser Window")
+    ![Refresh button in the QGIS Desktop Browser Window](figures/Lab3/Refresh_button_in_the_QGIS_Desktop_Browser_window.png "Refresh button in the QGIS Desktop Browser Window")
 
 6. Now expand Favourites near the top of the file tree in the Browser window by clicking the plus sign to the left. You will see the Lab 4 data folder listed. Setting the folder as a favourite allows you to quickly navigate to your working folder.
 
@@ -86,14 +86,14 @@ In Lab 2 you learned how to add data to QGIS Desktop by using the Add Vector Dat
 
 8. You can select them all by holding down the Ctrl key on your keyboard while left clicking on each shapefile. Select the five shapefiles (shown in figure below).
 
-    ![Shapefiles Selected in Browser window](figures/Lab4/Shapefiles_selected_in_Browser_window.png "Shapefiles Selected in Browser window")
+    ![Shapefiles Selected in Browser window](figures/Lab3/Shapefiles_selected_in_Browser_window.png "Shapefiles Selected in Browser window")
 
 9. Drag the five selected shapefiles onto the map canvas from the Browser panel. This is another way of adding geospatial data to QGIS Desktop. QGIS Desktop should now look like figure below. The random colors that QGIS assigns to the layers may be different than the figure below but that is fine
 	
 	!!! Note
-	    If you do not see anything displayed in the map canvas, you may need to zoom to full extents of the map by pressing the Zoom Full button ![Zoom Full Button](figures/Lab4/Zoom_Full_Button.png "Zoom Full Button"). Alternatively, you can click `View | Zoom Full`.
+	    If you do not see anything displayed in the map canvas, you may need to zoom to full extents of the map by pressing the Zoom Full button ![Zoom Full Button](figures/Lab3/Zoom_Full_Button.png "Zoom Full Button"). Alternatively, you can click `View | Zoom Full`.
 
-    ![Shapefiles Added to Map Window](figures/Lab4/Shapefiles_added_to_map_window.png "Shapefiles Added to Map Window")
+    ![Shapefiles Added to Map Window](figures/Lab3/Shapefiles_added_to_map_window.png "Shapefiles Added to Map Window")
 
 10. Let's save the QGIS project. Click on `Project → Save` from the menu bar. Navigate to your Lab 4 folder and save your project as Lab 4.
 
@@ -101,7 +101,7 @@ In Lab 2 you learned how to add data to QGIS Desktop by using the Add Vector Dat
 
 12. The map is now zoomed to the western United States, but we still cannot see anything that looks like habitat data (shown in figure below).
     
-    ![Zoomed into Sage_grouse_current_distribution](figures/Lab4/Zoomed_into_Sage_grouse_current_distribution.png "Zoomed into Sage_grouse_current_distribution")
+    ![Zoomed into Sage_grouse_current_distribution](figures/Lab3/Zoomed_into_Sage_grouse_current_distribution.png "Zoomed into Sage_grouse_current_distribution")
 
     The data layers in the Layers panel are drawn in the order they appear in. So the layer that is on the top of the list in the Layers panel will be drawn on top of the other layers in the map view. Notice that the Western_states layer is in that top position. This mean that Western_states is covering up the Sage_grouse_current_distribution and Land_ownership data, since they are placed lower in the Layers panel. 
     
@@ -111,11 +111,11 @@ In Lab 2 you learned how to add data to QGIS Desktop by using the Add Vector Dat
 
 14. Your map should now resemble the figure below.
 
-    ![Land Ownership in the Top Position](figures/Lab4/Land_ownership_in_the_top_position.png "Land Ownership in the Top Position")
+    ![Land Ownership in the Top Position](figures/Lab3/Land_ownership_in_the_top_position.png "Land Ownership in the Top Position")
 
 15. Now drag the Sage\_grouse\_current\_distribution layer into the top position. Your map should now resemble the figure below. 
 
-    ![Sage Grouse in the Top Position](figures/Lab4/Sage_Grouse_In_The_Top_Position.png "Sage Grouse in the Top Position")
+    ![Sage Grouse in the Top Position](figures/Lab3/Sage_Grouse_In_The_Top_Position.png "Sage Grouse in the Top Position")
 
     Now all the data layers should be in the correct order. Typically, data layers will be organized with point data layers on top of line layers on top of polygon layers. Raster data layers are usually placed near the bottom.
     
@@ -123,7 +123,7 @@ In Lab 2 you learned how to add data to QGIS Desktop by using the Add Vector Dat
 
 16. Note that the lower right hand corner of QGIS displays EPSG: 4269. This is the EPSG code for the coordinate reference system (CRS) the map is currently in (shown in figure below).
 
-    ![Map EPSG Code](figures/Lab4/Map_EPSG_code.png "Map EPSG Code")
+    ![Map EPSG Code](figures/Lab3/Map_EPSG_code.png "Map EPSG Code")
 
 17. Click on `Project → Project Properties` from the menu bar to open the Project Properties window.
  
@@ -137,14 +137,14 @@ In Lab 2 you learned how to add data to QGIS Desktop by using the Add Vector Dat
 
 20. Right click on the Sage\_grouse\_current\_distribution layer and choose Set Project CRS from Layer option on the context menu (Figure below). This will put the map into the Albers CRS of the Sage grouse layer. Note that the EPSG code in the lower right corner now reads 5070 for the Albers CRS. This CRS gives the western US an appearance we are more used to. Any other map layers not in Albers, will now be projected on the fly into Albers.
 
-    ![Map CRS from Project Properties](figures/Lab4/Map_CRS_from_Project_Properties.png "Map CRS from Project Properties")
+    ![Map CRS from Project Properties](figures/Lab3/Map_CRS_from_Project_Properties.png "Map CRS from Project Properties")
     Now you will change the layer names in the Layers panel. The layer names match the names of the shapefiles by default. However, these names will appear on the legend. So you will always want to change these to proper names that your map reading audience will understand. 
 
 21. Right click on the Sage\_grouse\_current\_distribution layer, and choose the Properties from the context menu, to open the Layer Properties window. 
     Choose the Source tab on the left. Click in the box next to Layer name and change the name to Sage-grouse Habitat (shown in figure below). 
     Click OK to close the Layer Properties window.  
 	Alternatively, you can right click on a layer in the Layers panel and choose Rename from the context menu to make the layer name editable directly in the Layers panel.
-    ![Changing Layer Name](figures/Lab4/Changing_Layer_Name.png "Changing Layer Name")
+    ![Changing Layer Name](figures/Lab3/Changing_Layer_Name.png "Changing Layer Name")
 
 22. Change the other layers names as follows:
 
@@ -165,7 +165,7 @@ Visually you will want the land ownership and sage-grouse habitat to have the mo
 
 3. In the Symbol layers type click on Simple fill (reference figure below).
 
-    ![Layer Style](figures/Lab4/Layer_Style.png "Layer Style")
+    ![Layer Style](figures/Lab3/Layer_Style.png "Layer Style")
 
 4. Select the single symbol. Now from Symbol layer type box select Simple Fill. This allows you to change both the fill and outline symbols for this polygon layer. 
    Click on the colored box to the right of Fill color (shown in figure below) to open the Color picker window.
@@ -173,7 +173,7 @@ Visually you will want the land ownership and sage-grouse habitat to have the mo
     You can pick existing Basic colors or define a color via A) hue, saturation and value (HSV) or B) red blue and green (RGB) values. 
     Set the color to Hue: 0 Sat: 0% and Val: 90%. Make sure your Color picker window matches the figure below.
     
-    ![Select Color](figures/Lab4/Select_Color.png "Select Color")
+    ![Select Color](figures/Lab3/Select_Color.png "Select Color")
 
 5. Click the button with the blue arrow to add the color to the custom color buttons. 
 
@@ -183,7 +183,7 @@ Visually you will want the land ownership and sage-grouse habitat to have the mo
 
     Your map should now look like figure below.
 
-    ![Mexico and Canada Changed to a Gray Fill](figures/Lab4/Mexico_and_Canada_changed_to_a_gray_fill.png "Mexico and Canada Changed to a Gray Fill")
+    ![Mexico and Canada Changed to a Gray Fill](figures/Lab3/Mexico_and_Canada_changed_to_a_gray_fill.png "Mexico and Canada Changed to a Gray Fill")
 
 8. Using the same workflow, give the State Boundaries a white fill. You will be able to find white in the Basic colors palette.
     Now you will style the Land Ownership layer. Instead of making the entire layer one color as you have done thus far, 
@@ -205,7 +205,7 @@ Visually you will want the land ownership and sage-grouse habitat to have the mo
     This tells QGIS to sort through all the records in the table and identify all the unique values. 
     Now you can assign a specific color to each class by double clicking on the color square.
 
-    ![Categorized Symbols by Attribute](figures/Lab4/Categorized_symbols_by_Attribute.png "Categorized Symbols by Attribute")
+    ![Categorized Symbols by Attribute](figures/Lab3/Categorized_symbols_by_Attribute.png "Categorized Symbols by Attribute")
 
     Notice that there is a symbol with no values. These are parcels with no values (NULL) in the AGBUR field. They represent private and state inholdings within federal lands. Since you are just interested in depicting federal land ownership you’ll delete that symbol class. 
 
@@ -224,7 +224,7 @@ Visually you will want the land ownership and sage-grouse habitat to have the mo
 18. Click on the Fill style color patch to open the Color Picker window.
 19. In the Color Picker window, change the Red, Green, and Blue values to 254 – 230 – 121 (shown in figure below). This will change the color to a specific shade of tan representing BLM lands. Click OK in the Color Picker window. Then click OK in the Symbol Selector to save the BLM style.
 
-    ![Select Color for BLM lands](figures/Lab4/Select_Color_for_BLM_lands.png "Select Color for BLM lands")
+    ![Select Color for BLM lands](figures/Lab3/Select_Color_for_BLM_lands.png "Select Color for BLM lands")
 
 20. Use the values below to change the RGB colors for the remaining six land ownership classes. Also choose No pen for the border style.
     + BOR | 255-255-179
@@ -240,7 +240,7 @@ Visually you will want the land ownership and sage-grouse habitat to have the mo
 
     Your map should now resemble figure below.
 
-    ![Styled Federal Land Ownership](figures/Lab4/Styled_Federal_Land_Ownership.png "Styled Federal Land Ownership")
+    ![Styled Federal Land Ownership](figures/Lab3/Styled_Federal_Land_Ownership.png "Styled Federal Land Ownership")
 
     Now you will set a background color for the map. Since states are filled with white, setting a background color of light blue will serve to represent the Pacific Ocean.
 
@@ -259,12 +259,12 @@ Visually you will want the land ownership and sage-grouse habitat to have the mo
 30. Click on Simple fill. 
 31. Give the layer a Fill style of No Brush (see figure below). It will now just be the state outlines above Federal Land Ownership. 
 
-    ![Giving Western_states a No Brush fill](figures/Lab4/Giving_Western_states_a_No_Brush_fill.png "Giving Western_states a No Brush fill")
+    ![Giving Western_states a No Brush fill](figures/Lab3/Giving_Western_states_a_No_Brush_fill.png "Giving Western_states a No Brush fill")
 
 32. Click OK to save the style and close the Layer Properties window.
 33. Your map should now resemble figure below.
 
-    ![Hollow States Layer Added to Map](figures/Lab4/Hollow_states_layer_added_to_map.png "Hollow States Layer Added to Map")
+    ![Hollow States Layer Added to Map](figures/Lab3/Hollow_states_layer_added_to_map.png "Hollow States Layer Added to Map")
 
     The last layer to work with is the Sage-grouse Habitat. You will make the Sage-grouse Habitat polygons have a crosshatch pattern. This will allow the map reader to see the land ownership data beneath. 
 
@@ -276,14 +276,14 @@ Visually you will want the land ownership and sage-grouse habitat to have the mo
 39. Make the Fill style FDiagonal. 
 40. Finally change the Border width to 0.46 (reference settings in figure below).
 
-    ![Sage-grouse Habitat Styling](figures/Lab4/Sage-grouse_Habitat_styling.png "Sage-grouse Habitat Styling")
+    ![Sage-grouse Habitat Styling](figures/Lab3/Sage-grouse_Habitat_styling.png "Sage-grouse Habitat Styling")
 
 41. Click OK.
 42. Save your project!
 
     Your map should now resemble the Figure below.
 
-    ![All Layers Styled](figures/Lab4/All_layers_styled.png "All Layers Styled")
+    ![All Layers Styled](figures/Lab3/All_layers_styled.png "All Layers Styled")
 
 ##	Task 3 - Compose Map Deliverable
 
@@ -295,12 +295,12 @@ Now that all the data is well styled you can compose the map deliverable.
 
     As it turns out, the data for Mexico is not needed. Sometimes you are given data that does not end up being used, but is nice to have in case you do need it.
 
-    ![Final Map Extent](figures/Lab4/Final_Map_Extent.png "Final Map Extent")
+    ![Final Map Extent](figures/Lab3/Final_Map_Extent.png "Final Map Extent")
 
 2. From the menu bar choose `Project | New Print Layout`. 
 3. Name the Composer “Lab 4 - Sage-grouse Habitat” (shown in figure below). 
 
-    ![New Print Composer](figures/Lab4/New_Print_Composer.png "New Print Composer")
+    ![New Print Composer](figures/Lab3/New_Print_Composer.png "New Print Composer")
 
 4. Click OK. The Print Layout/Composer will open. This is where you craft your map.
     The Print Composer is an application window with many tools that allow you to craft a map. For detailed information about the Print Composer, refer to the QGIS manual: [http://www.qgis.org/en/docs/user_manual/print_composer/print_composer.html](http://www.qgis.org/en/docs/user_manual/print_composer/print_composer.html) 
@@ -309,51 +309,51 @@ Now that all the data is well styled you can compose the map deliverable.
 
 5. Right click on the layout and select Page Propeteris tab. This will show page properties on the right hand side as shown below. 
  
-   ![Page Layout Properties](figures/Lab4/layout_page_settings.png "Page layout Properties")
+   ![Page Layout Properties](figures/Lab3/layout_page_settings.png "Page layout Properties")
    
 6. Set the Page size to Letter
 
 7. Set the Orientation to Landscape. 
 
-8. Using the Add new map button ![Add new map](figures/Lab4/Add_new_map.png "Add new map") drag a box on the map canvas where you’d like the map to go. Remember that you’ll need room for a title at the top of the page and a legend to the right of the map (reference figure below).
+8. Using the Add new map button ![Add new map](figures/Lab3/Add_new_map.png "Add new map") drag a box on the map canvas where you’d like the map to go. Remember that you’ll need room for a title at the top of the page and a legend to the right of the map (reference figure below).
 
     The map object can be resized after it’s added by selecting it and using the handles around the perimeter to resize.
 
-    *Map extent helpful hints:* Generally, the map will look as it does within QGIS Desktop. However, you may need to change the map extent in QGIS Desktop, go back to the Print Composer and click the Refresh view button ![Refresh view button](figures/Lab4/Refresh_view_button.png "Refresh view button"). It is normal to have some back and forth with QGIS Desktop and the Print Composer before getting the map just right.
+    *Map extent helpful hints:* Generally, the map will look as it does within QGIS Desktop. However, you may need to change the map extent in QGIS Desktop, go back to the Print Composer and click the Refresh view button ![Refresh view button](figures/Lab3/Refresh_view_button.png "Refresh view button"). It is normal to have some back and forth with QGIS Desktop and the Print Composer before getting the map just right.
 
-    ![New Print Composer](figures/Lab4/New_Print_Composer.png "New Print Composer")
+    ![New Print Composer](figures/Lab3/New_Print_Composer.png "New Print Composer")
     
     Now you will add the title to your map.
 
-9. Use the Add new label tool ![Add new label](figures/Lab4/Add_new_label.png "Add new label") to drag a box all the way across the top of the composition. The text box can be resized after the fact by using the graphic handles.
+9. Use the Add new label tool ![Add new label](figures/Lab3/Add_new_label.png "Add new label") to drag a box all the way across the top of the composition. The text box can be resized after the fact by using the graphic handles.
 10. Use the Item Properties to type in the title. Enter the title as 'Greater sage-grouse Current Distribution'. 
 11. In the Items tab, select the title. This will change the properties available in the Item Properties tab.
 12. In the Item Properties tab, click the Font button and change the font to: Times New Roman, Bold, Size 36.
 13. Finally align the title horizontally to the Center of the map (see figure below).
 
-    ![Adding a Title](figures/Lab4/Adding_A_Title.png "Adding a Title")
+    ![Adding a Title](figures/Lab3/Adding_A_Title.png "Adding a Title")
 
-14. Now you will add a Legend. Use the Add new legend tool ![Add new legend](figures/Lab4/Add_new_legend.png "Add new legend") to drag a box on the right side of the map (shown in figure below).
+14. Now you will add a Legend. Use the Add new legend tool ![Add new legend](figures/Lab3/Add_new_legend.png "Add new legend") to drag a box on the right side of the map (shown in figure below).
 
-    ![Adding a Legend](figures/Lab4/Adding_A_Legend.png "Adding a Legend")
+    ![Adding a Legend](figures/Lab3/Adding_A_Legend.png "Adding a Legend")
 
     The upper most Western\_states layer does not need to appear in the legend, nor does Mexico. Western\_states is there purely for cartographic reasons and Mexico does not appear on the map. The Item properties tab will be used to configure the legend (see figure below).
 
-    ![Legend Properties](figures/Lab4/Legend_Properties.png "Legend Properties")
+    ![Legend Properties](figures/Lab3/Legend_Properties.png "Legend Properties")
 
 15. Uncheck Auto update. This will enable us to modify the legend, however, updates to the map on the map wil no longer be reflected in the legend unless we re-enable Auto update.
-16. Select the Western\_states layer and click the Delete item button ![Delete item button](figures/Lab4/Delete_item_button.png " Delete item button ") to remove it. Do the same for Mexico.
+16. Select the Western\_states layer and click the Delete item button ![Delete item button](figures/Lab3/Delete_item_button.png " Delete item button ") to remove it. Do the same for Mexico.
 17. Expand the Federal Land Ownership layer. 
-18. Click on the BLM class and click the Edit button ![Edit button](figures/Lab4/Edit_button.png "Edit button"). 
+18. Click on the BLM class and click the Edit button ![Edit button](figures/Lab3/Edit_button.png "Edit button"). 
 19. Change the name to “Bureau of Land Management”. Go through each remaining land ownership class and edit them to match Figure below.
 
-    ![Legend Layer Labels](figures/Lab4/Legend_Layer_Labels.png "Legend Layer Labels")
+    ![Legend Layer Labels](figures/Lab3/Legend_Layer_Labels.png "Legend Layer Labels")
 
     Now we will add a neatline around our map. 
 
 20. Click the Add Rectangle tool (shown in figure below). 
 
-    ![Adding a Neatline](figures/Lab4/Adding_a_Neatline.png "Adding a Neatline")
+    ![Adding a Neatline](figures/Lab3/Adding_a_Neatline.png "Adding a Neatline")
 
 21. Drag a box around the map object and legend. 
 22. On the Item Properties tab, click the Style Change button. 
@@ -363,7 +363,7 @@ Now that all the data is well styled you can compose the map deliverable.
 
     You may find it necessary to lock the rectangle so you can move other map elements. To lock a map element and keep it from being selected, in the Items tab, check the box in the lock column as shown in the figure below.
 
-    ![Locking a Layer](figures/Lab4/Locking_A_Layer.png "Locking a Layer")
+    ![Locking a Layer](figures/Lab3/Locking_A_Layer.png "Locking a Layer")
 
     The last items to add to the map are the data sources and date. 
 
@@ -378,17 +378,17 @@ Now that all the data is well styled you can compose the map deliverable.
 
     Your map should resemble the figure below.
 
-    ![Adding Supplemental Text](figures/Lab4/Adding_Supplemental_Text.png "Adding Supplemental Text")
+    ![Adding Supplemental Text](figures/Lab3/Adding_Supplemental_Text.png "Adding Supplemental Text")
 
 29. Congratulations your map is finished! The final step is to export it to a high-resolution jpg image. 
 
-30. Click the Export as image button ![Export as Image Button](figures/Lab4/image_button.png "Export as Image Button").
+30. Click the Export as image button ![Export as Image Button](figures/Lab3/image_button.png "Export as Image Button").
 
 31. Choose JPEG as the Save as type and save the image to your Lab 4 folder. Name the file “Lab4_Map.jpg” and click Save.
 
 32. The final map should look like Figure below.
 
-    ![Final Map](figures/Lab4/Final_Map.png "Final Map")
+    ![Final Map](figures/Lab3/Final_Map.png "Final Map")
 
 ## 4. Conclusion
 In this lab you created a well-designed map using some of the cartography tools available in QGIS Desktop. You created a nice map highlighting federal land ownership within sage-grouse habitat for a client. This involved styling layers, styling layers by categorical attributes and crafting a map composition.
@@ -404,7 +404,7 @@ In this lab you created a well-designed map using some of the cartography tools 
 
 Another biologist working with black bears on the east coast heard about your great work on the sage-grouse map. She would like you to create a similar map for her. The data she is providing is in the Lab 4/Data/Challenge folder.
 
-![Lab 4/Data/Challenge folder](figures/Lab4/Lab_4_Data_Challenge_folder.png "Lab 4/Data/Challenge folder")
+![Lab 4/Data/Challenge folder](figures/Lab3/Lab_4_Data_Challenge_folder.png "Lab 4/Data/Challenge folder")
 
 She also needs letter sized, color, map figure that shows the relationship between black bear habitat and federal land ownership along the eastern seaboard. She is interested in seeing how much habitat is under federal versus non-federal ownership.
 

@@ -151,7 +151,7 @@ Now that you have collected the necessary data, you will add it to a blank QGIS 
 
 2. Using the Add Vector Layer button, add all four shapefiles to QGIS Desktop. (see figure below).
 
-    ![Add Vector Data](figures/Lab7/Add_Vector_Data.png "Add Vector Data")
+    ![Add Vector Data](figures/Lab6/Add_Vector_Data.png "Add Vector Data")
 
 3. Organize the layers in the Layers panel so that the Bern monuments layer is on top, followed by the RoadInventory, tl_2010_35001_tract10 (tracts), and jurisdiction.
 
@@ -183,7 +183,7 @@ Now that you have collected the necessary data, you will add it to a blank QGIS 
 	
 11. Click OK to save the new file in a different CRS.
 
-    ![Reprojecting the Bern Layer](figures/Lab7/Reprojecting_the_Bern_layer.png "Reprojecting the Bern Layer")
+    ![Reprojecting the Bern Layer](figures/Lab6/Reprojecting_the_Bern_layer.png "Reprojecting the Bern Layer")
 
 12. You no longer need the original Bern layer in your map. Right-click on the original Bern layer and choose Remove. Click OK on the Remove Objects window.
 
@@ -197,7 +197,7 @@ For the map, you will need a polygon that represents the county boundary. The tl
 
 1. From the menu bar choose Vector | Geoprocessing Tools | Dissolve (reference figure below).
 
-    ![Dissolve Tool](figures/Lab7/Dissolve_tool.png "Dissolve Tool")
+    ![Dissolve Tool](figures/Lab6/Dissolve_tool.png "Dissolve Tool")
 
 2. Set Input vector data to tl_2010_35001_tract10_spcs.
 
@@ -211,7 +211,7 @@ For the map, you will need a polygon that represents the county boundary. The tl
 
 6. Click OK to run the Dissolve tool. Once the tool has executed, click Close.
 
-    ![Dissolve Tool Settings](figures/Lab7/Dissolve_tool_settings.png "Dissolve Tool Settings")
+    ![Dissolve Tool Settings](figures/Lab6/Dissolve_tool_settings.png "Dissolve Tool Settings")
 
 3. Remove the tl_2010_35001_tract10_spcs layer from the Layers panel. It was an intermediate dataset. All you need is the Bernalillo County Boundary.
 
@@ -262,7 +262,7 @@ All the attribute fields are listed on the left. Below the fields are operators 
 
 12. The final expression should look like the figure below.
 
-    ![Monuments SQL Filter](figures/Lab7/Monuments_SQL_Filter.png "Monuments SQL Filter")
+    ![Monuments SQL Filter](figures/Lab6/Monuments_SQL_Filter.png "Monuments SQL Filter")
 
 13. Click the Test button. You should get a Query result of 47 rows. If you have a syntax error you will be notified and you’ll have to figure out where the error lies. Any extra tics (‘) or quotes (“) will throw an error. Click OK to dismiss the Query result dialog.
 
@@ -276,7 +276,7 @@ All the attribute fields are listed on the left. Below the fields are operators 
 
 17. With the data properly filtered, the map should now resemble the figure below.
 
-    ![QGIS With Filtered Monuments](figures/Lab7/QGIS_with_filtered_monuments.png "QGIS With Filtered Monuments")
+    ![QGIS With Filtered Monuments](figures/Lab6/QGIS_with_filtered_monuments.png "QGIS With Filtered Monuments")
 
 18. Save your project.
 
@@ -296,13 +296,13 @@ The jurisdiction layer covers much more than Bernalillo County. Albuquerque cove
 
 6. In the Layers panel, drag jurisdiction above the Bernalillo County layer and turn off RoadInventory. Your map should resemble the figure below.
 
-    ![QGIS With Filtered Jurisdiction](figures/Lab7/QGIS_with_filtered_jurisdiction.png "QGIS With Filtered Jurisdiction")
+    ![QGIS With Filtered Jurisdiction](figures/Lab6/QGIS_with_filtered_jurisdiction.png "QGIS With Filtered Jurisdiction")
 
 7. Open the attribute table for RoadInventory.
 
     There is a lot of information in the RoadInventory shapefile. So far you have filtered a layer within QGIS, but left the data on disk the same. Now you will select the major roads and save them to a new shapefile. Considering the attribute table, what field would you use to select out major roads?
 
-8. Click on the Select features using an expression button. ![expression button](figures/Lab7/expression_button.png "expression button")
+8. Click on the Select features using an expression button. ![expression button](figures/Lab6/expression_button.png "expression button")
 
     A similar query window opens as when you are filtering a layer. Instead of the fields being listed on the left, here you have the Expression area. In the middle, the expression functions will be listed. If you scroll down though the functions tree, you will see that one category is Fields and Values.
 
@@ -318,13 +318,13 @@ The jurisdiction layer covers much more than Bernalillo County. Albuquerque cove
 
 14. Double-click the 'Major' value to add it to the expression. Your expression should now look like the figure below.
 
-    ![Select by Expression in Attribute Table](figures/Lab7/Select_by_Expression_in_Attribute_Table.png "Select by Expression in Attribute Table")
+    ![Select by Expression in Attribute Table](figures/Lab6/Select_by_Expression_in_Attribute_Table.png "Select by Expression in Attribute Table")
 
 15. Click Select then Close the Select by Expression window.
 
     You now have 4593 out of 37963 records selected. You can use the Toggle at the lower left corner of the attribute table to show just the selected set of records (see figure below).
 
-    ![Toggle Attribute Table View](figures/Lab7/Toggle_Attribute_Table_View.png "Toggle Attribute Table View")
+    ![Toggle Attribute Table View](figures/Lab6/Toggle_Attribute_Table_View.png "Toggle Attribute Table View")
 
 16. Close the attribute table.
 
@@ -336,7 +336,7 @@ The jurisdiction layer covers much more than Bernalillo County. Albuquerque cove
 
 20. Verify that the dialog looks like the figure below. If so, click OK to save and add the layer to the map.
 
-    ![Save Selection As](figures/Lab7/Save_Selection_As.png "Save Selection As")
+    ![Save Selection As](figures/Lab6/Save_Selection_As.png "Save Selection As")
 
 21. Remove RoadInventory from the Layers panel. All you need for your map is Major_Roads.
 
@@ -354,7 +354,7 @@ The jurisdiction layer covers much more than Bernalillo County. Albuquerque cove
 
 26. Your tool should resemble the figure below. If so, click OK and then Close.
 
-    ![Buffer](figures/Lab7/Buffer.png "Buffer")
+    ![Buffer](figures/Lab6/Buffer.png "Buffer")
 
 27. Drag the new buffer layer beneath jurisdiction and you will see that it is a one-mile buffer of the boundary.
 
@@ -372,7 +372,7 @@ The jurisdiction layer covers much more than Bernalillo County. Albuquerque cove
 
 33. Your tool should resemble the figure below. If so, click OK and Close.
 
-    ![Clip](figures/Lab7/Clip.png "Clip")
+    ![Clip](figures/Lab6/Clip.png "Clip")
 
 34. Remove Bern_spcs from the Layers panel.
 
@@ -384,7 +384,7 @@ The jurisdiction layer covers much more than Bernalillo County. Albuquerque cove
 
 37. Select the Buffer item and check Draw text buffer with the defaults (reference figure below). This will create a white halo around the labels, which can make them easier to read against a busy background.
 
-    ![Feature Labels](figures/Lab7/Feature_Labels.png "Feature Labels")
+    ![Feature Labels](figures/Lab6/Feature_Labels.png "Feature Labels")
 
 38. Click the Placement option and give a Distance of 2. This will offset the label from the point a bit giving more room for a bigger point symbol. Note that there are many options for label placement!
 
@@ -396,7 +396,7 @@ The jurisdiction layer covers much more than Bernalillo County. Albuquerque cove
 
 42. Change the style of the layer to make the map more attractive. Choose whatever colors you prefer. As an example, reference the map in the figure below.
 
-    ![Final Data](figures/Lab7/Final_Data.png "Final Data")
+    ![Final Data](figures/Lab6/Final_Data.png "Final Data")
 
 43. Save your project.
 
@@ -430,13 +430,13 @@ Now that you have identified the locations of the monuments that the surveyors s
 
 	* Sources of Data
 
-	* Scale Bar: Use the Add Scale Bar button ![Add Scale Bar button](figures/Lab7/Add_Scale_Bar_button.png "Add Scale Bar button"). QGIS uses map units for scale bars. Here our map units are feet. Therefore, to make a scalebar read in miles you need to enter a Map units per bar unit value of 5280 (the number of feet in a mile) (Figure below).
+	* Scale Bar: Use the Add Scale Bar button ![Add Scale Bar button](figures/Lab6/Add_Scale_Bar_button.png "Add Scale Bar button"). QGIS uses map units for scale bars. Here our map units are feet. Therefore, to make a scalebar read in miles you need to enter a Map units per bar unit value of 5280 (the number of feet in a mile) (Figure below).
 
-    ![Scale Bar Parameters](figures/Lab7/Scale_Bar_Parameters.png "Scale Bar Parameters")
+    ![Scale Bar Parameters](figures/Lab6/Scale_Bar_Parameters.png "Scale Bar Parameters")
 
     Below is an example of a completed map.
 
-    ![Sample Final Map](figures/Lab7/Sample_Final_Map.png "Sample Final Map")
+    ![Sample Final Map](figures/Lab6/Sample_Final_Map.png "Sample Final Map")
 
 ## 4. Conclusion
 In this lab, you used several basic spatial analysis techniques to prepare data for analysis and conduct the analysis. You reprojected data, queried and extracted data, conducted a dissolve operation and used buffer and clip to identify the final set of monuments. While none of these individual operations are necessarily complex, the sequence in which they were combined allowed you to answer a spatial questions quickly and easily.

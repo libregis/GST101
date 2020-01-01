@@ -58,7 +58,7 @@ In Lab 2 you added data to QGIS Desktop. Here you will open an existing QGIS pro
 1. Open QGIS Desktop.  
 2. In QGIS Desktop, open the project, World View.qgs by clicking `Project → Open` and browsing to ``GST101\Lab2_data``.  You should see the map shown in Figure below.  
     
-    ![World View.qgs Loaded into QGIS Desktop](figures/Lab3/World_View_qgs_Loaded_into_QGIS_Desktop.png "World View.qgs Loaded into QGIS Desktop")
+    ![World View.qgs Loaded into QGIS Desktop](figures/Lab2/World_View_qgs_Loaded_into_QGIS_Desktop.png "World View.qgs Loaded into QGIS Desktop")
 
     WorldView.qgs is a QGIS project file.  A project file contains information about a map such as: list of layers, coordinate system, symbols, labels, custom tools, map elements, and much more.
     In the project file, there are two polygon themes, Circles and Land, a point theme, Cities, and a line theme, Graticule.  If these circles were displayed on a globe they would be perfect circles. Here you can begin to visualize the distortion in the projection by the distortion in the Circles theme. On this map, a projection has not been chosen in QGIS Desktop.  The software is using latitude and longitude measured in geodetic decimal degrees, which displays a simple rectangular coordinate system in which the length of one degree of longitude is consistently equal to one degree of latitude.  In QGIS Desktop, when a projection has not yet been selected, distance calculations remain true, since the software computes distance using the spherical coordinates of latitude and longitude along a great circle arc, just as if you were actually measuring at the Earth’s surface.  Although a projection has not yet been chosen by the user, the display is essentially a Plate Carrée projection.  On a projection that preserves shape, the polygons on the Circles theme appear as true circles.  In a Plate Carrée projection, linear scale, area, and shape are all distorted increasingly toward the poles as demonstrated with the Circles theme.  
@@ -70,7 +70,7 @@ In Lab 2 you added data to QGIS Desktop. Here you will open an existing QGIS pro
 3. From the menu bar, select `Project → Project Properties`.
 4. Click the CRS tab to view the Coordinate Reference System information for the project file (shown in figure below).
 
-    ![QGIS Project Properties](figures/Lab3/QGIS_Project_Properties.png "QGIS Project Properties")
+    ![QGIS Project Properties](figures/Lab2/QGIS_Project_Properties.png "QGIS Project Properties")
     
     Notice that the selected coordinate system is set to WGS 84, which is an unprojected coordinate system.
 
@@ -78,15 +78,15 @@ In Lab 2 you added data to QGIS Desktop. Here you will open an existing QGIS pro
 
     Now we will do some distance measurements on this map for later comparison to maps in which a projection is set.
 
-6. Click on the Measure Line tool, ![Measure Line tool](figures/Lab3/Measure_Line_tool.png "Measure Line tool"), on the Attributes toolbar.  The Measure box will appear (Figure below).
+6. Click on the Measure Line tool, ![Measure Line tool](figures/Lab2/Measure_Line_tool.png "Measure Line tool"), on the Attributes toolbar.  The Measure box will appear (Figure below).
 
-    ![Measure Line Tool Selection](figures/Lab3/Measure_Line_Tool_Selection.png "Measure Line Tool Selection")
+    ![Measure Line Tool Selection](figures/Lab2/Measure_Line_Tool_Selection.png "Measure Line Tool Selection")
 
 7. Click on the point for Atlanta, in the United States.  
 
 8. Move the cursor to the point for Alice Springs, Australia, then right-click to end the line.  The distance between Atlanta and Alice Springs will be displayed in metric in the Measure box (Figure below).
 
-    ![First Distance Measurement](figures/Lab3/First_Measurement.png "First Distance Measurement")
+    ![First Distance Measurement](figures/Lab2/First_Measurement.png "First Distance Measurement")
     
     The measured distance is about 25,300 kilometers (your distance may vary slightly). This is not the actual distance between Atlanta and Alice Springs. 
     The problem with this view is that it does not maintain spherical distance measurements, and distorts shape, direction and area. We can correct it by 
@@ -98,13 +98,13 @@ In Lab 2 you added data to QGIS Desktop. Here you will open an existing QGIS pro
 
 11. Select the WGS 84 coordinate system from the list of Coordinate reference systems of the world (Figure below).
 
-    ![WGS 84 Coordinate System Selected](figures/Lab3/WGS_84_Coordinate_System_Selected.png "WGS 84 Coordinate System Selected")
+    ![WGS 84 Coordinate System Selected](figures/Lab2/WGS_84_Coordinate_System_Selected.png "WGS 84 Coordinate System Selected")
 
 12. Click OK to view the map.
 
 13. Using the Measure tool, measure the distance between Atlanta and Alice Springs again (Figure below).
 
-    ![Second Distance Measurement](figures/Lab3/Second_Measurement.png "Second Distance Measurement")
+    ![Second Distance Measurement](figures/Lab2/Second_Measurement.png "Second Distance Measurement")
 
     The measured distance is about 16,000 kilometers (your distance may vary slightly). 
     This is the actual  distance between Atlanta and Alice Springs. 
@@ -119,11 +119,11 @@ In Lab 2 you added data to QGIS Desktop. Here you will open an existing QGIS pro
 
 16. Select WGS 84 / World Mercator from the filtered Coordinate Reference System list (Figure below).
 
-    ![WGS 84 / World Mercator Selected](figures/Lab3/World_Mercator_Selected.png "WGS 84 / World Mercator Selected")
+    ![WGS 84 / World Mercator Selected](figures/Lab2/World_Mercator_Selected.png "WGS 84 / World Mercator Selected")
 
 17. Click OK to view the map.  You should see the map shown in Figure below.
 
-    ![Mercator Map Projection](figures/Lab3/Mercator_Map_Projection.png "Mercator Map Projection")
+    ![Mercator Map Projection](figures/Lab2/Mercator_Map_Projection.png "Mercator Map Projection")
     
     The Mercator projection, a conformal  projection (except at the poles), has straight meridians and parallels that intersect at right angles.  Scale is truest along the equator, and becomes more distorted at higher latitudes, as evidenced by the increasing size of the circles.  The Mercator projection was designed for marine navigation and gives all straight lines on the map as lines of constant compass bearing.  For global scale thematic maps, however, the Mercator has too much areal distortion for accurate use.  
     
@@ -145,7 +145,7 @@ Let’s change the projection on this view to the Eckert IV projection.
 
 2. Select Eckert IV/World\_Eckert\_IV from the filtered Coordinate Reference System list.
 
-    ![Eckert IV/World_Eckert_IV Selected](figures/Lab3/World_Eckert_IV_Selected.png "Eckert IV/World_Eckert_IV Selected")
+    ![Eckert IV/World_Eckert_IV Selected](figures/Lab2/World_Eckert_IV_Selected.png "Eckert IV/World_Eckert_IV Selected")
 
 3. Click OK to view the map.  You should see the map shown in Figure below. 
 	
@@ -153,7 +153,7 @@ Let’s change the projection on this view to the Eckert IV projection.
 	    Due to occasional rendering issues, the projected map may look "blocky". 
 	    If this happens, either zooming in, or temporarily switching the CRS to another CRS and back will sometimes fix the issue.
 
-    ![Eckert IV Map Projection](figures/Lab3/Eckert_IV_Map_Projection.png "Eckert IV Map Projection")
+    ![Eckert IV Map Projection](figures/Lab2/Eckert_IV_Map_Projection.png "Eckert IV Map Projection")
 
     The Eckert IV is useful for world maps as it is equal-area and is pleasing to the eye.  Its standard parallels are at 40° 30’N and 40° 30’S.  This map is only distortion free where the standard parallels intersect the central meridian.
 
@@ -172,7 +172,7 @@ In this task, we will look at a map of the contiguous United States using a few 
 
 1. In QGIS Desktop, open the project, Country View.qgs (Figure below) by clicking `Project → Open`.
     
-    ![Country View](figures/Lab3/Country_View.png "Country View")
+    ![Country View](figures/Lab2/Country_View.png "Country View")
     
     Country View.qgs is an unprojected map of the lower 48 states comprised of three themes: United States, LA & NYC, and Circle (centered on -97.50, 39.00).  You can see it does not look quite right given the default projection.  The circle shows some obvious skewing.  
 
@@ -189,9 +189,9 @@ In this task, we will look at a map of the contiguous United States using a few 
 
 3. Open the Project Properties, select the CRS tab, and choose World\_Eckert\_IV from the recently used coordinate reference systems box.
 
-4. Click OK to set the CRS.  You may need to zoom full ![zoom full](figures/Lab3/zoom_full.png "Zoom full") to see the lower 48 states (Figure below).
+4. Click OK to set the CRS.  You may need to zoom full ![zoom full](figures/Lab2/zoom_full.png "Zoom full") to see the lower 48 states (Figure below).
 
-    ![Eckert IV Projection Applied to USA](figures/Lab3/Eckert_IV_Projection_Applied_to_USA.png "Eckert IV Projection Applied to USA")
+    ![Eckert IV Projection Applied to USA](figures/Lab2/Eckert_IV_Projection_Applied_to_USA.png "Eckert IV Projection Applied to USA")
 
     There clearly is a great deal of distortion using this projection, most obviously the shearing.  Part of the problem lies in the fact that this projection is centered at 0 degrees longitude. 
     
@@ -199,15 +199,15 @@ In this task, we will look at a map of the contiguous United States using a few 
 
 5. Click Settings | Custom CRS… from the menu bar.  This will open the Custom Coordinate Reference System Definition dialog box.
 
-6. Click Copy existing CRS button ![Copy Existing CRS Button](figures/Lab3/Copy_CRS_Button.png "Copy Existing CRS Button") to open the Coordinate Reference System Selector.  
+6. Click Copy existing CRS button ![Copy Existing CRS Button](figures/Lab2/Copy_CRS_Button.png "Copy Existing CRS Button") to open the Coordinate Reference System Selector.  
 
 7. Select World\_Eckert\_IV from the recently used list.  Make sure that the CRS parameters show at the bottom of the selector.  If not, temporarily select a different CRS, then select World\_Eckert\_IV again (see Figure below).
 
-    ![Eckert IV Projection Parameters Populated in CRS Selector](figures/Lab3/Eckert_IV_Projection_Parameters_Populated_in_CRS_Selector.png "Eckert IV Projection Parameters Populated in CRS Selector")
+    ![Eckert IV Projection Parameters Populated in CRS Selector](figures/Lab2/Eckert_IV_Projection_Parameters_Populated_in_CRS_Selector.png "Eckert IV Projection Parameters Populated in CRS Selector")
 
 8. Click OK to return to the Custom CRS Definition dialog.  The Parameters will now be filled with the copied CRS parameters (shown in figure below).
 
-    ![Copied Custom CRS Parameters](figures/Lab3/Copied_Custom_CRS_Parameters.png "Copied Custom CRS Parameters")
+    ![Copied Custom CRS Parameters](figures/Lab2/Copied_Custom_CRS_Parameters.png "Copied Custom CRS Parameters")
 
     We need to change the central meridian so that the projection is centered at -96.000 degrees longitude instead of 0.000.  This will center the projection down the middle of the country.  
 
@@ -221,15 +221,15 @@ In this task, we will look at a map of the contiguous United States using a few 
 
 12. Open the Project Properties, select the CRS tab.
 
-13. In the ‘Coordinate reference systems of the world’ list, scroll all the way to the bottom until you see ![Coordinate reference systems of the world](figures/Lab3/Coordinate_reference_systems_of_the_world.png "Coordinate reference systems of the world")
+13. In the ‘Coordinate reference systems of the world’ list, scroll all the way to the bottom until you see ![Coordinate reference systems of the world](figures/Lab2/Coordinate_reference_systems_of_the_world.png "Coordinate reference systems of the world")
 
 14. Expand the User Defined Coordinate Systems entry.
 
 15. Choose USA\_Eckert\_IV.
 
-16. Click OK to set the CRS. You may need to zoom full ![zoom full](figures/Lab3/zoom_full.png "zoom full") to see the lower 48 states (Figure below).
+16. Click OK to set the CRS. You may need to zoom full ![zoom full](figures/Lab2/zoom_full.png "zoom full") to see the lower 48 states (Figure below).
 
-    ![User Defined ‘USA_Eckert_IV’ Projection](figures/Lab3/User_Defined_USA_Eckert_IV_Projection.png "User Defined ‘USA_Eckert_IV’ Projection")
+    ![User Defined ‘USA_Eckert_IV’ Projection](figures/Lab2/User_Defined_USA_Eckert_IV_Projection.png "User Defined ‘USA_Eckert_IV’ Projection")
 
     This is a distinct improvement in shape, but there is still some skewing.  The Eckert IV projection is primarily used for mapping the entire world.  For mapping large countries, at mid-latitudes, such as the United States, other projections are more appropriate.  
 
@@ -239,9 +239,9 @@ In this task, we will look at a map of the contiguous United States using a few 
 
 17. Once again, open the Project Properties, select the CRS tab, and choose USA\_Contiguous\_Albers\_Equal\_Area\_Conic (EPSG: 102003) as the CRS.
 
-18. Click OK to set the CRS. You may need to zoom full ![zoom full](figures/Lab3/zoom_full.png "zoom full") to see the lower 48 states (Figure below).
+18. Click OK to set the CRS. You may need to zoom full ![zoom full](figures/Lab2/zoom_full.png "zoom full") to see the lower 48 states (Figure below).
 
-    ![USA Contiguous Albers Equal Area Conic Coordinate System](figures/Lab3/USA_Contiguous_Albers_Equal_Area_Conic_Coordinate_System.png "USA Contiguous Albers Equal Area Conic Coordinate System")
+    ![USA Contiguous Albers Equal Area Conic Coordinate System](figures/Lab2/USA_Contiguous_Albers_Equal_Area_Conic_Coordinate_System.png "USA Contiguous Albers Equal Area Conic Coordinate System")
 
     The Albers conic projection has low scale distortion for an area the size of the U.S.  As the area being mapped decreases in size, distortion is less of an issue.  
 
@@ -249,15 +249,15 @@ In this task, we will look at a map of the contiguous United States using a few 
 
 19. Open the Project Properties, select the CRS tab, and choose USA\_Contiguous\_Lambert\_Conformal\_Conic (EPSG: 102004) as the CRS.
 
-20. Click OK to set the CRS. You may need to zoom full ![zoom full](figures/Lab3/zoom_full.png "zoom full") to see the lower 48 states.
+20. Click OK to set the CRS. You may need to zoom full ![zoom full](figures/Lab2/zoom_full.png "zoom full") to see the lower 48 states.
 
     Not too much changed between Albers and Lambert.  They are both similar map projections.  Lambert does have more options in its CRS parameters list, so let us examine the custom options so we can more fully understand what options can be set when creating a custom CRS.
 
 21. Click Settings | Custom CRS… from the menu bar.  This will open the Custom Corodinate Reference System Definition dialog box.
 
-22. Click Add new CRS button ![Add New CRS Button](figures/Lab3/Add_New_CRS_Button.png "Add New CRS Button").
+22. Click Add new CRS button ![Add New CRS Button](figures/Lab2/Add_New_CRS_Button.png "Add New CRS Button").
 
-23. Click Copy existing CRS button ![Copy Existing CRS Button](figures/Lab3/Copy_CRS_Button.png "Copy Existing CRS Button") to open the Coordinate Reference System Selector.  
+23. Click Copy existing CRS button ![Copy Existing CRS Button](figures/Lab2/Copy_CRS_Button.png "Copy Existing CRS Button") to open the Coordinate Reference System Selector.  
 
 24. Select USA\_Contiguous\_Lambert\_Conformal\_Conic from the recently used list.  Make sure that the CRS parameters show at the bottom of the selector.  If not, temporarily select a different CRS, then select USA\_Contiguous\_Lambert\_Conformal\_Conic again.
 
@@ -265,7 +265,7 @@ In this task, we will look at a map of the contiguous United States using a few 
 
 26. Change the Name to Modified\_USA\_Contiguous\_Lambert\_Conformal\_Conic.  Your Custom CRS Parameters should look like Figure below.
 
-    ![Copied Parameters for our Custom Lambert CRS](figures/Lab3/Copied_Parameters_for_our_Custom_Lambert_CRS.png "Copied Parameters for our Custom Lambert CRS")
+    ![Copied Parameters for our Custom Lambert CRS](figures/Lab2/Copied_Parameters_for_our_Custom_Lambert_CRS.png "Copied Parameters for our Custom Lambert CRS")
 
 27. Click on `Project → Project Properties` and change the maps projection to the newly created Modified\_USA\_Contiguous\_Lambert\_Conformal\_Conic
 
@@ -308,11 +308,11 @@ In this task, we will look at a map of the contiguous United States using a few 
 
     In Figure below, a white circle with a centered, black dot illustrates the intersection of the x and y origins.  At this intersection in the view, the x and y coordinates are 0.00, 0.00.  As you move to the northeast, both the x and y coordinates are positive.  You can view the coordinates of your mouse cursor in the bottom-right corner of QGIS. The figure below shows an example.
     
-    ![Coordinates of Mouse Cursor on Map](figures/Lab3/Coordinates_of_Mouse_Cursor_on_Map.png "Coordinates of Mouse Cursor on Map")
+    ![Coordinates of Mouse Cursor on Map](figures/Lab2/Coordinates_of_Mouse_Cursor_on_Map.png "Coordinates of Mouse Cursor on Map")
     
     The values of the x and y coordinates are expressed in meters from the origin.  As you move to the southwest of the intersection, the x and y coordinates are both negative.  Experiment with the changing coordinate values and other projections on your own.
     
-    ![Intersection of X and Y Origins](figures/Lab3/Intersection_of_X_and_Y_Origins.png "Intersection of X and Y Origins")
+    ![Intersection of X and Y Origins](figures/Lab2/Intersection_of_X_and_Y_Origins.png "Intersection of X and Y Origins")
     
     The conic projections function quite well for mapping the larger states in the U.S.  In terms of thematic mapping, it is important that maps at this scale are equal-area.  Any other properties important to the particular map should also be considered when selecting a proper projection.  We will now examine projections and grid systems for large-scale maps, such as for small states, counties, or local regions.
 
@@ -330,7 +330,7 @@ Let’s create a map display of Vermont, using the State Plane Coordinate System
 
 1. In QGIS, open the project, Vermont.qgs by clicking Project | Open.
 
-    ![Vermont.qgs Project](figures/Lab3/Vermont_qgs_Project.png "Vermont.qgs Project")
+    ![Vermont.qgs Project](figures/Lab2/Vermont_qgs_Project.png "Vermont.qgs Project")
 
 2. Open the Project Properties then click on CRS tab.
 
@@ -352,7 +352,7 @@ Let’s create a map display of Vermont, using the State Plane Coordinate System
 
 3. In the Layers panel, right-click on the Vermont layer and from the context menu choose Save As…  This will open the ‘Save vector layer as…” dialog box (Figure below).
 
-    ![Save As… Option in Layer Context Menu](figures/Lab3/Save_As_Option_in_Layer_Context_Menu.png "Save As… Option in Layer Context Menu")
+    ![Save As… Option in Layer Context Menu](figures/Lab2/Save_As_Option_in_Layer_Context_Menu.png "Save As… Option in Layer Context Menu")
 
 4. Set the following options to project the Vermont layer, save it to a new shapefile, and add it to the map (Figure below shows correct options).
 	
@@ -362,14 +362,14 @@ Let’s create a map display of Vermont, using the State Plane Coordinate System
 
 	c. Find your Lab 3 "Data" Folder and save within that folder under the name *Vermont\_SPCS.shp*
 
-	d. CRS: NAD27 / Vermont (EPSG:32045)  (click Select CRS button ![Select CRS Button](figures/Lab3/Select_CRS_Button.png "Select CRS Button") to select CRS)
+	d. CRS: NAD27 / Vermont (EPSG:32045)  (click Select CRS button ![Select CRS Button](figures/Lab2/Select_CRS_Button.png "Select CRS Button") to select CRS)
 
 	e. Add saved file to map: selected. Your dialog should now look like the one in the figure above.
     
 
 5. Click OK.  QGIS will project the Vermont layer and add it to the map.  It will look like Figure below, but the color of the newly-added Vermont layer may differ. Remember that styling is random on layers added to QGIS.
 
-    ![Save vector layer as… Dialog Box](figures/Lab3/Save_vector_layer_as_Dialog_Box1.png "Save vector layer as… Dialog Box")
+    ![Save vector layer as… Dialog Box](figures/Lab2/Save_vector_layer_as_Dialog_Box1.png "Save vector layer as… Dialog Box")
 
     So far, Vermont looks the same, but you will find out why soon.  First, let’s make the Vermont\_SPCS layer look the same as the Vermont layer.
 
@@ -379,13 +379,13 @@ Let’s create a map display of Vermont, using the State Plane Coordinate System
 
     You should now see that Vermont got ‘skinnier’ as it is not being displayed in the NAD27 / Vermont SPCS and not WGS 84.
 
-    ![Skinnier Vermont](figures/Lab3/Skinnier_Vermont.png "Skinnier Vermont")
+    ![Skinnier Vermont](figures/Lab2/Skinnier_Vermont.png "Skinnier Vermont")
 
 7. Open the Project Properties, select the CRS tab. 
 
     Look at the Selected CRS Parameters at the bottom of the properties window (shown in figure below).  Note that the projection used is Transverse Mercator (proj=tmerc) and the scale factor is (k=0.999964286).  The spheroid is Clarke 1866, however this is not shown in the CRS Parameters because the default spheroid is Clarke 1866 if not specified (otherwise, it would be specified as ellps=clrk66).  The central meridian is -72.5 (lon\_0=-72.5), which runs through the center of the state.  The reference latitude, or y-origin, is 42.5 (lat\_0=42.5), which is just south of Vermont.  The false easting is set to 152,400.30480 meters (x\_0=152400.3048006096), which is equivalent to 500,000 feet.  The false northing is set to 0.00 (y\_0=0).  So, the false origin will be to the west (500,000 feet west of -72.5) and south (42.5) of the state of Vermont.
     
-    ![NAD27 /Vermont SPCS CRS Parameters](figures/Lab3/NAD27_Vermont_SPCS_CRS_Parameters.png "NAD27 /Vermont SPCS CRS Parameters")
+    ![NAD27 /Vermont SPCS CRS Parameters](figures/Lab2/NAD27_Vermont_SPCS_CRS_Parameters.png "NAD27 /Vermont SPCS CRS Parameters")
 
 8. Click OK to close the Project Properties.
 
@@ -399,7 +399,7 @@ Let’s create a map display of Vermont, using the State Plane Coordinate System
 
 The Universal Transverse Mercator (UTM) grid (shown in the figure below) is a plane coordinate system that spans almost the entire globe.  It is probably the best known plane coordinate system of international scope.  For the UTM system, the globe is divided into sixty zones, each comprised of six degrees of longitude. Each zone has its own central meridian. The limits of each zone are 84 degrees north and 80 degrees south.  UTM uses the Transverse Mercator projection.  The zones are numbered 1 to 60, where zone 1 begins at -180° Longitude and zones increase heading East back to +180° where zone 60 ends.
 
-![UTM Zones](figures/Lab3/UTM_Zones.png "UTM Zones")
+![UTM Zones](figures/Lab2/UTM_Zones.png "UTM Zones")
 
 1. There are separate versions of both the Country View and World View QGIS project files with a UTM Zone polygon theme. In each QGIS project document, the UTM theme is labeled with the UTM zones so you can see what zones cover your part of the country. 
 2. These QGIS project documents are named World View UTM.qgs.and Country View UTM.qgs
