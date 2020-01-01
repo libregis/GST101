@@ -38,7 +38,7 @@ This lab includes the following tasks:
 
 Often times, you will be provided with a map requirements document from a coworker or customer. For this lab, the student will respond to a map requirements document from a customer who is writing a paper about the state of Greater sage-grouse habitat in the western United States. The map requirements from the customer are below.
 
-Map Requirements from Customer:
+**Map Requirements from Customer:**
 
 Hi, my name is Steve Darwin. I am a wildlife biologist writing a paper on the state of Greater sage-grouse (see figure below) populations in the western United States. I need a letter sized, color, map figure that shows the relationship between current occupied Greater sage-grouse habitat and federal land ownership. I am interested in seeing how much habitat is under federal versus non-federal ownership.
 
@@ -56,19 +56,20 @@ Image attribution: By Pacific Southwest Region from Sacramento, US (Greater Sage
 
 In this first task you will learn a new way to add data to QGIS Desktop. You will then set the projection for the map project, organize the data layers in the Table of Contents and change the layer names.
 
-1. Open QGIS Desktop.  
-
 In Lab 2 you learned how to add data to QGIS Desktop by using the Add Vector Data and Add Raster Data buttons. Now you will learn another method of adding data to QGIS Desktop. You will use the QGIS Desktop Browser panel.
 
-2. Click View | Panels and make sure *Browser* is checked. The Browser panel will now be displayed.
+1. Open QGIS Desktop  
 
-    *Note:* The Browser panel may be docked or floating, so it may not be in the same location as in the figures in this lab.
+2. Click `View → Panels` and make sure *Browser* is checked. The Browser panel will now be displayed.
+
+    !!! Note
+        The Browser panel may be docked or floating, so it may not be in the same location as in the figures in this lab.
     
     ![QGIS Browser Panel in QGIS Desktop](figures/Lab4/QGIS_Browser_Tab_in_QGIS_Desktop.png "QGIS Browser Panel in QGIS Desktop")
 
-3. Using the file tree in the Browser window navigate to the Lab 4 data folder. 
+3. Using the file tree in the Browser window navigate to the `GST101_Data\Lab4_data` folder. 
 
-4. Right click on the Lab 4 data folder and choose Add as a favourite from the context menu.
+4. Right click on the `GST101_Data\Lab4_data` data folder and choose Add as a favourite from the context menu.
 
 5. Sometimes when recent changes have been made, such as setting a folder as a favourite, the Refresh button needs to be pressed in order to see the changes. Click the Refresh button (highlighted in figure below).
 
@@ -88,11 +89,13 @@ In Lab 2 you learned how to add data to QGIS Desktop by using the Add Vector Dat
     ![Shapefiles Selected in Browser window](figures/Lab4/Shapefiles_selected_in_Browser_window.png "Shapefiles Selected in Browser window")
 
 9. Drag the five selected shapefiles onto the map canvas from the Browser panel. This is another way of adding geospatial data to QGIS Desktop. QGIS Desktop should now look like figure below. The random colors that QGIS assigns to the layers may be different than the figure below but that is fine
-	+ *Note:* If you do not see anything displayed in the map canvas, you may need to zoom to full extents of the map by pressing the Zoom Full button ![Zoom Full Button](figures/Lab4/Zoom_Full_Button.png "Zoom Full Button"). Alternatively, you can click View | Zoom Full.
+	
+	!!! Note
+	    If you do not see anything displayed in the map canvas, you may need to zoom to full extents of the map by pressing the Zoom Full button ![Zoom Full Button](figures/Lab4/Zoom_Full_Button.png "Zoom Full Button"). Alternatively, you can click `View | Zoom Full`.
 
     ![Shapefiles Added to Map Window](figures/Lab4/Shapefiles_added_to_map_window.png "Shapefiles Added to Map Window")
 
-10. Let's save the QGIS project. Click on Project | Save from the menu bar. Navigate to your Lab 4 folder and save your project as Lab 4.
+10. Let's save the QGIS project. Click on `Project → Save` from the menu bar. Navigate to your Lab 4 folder and save your project as Lab 4.
 
 11. We have five layers in the map canvas, but currently all we can see are data for Canada, Mexico and the Western states. When you cannot see a dataset, one approach is to make sure the spatial extent of your map window covers that dataset. Right click on the Sage_grouse_current_distribution layer in the Layers panel, and choose Zoom to Layer from the context menu. This will zoom you into the extent of that dataset.
 
@@ -118,25 +121,29 @@ In Lab 2 you learned how to add data to QGIS Desktop by using the Add Vector Dat
     
     With the layers in the best drawing order, let's turn our attention to the coordinate reference system for the map.
 
-16. Note that the lower right hand corner of QGIS displays EPSG: 4269 OTF. This is the EPSG code for the coordinate reference system (CRS) the map is currently in and an indication that on-the-fly projection is enabled (shown in figure below).
+16. Note that the lower right hand corner of QGIS displays EPSG: 4269. This is the EPSG code for the coordinate reference system (CRS) the map is currently in (shown in figure below).
 
     ![Map EPSG Code](figures/Lab4/Map_EPSG_code.png "Map EPSG Code")
 
-17. Click on Project | Project Properties from the menu bar to open the Project Properties window. 
-18. Select the CRS tab. 
-    The current QGIS map CRS is listed at the bottom (shown in figure below). This is a detailed explanation of the maps CRS which is a geographic coordinate system using the NAD83 datum. This CRS makes the lower 48 look stretched out and distorted, so you’ll want to change the maps CRS into something that makes the lower 48 “look correct”. 
+17. Click on `Project → Project Properties` from the menu bar to open the Project Properties window.
+ 
+18. Select the CRS tab. The current QGIS map CRS is listed at the bottom (shown in figure below). 
+    This is a detailed explanation of the maps CRS which is a geographic coordinate system using the NAD83 datum. 
+    This CRS makes the lower 48 look stretched out and distorted, so you’ll want to change the maps CRS into something that makes the lower 48 “look correct”. 
 
-19. Make sure that the Enable ‘on the fly’ CRS transformation option is checked. Click OK to close the Project Properties window.
-
-    Since the Sage\_grouse\_current\_distribution layer is in an Albers projection, and the QGIS map is in a geographic CRS, that means that the Sage\_grouse\_current\_distribution layer is being projected on the fly into the geographic projection of the map.
+19. Make sure that the Enable ‘on the fly’ CRS transformation option is checked. Click OK to close the Project Properties window.  
+    Since the Sage\_grouse\_current\_distribution layer is in an Albers projection, and the QGIS map is in a geographic CRS, 
+    that means that the Sage\_grouse\_current\_distribution layer is being projected on the fly into the geographic projection of the map.
 
 20. Right click on the Sage\_grouse\_current\_distribution layer and choose Set Project CRS from Layer option on the context menu (Figure below). This will put the map into the Albers CRS of the Sage grouse layer. Note that the EPSG code in the lower right corner now reads 5070 for the Albers CRS. This CRS gives the western US an appearance we are more used to. Any other map layers not in Albers, will now be projected on the fly into Albers.
 
     ![Map CRS from Project Properties](figures/Lab4/Map_CRS_from_Project_Properties.png "Map CRS from Project Properties")
     Now you will change the layer names in the Layers panel. The layer names match the names of the shapefiles by default. However, these names will appear on the legend. So you will always want to change these to proper names that your map reading audience will understand. 
 
-21. Right click on the Sage\_grouse\_current\_distribution layer, and choose the Properties from the context menu, to open the Layer Properties window. Choose the General tab on the left.  Click in the box next to Layer name and change the name to Sage-grouse Habitat (shown in figure below). Click OK to close the Layer Properties window.
-	+ Alternatively, you can right click on a layer in the Layers panel and choose Rename from the context menu to make the layer name editable directly in the Layers panel.
+21. Right click on the Sage\_grouse\_current\_distribution layer, and choose the Properties from the context menu, to open the Layer Properties window. 
+    Choose the Source tab on the left. Click in the box next to Layer name and change the name to Sage-grouse Habitat (shown in figure below). 
+    Click OK to close the Layer Properties window.  
+	Alternatively, you can right click on a layer in the Layers panel and choose Rename from the context menu to make the layer name editable directly in the Layers panel.
     ![Changing Layer Name](figures/Lab4/Changing_Layer_Name.png "Changing Layer Name")
 
 22. Change the other layers names as follows:
@@ -154,73 +161,72 @@ Visually you will want the land ownership and sage-grouse habitat to have the mo
 
 1. Double-click on the Canada layer to open the Layer Properties window (this is another way to open Layer Properties). 
 
-2. Click on the Style tab.
+2. Click on the Symbology tab.
 
-3. In the Symbol layers box click on Simple fill (reference figure below).
+3. In the Symbol layers type click on Simple fill (reference figure below).
 
     ![Layer Style](figures/Lab4/Layer_Style.png "Layer Style")
 
-4. Find the Symbol layer type box on the right side of the window. This allows you to change both the fill and outline symbols for this polygon layer. Click on the colored box to the right of Fill (shown in figure below) to open the Color picker window.
-
-    ![Fill Color Box](figures/Lab4/Fill_Color_Box.png "Fill Color Box")
-    
-    You can pick existing Basic colors or define a color via A) hue, saturation and value (HSV) or B) red blue and green (RGB) values. Set the color to Hue: 0 Sat: 0% and Val: 90%. Make sure your Color picker window matches the figure below.
+4. Select the single symbol. Now from Symbol layer type box select Simple Fill. This allows you to change both the fill and outline symbols for this polygon layer. 
+   Click on the colored box to the right of Fill color (shown in figure below) to open the Color picker window.
+   
+    You can pick existing Basic colors or define a color via A) hue, saturation and value (HSV) or B) red blue and green (RGB) values. 
+    Set the color to Hue: 0 Sat: 0% and Val: 90%. Make sure your Color picker window matches the figure below.
     
     ![Select Color](figures/Lab4/Select_Color.png "Select Color")
 
-5. Click the button with the blue arrow to add the color to the custom color buttons. Click OK to close the Color picker window.
+5. Click the button with the blue arrow to add the color to the custom color buttons. 
 
-6. Back in the Layer Properties window, for the Border style, select Solid Line from the dropdown menu (shown in figure below).
+6. Similarly select Stroke style to Solid Line. Click OK to close the Color picker window.
 
-    ![Border Style Set to Solid Line](figures/Lab4/Border_Style_Solid_Line.png "Border Style Set to Solid Line")
-
-7. Click OK on the Layer Properties window to close and style the Canada layer.
-
-8. Open Layer Properties for Mexico. Make Mexico look the same as Canada. You can just choose the Custom color you just saved to save time.
+7. Open Layer Properties for Mexico. Make Mexico look the same as Canada. You can just choose the Custom color you just saved to save time.
 
     Your map should now look like figure below.
 
     ![Mexico and Canada Changed to a Gray Fill](figures/Lab4/Mexico_and_Canada_changed_to_a_gray_fill.png "Mexico and Canada Changed to a Gray Fill")
 
-9. Using the same workflow, give the State Boundaries a white fill. You will be able to find white in the Basic colors palette.
+8. Using the same workflow, give the State Boundaries a white fill. You will be able to find white in the Basic colors palette.
+    Now you will style the Land Ownership layer. Instead of making the entire layer one color as you have done thus far, 
+    you will assign a unique color to each land managing agency. How do you know who is managing each parcel? 
+    This will be information contained in the attribute table. 
 
-    Now you will style the Land Ownership layer. Instead of making the entire layer one color as you have done thus far, you will assign a unique color to each land managing agency. How do you know who is managing each parcel? This will be information contained in the attribute table. 
-
-10. Right click on Federal Land Ownership layer in the Layers panel, and choose Open the Attribute Table from the context menu. 
-
+9. Right click on Federal Land Ownership layer in the Layers panel, and choose Open the Attribute Table from the context menu. 
     There are 13 column of information. Can you find the one that contains the land manager?
 
-11. Open the Layer Properties for the Federal Land Ownership layer and switch to the Style tab. So far you’ve used the default Single Symbol type. Now you will switch to Categorized. 
+10. Open the Layer Properties for the Federal Land Ownership layer and switch to the Style tab. 
+    So far you’ve used the default Single Symbol type. Now you will switch to Categorized. 
 
-12. Click the drop down menu and change from Single Symbol to Categorized (Figure below).
-
+11. Click the drop down menu and change from Single Symbol to Categorized.
     Now you have the option of choosing an attribute column to symbolize the layer by. The column AGBUR is the one that contains the managing agency values. 
 
-13. Click the drop down arrow and choose AGBUR for the Column. 
+12. Click the drop down arrow and choose AGBUR for the Column. 
 
-14. Click the Classify button (shown in figure below). This tells QGIS to sort through all the records in the table and identify all the unique values. Now you can assign a specific color to each class by double clicking on the color square.
+13. Click the Classify button (shown in figure below). 
+    This tells QGIS to sort through all the records in the table and identify all the unique values. 
+    Now you can assign a specific color to each class by double clicking on the color square.
 
     ![Categorized Symbols by Attribute](figures/Lab4/Categorized_symbols_by_Attribute.png "Categorized Symbols by Attribute")
 
     Notice that there is a symbol with no values. These are parcels with no values (NULL) in the AGBUR field. They represent private and state inholdings within federal lands. Since you are just interested in depicting federal land ownership you’ll delete that symbol class. 
 
-15. Select that top symbol by clicking on it, and then click the Delete button below to remove that symbol. Now those parcels will not be included on the map.
+14. Select that top symbol by clicking on it, and then click the Delete button below to remove that symbol. Now those parcels will not be included on the map.
 
     For the remaining federal land ownership symbols you will use the BLM Standards Manual for land ownership maps [http://www.blm.gov/noc/st/en/business/mapstandards/colormod.html](http://www.blm.gov/noc/st/en/business/mapstandards/colormod.html). 
 
-    + *Note:* A PDF of the BLM Map Color Standards is also available in your lab folder and is named BLM Map Color Standards.pdf.
+    !!! Note
+        A PDF of the BLM Map Color Standards is also available in your `GST101_Data\Lab4_data` folder and is named BLM Map Color Standards.pdf.
 
     The BLM has designated colors for each type of land ownership. When composing a map it is important to pay attention to industry specific standards. Following them will make the map more intuitive to the target audience. For example, people are used to seeing Forest Service land depicted in a certain shade of green.
 
-16. To color BLM lands, double click on the color patch left of BLM in the Style window. The Symbol selector will open. 
-17. Click on Simple fill. 
-18. You will not want any border lines on these polygons. With such a complicated thematic polygon layer they are too visually distracting. Choose a Border style of No Pen. 
-19. Click on the Fill style color patch to open the Color Picker window.
-20. In the Color Picker window, change the Red, Green, and Blue values to 254 – 230 – 121 (shown in figure below). This will change the color to a specific shade of tan representing BLM lands. Click OK in the Color Picker window. Then click OK in the Symbol Selector to save the BLM style.
+15. To color BLM lands, double click on the color patch left of BLM in the Style window. The Symbol selector will open. 
+16. Click on Simple fill. 
+17. You will not want any border lines on these polygons. With such a complicated thematic polygon layer they are too visually distracting. Choose a Border style of No Pen. 
+18. Click on the Fill style color patch to open the Color Picker window.
+19. In the Color Picker window, change the Red, Green, and Blue values to 254 – 230 – 121 (shown in figure below). This will change the color to a specific shade of tan representing BLM lands. Click OK in the Color Picker window. Then click OK in the Symbol Selector to save the BLM style.
 
     ![Select Color for BLM lands](figures/Lab4/Select_Color_for_BLM_lands.png "Select Color for BLM lands")
 
-21. Use the values below to change the RGB colors for the remaining six land ownership classes. Also choose No pen for the border style.
+20. Use the values below to change the RGB colors for the remaining six land ownership classes. Also choose No pen for the border style.
     + BOR | 255-255-179
     + DOD | 251-180-206
     + FS | 179-222-105
@@ -228,9 +234,9 @@ Visually you will want the land ownership and sage-grouse habitat to have the mo
     + NPS | 177-137-193
     + OTHER | 150-150-150
 
-22. When finished, click OK on the Layer Properties for Federal Land Ownership.
+21. When finished, click OK on the Layer Properties for Federal Land Ownership.
  
-23. Turn off Sage-grouse Habitat by clicking the X next to the name in the Layers panel.
+22. Turn off Sage-grouse Habitat by clicking the X next to the name in the Layers panel.
 
     Your map should now resemble figure below.
 
@@ -238,44 +244,44 @@ Visually you will want the land ownership and sage-grouse habitat to have the mo
 
     Now you will set a background color for the map. Since states are filled with white, setting a background color of light blue will serve to represent the Pacific Ocean.
 
-24. From the menu bar choose Project | Project Properties. 
-25. On the General tab, click the white color patch next to Background color to open the Color Picker window.
-26. Set the RBG value to: **225**-255-255. 
-27. Click OK on the Color Picker window and OK on Project Properties to save the setting. 
+23. From the menu bar choose `Project | Project Properties`. 
+24. On the General tab, click the white color patch next to Background color to open the Color Picker window.
+25. Set the RBG value to: **225**-255-255. 
+26. Click OK on the Color Picker window and OK on Project Properties to save the setting. 
 
     Depending on your current map extent, the area east of the states layer may be blue now too. That is fine. For the final map we will be zoomed in so you won’t see that.
 
     The states are white with a black border and serve to show non-federal land as white which is great. However, the state boundaries are obscured since State Boundaries are below Federal Land Ownership. 
 
-28. Go to the Browser panel and add Western\_states.shp to the map again. You can have multiple copies of layers for cartographic purposes. 
-29. Drag the Western\_states layer to the top of the Layers panel. 
-30. Open the Layer Properties window for the Western\_states layer and select the Style tab.
-31. Click on Simple fill. 
-32. Give the layer a Fill style of No Brush (see figure below). It will now just be the state outlines above Federal Land Ownership. 
+27. Go to the Browser panel and add Western\_states.shp to the map again. You can have multiple copies of layers for cartographic purposes. 
+28. Drag the Western\_states layer to the top of the Layers panel. 
+29. Open the Layer Properties window for the Western\_states layer and select the Symbology tab.
+30. Click on Simple fill. 
+31. Give the layer a Fill style of No Brush (see figure below). It will now just be the state outlines above Federal Land Ownership. 
 
     ![Giving Western_states a No Brush fill](figures/Lab4/Giving_Western_states_a_No_Brush_fill.png "Giving Western_states a No Brush fill")
 
-33. Click OK to save the style and close the Layer Properties window.
-34. Your map should now resemble figure below.
+32. Click OK to save the style and close the Layer Properties window.
+33. Your map should now resemble figure below.
 
     ![Hollow States Layer Added to Map](figures/Lab4/Hollow_states_layer_added_to_map.png "Hollow States Layer Added to Map")
 
     The last layer to work with is the Sage-grouse Habitat. You will make the Sage-grouse Habitat polygons have a crosshatch pattern. This will allow the map reader to see the land ownership data beneath. 
 
-35. Turn on the visibility for the Sage-grouse Habitat layer.
-36. Open the Layer Properties for Sage-grouse Habitat. 
-37. Click on Simple fill. 
-38. Change the Fill color to RGB 170-0-255. 
-39. Change the Border color to RGB 142-0-213. 
-40. Make the Fill style FDiagonal. 
-41. Finally change the Border width to 0.46 (reference settings in figure below).
+34. Turn on the visibility for the Sage-grouse Habitat layer.
+35. Open the Layer Properties for Sage-grouse Habitat. 
+36. Click on Simple fill. 
+37. Change the Fill color to RGB 170-0-255. 
+38. Change the Border color to RGB 142-0-213. 
+39. Make the Fill style FDiagonal. 
+40. Finally change the Border width to 0.46 (reference settings in figure below).
 
     ![Sage-grouse Habitat Styling](figures/Lab4/Sage-grouse_Habitat_styling.png "Sage-grouse Habitat Styling")
 
-42. Click OK.
-43. Save your project!
+41. Click OK.
+42. Save your project!
 
-    Your map should now resemble Figure below.
+    Your map should now resemble the Figure below.
 
     ![All Layers Styled](figures/Lab4/All_layers_styled.png "All Layers Styled")
 
@@ -285,26 +291,29 @@ Now that all the data is well styled you can compose the map deliverable.
 
 1. Zoom in tighter to the Sage-grouse Habitat data.
 
-	+ Use the Zoom in tool and drag a box encapsulating the sage-grouse habitat. Leave a little of the Pacific Ocean visible to the west to give some context (reference figure below).
+    Use the Zoom in tool and drag a box encapsulating the sage-grouse habitat. Leave a little of the Pacific Ocean visible to the west to give some context (reference figure below).
 
     As it turns out, the data for Mexico is not needed. Sometimes you are given data that does not end up being used, but is nice to have in case you do need it.
 
     ![Final Map Extent](figures/Lab4/Final_Map_Extent.png "Final Map Extent")
 
-2. From the menu bar choose Project | New Print Composer. 
+2. From the menu bar choose `Project | New Print Layout`. 
 3. Name the Composer “Lab 4 - Sage-grouse Habitat” (shown in figure below). 
 
     ![New Print Composer](figures/Lab4/New_Print_Composer.png "New Print Composer")
 
-4. Click OK. The Print Composer will open. This is where you craft your map.
+4. Click OK. The Print Layout/Composer will open. This is where you craft your map.
     The Print Composer is an application window with many tools that allow you to craft a map. For detailed information about the Print Composer, refer to the QGIS manual: [http://www.qgis.org/en/docs/user_manual/print_composer/print_composer.html](http://www.qgis.org/en/docs/user_manual/print_composer/print_composer.html) 
+    
     The main window of the Print Composer displays the piece of paper upon which the map will be designed. There are buttons along the left side of the window that allow you to add various map elements: map, scale bar, photo, text, shapes, attribute tables, etc. Each item added to the map canvas becomes a graphic object that can be further manipulated (if selected) by the Items tab on the right side of the composer. Across the top are buttons for exporting the composition, navigating within the composition and some other graphic tools (grouping/ungrouping etc.)
 
-5. On the Composition tab you can specify details about the overall composition. Set the Presets to ANSI A (Letter; 8.5x11 in). 
-6. Set the Orientation to Landscape. 
-7. Set the Export resolution to 300 DPI. 
+5. Right click on the layout and select Page Propeteris tab. This will show page properties on the right hand side as shown below. 
+ 
+   ![Page Layout Properties](figures/Lab4/layout_page_settings.png "Page layout Properties")
+   
+6. Set the Page size to Letter
 
-    (These are listed as map requirements at the beginning of the lab.)
+7. Set the Orientation to Landscape. 
 
 8. Using the Add new map button ![Add new map](figures/Lab4/Add_new_map.png "Add new map") drag a box on the map canvas where you’d like the map to go. Remember that you’ll need room for a title at the top of the page and a legend to the right of the map (reference figure below).
 
@@ -382,8 +391,7 @@ Now that all the data is well styled you can compose the map deliverable.
     ![Final Map](figures/Lab4/Final_Map.png "Final Map")
 
 ## 4. Conclusion
-
-    In this lab you created a well-designed map using some of the cartography tools available in QGIS Desktop. You created a nice map highlighting federal land ownership within sage-grouse habitat for a client. This involved styling layers, styling layers by categorical attributes and crafting a map composition.
+In this lab you created a well-designed map using some of the cartography tools available in QGIS Desktop. You created a nice map highlighting federal land ownership within sage-grouse habitat for a client. This involved styling layers, styling layers by categorical attributes and crafting a map composition.
 
 ## 5. Discussion Questions
 
