@@ -51,7 +51,7 @@ There are two main geospatial data models: vector and raster.
 ## Task 1 - Working with QGIS Browser Panel
 In this task, you will become familiar with QGIS Browser Panel. The first step in working on a project with 
 geospatial datasets is to organize your workspace. It is important that we organize datasets logically on 
-the computer and make them easy to find. In this task, you will obtain a copy of the lab2 data under `Data\Lab2\` and explore how the data is organized using QGIS Browser Panel. 
+the computer and make them easy to find. In this task, you will obtain a copy of the lab1 data under `GST101_Data\Lab1_data\` and explore how the data is organized using QGIS Browser Panel. 
 
 
 
@@ -60,7 +60,8 @@ the computer and make them easy to find. In this task, you will obtain a copy of
     ![QGIS Start](figures/Lab2/qgis_start_menu.png "QGIS Desktop with browser panel")
     
     This will open QGIS 3.4 Desktop as shown in the following figure. This interface is simple and clean.
-    Browser panle ios visible on top left side and shows all the aviable files and folder (NOTE: your machine may have a different set and number of drives listed here. This is fine).
+    Browser panle ios visible on top left side and shows all the aviable files and folder (NOTE: your machine may have a different set and number of drives listed here and this is fine).
+    
     Below the drives are Database Connections and there are no connections to any databases at this point. 
     On top bottom side you will see layer menue, on right side Map Canvas and on the top you will see Main menu bar and several toolbars, which will be explained thoughout the rest of the labs.
     
@@ -68,21 +69,25 @@ the computer and make them easy to find. In this task, you will obtain a copy of
 
 2.	Look at the file tree in the Browser Panel. Click the arrow to the left of the ``C:`` drive. You will now see all of the subfolders directly under the ``C:\`` folder.
 
-3.	Expand the ``GST101\Lab2_data`` folder where you stored your data in the File Tree by clicking the arrows to the left of each folder. You will now see the contents of the Data folder for the lab (shown in figure below).
+3.	Expand the `GST101_Data\Lab1_data` folder where you stored your data in the File Tree by clicking the arrows to the left of each folder. You will now see the contents of the Data folder for the lab (shown in figure below).
 
     ![Lab Data in QGIS Browser](figures/Lab2/Lab_Data_in_QGIS_Browser.png "Lab Data in QGIS Browser")
 
 4.	Take a moment to read the names of the files. There are two folders and several files listed with different icons. The ![Vector Icon ](figures/Lab2/Vector_Icon.png "Vector Icon") icon indicates that the dataset is a vector layer. This icon ![Raster Icon ](figures/Lab2/Raster_Icon.png "Raster Icon") is used to represent raster data but is also used for other files such as the XML files you see here.
 
 5. Look at the Browser panel. Note that there is a Favourites item. Identify folders or locations as being Favourites in order for them to appear here. 
-   Data is often stored deep inside a series of folders. It is often tedious and time consuming to navigate deep inside the folders to gain access to the data. Favourites provide a way to create a shortcut directly to any folder so that you have one-click access to any folder. Let's create a favorite to our lab folder for practice.
+   Data is often stored deep inside a series of folders. It is often tedious and time consuming to navigate deep inside the folders to gain access to the data. 
+   Favourites provide a way to create a shortcut directly to any folder so that you have one-click access to any folder. 
+   Let's create a favorite to our lab folder for practice.
 
-6. Navigate to the lab data folder in the Browser panel. Right-click on it and choose Add as a Favourite (see figure below). *Note:* Currently this functionality is reserved only for the Browser tab in QGIS Desktop. However, once it is set it will show up as a Favourite in QGIS Browser as well.
+6. Navigate to the ``GST101\Lab1_data`` folder in the browser panel. Right-click on it and choose Add as a Favourite (see figure below).
+   Once set, ``GST101\Lab1_data`` folder will show up under Favourite.  
 
     ![Add as a Favourite](figures/Lab2/qgis_add_faviourities.png "Add as a Favourite")
+      
 
-7. Now expand Favourites and you will see your lab folder listed there. You can remove a favourite anytime by right-clicking on it and choosing Remove favourite.
-8. Expand the lab folder under Favourites to expose the contents. Select SDOT_StateRoutes.shp and drag it onto the map. This is a quick way to add data to your map. 
+7. Now expand Favourites and you will see your ``GST101\Lab1_data`` folder listed there. You can remove a favourite anytime by right-clicking on it and choosing Remove favourite.
+8. Expand the ``GST101\Lab1_data`` folder under Favourites to expose the contents. Select SDOT_StateRoutes.shp and drag it onto the map. This is a quick way to add data to your map. 
 
 
 ## Task 2 - Become familiar with geospatial data models
@@ -99,7 +104,7 @@ Now that you are familiar with the basic layout of QGIS Browser panel, we will e
 
     In addition to data models (vector and raster) we have to understand file formats. Some file formats are designed to store vector and others raster data. Shapefiles are vector file format. In fact they are probably the most common vector file format. An individual shapefile can only contain one geometry type (polygon, line, or point). A shapefile is actually a collection of files on the computer with a common name, but different extensions.
 
-3.	Now select PubSchools.shp and check it properties. You’ll see that this is also an ESRI Shapefile but that it is a point dataset with 287 features.
+3.	Now select PubSchools.shp and check it's properties. You’ll see that this is also an ESRI Shapefile but that it is a point dataset with 287 features.
 4.	Select SDOT_StateRoutes.shp and check it properties. This is an ESRI Shapefile with line geometry and 122 features. 
 5.	Select Hawaii_Counties.shp again and click on the properties and then select Preview tab from Layer Properties. 
     This shows you the spatial features of this GIS dataset (shown in figure below )
@@ -115,19 +120,22 @@ Now that you are familiar with the basic layout of QGIS Browser panel, we will e
     ![Raster data Preview](figures/Lab2/qgis_raster_preview.png "Raster data Preview")
     
 
-### Task 3 - Viewing geospatial data in QGIS Desktop
+## Task 3 - Viewing geospatial data in QGIS Desktop
 
 Now that you know how geospatial datasets are stored on your computer, let’s see what the data they contain look like. 
 
-1. QGIS Desktop is the application you will use for making maps, editing data, and doing GIS analysis, among many other operations. QGIS Desktop has two main sections: the Layers panel and the Map Window.
+1. QGIS Desktop is the application you will use for making maps, editing data, and doing GIS analysis, among many other operations. 
+    As we have already seen in [Task1](#task-1---working-with-qgis-browser-panel) that QGIS Desktop has several sections e.g. the Layers panel, the browser panel and the Map Canvas.
 
-    ![QGIS Desktop and layer panel](figures/Lab2/qgis_desktop_layer_panel.png "QGIS Desktop and layer panel")
-    
-    *Note:* Your QGIS Desktop window may look slightly different than the one pictured above. To reset your display back to the default settings, click Settings | Options | System tab | Settings section | Reset button, then click OK and restart QGIS Desktop.
+    !!! note 
+        Your QGIS Desktop window may look slightly different than the one pictured above. To reset your display back to the default settings, 
+        click Settings | Options | System tab | Settings section | Reset button, then click OK and restart QGIS Desktop.
+        
     The QGIS Desktop interface is a little cluttered by default, so let's close a few panels so we just see the Layers panel and Map Window.
 
-2. Locate the *Browser* panel, and click the small 'X' button in the upper-right corner to close the panel.  
-   Panels can be docked and undocked from the QGIS Desktop window. To undock a panel, click and drag the panel's top title bar (outlined in figure below) and drag it away from the sides. When you release your mouse button, the panel will be floating freely.
+2. Locate the *Browser* panel, and click the small 'X' button in the upper-right corner to close the panel.
+
+3. Panels can be docked and undocked from the QGIS Desktop window. To undock a panel, click and drag the panel's top title bar (outlined in figure below) and drag it away from the sides. When you release your mouse button, the panel will be floating freely.
     
     ![Area to Drag When Undocking a Panel](figures/Lab2/qgis_layer_drag.png "Area to Drag When Undocking a Panel")
 
@@ -137,42 +145,48 @@ Now that you know how geospatial datasets are stored on your computer, let’s s
 
     With the QGIS Desktop interface customized, let’s add some data. 
 
-    QGIS has Add Data buttons for each major geospatial data model (vector and raster).
-
-3. Click the data source manager icon ![data source manager icon](figures/Lab2/qgis_data_source_manager.png "data source manager icon") in QGIS toolbar. It will open Data Source Manager.  
+4. Click the data source manager icon ![data source manager icon](figures/Lab2/qgis_data_source_manager.png "data source manager icon") in QGIS toolbar. It will open Data Source Manager.  
     
     ![data source manager browser](figures/Lab2/qgis_data_source_browser.png "data source manager browser")
+
+### Task 3.1 - Add Vector Data
     
-4. Now click on Vector icon in the left panel. This opens the Add vector layer panel on the right side. 
+1. Now click on Vector icon in the left panel. This opens the Add vector layer panel on the right side. 
     + Alternatively, click Layer | Add Layer | Add Vector Layer.
     ![Add Vector Layer](figures/Lab2/qgis_data_source_vector.png "Add Vector Layer") 
     
-5. Let's add one of the ESRI shapefiles which is a file-based dataset. Click the Browse button. 
+2. Let's add one of the ESRI shapefiles which is a file-based dataset. Click the Browse button. 
 
-6. The *Open an OGR Supported Vector Layer* window opens. (NOTE: OGR is a FOSS4G project with the sole purpose to read and write geospatial vector data files.) The window defaults to all files. From exploring the lab data in QGIS Browser, you know there are several shapefiles in the lab data folder. Take a moment to see the other available options. Click the All files dropdown box and change to ESRI Shapefiles (shown in figure below).
-
+3. The *Open an OGR Supported Vector Layer* window opens.  The window defaults to all files. From exploring the lab data in QGIS Browser, 
+    you know there are several shapefiles in the lab data folder. Take a moment to see the other available options.
+    Click the All files dropdown box and change to ESRI Shapefiles (shown in figure below).
+    
+    !!! note 
+        OGR is a FOSS4G project with the sole purpose to read and write geospatial vector data files.
+        
     ![OGR Supported Vector Formats](figures/Lab2/qgis_org_provider_list.png "OGR Supported Vector Formats")
 
-7. Once you are finished exploring, make sure it is still set to ESRI Shapefiles. This filters what you can see in the lab folder so that you only see the shapefiles. 
-8. Select Hawaii_Counties.shp and click OK.
-9. Now back on the Data Source Manager window and click Add to add the data to QGIS Desktop.
-10. You will now see Hawaii_Counties in the Layers panel and the map features displayed in the map window. 
+            
+4. Once you are finished exploring, make sure it is still set to ESRI Shapefiles. This filters what you can see in the lab folder so that you only see the shapefiles. 
+5. Select Hawaii_Counties.shp and click OK.
+6. Now back on the Data Source Manager window and click Add to add the data to QGIS Desktop.
+7. You will now see Hawaii_Counties in the Layers panel and the map features displayed in the map window. 
     Vector GIS layers will come in with a random colors. You will learn how to change layer styling in a future lab. 
-11. Let’s examine the attributes. Right-click on the Hawaii Counties layer in the Layers panel. This opens a context menu. Select Open Attribute Table (shown in figure below).
+8. Let’s examine the attributes. Right-click on the Hawaii Counties layer in the Layers panel. This opens a context menu. Select Open Attribute Table (shown in figure below).
 
     ![Layer Context Menu](figures/Lab2/qgis_properties_attribute_table.png "Layer Context Menu")
 
-12. The attribute table opens. If you recall from exploring this dataset with QGIS Browser, it has 9 features (9 polygons). The attribute table has 9 corresponding records. There are columns with the County name (NAMELSAD10) and with the Island name (Island). Close the Attribute Table by clicking the X button in the upper right hand corner.
+9. The attribute table opens. If you recall from exploring this dataset with QGIS Browser, it has 9 features (9 polygons). The attribute table has 9 corresponding records. There are columns with the County name (NAMELSAD10) and with the Island name (Island). Close the Attribute Table by clicking the X button in the upper right hand corner.
 
     ![Attribute Table](figures/Lab2/qgis_hawei_attribute_table.png "Attribute Table")
 
-13. Another way to interact with both the spatial features and the attributes is the Identify button.
-14. Click the Identify button ![Identify Button](figures/Lab2/Identify_Button.png "Identify Button")
-15. Click on one of the features on the map. The Identify results panel (shown in figure below) shows you the attributes for the feature you clicked on. *Note:* The Identify results panel may initially be docked or floating.
+10. Another way to interact with both the spatial features and the attributes is the Identify button.
+11. Click the Identify button ![Identify Button](figures/Lab2/Identify_Button.png "Identify Button")
+12. Click on one of the features on the map. The Identify results panel (shown in figure below) shows you the attributes for the feature you clicked on. *Note:* The Identify results panel may initially be docked or floating.
     
     ![Identify Results](figures/Lab2/qgis_identify_attributes.png "Identify Results")
     
-
+### Task 3.2 - Add Raster Data
 Now you will learn how to add Raster data to QGIS Desktop.
 
 1. Click the Raster Layer button ![Add Raster Layer button](figures/Lab2/Add_Raster_Layer_button.png "Add Raster Layer button") in Data Source Manager window.
@@ -199,7 +213,8 @@ Now you will learn how to add Raster data to QGIS Desktop.
     
 10. This raster is a hillshade image of Oahu and it represents the terrain.
 
-*Note:* You can drag data from the QGIS Browser application to QGIS Desktop as well to add the data to the map. 
+!!! note
+    You can drag data from the QGIS Browser application to QGIS Desktop as well to add the data to the map. 
 
 ## 5. Conclusion
 In this lab you explored datasets that use the two common geospatial data models: vector and raster. You have also used the QGIS Browser to preview datasets. In future labs, you will learn how to use QGIS Desktop to make maps and perform analysis. 

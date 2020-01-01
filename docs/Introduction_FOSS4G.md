@@ -14,18 +14,6 @@
 !!! Objective
     Explore and Understand FOSS Software Fundamentals and QGIS Help Resources
     
-## FOSS4G Curriculum
-FOSS4G curriculum was originally designed by [Kurt Menke](https://twitter.com/geomenke) and [Rick Smith](https://github.com/RickSmith). 
-Their main idea was to design a curriculum for training and education in geospatial domain using free and open source software (FOSS). 
-Some how their highly valuable contents were not updated for last 5 years, so I decided to update them with latest versions of 
-FOSS. Their curriculum consists of five courses as following
-
-1. GST 101 - Introduction to Geospatial Technology
-2. GST 102 - Spatial Analysis
-3. GST 103 - Introduction to Remote Sensing 
-4. GST 104 - Cartographic Design 
-5. GST 105 - Introduction to Remote Sensing 
-
 ## 1. Introduction
 In this lab, students will become familiar with the definitions of Free Software, Open Source Software, and the online resources available for FOSS4G software. 
 This lab includes the following tasks:
@@ -110,7 +98,19 @@ This course will focus on one piece of FOSS GIS software, QGIS. However, there a
 24. This is where you can find the official QGIS documentation. 
 25. **Describe the support documentation available for QGIS.**
 
-## 5. Conclusion
+## 5. FOSS4G Curriculum
+FOSS4G curriculum was originally designed by [Kurt Menke](https://twitter.com/geomenke) and [Rick Smith](https://github.com/RickSmith). 
+Their main idea was to design a curriculum for training and education in geospatial domain using free and open source software (FOSS). 
+Some how their highly valuable contents were not updated for last 5 years, so I decided to update them with latest versions of 
+FOSS. Their curriculum consists of five courses as following
+
+1. GST 101 - Introduction to Geospatial Technology
+2. GST 102 - Spatial Analysis
+3. GST 103 - Introduction to Remote Sensing 
+4. GST 104 - Cartographic Design 
+5. GST 105 - Introduction to Remote Sensing 
+
+## 6. Conclusion
 The help resources are another way FOSS differs from proprietary software. With proprietary software, there is typically a dedicated help phone line, or online help resource, that connects you with the vendor. The software license fee covers this support. With FOSS software, the community provides the support services online. For example, QGIS has many online help options. Familiarizing yourself with these will help as you complete your coursework and move forward with your career.
 
 This lab has only scratched the surface with regards to the number of FOSS4G software. There are many organizations and groups doing great work like [Location Tech](http://www.locationtech.org/), [Apache SIS](http://sis.apache.org/), and [R-Spatial](https://www.r-spatial.org/), to name a few.
