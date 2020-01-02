@@ -1,4 +1,4 @@
-Document Version: MM/DD/YYYY
+Document Version: 02/01/2020
 
 **LibreGIS Lab Author:** 
 Libre GIS, Germany

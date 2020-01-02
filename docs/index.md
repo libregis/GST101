@@ -1,5 +1,5 @@
 # Preface
-This course is **GST101: Introduction to Geospatial Technology** is part of [FOSS4G Curriculum](Introduction/#5-foss4g-curriculum) and was written by [Kurt Menke](https://twitter.com/geomenke) and [Rick Smith](https://github.com/RickSmith)
+This **GST101: Introduction to Geospatial Technology** course is part of [FOSS4G Curriculum](Introduction/#5-foss4g-curriculum) and was written by [Kurt Menke](https://twitter.com/geomenke) and [Rick Smith](https://github.com/RickSmith)
  for [**QGIS 2.8**](https://www.qgis.org) software. At [LibreGIS](https://github.com/libregis), we have updated this current [**QGIS 3.4.x Long term release**](https://www.qgis.org) software. 
  
 ## Course Topics
