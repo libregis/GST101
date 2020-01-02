@@ -34,7 +34,7 @@ This lab includes the following tasks:
 
 * Task 4 – Preparing a Map
 
-## 2. - Objective: Use Basic Spatial Analysis Techniques to Solve a Problem
+## 2. Use Basic Spatial Analysis Techniques to Solve a Problem
 
 Conducting effective spatial analysis in a GIS does not require the use of extremely complex algorithms and methods.  By combining multiple simple spatial analysis operations, you can answer many questions and provide useful results.  Determining the order in which these simple spatial analysis operations are executed, is often the hardest part of conducing spatial analysis.  Additionally, data is rarely available in exactly the format and subset that you require.  A large part of almost all GIS projects is simply obtaining and preparing data for use.
 
@@ -52,9 +52,9 @@ In this lab, the student will utilize four basic geospatial analysis techniques:
 
 In this task, you will obtain GIS data for this lab by visiting several online GIS data portals, A) the National Geodetic Survey (NGS) website, B) City of Albuquerque GIS Department, C) the New Mexico Resource Geographic Information System (RGIS) and D) the Bernalillo County GIS Department. All of these websites provide free geospatial information.
 
-Note: Copies of this data have already been obtained and are available in the Lab 7/Data/Raw Data folder. If you are unable to obtain the data yourself, you may skip to Task 2 and use the Raw Data.
+Note: Copies of this data have already been obtained and are available in the Lab 6/Data/Raw Data folder. If you are unable to obtain the data yourself, you may skip to Task 2 and use the Raw Data.
 
-## Task 1.1 - Obtain Shapefiles of NGS Monuments
+### Task 1.1 - Obtain Shapefiles of NGS Monuments
 
 We first want to go to the same National Geodetic Survey (NGS) website you visited in Lab 5. This time you will download a shapefile of the monuments in the Bernalillo County, New Mexico. This is the county in which Albuquerque is situated.
 
@@ -86,11 +86,11 @@ We first want to go to the same National Geodetic Survey (NGS) website you visit
 
 	j. Click Get Shapefile
 
-	k. When the dialog box appears to save the ZIP file, save it into the Lab 7/Data/MyData directory.  
+	k. When the dialog box appears to save the ZIP file, save it into the Lab 6/Data/MyData directory.  
 
 	l. Extract the ZIP file into the MyData directory.
 
-## Task 1.2 - Obtain the Municipal Boundaries
+### Task 1.2 - Obtain the Municipal Boundaries
 
 Since you will identify monuments within the Albuquerque City limits, you’ll need an Albuquerque City limit dataset.  You will download the data from the City of Albuquerque GIS Department.
 
@@ -100,11 +100,11 @@ Since you will identify monuments within the Albuquerque City limits, you’ll n
 
 3. Download the Boundaries shapefile to your folder.
 
-	a. Save the ZIP file into your Lab 7/MyData directory.
+	a. Save the ZIP file into your Lab 6/MyData directory.
 
 	b. Extract this ZIP file into the lab directory.
 
-## Task 1.3 - Obtain the Census Tract Boundaries
+### Task 1.3 - Obtain the Census Tract Boundaries
 
 You will visit the RGIS clearinghouse. This is the main source for geospatial data for New Mexico. You will download census tract boundaries for Bernalillo County.
 	
@@ -120,12 +120,12 @@ You will visit the RGIS clearinghouse. This is the main source for geospatial da
 
 9. Download the Bernalillo County 2010 Census Tracts shapefile to your folder.
 
-	a. Save the ZIP file into your Lab 7/MyData directory.
+	a. Save the ZIP file into your Lab 6/MyData directory.
 	
 	b. Extract this ZIP file into the lab directory.
 
 
-## Task 1.4 - Obtain Road Data
+### Task 1.4 - Obtain Road Data
 
 Finally, you will visit the Bernalillo County GIS Program to download a roads data set. This is the main source for geospatial data for New Mexico. You will download census tract boundaries for Bernalillo County.
 	
@@ -137,15 +137,17 @@ Finally, you will visit the Bernalillo County GIS Program to download a roads da
 
 4. Download the Road Inventory Zip file to your folder.
 
-	a. Save the ZIP file into your Lab 7/MyData directory.
+	a. Save the ZIP file into your Lab 6/MyData directory.
 
 	b. Extract this ZIP file into the lab directory.
 
 ## Task 2 - Querying and Extracting Subsets of Data
 
-Now that you have collected the necessary data, you will add it to a blank QGIS map document. Take a moment to familiarize yourself with the data and what information it contains. As with any project, you will have to do some data preparation to make it useful for the analysis.
+Now that you have collected the necessary data, you will add it to a blank QGIS map document. 
+Take a moment to familiarize yourself with the data and what information it contains. 
+As with any project, you will have to do some data preparation to make it useful for the analysis.
 
-## Task 2.1 - Working with coordinate reference systems
+### Task 2.1 - Working with coordinate reference systems
 
 1. Open QGIS Desktop.
 
@@ -155,43 +157,38 @@ Now that you have collected the necessary data, you will add it to a blank QGIS 
 
 3. Organize the layers in the Layers panel so that the Bern monuments layer is on top, followed by the RoadInventory, tl_2010_35001_tract10 (tracts), and jurisdiction.
 
-4. Save your project to the Lab 7 folder as Lab7.qgs
-
-    Does it look like all the layers are lining up together? Open the Layer properties for each layer and investigate their CRSs. Note that the Census Tracts (tl_2010_35001_tract10) and Monuments (Bern) are in geographic coordinates and the Road Inventory and jurisdiction are in the State Plane Coordinate System (SPCS).
-
-5. From the menu bar choose Project | Project Properties.
-
-6. Open the CRS tab and note that ‘on the fly’ CRS Transformation is checked. This is the default behavior if QGIS notices that Layers in the Layers panel have different CRSs. To change this default behavior, from the main menu bar, click Settings | Options | CRS tab and choose the default CRS settings.
-
-7. While the CRS tab is still open choose NAD83(HARN)/New Mexico Central (ftUS) as the CRS for the map.
-
-8. Click OK to set the project CRS.
-
-    Projecting on the fly is fine for cartographic purposes. However, when conducting a geospatial analysis, the data layers involved should be in the same CRS. Typically, data layers will also be clipped to the extent of the study area to reduce rendering and data processing time. These procedures are often referred to as normalizing your data. For the typical analysis, a majority of your time is spent obtaining data and normalizing it. Once all the data is organized and normalized, the analysis can proceed.
+4. Save your project to the Lab 6 folder as Lab6.qgs. Does it look like all the layers are lining up together? 
+    Open the Layer properties for each layer and investigate their CRSs. 
     
-    You will want to put all four layers into the same CRS for this analysis. You will put them all into the SPCS.
+    Note that the Census Tracts (tl_2010_35001_tract10) and Monuments (Bern) are in geographic coordinates and the Road Inventory and jurisdiction are in the State Plane Coordinate System (SPCS).
 
-6. Right-click on the Bern layer in the Layers panel and choose Save As... from the contextual menu. This will open the Save vector layer as... window (shown in the figure below).
-	
-7. Click the Browse button to the right of Save as and save it into your lab folder as Bern_spcs.shp. (It is useful to have a naming convention for new data layers. Here you are including the CRS in the name of the copy.)
-	
-8. Click the Browse button for the CRS. The Coordinate Reference System Selector window will open.
+5. From the menu bar choose `Project → Project Properties`.
 
-9. From the Recently used coordinate reference systems choose NAD83(HARN) / New Mexico Central (ftUS) EPSG:2903 then click OK.
-	
-10. Check the box for Add saved file to map.
-	
-11. Click OK to save the new file in a different CRS.
+6. Open the CRS tab and choose NAD83(HARN)/New Mexico Central (ftUS) as the CRS for the map.
+
+7. Click OK to set the project CRS. Make sure that all four layers into the same CRS for this analysis. If not, you will put them all into the SPCS.
+
+8. Right-click on the Bern layer in the Layers panel and choose Save As... from the contextual menu. This will open the Save vector layer as... window (shown in the figure below).
 
     ![Reprojecting the Bern Layer](figures/Lab6/Reprojecting_the_Bern_layer.png "Reprojecting the Bern Layer")
+	
+9. Click the Browse button to the right of Save as and save it into your lab folder as Bern_spcs.shp. (It is useful to have a naming convention for new data layers. Here you are including the CRS in the name of the copy.)
+	
+10. Click the Browse button for the CRS. The Coordinate Reference System Selector window will open.
 
-12. You no longer need the original Bern layer in your map. Right-click on the original Bern layer and choose Remove. Click OK on the Remove Objects window.
+11. From the Recently used coordinate reference systems choose NAD83(HARN) / New Mexico Central (ftUS) EPSG:2903 then click OK.
+	
+12. Check the box for Add saved file to map.
+	
+13. Click OK to save the new file in a different CRS.
 
-13. Repeat the above steps to save the Census Tracts (tl_2010_35001_tract10) layer in EPSG:2903.
+14. You no longer need the original Bern layer in your map. Right-click on the original Bern layer and choose Remove. Click OK on the Remove Objects window.
 
-14. Save your project.
+15. Repeat the above steps to save the Census Tracts (tl_2010_35001_tract10) layer in EPSG:2903.
 
-## Task 2.2 - Dissolving Tract Boundaries into a County boundary
+16. Save your project.
+
+### Task 2.2 - Dissolving Tract Boundaries into a County boundary
 
 For the map, you will need a polygon that represents the county boundary. The tl_2010_35001_tract10_spcs Census tracts collectively define the county, so you will use the dissolve spatial analysis technique to create a county boundary from the Census tracts.
 
@@ -217,33 +214,33 @@ For the map, you will need a polygon that represents the county boundary. The tl
 
 4. Save your project.
 
-## Task 2.3 - Select Monuments
+### Task 2.3 - Select Monuments
 
 You will want to filter the monuments so that you only have the ones with the orders and classes you’re interested in. Here you only want monuments that meet the following requirements:
 
 * Elevation Order = 1
-
 * Last recovered on or after 1995
-
 * Satellite Observations were used for monument coordinate determination.
-
 * a, b, and c are stored in these attribute columns:
-	* ELEV_ORDER
-	* LAST_RECV
-	* SAT_USE
+    * ELEV_ORDER
+    * LAST_RECV
+    * SAT_USE
 
-(For information on what an elevation order and class is, visit [http://www.ngs.noaa.gov/heightmod/Leveling/](http://www.ngs.noaa.gov/heightmod/Leveling/))  
+!!! Note "Info"
+    For information on what an elevation order and class is, visit [http://www.ngs.noaa.gov/heightmod/Leveling/](http://www.ngs.noaa.gov/heightmod/Leveling/)  
 
 1. Double-click the Bern_spcs layer to open the Layer Properties.
 
-2. Select the General tab.
+2. Select the Source tab.
 
 3. Find the Feature subset area. This is where you can define the contents of a layer based on the attributes. It is a way to filter a layer.
 
 4. Click the Query Builder button to open the Query Builder. Here you can write a SQL query to filter your data.
 
-All the attribute fields are listed on the left. Below the fields are operators you can use to build your SQL expression. The expression is built in the blank window at the bottom. When building the expression, it is best to double-click fields and field values instead of manually typing them in so that you avoid syntax errors.
-
+    All the attribute fields are listed on the left. Below the fields are operators you can use to build your SQL expression. 
+    The expression is built in the blank window at the bottom. When building the expression, 
+    it is best to double-click fields and field values instead of manually typing them in so that you avoid syntax errors.
+    
 5. Double-click on the field ELEV_ORDER and it will appear in the expression window surrounded by double quotes.
 
 6. Click the = sign under operators to add it to the expression.
@@ -288,57 +285,59 @@ The jurisdiction layer covers much more than Bernalillo County. Albuquerque cove
 
 1. Open the attribute table for jurisdiction. The first field ‘JURISDICTI’ has the city names. Notice that the majority consists of unincorporated areas. You can click the field header and you will see a small arrow appear. This lets you toggle back and forth between an ascending and descending sort of the records making it easier to find certain values. Close the Table.
 
-3. Open the Layer properties for jurisdiction and go to the General tab.
+2. Open the Layer properties for jurisdiction and go to the General tab.
 
-4. Under Feature subset click the Query Builder button and create a query that selects only the JURISDICTI of Albuquerque.
+3. Under Feature subset click the Query Builder button and create a query that selects only the JURISDICTI of Albuquerque.
 
-5. Click OK on the Query Builder and close the Layer Properties.
+4. Click OK on the Query Builder and close the Layer Properties.
 
-6. In the Layers panel, drag jurisdiction above the Bernalillo County layer and turn off RoadInventory. Your map should resemble the figure below.
+5. In the Layers panel, drag jurisdiction above the Bernalillo County layer and turn off RoadInventory. Your map should resemble the figure below.
 
     ![QGIS With Filtered Jurisdiction](figures/Lab6/QGIS_with_filtered_jurisdiction.png "QGIS With Filtered Jurisdiction")
 
-7. Open the attribute table for RoadInventory.
+6. Open the attribute table for RoadInventory. There is a lot of information in the RoadInventory shapefile. 
+    So far you have filtered a layer within QGIS, but left the data on disk the same. 
+    Now you will select the major roads and save them to a new shapefile. 
+    Considering the attribute table, what field would you use to select out major roads?
 
-    There is a lot of information in the RoadInventory shapefile. So far you have filtered a layer within QGIS, but left the data on disk the same. Now you will select the major roads and save them to a new shapefile. Considering the attribute table, what field would you use to select out major roads?
+7. Click on the Select features using an expression button ![expression button](figures/Lab6/expression_button.png "expression button"). 
+    A similar query window opens as when you are filtering a layer. 
+    Instead of the fields being listed on the left, here you have the Expression area. 
+    In the middle, the expression functions will be listed. If you scroll down though the functions tree, you will see that one category is Fields and Values.
 
-8. Click on the Select features using an expression button. ![expression button](figures/Lab6/expression_button.png "expression button")
+8. Expand Fields and Values. 
 
-    A similar query window opens as when you are filtering a layer. Instead of the fields being listed on the left, here you have the Expression area. In the middle, the expression functions will be listed. If you scroll down though the functions tree, you will see that one category is Fields and Values.
+9. Scroll down until you find the Class field.
 
-9. Expand Fields and Values. 
+10. Double-click on Class to add it to the Expression area.
 
-10. Scroll down until you find the Class field.
+11. Click the = operator.
 
-11. Double-click on Class to add it to the Expression area.
+12. Click all unique under Values.
 
-12. Click the = operator.
-
-13. Click all unique under Values.
-
-14. Double-click the 'Major' value to add it to the expression. Your expression should now look like the figure below.
+13. Double-click the 'Major' value to add it to the expression. Your expression should now look like the figure below.
 
     ![Select by Expression in Attribute Table](figures/Lab6/Select_by_Expression_in_Attribute_Table.png "Select by Expression in Attribute Table")
 
-15. Click Select then Close the Select by Expression window.
+14. Click Select then Close the Select by Expression window.
 
     You now have 4593 out of 37963 records selected. You can use the Toggle at the lower left corner of the attribute table to show just the selected set of records (see figure below).
 
     ![Toggle Attribute Table View](figures/Lab6/Toggle_Attribute_Table_View.png "Toggle Attribute Table View")
 
-16. Close the attribute table.
+15. Close the attribute table.
 
-17. Right-click on the RoadInventory layer and choose Save As….
+16. Right-click on the RoadInventory layer and choose Save As….
 
-18. Name the file 'Major_Roads.shp' and save it in your lab directory.
+17. Name the file 'Major_Roads.shp' and save it in your lab directory.
 
-19. Check Save only selected features. The will only save the features currently selected to a new shapefile.
+18. Check Save only selected features. The will only save the features currently selected to a new shapefile.
 
-20. Verify that the dialog looks like the figure below. If so, click OK to save and add the layer to the map.
+19. Verify that the dialog looks like the figure below. If so, click OK to save and add the layer to the map.
 
     ![Save Selection As](figures/Lab6/Save_Selection_As.png "Save Selection As")
 
-21. Remove RoadInventory from the Layers panel. All you need for your map is Major_Roads.
+20. Remove RoadInventory from the Layers panel. All you need for your map is Major_Roads.
 
     Now that you have the Albuquerque City limits isolated, you will buffer Albuquerque by one mile. Then you will be able to identify monuments that are either inside, or close to the city limits. Buffer is an operation that creates a new polygon layer that is a buffer distance from another layer.
 
