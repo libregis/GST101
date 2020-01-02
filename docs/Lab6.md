@@ -52,7 +52,7 @@ In this lab, the student will utilize four basic geospatial analysis techniques:
 
 In this task, you will obtain GIS data for this lab by visiting several online GIS data portals, A) the National Geodetic Survey (NGS) website, B) City of Albuquerque GIS Department, C) the New Mexico Resource Geographic Information System (RGIS) and D) the Bernalillo County GIS Department. All of these websites provide free geospatial information.
 
-Note: Copies of this data have already been obtained and are available in the Lab 6/Data/Raw Data folder. If you are unable to obtain the data yourself, you may skip to Task 2 and use the Raw Data.
+Note: Copies of this data have already been obtained and are available in the `GST101\data\Lab6\Raw` folder. If you are unable to obtain the data yourself, you may skip to Task 2 and use the Raw Data.
 
 ### Task 1.1 - Obtain Shapefiles of NGS Monuments
 
@@ -86,7 +86,7 @@ We first want to go to the same National Geodetic Survey (NGS) website you visit
 
 	j. Click Get Shapefile
 
-	k. When the dialog box appears to save the ZIP file, save it into the Lab 6/Data/MyData directory.  
+	k. When the dialog box appears to save the ZIP file, save it into the `GST101\data\Lab6\MyData` directory.  
 
 	l. Extract the ZIP file into the MyData directory.
 

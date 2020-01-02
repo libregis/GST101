@@ -67,15 +67,15 @@ In Lab 2 you learned how to add data to QGIS Desktop by using the Add Vector Dat
     
     ![QGIS Browser Panel in QGIS Desktop](figures/Lab3/QGIS_Browser_Tab_in_QGIS_Desktop.png "QGIS Browser Panel in QGIS Desktop")
 
-3. Using the file tree in the Browser window navigate to the `GST101_Data\Lab4_data` folder. 
+3. Using the file tree in the Browser window navigate to the `GST101_Data\Lab3_data` folder. 
 
-4. Right click on the `GST101_Data\Lab4_data` data folder and choose Add as a favourite from the context menu.
+4. Right click on the `GST101_Data\Lab3_data` data folder and choose Add as a favourite from the context menu.
 
 5. Sometimes when recent changes have been made, such as setting a folder as a favourite, the Refresh button needs to be pressed in order to see the changes. Click the Refresh button (highlighted in figure below).
 
     ![Refresh button in the QGIS Desktop Browser Window](figures/Lab3/Refresh_button_in_the_QGIS_Desktop_Browser_window.png "Refresh button in the QGIS Desktop Browser Window")
 
-6. Now expand Favourites near the top of the file tree in the Browser window by clicking the plus sign to the left. You will see the Lab 4 data folder listed. Setting the folder as a favourite allows you to quickly navigate to your working folder.
+6. Now expand Favourites near the top of the file tree in the Browser window by clicking the plus sign to the left. You will see the `GST101\data\Lab3` folder listed. Setting the folder as a favourite allows you to quickly navigate to your working folder.
 
 7. You will see 5 shapefiles in the lab data folder:
 	+	Canada.shp
@@ -95,7 +95,7 @@ In Lab 2 you learned how to add data to QGIS Desktop by using the Add Vector Dat
 
     ![Shapefiles Added to Map Window](figures/Lab3/Shapefiles_added_to_map_window.png "Shapefiles Added to Map Window")
 
-10. Let's save the QGIS project. Click on `Project → Save` from the menu bar. Navigate to your Lab 4 folder and save your project as Lab 4.
+10. Let's save the QGIS project. Click on `Project → Save` from the menu bar. Navigate to your `GST101\data\Lab3` folder and save your project as lab3.qgs.
 
 11. We have five layers in the map canvas, but currently all we can see are data for Canada, Mexico and the Western states. When you cannot see a dataset, one approach is to make sure the spatial extent of your map window covers that dataset. Right click on the Sage_grouse_current_distribution layer in the Layers panel, and choose Zoom to Layer from the context menu. This will zoom you into the extent of that dataset.
 
@@ -214,7 +214,7 @@ Visually you will want the land ownership and sage-grouse habitat to have the mo
     For the remaining federal land ownership symbols you will use the BLM Standards Manual for land ownership maps [http://www.blm.gov/noc/st/en/business/mapstandards/colormod.html](http://www.blm.gov/noc/st/en/business/mapstandards/colormod.html). 
 
     !!! Note
-        A PDF of the BLM Map Color Standards is also available in your `GST101_Data\Lab4_data` folder and is named BLM Map Color Standards.pdf.
+        A PDF of the BLM Map Color Standards is also available in your `GST101_Data\Lab3_data` folder and is named BLM Map Color Standards.pdf.
 
     The BLM has designated colors for each type of land ownership. When composing a map it is important to pay attention to industry specific standards. Following them will make the map more intuitive to the target audience. For example, people are used to seeing Forest Service land depicted in a certain shade of green.
 
@@ -298,7 +298,7 @@ Now that all the data is well styled you can compose the map deliverable.
     ![Final Map Extent](figures/Lab3/Final_Map_Extent.png "Final Map Extent")
 
 2. From the menu bar choose `Project | New Print Layout`. 
-3. Name the Composer “Lab 4 - Sage-grouse Habitat” (shown in figure below). 
+3. Name the Composer “lab 3 - Sage-grouse Habitat” (shown in figure below). 
 
     ![New Print Composer](figures/Lab3/New_Print_Composer.png "New Print Composer")
 
@@ -384,7 +384,7 @@ Now that all the data is well styled you can compose the map deliverable.
 
 30. Click the Export as image button ![Export as Image Button](figures/Lab3/image_button.png "Export as Image Button").
 
-31. Choose JPEG as the Save as type and save the image to your Lab 4 folder. Name the file “Lab4_Map.jpg” and click Save.
+31. Choose JPEG as the Save as type and save the image to your `GST101\data\Lab3` folder. Name the file “Lab3_Map.jpg” and click Save.
 
 32. The final map should look like Figure below.
 
@@ -402,9 +402,9 @@ In this lab you created a well-designed map using some of the cartography tools 
 
 ## 6. Challenge Assignment (optional)
 
-Another biologist working with black bears on the east coast heard about your great work on the sage-grouse map. She would like you to create a similar map for her. The data she is providing is in the Lab 4/Data/Challenge folder.
+Another biologist working with black bears on the east coast heard about your great work on the sage-grouse map. She would like you to create a similar map for her. The data she is providing is in the `GST101\data\Lab3\Challenge` folder.
 
-![Lab 4/Data/Challenge folder](figures/Lab3/Lab_4_Data_Challenge_folder.png "Lab 4/Data/Challenge folder")
+![lab 3/Data/Challenge folder](figures/Lab3/Lab_4_Data_Challenge_folder.png "lab 3/Data/Challenge folder")
 
 She also needs letter sized, color, map figure that shows the relationship between black bear habitat and federal land ownership along the eastern seaboard. She is interested in seeing how much habitat is under federal versus non-federal ownership.
 

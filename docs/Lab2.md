@@ -56,7 +56,7 @@ We will examine projections useful for mapping on the global scale.
 In Lab 2 you added data to QGIS Desktop. Here you will open an existing QGIS project.
 
 1. Open QGIS Desktop.  
-2. In QGIS Desktop, open the project, World View.qgs by clicking `Project → Open` and browsing to ``GST101\Lab2_data``.  You should see the map shown in Figure below.  
+2. In QGIS Desktop, open the project, World View.qgs by clicking `Project → Open` and browsing to `GST101\data\Lab2`.  You should see the map shown in Figure below.  
     
     ![World View.qgs Loaded into QGIS Desktop](figures/Lab2/World_View_qgs_Loaded_into_QGIS_Desktop.png "World View.qgs Loaded into QGIS Desktop")
 
@@ -360,7 +360,7 @@ Let’s create a map display of Vermont, using the State Plane Coordinate System
 	
 	b. Click Browse
 
-	c. Find your Lab 3 "Data" Folder and save within that folder under the name *Vermont\_SPCS.shp*
+	c. Find your `GST101\data\Lab2` Folder and save within that folder under the name *Vermont\_SPCS.shp*
 
 	d. CRS: NAD27 / Vermont (EPSG:32045)  (click Select CRS button ![Select CRS Button](figures/Lab2/Select_CRS_Button.png "Select CRS Button") to select CRS)
 

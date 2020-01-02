@@ -53,11 +53,11 @@ There are two main geospatial data models: vector and raster.
 ## Task 1 - Working with QGIS Browser Panel
 In this task, you will become familiar with QGIS Browser Panel. The first step in working on a project with 
 geospatial datasets is to organize your workspace. It is important that we organize datasets logically on 
-the computer and make them easy to find. In this task, you will obtain a copy of the lab1 data under `GST101_Data\Lab1_data\` and explore how the data is organized using QGIS Browser Panel. 
+the computer and make them easy to find. In this task, you will obtain a copy of the lab1 data under `GST101\data\Lab1` and explore how the data is organized using QGIS Browser Panel. 
 
 
 
-1.	Click `Start → QGIS 3.4 → QGIS Desktop 3.4.14` as shown in the following figure.  
+1.	Click `Start → QGIS 3.4 → QGIS Desktop 3.4.x` as shown in the following figure.  
     
     ![QGIS Start](figures/Lab1/qgis_start_menu.png "QGIS Desktop with browser panel")
     
@@ -74,7 +74,7 @@ the computer and make them easy to find. In this task, you will obtain a copy of
 
 2.	Look at the file tree in the Browser Panel. Click the arrow to the left of the ``C:`` drive. You will now see all of the subfolders directly under the ``C:\`` folder.
 
-3.	Expand the `GST101_Data\Lab1_data` folder where you stored your data in the File Tree by clicking the arrows to the left of each folder. You will now see the contents of the Data folder for the lab (shown in figure below).
+3.	Expand the `GST101\data\Lab1` folder where you stored your data in the File Tree by clicking the arrows to the left of each folder. You will now see the contents of the Data folder for the lab (shown in figure below).
 
     ![Lab Data in QGIS Browser](figures/Lab1/Lab_Data_in_QGIS_Browser.png "Lab Data in QGIS Browser")
 
@@ -85,21 +85,21 @@ the computer and make them easy to find. In this task, you will obtain a copy of
    Favourites provide a way to create a shortcut directly to any folder so that you have one-click access to any folder. 
    Let's create a favorite to our lab folder for practice.
 
-6. Navigate to the ``GST101\Lab1_data`` folder in the browser panel. Right-click on it and choose Add as a Favourite (see figure below).
-   Once set, ``GST101\Lab1_data`` folder will show up under Favourite.  
+6. Navigate to the `GST101\data\Lab1` folder in the browser panel. Right-click on it and choose Add as a Favourite (see figure below).
+   Once set, `GST101\data\Lab1` folder will show up under Favourite.  
 
     ![Add as a Favourite](figures/Lab1/qgis_add_faviourities.png "Add as a Favourite")
       
 
-7. Now expand Favourites and you will see your ``GST101\Lab1_data`` folder listed there. You can remove a favourite anytime by right-clicking on it and choosing Remove favourite.
-8. Expand the ``GST101\Lab1_data`` folder under Favourites to expose the contents. Select SDOT_StateRoutes.shp and drag it onto the map. This is a quick way to add data to your map. 
+7. Now expand Favourites and you will see your `GST101\data\Lab1` folder listed there. You can remove a favourite anytime by right-clicking on it and choosing Remove favourite.
+8. Expand the `GST101\data\Lab1` folder under Favourites to expose the contents. Select SDOT_StateRoutes.shp and drag it onto the map. This is a quick way to add data to your map. 
 
 
 ## Task 2 - Become familiar with geospatial data models
 
 Now that you are familiar with the basic layout of QGIS Browser panel, we will explore some geospatial data.
 
-1.	Let’s take a closer look at the data in ``GST101\Lab1_data`` folder in QGIS Browser panel.
+1.	Let’s take a closer look at the data in `GST101\data\Lab1` folder in QGIS Browser panel.
 2.	Select the Hawaii_Counties.shp layer in the file tree. Now right click and select *properties* from context menu.
     This will open up layer properties window and Metadata tab will be shown by default. 
     This gives you some basic information about the dataset. 
@@ -161,8 +161,8 @@ Now that you know how geospatial datasets are stored on your computer, let’s s
     
 2. Let's add one of the ESRI shapefiles which is a file-based dataset. Click the Browse button. 
 
-3. The *Open an OGR Supported Vector Layer* window opens.  The window defaults to all files. From exploring the lab data in QGIS Browser, 
-    you know there are several shapefiles in the lab data folder. Take a moment to see the other available options.
+3. The *Open an OGR Supported Vector Layer* window opens.  The window defaults to all files. From exploring the `GST101\data\Lab1` in QGIS Browser, 
+    you know there are several shapefiles in the `GST101\data\Lab1` folder. Take a moment to see the other available options.
     Click the All files dropdown box and change to ESRI Shapefiles (shown in figure below).
     
     !!! note 
@@ -208,7 +208,7 @@ Now you will learn how to add Raster data to QGIS Desktop.
 
     ![Zoom to Layer](figures/Lab1/qgis_raster_zoom.png "Zoom to Layer")
 
-    You may notice two folders in the lab data folder that we have not discussed yet. One is named *hilloah* and the other *info*. Together, these combine to make another geospatial raster dataset format named GRID.  The info folder holds the attributes and always has the name "info". The other folder is the layer name and contains the spatial data. Let's add a GRID raster to our map.
+    You may notice two folders in the `GST101\data\Lab1` folder that we have not discussed yet. One is named *hilloah* and the other *info*. Together, these combine to make another geospatial raster dataset format named GRID.  The info folder holds the attributes and always has the name "info". The other folder is the layer name and contains the spatial data. Let's add a GRID raster to our map.
 
 8. Now click again on the Raster Layer button ![Add Raster Layer button](figures/Lab1/Add_Raster_Layer_button.png "Add Raster Layer button") in Data Source Manager window.
    

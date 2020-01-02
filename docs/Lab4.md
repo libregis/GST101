@@ -112,7 +112,7 @@ To perform this task you will be using a Plugin. Plugins are small add-ons to QG
 
 7. You can check this by looking at the lower right hand corner of QGIS Desktop and ensuring that EPSG: 2903 is listed. 
     If not right click on the parcels layer and from the context menu choose Set Project CRS from Layer.
-    Save the project to the `GST101_Data\Lab4_data`folder and name it Lab4.qgs.
+    Save the project to the `GST101\data\Lab4`folder and name it Lab4.qgs.
 
 8. From the menu bar choose `Plugins → Manage` and Install Plugins
 
@@ -130,7 +130,7 @@ To perform this task you will be using a Plugin. Plugins are small add-ons to QG
 
     ![Open Raster Button](figures/Lab4/Open_Raster_button.png "Open Raster Button")
 
-13. Navigate to the `GST101_Data\Lab4_data` folder and select the zone_map.bmp and click Open. 
+13. Navigate to the `GST101\data\Lab4` folder and select the zone_map.bmp and click Open. 
     
     !!!Note 
         If the Coordinate Reference System Selector window opens click Cancel to close. 
@@ -165,7 +165,7 @@ To perform this task you will be using a Plugin. Plugins are small add-ons to QG
 
     This is an NGS Data Sheet.  It gives measurement parameters for NGS benchmarks located throughout the United States.  One piece of information it includes are coordinates for benchmarks in State Plane feet (highlighted in the figure above). There are two sets of State Plane coordinates on the NGS Data Sheet; one is in meters (MT) and one is in feet (sFT). Be sure to use the set in feet. *Important Note*: There is a dash before the North coordinate. It is *not* a negative number.  
 
-19. Find the data sheet for each benchmark shown in the map and fill in the coordinates below. The coordinates for the first station have been entered already. *Note*: If you are unable to access the internet, the NGS Data Sheets have been downloaded and saved in the Lab 5/Data/NGS Data Sheets folder.
+19. Find the data sheet for each benchmark shown in the map and fill in the coordinates below. The coordinates for the first station have been entered already. *Note*: If you are unable to access the internet, the NGS Data Sheets have been downloaded and saved in the `GST101\data\Lab4`/NGS Data Sheets folder.
 
 		Benchmark | Northing      | Easting
 		I25 27	    1,484,404.48    1,524,608.32
@@ -204,7 +204,7 @@ To perform this task you will be using a Plugin. Plugins are small add-ons to QG
 	
 	2. Choose Nearest neighbor as the Resampling method. This is the standard raster resampling method for discrete data such as a scanned map. 
 	
-	3. Click the browse button to the right of Output raster. Navigate to your Lab 5/Data folder.
+	3. Click the browse button to the right of Output raster. Navigate to your `GST101\data\Lab4` folder.
 
 	4. Create a new folder named New Data then enter the folder.
 
@@ -225,7 +225,7 @@ To perform this task you will be using a Plugin. Plugins are small add-ons to QG
 
 26. Right click on the zone_map_modified.tif and choose Zoom to layer extent to see the georeferenced image.
 
-27. Using the Add vector data button add the netcurr.shp shapefile in the Lab 5/Data folder to QGIS. This is a shapefile representing city streets produced by the City of Albuquerque. If the transformation was done correctly, the streets will line up with the georeferenced parcel map image (shown in figure below). Save your map file.
+27. Using the Add vector data button add the netcurr.shp shapefile in the `GST101\data\Lab4` folder to QGIS. This is a shapefile representing city streets produced by the City of Albuquerque. If the transformation was done correctly, the streets will line up with the georeferenced parcel map image (shown in figure below). Save your map file.
 
     ![Georeferenced Parcel Map Image](figures/Lab4/Georeferenced_parcel_map_image.png "Georeferenced Parcel Map Image")
 
@@ -336,7 +336,7 @@ Now you will digitize the parcels off the georeferenced image into the parcels s
 
 Now that you have digitized data into the empty shapefile you created, you will learn how to modify existing shapefiles.
 
-1. Click the Add Raster Layer button and navigate to the Lab 5/Data folder.
+1. Click the Add Raster Layer button and navigate to the `GST101\data\Lab4` folder.
 
 2. Set the filter to Multi-resolution Seamless Image Database (*.sid, *.SID).
 
@@ -362,7 +362,7 @@ Now that you have digitized data into the empty shapefile you created, you will 
 
 10. Using the Add Feature tool on the Editing toolbar ![Add Feature tool](figures/Lab4/Add_Feature_tool1.png "Add Feature tool"),  digitize the new road making sure to snap to the roads at the northern and southern ends. Use the centerline of the road while digitizing.
 
-11. There are many attributes for this layer. You will just enter a few. Enter the STREETNAME as Park, the STREETDESI as Place, the STREETQUAD as SE and the COMMENTS as Lab 5. Click OK.
+11. There are many attributes for this layer. You will just enter a few. Enter the STREETNAME as Park, the STREETDESI as Place, the STREETQUAD as SE and the COMMENTS as Lab 4. Click OK.
 
 12. Toggle off editing and Save.
 

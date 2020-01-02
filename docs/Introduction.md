@@ -18,7 +18,7 @@
 In this lab, students will become familiar with the definitions of Free Software, Open Source Software, and the online resources available for FOSS4G software. 
 This lab includes the following tasks:
 
-* Task 1 – Explore the Free Software Foundation and Open Source Initiative websites and become familiar with both definitions.
+* Task 1 - Explore the Free Software Foundation and Open Source Initiative websites and become familiar with both definitions.
 * Task 2 - Become familiar with OSGeo and their stance on Commercial and Proprietary Software.
 * Task 3 - Explore available FOSS4G software packages.
 * Task 4 - Become familiar with the support resources available for QGIS.

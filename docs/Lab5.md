@@ -39,7 +39,7 @@ There are many way to view multi-band image data. Here you will explore some dis
 
 1. Open QGIS Desktop.
 
-2. Click the Add Raster Layer button and navigate to the Lab 6/Data folder. Set the filter to All files (\*)(\*.\*).
+2. Click the Add Raster Layer button and navigate to the `GST101\data\Lab5` folder. Set the filter to All files (\*)(\*.\*).
 
 3. Select the file named ag020522_DPAC.img and click Open.
 
@@ -53,7 +53,7 @@ There are many way to view multi-band image data. Here you will explore some dis
 
     ![Multi-band Image in QGIS Desktop](figures/Lab5/Multi-band_image_in_QGIS_Desktop.png "Multi-band Image in QGIS Desktop")
 
-6. Save your QGIS Desktop project to your lab folder as Lab 6.qgs
+6. Save your QGIS Desktop project to your lab folder as Lab5.qgs
 
 7. Double click on the layer name in the Layers panel to open the Layer Properties. Click on the General tab.
 
